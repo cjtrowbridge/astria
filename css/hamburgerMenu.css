@@ -1,0 +1,82 @@
+.material-icons {
+    text-rendering: optimizeLegibility;
+}
+
+.hamburgerIcon{
+	float:right;
+}
+
+.hamburgerButton{
+	padding:5px;
+	cursor:pointer;
+	color:white;
+}
+
+.hamburgerClosed{
+	display:none;
+}
+
+.hamburgerOpen{
+	display:block;
+}
+
+.hamburgerNestedList{
+	list-style:none;
+}
+
+.hamburgerSelected{
+	background-color:#f5f5f5;
+}
+
+.hamburgerNestedOpen{
+	position:relative;
+	overflow:hidden;
+	//max-height:600px;
+	transition:max-height 0.5s ease;
+}
+
+
+.hamburgerNestedClosed{
+	max-height: 0px;
+	transition:max-height 0.33s ease;
+	overflow:hidden;
+}
+
+.hamburgerNestedButton{
+	cursor:pointer;
+}
+
+.hamburgerMenu::-webkit-scrollbar { 
+    display: none; 
+}
+
+.hamburgerMenu{
+	background-color:white;
+	list-style:none;
+	padding-left:0px;
+	position:fixed;
+	width:320px;
+	z-index:700;
+	left:0px;
+	top:50px;
+	
+	box-shadow: 4px 0px 5px #c3c3c3;
+	
+	overflow-y:auto;
+	max-height:500px;/*default, should change with the js*/
+	
+	font-family: Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.hamburgerMenu a{
+	color: #616161;
+	font-weight: 700;
+	padding: 12px 16px 12px 16px;
+	cursor:pointer;
+	display:block;
+}
+
+.hamburgerMenu a:hover{
+	background-color:#f5f5f5;
+	text-decoration:none;
+}
