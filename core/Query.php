@@ -20,10 +20,10 @@ function Query(
 	global $DATABASES;
 	switch($DATABASES[$Database]['type']){
 		case 'mysql':
-			$result=mysql_query($SQL,$DATABASES[$Database]['resource']) or die(mysql_error());
+			$result=mysqli_query($DATABASES[$Database]['resource'], $SQL) or die(mysql_error());
 			if(!(is_bool($result))){
 				$Output=array();
-				while($Row=mysql_fetch_assoc($result)){
+				while($Row=mysqli_fetch_assoc($result)){
 					$Output[]=$Row;
 				}
 				return $Output;
