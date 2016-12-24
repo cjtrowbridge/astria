@@ -1,15 +1,20 @@
 <?php
 
 if(file_exists('config.php')){
+  
   require('config.php');
+  
 }else{
+  
   //TODO
   die('Please create a config file.');
+  
 }
 
-include('events.php');
-include('loader.php');
+require('loader.php');
 
+Loader('events');
+Loader('debugging');
 Loader('core');
 Loader('auth/Google');
 Loader('microservices/view');
