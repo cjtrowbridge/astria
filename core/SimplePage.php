@@ -2,6 +2,9 @@
 
 function SimplePage($PageTitle='',$BodyCallback = '', $HeadCallback = ''){
 
+	global $ASTRIA;
+	if($PageTitle==''){$PageTitle=$ASTRIA['app']['appName'];}
+	
 	?><!DOCTYPE html>
 <html lang="en">
 <head>
