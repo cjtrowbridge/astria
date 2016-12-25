@@ -10,7 +10,7 @@ if(!file_exists('config.php')){
 
 include('config.php');
 
-include('events/main.php')
+//include('events/main.php')
 
 echo 'Velveteen Rabbit';
 /*
