@@ -13,7 +13,7 @@ function setupBodyCallback(){
   //TODO support native email signups
 ?>
   <style>
-    label{
+    label, label input, label select{
      display: block;
     }
   </style>
