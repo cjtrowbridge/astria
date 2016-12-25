@@ -15,12 +15,23 @@ function Event($EventDescription){
     
     if($ASTRIA['debugging']['verbose']){
       
+      global $DEBUG, $START_TIME;
+      $temp_debug_output=array(
+        'debug point'=> $EventDescription,
+        'memory usage'=> (memory_get_usage()/1000000),
+        'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
+        'time'=> round(microtime(true)-$START_TIME,4)
+      );
+      $DEBUG[]=$temp_debug_output;
+      
       echo "\n<!-- Listing Hooks for Event: ".$EventDescription."\n\n";
       if(isset($EVENTS[$EventDescription])){
         var_dump($EVENTS[$EventDescription]);
+        echo "\n";
       }else{
         echo "No Hooks\n";
       }
+      pd($temp_debug_output);
       echo "\n-->\n\n";
       
       ob_flush();
@@ -28,22 +39,7 @@ function Event($EventDescription){
       
     }
     
-    global $DEBUG, $START_TIME;
-    $temp_debug_output=array(
-      'debug point'=> $EventDescription,
-      'memory usage'=> (memory_get_usage()/1000000),
-      'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
-      'time'=> round(microtime(true)-$START_TIME,4)
-    );
-    $DEBUG[]=$temp_debug_output;
     
-    /* This might still be helpful in some circumstances but it should be packaged better so that it doenst throw things off by outputting debugging data throughout the output.
-    if($ASTRIA['debugging']['verbose']){
-      pd($temp_debug_output);
-      ob_flush();
-      flush();
-    }
-    */
     
     if($EventDescription=='end'){
       if($ASTRIA['debugging']['verbose']){
