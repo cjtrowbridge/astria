@@ -40,60 +40,64 @@ function TemplateBootstrap(){
 
   <body class="has-drawer">
     <div class="container">
-      <nav class="navbar navbar-fixed-top navbar-inverse">
-        <div class="container">
-          <div id="navbar">
-            <ul style="display:inline-block;">
-              <i class="material-icons hamburgerButton">menu</i>
-              <ul class="hamburgerMenu hamburgerClosed">
+      <div class="row">
+        <div class="col-xs-12">	
+          <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+              <div id="navbar">
+                <ul style="display:inline-block;">
+                  <i class="material-icons hamburgerButton">menu</i>
+                  <ul class="hamburgerMenu hamburgerClosed">
 
-                <?php 
+                    <?php 
 
-                Event('Template Build Hamburger');
+                    Event('Template Build Hamburger');
 
-                global $HAMBURGER;
+                    global $HAMBURGER;
 
-                foreach($HAMBURGER as $key => $val){
-                  if(is_array($val)){
-                    ?>
-                    <li>
-                      <a class="hamburgerNestedButton"><?php echo $key; ?><i class="material-icons hamburgerIcon">arrow_drop_down</i></a>
-                      <ul class="hamburgerNestedList">
-                      <?php foreach($val as $key2 => $val2){
+                    foreach($HAMBURGER as $key => $val){
+                      if(is_array($val)){
                         ?>
-                        <li><a href="<?php echo $val2; ?>"><?php echo $key2; ?></a></li>
-                        <?php
-                      } ?>
-                      </ul>
-                    </li>
-                    <?php
-                  }else{
-                    ?>
-                    <li><a href="<?php echo $val; ?>"><?php echo $key; ?></a></li>
-                    <?php
-                  }
-                } 
-                ?>
+                        <li>
+                          <a class="hamburgerNestedButton"><?php echo $key; ?><i class="material-icons hamburgerIcon">arrow_drop_down</i></a>
+                          <ul class="hamburgerNestedList">
+                          <?php foreach($val as $key2 => $val2){
+                            ?>
+                            <li><a href="<?php echo $val2; ?>"><?php echo $key2; ?></a></li>
+                            <?php
+                          } ?>
+                          </ul>
+                        </li>
+                          <?php
+                        }else{
+                          ?>
+                          <li><a href="<?php echo $val; ?>"><?php echo $key; ?></a></li>
+                          <?php
+                        }
+                      } 
+                      ?>
 
-                <?php if(LoggedIn()){ ?>
-                  <li><a href="/login"><i style="vertical-align:middle;" class="material-icons">power_settings_new</i> Log In</a></li>
-                <?php }else{ ?>
-                <li><hr style="margin-top:7px; margin-bottom:7px;"></li>
-                <li><a href="/change_password"><i style="vertical-align:middle;" class="material-icons">settings</i> Change Password</a></li>
-                <li><a href="/logout"><i style="vertical-align:middle;" class="material-icons">power_settings_new</i> Log Out</a></li>
-                <?php } ?>
-              </ul>
-            </ul>
+                      <?php if(LoggedIn()){ ?>
+                        <li><a href="/login"><i style="vertical-align:middle;" class="material-icons">power_settings_new</i> Log In</a></li>
+                      <?php }else{ ?>
+                      <li><hr style="margin-top:7px; margin-bottom:7px;"></li>
+                      <li><a href="/change_password"><i style="vertical-align:middle;" class="material-icons">settings</i> Change Password</a></li>
+                      <li><a href="/logout"><i style="vertical-align:middle;" class="material-icons">power_settings_new</i> Log Out</a></li>
+                      <?php } ?>
+                    </ul>
+                  </ul>
 
-            <div style="display:inline-block; font-size:20px; vertical-align:top; padding-top:11px; padding-left:10px;">
-              <span>
-                <a href="/" class="underlineOnHover"><?php echo $ASTRIA['app']['appName']; ?></a>
-              </span>
+                  <div style="display:inline-block; font-size:20px; vertical-align:top; padding-top:11px; padding-left:10px;">
+                    <span>
+                      <a href="/" class="underlineOnHover"><?php echo $ASTRIA['app']['appName']; ?></a>
+                  </span>
+                </div>
+
+              </div>  
             </div>
-
-          </div>  
+          </nav>
         </div>
-      </nav>
+      </div>
     </div>
 
     <div class="container body_container">
