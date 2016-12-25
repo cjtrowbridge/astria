@@ -14,7 +14,7 @@ include('loader.php');
 
 Loader('core');
 Loader('auth/Google');
-Loader('microservices/view');
+Loader('view');
 
 RequireSSL();
 
