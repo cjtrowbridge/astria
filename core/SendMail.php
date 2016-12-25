@@ -1,3 +1,5 @@
+<?php
+
 function SendEmail($message, $subject = DEFAULT_EMAIL_SUBJECT, $to, $from = DEFAULT_EMAIL_FROM){
 
   $mail = new PHPMailer;
