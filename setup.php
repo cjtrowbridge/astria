@@ -3,8 +3,8 @@
 function setup(){
   require('core/SimplePage.php');
   require('core/MakeRandomString.php');
-  require('core/ForceSSL.php');
-  ForceSSL();
+  require('core/RequireSSL.php');
+  RequireSSL();
   
   if(isset($_POST['appName'])){
     setupHandler();
