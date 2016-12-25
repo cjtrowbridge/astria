@@ -26,6 +26,7 @@ if(LoggedIn()){
   
   Event('User Is Logged In - Before Presentation');
   Event('User Is Logged In - Presentation');
+  Event('User Is Logged In - No Presentation');
   
 }else{
   
