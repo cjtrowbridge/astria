@@ -6,7 +6,15 @@ function setup(){
 }
 
 function setupBodyCallback(){
-?><h1>Welcome To Astria Setup</h1>
+?>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Welcome To Astria Setup</h1>
+        
+      </div>
+    </div>
+</div>
 
 <?php
 }
