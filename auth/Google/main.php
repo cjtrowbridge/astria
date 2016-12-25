@@ -4,6 +4,7 @@
 Hook('Attempt Auth','AttemptGoogleAuth();');
 function AttemptGoogleAuth(){
   include('auth/Google/autoload.php');
+  global $ASTRIA;
   
   /************************************************
   Make an API request on behalf of a user. In
@@ -13,9 +14,9 @@ function AttemptGoogleAuth(){
   information from our API console project.
   ************************************************/
   $client = new Google_Client();
-  $client->setClientId(GoogleOAuth2ClientID);
-  $client->setClientSecret(GoogleOAuth2ClientSecret);
-  $client->setRedirectUri(APPURL);
+  $client->setClientId($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']);
+  $client->setClientSecret($ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret']);
+  $client->setRedirectUri($ASTRIA['app']['appURL']);
   $client->addScope("email");
   $client->addScope("profile");
   
