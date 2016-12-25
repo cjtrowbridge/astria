@@ -6,8 +6,8 @@ if(file_exists('config.php')){
   
 }else{
   
-  //TODO
-  die('Please create a config file.');
+  require('setup.php');
+  setup();
   
 }
 
