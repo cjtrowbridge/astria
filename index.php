@@ -12,9 +12,10 @@ require('config.php');
 
 die('White Rabbit');
 
+require('events/main.php')
 require('debugging/main.php');
 /*
-require('events/main.php')
+
 
 require('loader.php');
 
