@@ -32,8 +32,6 @@ function UpdateConfig(
   $appName                   = str_replace("'","\'",$appName);
   $appURL                    = str_replace("'","\'",$appURL);
   $favicon                   = str_replace("'","\'",$favicon);
-  $showErrors                = str_replace("'","\'",$showErrors);
-  $verbose                   = str_replace("'","\'",$verbose);
   $smtpUsername              = str_replace("'","\'",$smtpUsername);
   $smtpPassword              = str_replace("'","\'",$smtpPassword);
   $smtpPort                  = str_replace("'","\'",$smtpPort);
