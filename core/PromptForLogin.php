@@ -2,7 +2,7 @@
 
 function PromptForLogin(){
 	Hook('Template Body','PromptForLoginBodyCallback();');
-	TemplateBootstrap1();
+	TemplateBootstrap();
 }
 
 function PromptForLoginBodyCallback(){
