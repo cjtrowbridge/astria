@@ -3,7 +3,7 @@
 
 Hook('Attempt Auth','AttemptGoogleAuth();');
 function AttemptGoogleAuth(){
-  include('auth/Google/autoload.php');
+  include_once('auth/Google/autoload.php');
   global $ASTRIA;
   
   /************************************************
