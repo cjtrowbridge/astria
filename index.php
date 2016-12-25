@@ -3,21 +3,17 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-if(file_exists('config.php')){
-  
-  require('config.php');
-  
-}else{
-  
+if(!file_exists('config.php')){
   require('setup.php');
   setup();
-  
 }
 
+require('config.php');
+require('debugging/main.php');
+require('events/main.php')
 require('loader.php');
 
-Loader('events');
-Loader('debugging');
+
 Loader('core');
 Loader('auth/Google');
 Loader('microservices/view');
