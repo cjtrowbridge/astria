@@ -5,7 +5,10 @@ session_start();
 //We need this to happen before this script can work
 include_once('Path.php');
 
-if(path()=='logout'){
+if(
+	path()=='logout'||
+	isset($_GET['logout'])  
+){
 	session_destroy();
 	header('Location: ./');
 	exit;
