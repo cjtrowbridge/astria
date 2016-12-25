@@ -173,7 +173,8 @@ function setupBodyCallback(){
 }
 
 function setupHandler(){
-  
+  require('core/UpdateConfig.php');
+
   UpdateConfig(
     $_POST['defaultSessionLength'],
     $_POST['encryptionKey'],
