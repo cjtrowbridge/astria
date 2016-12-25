@@ -61,6 +61,9 @@ $ASTRIA = array(
       
     )
     
+  ),
+  'locale'=>array(
+    'timezone' => 'America/Los Angeles'
   )
   
 );
