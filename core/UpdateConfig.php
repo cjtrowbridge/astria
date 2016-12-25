@@ -91,7 +91,7 @@ function UpdateConfig(
     
     ),
 
-    'databases'=array(
+    'databases'=>array(
       'astria core administrative database' => array(
 
         'type'                     => '".$dbType."',
@@ -104,7 +104,7 @@ function UpdateConfig(
       )
     ),
 
-    'oauth'=array(
+    'oauth'=>array(
 
       'Google' => array(
 
