@@ -8,15 +8,15 @@ if(!file_exists('config.php')){
   setup();
 }
 
-require('config.php');
+include('config.php');
 
-//require('events/main.php')
-//require('debugging/main.php');
+include('events/main.php')
+
 echo 'Velveteen Rabbit';
 /*
 
 
-require('loader.php');
+include('loader.php');
 
 Loader('core');
 
