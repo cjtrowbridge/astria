@@ -10,8 +10,8 @@ if(!file_exists('config.php')){
 
 require('config.php');
 
-require('events/main.php')
-require('debugging/main.php');
+//require('events/main.php')
+//require('debugging/main.php');
 echo 'Velveteen Rabbit';
 /*
 
