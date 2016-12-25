@@ -20,91 +20,126 @@ function setupBodyCallback(){
         <p>We need some details in order to get started...</p>
         
         <form action="/" method="post">
+          
           <h2>Your App</h2>
-          <div class="form-group">
-            <label>App Name (This will go in the titles):</label>
-            <input type="text" name="appName" value="Astria" id="appName">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">App Name (This will go in the titles):</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="appName" value="Astria" id="appName">
+            </div>
           </div>
           <script>
             $('#appName').focus();
           </script> 
-          <div class="form-group">
-            <label>App URL:</label>
-            <input type="text" name="appURL" value="Astria">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">App URL:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="appURL" value="Astria">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Favicon URL:</label>
-            <input type="text" name="favicon" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Favicon URL:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="favicon" value="">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Default Session Length (In seconds. Default is one week.):</label>
-            <input type="text" name="defaultSessionLength" value="604800">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Default Session Length (In seconds. Default is one week.):</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="defaultSessionLength" value="604800">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Encryption Key:</label>
-            <input type="text" name="encryptionKey" value="<?php echo MakeRandomString(32); ?>">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Encryption Key:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="encryptionKey" value="<?php echo MakeRandomString(32); ?>">
+            </div>
           </div>
           <h2>Mail</h2>
-          <div class="form-group">
-            <label>SMTP Server:</label>
-            <input type="text" name="smtpHost" value="localhost">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">SMTP Server:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpHost" value="localhost">
+            </div>
           </div>
-          <div class="form-group">
-            <label>SMTP Port:</label>
-            <input type="text" name="smtpPort" value="25">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">SMTP Port:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpPort" value="25">
+            </div>
           </div>
-          <div class="form-group">
-            <label>SMTP Username:</label>
-            <input type="text" name="smtpUsername" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">SMTP Username:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpUsername" value="">
+            </div>
           </div>
-          <div class="form-group">
-            <label>SMTP Password:</label>
-            <input type="text" name="smtpPassword" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">SMTP Password:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpPassword" value="">
+            </div>
           </div>
           
           <h2>Core Database</h2>
           <p>You can use many databases, but let's talk about the one that holds the core data like user accounts and sessions.</p>
-          <div class="form-group">
-            <label>Type:</label>
-            <select name="dbType">
-              <option value="mysql">MySQL</option>
-            </select>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Type:</label>
+            <div class="col-xs-10">
+              <select class="form-control" name="dbType">
+                <option value="mysql">MySQL</option>
+              </select>
+            </div>
           </div>
-          <div class="form-group">
-            <label>Database Hostname (This is usually localhost, but it cann be any hostname, IP, etc.):</label>
-            <input type="text" name="dbHostname" value="localhost">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Database Hostname (This is usually localhost, but it cann be any hostname, IP, etc.):</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="dbHostname" value="localhost">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Database Username:</label>
-            <input type="text" name="dbUsername" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Database Username:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="dbUsername" value="">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Database Password:</label>
-            <input type="text" name="dbPassword" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Database Password:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="dbPassword" value="">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Database Name:</label>
-            <input type="text" name="dbName" value="astria">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Database Name:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="dbName" value="astria">
+            </div>
           </div>
           
           <h2>Google OAuth</h2>
           <p><a href="https://console.developers.google.com/apis/credentials" target="_blank">Click Here</a> to go to the Google API console and create an OAuth credential set for your app. Then enter the keys here.</p>
-          <div class="form-group">
-            <label>Google OAuth2 ClientID:</label>
-            <input type="text" name="GoogleOAuth2ClientID" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Google OAuth2 ClientID:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="">
+            </div>
           </div>
-          <div class="form-group">
-            <label>Google OAuth2 Client Secret:</label>
-            <input type="text" name="GoogleOAuth2ClientSecret" value="">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Google OAuth2 Client Secret:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="">
+            </div>
           </div>
   
           <h2>Locale</h2>
-          <div class="form-group">
-            <label>Timezone:</label>
-            <input type="text" name="timezone">
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Timezone:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="timezone">
+            </div>
           </div>
           
-          <input type="submit">
+          <input class="form-control" type="submit">
           
         </form>
         
