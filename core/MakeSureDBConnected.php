@@ -2,23 +2,23 @@
 
 function MakeSureDBConnected($Database='astria core administrative database'){
 
-global $ASTRIA;
+  global $ASTRIA;
 
-if(!(isset($DATABASES[$Database]))){die("Database configuration not found for '".$Database."'. Please add to config.php.");}
+  if(!(isset($ASTRIA['databases'][$Database]))){die("Database configuration not found for '".$Database."'. Please add to config.php.");}
 
-if($DATABASES[$Database]['resource']==false){
-switch($DATABASES[$Database]['type']){
-case 'mysql':
-$DATABASES[$Database]['resource'] = mysqli_connect(
-$DATABASES[$Database]['hostname'],
-$DATABASES[$Database]['username'],
-$DATABASES[$Database]['password'],
-$DATABASES[$Database]['database']
-) or die(mysql_error());
-break;
-default:
-die('Unsupported database type: "'.$DATABASES[$Database]['type'].'" for database "'.$Database.'"');
-}
-}
+  if($ASTRIA['databases'][$Database]['resource']==false){
+    switch($ASTRIA['databases'][$Database]['type']){
+      case 'mysql':
+        $ASTRIA['databases'][$Database]['resource'] = mysqli_connect(
+        $ASTRIA['databases'][$Database]['hostname'],
+        $ASTRIA['databases'][$Database]['username'],
+        $ASTRIA['databases'][$Database]['password'],
+        $ASTRIA['databases'][$Database]['database']
+        ) or die(mysql_error());
+       break;
+    default:
+      die('Unsupported database type: "'.$ASTRIA['databases'][$Database]['type'].'" for database "'.$Database.'"');
+    }
+  }
 
 }
