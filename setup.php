@@ -114,7 +114,7 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Hostname:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbHostname" value="localhost">
+              <input class="form-control" type="text" name="dbHost" value="localhost">
               <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
             </div>
           </div>
@@ -181,8 +181,8 @@ function setupHandler(){
     $_POST['appName'],
     $_POST['appURL'],
     $_POST['favicon'],
-    $_POST['showErrors'],
-    $_POST['verbose'],
+    false,
+    false,
     $_POST['smtpUsername'],
     $_POST['smtpPassword'],
     $_POST['smtpPort'],
