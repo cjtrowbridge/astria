@@ -18,7 +18,7 @@ Loader('view');
 
 RequireSSL();
 
-LoadViews();
+//LoadViews();
 
 Event('Before Checking If User Is Logged In');
 
