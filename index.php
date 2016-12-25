@@ -8,14 +8,12 @@ if(!file_exists('config.php')){
   setup();
 }
 
-echo '1';
-
 require('config.php');
 require('debugging/main.php');
 require('events/main.php')
 require('loader.php');
 
-echo '2';
+die('White Rabbit');
 
 Loader('core');
 Loader('auth/Google');
