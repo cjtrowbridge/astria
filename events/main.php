@@ -12,6 +12,6 @@ $DEBUG=array(
   )
 );
 
-require('Hook.php');
-require('Event.php');
-require('DebugShowSummary.php');
+include('Hook.php');
+include('Event.php');
+include('DebugShowSummary.php');
