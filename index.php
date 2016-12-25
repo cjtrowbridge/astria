@@ -18,12 +18,13 @@ require('events/main.php')
 require('loader.php');
 
 Loader('core');
-Loader('auth/Google');
-//Loader('microservices/view');
 /*
+Loader('auth/Google');
+Loader('microservices/view');
+
 RequireSSL();
 
-//LoadViews();
+LoadViews();
 
 Event('Before Checking If User Is Logged In');
 
