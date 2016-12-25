@@ -189,7 +189,7 @@ function setupHandler(){
     $_POST['smtpHost'],
     $_POST['smtpAdminEmail'],
     $_POST['smtpDefaultFrom'],
-    $_POST['PHPMailerDebuggingFlag'],
+    0,
     $_POST['dbType'],
     $_POST['dbHost'],
     $_POST['dbUsername'],
