@@ -161,6 +161,7 @@ function setupBodyCallback(){
 }
 
 function setupHandler(){
+  require('core/pd.php');
   pd($_POST);
   die();
 }
