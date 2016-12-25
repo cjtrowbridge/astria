@@ -68,8 +68,8 @@ function UpdateConfig(
 
     'debugging' => array(
 
-      'showErrors'                 => ".$showErrors.",
-      'verbose'                    => ".$verbose."
+      'showErrors'                 => ".var_export($showErrors, true).",
+      'verbose'                    => ".var_export($verbose, true)."
 
     ),
 
