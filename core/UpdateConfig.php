@@ -24,6 +24,8 @@ function UpdateConfig(
   $GoogleOAuth2ClientSecret,
   $timezone
 ){
+  //TODO add a null default to each argument, and then fill any nulls in with current values, then sort the arguments in order of how frequently they may ned to be updated
+  
   //As far as validation goes, anyone using this function is obviously assumed to be a trusted user. Validation here seems like a moot point.
   
   //Build New Config File
