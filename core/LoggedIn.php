@@ -50,7 +50,7 @@ function LoggedIn(){
 	  
     //we need to attempt to authorize the user. one of the called hooks should change the 'Logged In' to true if it was able to authorize the user.
     Event('Attempt Auth');
-    $_SESSION['Auth']['Already Attempted']==true;
+    $_SESSION['Auth']['Already Attempted']=true;
 	  
     //check whether we were sucesful in authorizing the user
     if($_SESSION['Auth']['Logged In']==true){
