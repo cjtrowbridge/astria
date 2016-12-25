@@ -2,7 +2,7 @@
 
 function Event($EventDescription){
 
-  global $EVENTS;
+  global $EVENTS, $ASTRIA;
   /*
     Call this function with a string EventDescription in order to allow callbacks to be hooked at this location in the script,
     as well as for verbose debugging and runtime analysis to take place.
@@ -13,11 +13,21 @@ function Event($EventDescription){
     
     //BEGIN DEBUG SECTION
     
-    if(isset($_GET['debug'])&&DEBUG_ENABLED){
-      echo '<div><p>'.$EventDescription.'</p></div>';
+    if($ASTRIA['debugging']['verbose']){
+      
+      echo "\n<!-- Listing Hooks for Event: ".$EventDescription."\n\n";
+      if(isset($EVENTS[$EventDescription])){
+        var_dump($EVENTS[$EventDescription]);
+      }else{
+        echo "No Hooks\n";
+      }
+      echo "\n-->\n\n";
+      
       ob_flush();
       flush();
+      
     }
+    
     global $DEBUG, $START_TIME;
     $temp_debug_output=array(
       'debug point'=> $EventDescription,
@@ -26,13 +36,17 @@ function Event($EventDescription){
       'time'=> round(microtime(true)-$START_TIME,4)
     );
     $DEBUG[]=$temp_debug_output;
-    if(isset($_GET['debug'])&&DEBUG_ENABLED){
+    
+    /* This might still be helpful in some circumstances but it should be packaged better so that it doenst throw things off by outputting debugging data throughout the output.
+    if($ASTRIA['debugging']['verbose']){
       pd($temp_debug_output);
       ob_flush();
       flush();
     }
+    */
+    
     if($EventDescription=='end'){
-      if(isset($_GET['debug'])&&DEBUG_ENABLED){
+      if($ASTRIA['debugging']['verbose']){
         DebugShowSummary();
       }
       $total_runtime=microtime()-$DEBUG[0]['time'];
@@ -62,7 +76,7 @@ function Event($EventDescription){
     }
     //END EVENT HANDLER SECTION
   }else{
-    fail('<h1>Event Description Must Be A String;</h1><pre>'.var_export($EventDescription,true).'</pre>');
+    fail('Event Description Must Be A String;<br><pre>'.var_export($EventDescription,true).'</pre>');
   }
   
 }
