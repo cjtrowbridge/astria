@@ -23,9 +23,10 @@ function setupBodyCallback(){
           
           <h2>Your App</h2>
           <div class="form-group row">
-            <label class="col-xs-2 col-form-label">App Name (This will go in the titles):</label>
+            <label class="col-xs-2 col-form-label">App Name:</label>
             <div class="col-xs-10">
               <input class="form-control" type="text" name="appName" value="Astria" id="appName">
+              <small class="form-text text-muted">This will go in the titles.</small>
             </div>
           </div>
           <script>
@@ -44,10 +45,10 @@ function setupBodyCallback(){
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Default Session Length (In seconds. Default is one week.):</label>
+            <label class="col-xs-2 col-form-label">Default Session Length:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="defaultSessionLength" value="604800" id="defaultSessionLength" aria-describedby="defaultSessionLengthHelp">
-              <small id="defaultSessionLengthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              <input class="form-control" type="text" name="defaultSessionLength" value="604800">
+              <small class="form-text text-muted">In seconds. Default is one week.</small>
             </div>
           </div>
           <div class="form-group row">
@@ -93,9 +94,10 @@ function setupBodyCallback(){
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Database Hostname (This is usually localhost, but it cann be any hostname, IP, etc.):</label>
+            <label class="col-xs-2 col-form-label">Database Hostname:</label>
             <div class="col-xs-10">
               <input class="form-control" type="text" name="dbHostname" value="localhost">
+              <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
             </div>
           </div>
           <div class="form-group row">
