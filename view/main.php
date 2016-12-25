@@ -1,8 +1,9 @@
 <?php
 
-include('loadViews.php);
+include('loadViews.php');
 
 Hook('User Is Logged In - No Presentation','noView();');
+
 function noView(){
  global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN;
  //echo '<h1>404: Page not found.</h1> User '.$_SESSION['User']['Email'].' is logged in, but nothing happened at this url. Runtime '.round(microtime(true)-STARTTIME,4)." seconds. \n\n\n\n<!-- QUERIES RUN \n".addslashes($QUERIES_RUN)."-->\n\n\n\n".$NUMBER_OF_QUERIES_RUN.' Queries Run.</span> Session Expires '.date('r',$_SESSION['Auth']['Expires']).'. <a href="./?logout">Log Out</a>.';
