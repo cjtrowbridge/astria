@@ -13,11 +13,6 @@ function setupBodyCallback(){
   //TODO support other oauth providers 
   //TODO support native email signups
 ?>
-  <style>
-    label, label input, label select{
-     display: block;
-    }
-  </style>
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
