@@ -87,7 +87,7 @@ function TemplateBootstrap(){
 
             <div style="display:inline-block; font-size:20px; vertical-align:top; padding-top:11px; padding-left:10px;">
               <span>
-                <a href="/" style="color:white;" class="underlineOnHover"><?php echo $ASTRIA['app']['appName']; ?></a>
+                <a href="/" class="underlineOnHover"><?php echo $ASTRIA['app']['appName']; ?></a>
               </span>
             </div>
 
