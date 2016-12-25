@@ -122,13 +122,13 @@ function setupBodyCallback(){
           <h2>Google OAuth</h2>
           <p><a href="https://console.developers.google.com/apis/credentials" target="_blank">Click Here</a> to go to the Google API console and create an OAuth credential set for your app. Then enter the keys here.</p>
           <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Google OAuth2 ClientID:</label>
+            <label class="col-xs-2 col-form-label">ClientID:</label>
             <div class="col-xs-10">
               <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="">
             </div>
           </div>
           <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Google OAuth2 Client Secret:</label>
+            <label class="col-xs-2 col-form-label">Client Secret:</label>
             <div class="col-xs-10">
               <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="">
             </div>
