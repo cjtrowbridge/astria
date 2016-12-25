@@ -2,6 +2,7 @@
 
 function setup(){
   require('core/SimplePage.php');
+  require('core/MakeRandomString.php');
   SimplePage('Astria Setup','setupBodyCallback();');
 }
 
