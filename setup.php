@@ -25,91 +25,88 @@ function setupBodyCallback(){
         
         <form action="/" method="post">
           <h2>Your App</h2>
-          <label>
-            App Name (This will go in the titles):
+          <div class="form-group">
+            <label>App Name (This will go in the titles):</label>
             <input type="text" name="appName" value="Astria" id="appName">
-          </label>
+          </div>
           <script>
             $('#appName').focus();
           </script> 
-          <label>
-            App URL:
+          <div class="form-group">
+            <label>App URL:</label>
             <input type="text" name="appURL" value="Astria">
-          </label>
-          <label>
-            Favicon URL:
+          </div>
+          <div class="form-group">
+            <label>Favicon URL:</label>
             <input type="text" name="favicon" value="">
-          </label>
-          
-          <label>
-            Default Session Length (In seconds. Default is one week.):
+          </div>
+          <div class="form-group">
+            <label>Default Session Length (In seconds. Default is one week.):</label>
             <input type="text" name="defaultSessionLength" value="604800">
-          </label>
-          
-          <label>
-            Encryption Key:
+          </div>
+          <div class="form-group">
+            <label>Encryption Key:</label>
             <input type="text" name="encryptionKey" value="<?php echo MakeRandomString(32); ?>">
-          </label>
-          
+          </div>
           <h2>Mail</h2>
-          <label>
-            SMTP Server:
+          <div class="form-group">
+            <label>SMTP Server:</label>
             <input type="text" name="smtpHost" value="localhost">
-          </label>
-          <label>
-            SMTP Port:
+          </div>
+          <div class="form-group">
+            <label>SMTP Port:</label>
             <input type="text" name="smtpPort" value="25">
-          </label>
-          <label>
-            SMTP Username:
+          </div>
+          <div class="form-group">
+            <label>SMTP Username:</label>
             <input type="text" name="smtpUsername" value="">
-          </label>
-          <label>
-            SMTP Password:
+          </div>
+          <div class="form-group">
+            <label>SMTP Password:</label>
             <input type="text" name="smtpPassword" value="">
-          </label>
+          </div>
           
           <h2>Core Database</h2>
           <p>You can use many databases, but let's talk about the one that holds the core data like user accounts and sessions.</p>
-          <label>
-            Type:
+          <div class="form-group">
+            <label>Type:</label>
             <select name="dbType">
               <option value="mysql">MySQL</option>
             </select>
-          </label>
-          <label>
-            Database Hostname (This is usually localhost, but it cann be any hostname, IP, etc.):
+          </div>
+          <div class="form-group">
+            <label>Database Hostname (This is usually localhost, but it cann be any hostname, IP, etc.):</label>
             <input type="text" name="dbHostname" value="localhost">
-          </label>
-          <label>
-            Database Username:
+          </div>
+          <div class="form-group">
+            <label>Database Username:</label>
             <input type="text" name="dbUsername" value="">
-          </label>
-          <label>
-            Database Password:
+          </div>
+          <div class="form-group">
+            <label>Database Password:</label>
             <input type="text" name="dbPassword" value="">
-          </label>
-          <label>
-            Database Name:
+          </div>
+          <div class="form-group">
+            <label>Database Name:</label>
             <input type="text" name="dbName" value="astria">
-          </label>
+          </div>
           
           <h2>Google OAuth</h2>
           <p><a href="https://console.developers.google.com/apis/credentials" target="_blank">Click Here</a> to go to the Google API console and create an OAuth credential set for your app. Then enter the keys here.</p>
-          <label>
-            Google OAuth2 ClientID:
+          <div class="form-group">
+            <label>Google OAuth2 ClientID:</label>
             <input type="text" name="GoogleOAuth2ClientID" value="">
-          </label>
-          <label>
-            Google OAuth2 Client Secret:
+          </div>
+          <div class="form-group">
+            <label>Google OAuth2 Client Secret:</label>
             <input type="text" name="GoogleOAuth2ClientSecret" value="">
-          </label>
+          </div>
   
           <h2>Locale</h2>
-          <label>
-            Timezone:
+          <div class="form-group">
+            <label>Timezone:</label>
             <input type="text" name="timezone">
-          </label>
+          </div>
           
           <input type="submit">
           
