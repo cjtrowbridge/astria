@@ -63,7 +63,7 @@ function AttemptGoogleAuth(){
       $_SESSION['Auth']=array(
         'Logged In'		          => true,
         'Last Validated'        => time(),
-        'Expires'               => (time()+DEFAULTSESSIONLENGTH)
+        'Expires'               => (time()+$ASTRIA['app']['defaultSessionLength'])
       );
     
     
