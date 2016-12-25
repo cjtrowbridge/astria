@@ -19,11 +19,9 @@ echo '2';
 
 Loader('core');
 Loader('auth/Google');
-Loader('microservices/view');
+//Loader('microservices/view');
 
 RequireSSL();
-
-echo '3';
 
 //LoadViews();
 
