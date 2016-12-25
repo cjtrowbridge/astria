@@ -14,7 +14,7 @@ function noViewBodyCallback(){
   echo '<h1>404: Page not found.</h1>';
   echo 'User '.$_SESSION['User']['Email'].' is logged in, but nothing happened at this url.<br>';
   echo 'Runtime '.round(microtime(true)-$DEBUG[0]['time'],4)." seconds.<br>";
-  echo $NUMBER_OF_QUERIES_RUN.' Queries Run.<br>';
+  echo 'Ran '.$NUMBER_OF_QUERIES_RUN.' Queries.<br>';
   echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
   echo '<a href="/?logout">Log Out</a>.';
   //pd($_SESSION); 
