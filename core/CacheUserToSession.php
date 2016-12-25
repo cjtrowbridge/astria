@@ -1,6 +1,8 @@
 <?php
 
 function CacheUserToSession($email=null){
+  global $ASTRIA;
+  
   if($email == null){
     die('Tried to cache invalid user.');
   }
