@@ -1,6 +1,6 @@
 <?php
 
-function TemplateBootstrap2(){
+function TemplateBootstrap2($title=''){
   global $HAMBURGER, $ASTRIA;
   $HAMBURGER=array('Home'=>'/');
 
@@ -13,7 +13,12 @@ function TemplateBootstrap2(){
 
   <link rel="icon" href="<?php echo $ASTRIA['app']['favicon']; ?>">
 
-  <title><?php echo $ASTRIA['app']['appName']; ?></title>
+  <title><?php 
+    if(!($title=='')){
+      echo $title.' - ';
+    }
+    echo $ASTRIA['app']['appName']; 
+  ?></title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
