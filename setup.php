@@ -46,7 +46,8 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Default Session Length (In seconds. Default is one week.):</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="defaultSessionLength" value="604800">
+              <input class="form-control" type="text" name="defaultSessionLength" value="604800" id="defaultSessionLength" aria-describedby="defaultSessionLengthHelp">
+              <small id="defaultSessionLengthHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
           </div>
           <div class="form-group row">
