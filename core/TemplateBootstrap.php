@@ -43,7 +43,7 @@ function TemplateBootstrap(){
       <nav class="navbar navbar-fixed-top navbar-inverse">
         <div class="container">
           <div id="navbar">
-            <ul style="margin-bottom:0px; margin-top:7px; padding-left:0px; display:inline-block;">
+            <ul style="display:inline-block;">
               <i class="material-icons hamburgerButton">menu</i>
               <ul class="hamburgerMenu hamburgerClosed">
 
