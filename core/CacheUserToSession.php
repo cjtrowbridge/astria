@@ -5,7 +5,9 @@ function CacheUserToSession($email=null){
     die('Tried to cache invalid user.');
   }
   
-  $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."' LIMIT 1")[0]; 
+  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->email);
+  
+  $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
   $_SESSION['User']=$User;
   
   $Memberships=array();
