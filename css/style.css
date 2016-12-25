@@ -1,8 +1,8 @@
-body{
-  padding-top: 2em;
-  min-height: 800px;
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.navbar-static-top {
-  margin-bottom: 19px;
+.navbar {
+  margin-bottom: 20px;
 }
