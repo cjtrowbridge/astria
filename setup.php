@@ -174,7 +174,32 @@ function setupBodyCallback(){
 
 function setupHandler(){
   
-  
+  UpdateConfig(
+    $_POST['defaultSessionLength'],
+    $_POST['encryptionKey'],
+    $_POST['appName'],
+    $_POST['appURL'],
+    $_POST['favicon'],
+    $_POST['showErrors'],
+    $_POST['verbose'],
+    $_POST['smtpUsername'],
+    $_POST['smtpPassword'],
+    $_POST['smtpPort'],
+    $_POST['smtpHost'],
+    $_POST['smtpAdminEmail'],
+    $_POST['smtpDefaultFrom'],
+    $_POST['PHPMailerDebuggingFlag'],
+    $_POST['dbType'],
+    $_POST['dbHost'],
+    $_POST['dbUsername'],
+    $_POST['dbPassword'],
+    $_POST['dbName'],
+    $_POST['GoogleOAuth2ClientID'],
+    $_POST['GoogleOAuth2ClientSecret'],
+    $_POST['timezone']
+  );
 
-  die();
+  header('Location: /');
+  exit;
+  
 }
