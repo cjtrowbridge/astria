@@ -3,7 +3,7 @@
 session_start();
 
 //We need this to happen before this script can work
-include_once('path.php');
+include_once('Path.php');
 
 if(path()=='logout'){
 	session_destroy();
