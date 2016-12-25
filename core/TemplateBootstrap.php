@@ -1,10 +1,10 @@
 <?php 
 
-global $HAMBURGER, $ASTRIA;
-$HAMBURGER=array('Home'=>'/');
 
-function TemplateBootstrap0(){
-	
+
+function TemplateBootstrap(){
+	global $HAMBURGER, $ASTRIA;
+	$HAMBURGER=array('Home'=>'/');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,7 +126,7 @@ function TemplateBootstrap0(){
 			  <?php Event('Template Body'); ?>
 			</div>
 		</div>
-  </div>
+	</div>
   
 	<script>
 		$(document).ready(function(){
