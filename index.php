@@ -9,11 +9,14 @@ if(!file_exists('config.php')){
 }
 
 require('config.php');
+
+die('White Rabbit');
+
 require('debugging/main.php');
 require('events/main.php')
 require('loader.php');
 
-die('White Rabbit');
+
 
 Loader('core');
 Loader('auth/Google');
