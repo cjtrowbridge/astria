@@ -52,7 +52,7 @@ function UpdateConfig(
 
   
   //Build New Config File
-  $newConfig="
+  $newConfig="<?php
 
   global \$ASTRIA;
 
