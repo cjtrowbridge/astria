@@ -1,6 +1,5 @@
 <?php
 
-/*
 global $EVENTS, $DEBUG;
 
 $EVENTS=array();
@@ -12,7 +11,7 @@ $DEBUG=array(
     'time'=> round(microtime(true),4)
   )
 );
-*/
-//include('Hook.php');
-//include('Event.php');
-//include('DebugShowSummary.php');
+
+include('Hook.php');
+include('Event.php');
+include('DebugShowSummary.php');
