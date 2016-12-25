@@ -35,7 +35,7 @@ function AttemptGoogleAuth(){
   if(isset($_GET['code'])){
     $client->authenticate($_GET['code']);
     $_SESSION['google_oauth2']=array('access_token' => $client->getAccessToken());
-    header('Location: ./');
+    header('Location: /');
     exit;
   }
   
@@ -48,14 +48,13 @@ function AttemptGoogleAuth(){
     $_SESSION['google_oauth2']['user_object']=$service->userinfo->get();
     
       MakeSureDBConnected();
-      $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."' LIMIT 1"); 
+      $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."' LIMIT 1"); 
       if(count($results)==0){
         
         //SIGNING UP!
-        $sql="INSERT INTO `User`(`Email`)VALUES('".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."');";
+        $sql="INSERT INTO `User`(`Email`)VALUES('".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."');";
         Query($sql);
         
-        //$results=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."' LIMIT 1"); 
         
       }
       $_SESSION['Auth']=array(
@@ -63,17 +62,17 @@ function AttemptGoogleAuth(){
         'Last Validated'        => time(),
         'Expires'               => (time()+DEFAULTSESSIONLENGTH)
       );
-      //$_SESSION['User']=$results[0];
     
     
-      //Update user data
+      //Update User Data From Google
+      //TODO make this check if its necessary before updating, in order to save time and resources
       Query("
         UPDATE `User` 
         SET 
-          `Photo`     = '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->picture)."', 
-          `FirstName` = '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->givenName)."', 
-          `LastName`  = '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->familyName)."' 
-        WHERE `Email` LIKE '".mysql_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."';
+          `Photo`     = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->picture)."', 
+          `FirstName` = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->givenName)."', 
+          `LastName`  = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->familyName)."' 
+        WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."';
       ");
     
       CacheUserToSession($_SESSION['google_oauth2']['user_object']->email);
