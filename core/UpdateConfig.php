@@ -28,7 +28,7 @@ function UpdateConfig(
   
   //As far as validation goes, anyone using this function is obviously assumed to be a trusted user. Validation here seems like a moot point, but apostrophes still need to be escaped or the array wont work. Obviously if there is an apostrophe in a hostname, we have other problems, but we can deal with validating later.
   $defaultSessionLength      = str_replace("'","\'",$defaultSessionLength);
-  $encrypionKey              = str_replace("'","\'",$encrypionKey);
+  $encryptionKey             = str_replace("'","\'",$encryptionKey);
   $appName                   = str_replace("'","\'",$appName);
   $appURL                    = str_replace("'","\'",$appURL);
   $favicon                   = str_replace("'","\'",$favicon);
@@ -70,8 +70,8 @@ function UpdateConfig(
 
     'debugging' => array(
 
-      'showErrors'                 => '".$showErrors."',
-      'verbose'                    => '".$verbose."'
+      'showErrors'                 => ".$showErrors.",
+      'verbose'                    => ".$verbose."
 
     ),
 
