@@ -15,8 +15,9 @@ die('White Rabbit');
 require('debugging/main.php');
 
 require('events/main.php')
-require('loader.php');
 /*
+require('loader.php');
+
 Loader('core');
 
 Loader('auth/Google');
