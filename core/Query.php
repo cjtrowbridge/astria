@@ -17,10 +17,10 @@ function Query(
 	//Check that database exists and is available, and connect to it.
 	MakeSureDBConnected($Database);
 	
-	global $DATABASES;
-	switch($DATABASES[$Database]['type']){
+	global $ASTRIA;
+	switch($ASTRIA['databases'][$Database]['type']){
 		case 'mysql':
-			$result=mysqli_query($DATABASES[$Database]['resource'], $SQL) or die(mysql_error());
+			$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysql_error());
 			if(!(is_bool($result))){
 				$Output=array();
 				while($Row=mysqli_fetch_assoc($result)){
@@ -30,7 +30,7 @@ function Query(
 			}
 			break;
 		default:
-			die('Unsupported database type: "'.$DATABASES[$Database]['type'].'"');
+			die('Unsupported database type: "'.$ASTRIA['databases'][$Database]['type'].'"');
 	}
 	
 }
