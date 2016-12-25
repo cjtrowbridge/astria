@@ -88,6 +88,18 @@ function setupBodyCallback(){
               <input class="form-control" type="text" name="smtpPassword" value="">
             </div>
           </div>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Admin Email:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpAdminEmail" value="">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Default From:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="smtpDefaultFrom" value="">
+            </div>
+          </div>
           
           <h2>Core Database</h2>
           <p>You can use many databases, but let's talk about the one that holds the core data like user accounts and sessions.</p>
@@ -161,7 +173,8 @@ function setupBodyCallback(){
 }
 
 function setupHandler(){
-  require('core/pd.php');
-  pd($_POST);
+  
+  
+
   die();
 }
