@@ -3,6 +3,12 @@
 function setup(){
   require('core/SimplePage.php');
   require('core/MakeRandomString.php');
+  require('core/ForceSSL.php');
+  ForceSSL();
+  
+  if(isset($_POST['appName'])){
+    setupHandler();
+  }
   SimplePage('Astria Setup','setupBodyCallback();');
 }
 
@@ -151,4 +157,9 @@ function setupBodyCallback(){
 </div>
 
 <?php
+}
+
+function setupHandler(){
+  pd($_POST);
+  die();
 }
