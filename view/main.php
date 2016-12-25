@@ -5,7 +5,8 @@ include('loadViews.php');
 Hook('User Is Logged In - No Presentation','noView();');
 
 function noView(){
-  TemplateBootstrap2('404','noViewBodyCallback();');
+  Hook('Template Body','noViewBodyCallback();');
+  TemplateBootstrap2('404');
 }
 function noViewBodyCallback(){
   global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG;
