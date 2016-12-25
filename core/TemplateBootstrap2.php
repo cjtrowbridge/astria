@@ -37,15 +37,13 @@ function TemplateBootstrap2($title=''){
   <link rel="stylesheet" href="/css/hamburgerMenu.css">
   <link rel="stylesheet" href="/css/style.css">
 
-  <?php 
-  Event('Template Head');
-  ?>
+  <?php Event('Template Head'); ?>
 </head>
 
 <body>
 
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#">Project name</a>
+    <a class="navbar-brand" href="#"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -56,14 +54,13 @@ function TemplateBootstrap2($title=''){
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
       </li>
+      <?php Event('Template Nav'); ?>
     </ul>
   </nav>
 
   <div class="container">
 
-    <?php 
-      Event('Template Body');
-    ?> 
+    <?php Event('Template Body'); ?>
 
   </div><!-- /.container -->
 
