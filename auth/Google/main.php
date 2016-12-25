@@ -49,11 +49,11 @@ function AttemptGoogleAuth(){
     $_SESSION['google_oauth2']['user_object']=$service->userinfo->get();
     
       MakeSureDBConnected();
-      $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."' LIMIT 1"); 
+      $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email,$ASTRIA['databases']['astria core administrative database']['resource'])."' LIMIT 1"); 
       if(count($results)==0){
         
         //SIGNING UP!
-        $sql="INSERT INTO `User`(`Email`)VALUES('".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."');";
+        $sql="INSERT INTO `User`(`Email`)VALUES('".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email,$ASTRIA['databases']['astria core administrative database']['resource'])."');";
         Query($sql);
         
         
@@ -70,10 +70,10 @@ function AttemptGoogleAuth(){
       Query("
         UPDATE `User` 
         SET 
-          `Photo`     = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->picture)."', 
-          `FirstName` = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->givenName)."', 
-          `LastName`  = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->familyName)."' 
-        WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email)."';
+          `Photo`     = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->picture,$ASTRIA['databases']['astria core administrative database']['resource'])."', 
+          `FirstName` = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->givenName,$ASTRIA['databases']['astria core administrative database']['resource'])."', 
+          `LastName`  = '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->familyName,$ASTRIA['databases']['astria core administrative database']['resource'])."' 
+        WHERE `Email` LIKE '".mysqli_real_escape_string($_SESSION['google_oauth2']['user_object']->email,$ASTRIA['databases']['astria core administrative database']['resource'])."';
       ");
     
       CacheUserToSession($_SESSION['google_oauth2']['user_object']->email);
