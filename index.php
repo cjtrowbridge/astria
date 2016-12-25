@@ -25,7 +25,7 @@ RequireSSL();
 
 echo '3';
 
-LoadViews();
+//LoadViews();
 
 Event('Before Checking If User Is Logged In');
 
