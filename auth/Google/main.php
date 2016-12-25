@@ -88,6 +88,6 @@ function AttemptGoogleAuth(){
 Hook('Auth Login Options','authGoogleCallback();');
 function authGoogleCallback(){
   ?>
-    <p><a class="login" href="<?php echo $_SESSION['google_oauth2']['auth_url']; ?>"><img src="img/google-login-button.png" /></a></p>
+    <p><a class="login" href="<?php echo $_SESSION['google_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" /></a></p>
   <?php
 }
