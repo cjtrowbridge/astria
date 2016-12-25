@@ -8,17 +8,22 @@ if(!file_exists('config.php')){
   setup();
 }
 
+echo '1';
+
 require('config.php');
 require('debugging/main.php');
 require('events/main.php')
 require('loader.php');
 
+echo '2';
 
 Loader('core');
 Loader('auth/Google');
 Loader('microservices/view');
 
 RequireSSL();
+
+echo '3';
 
 LoadViews();
 
