@@ -16,9 +16,9 @@ require('debugging/main.php');
 
 require('events/main.php')
 require('loader.php');
-
-Loader('core');
 /*
+Loader('core');
+
 Loader('auth/Google');
 Loader('microservices/view');
 
