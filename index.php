@@ -10,10 +10,9 @@ if(!file_exists('config.php')){
 
 require('config.php');
 
-die('White Rabbit');
-
 require('events/main.php')
 require('debugging/main.php');
+echo 'Velveteen Rabbit';
 /*
 
 
