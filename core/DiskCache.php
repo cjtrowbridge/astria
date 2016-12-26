@@ -17,7 +17,7 @@ function readDiskCache($hash,$ttl){
   
   $path='cache/'.$hash.'.php';
   
-  if(!(file_exists($path)){
+  if(!(file_exists($path))){
     return false;
   }
   
