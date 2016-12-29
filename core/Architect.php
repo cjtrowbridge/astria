@@ -41,11 +41,11 @@ function ArchitectBodyCallback(){
   
 </div>
 <div class="row">
-  <div class="col-xs-12 col-md-5 hidden_box" id="hooks">
+  <div class="col-xs-12 hidden_box" id="hooks">
     <h2>Current Hooks</h2>
     <?php pd($EVENTS); ?>
   </div>
-  <div class="col-xs-12 col-md-7 hidden_box" id="debugSummary">
+  <div class="col-xs-12 hidden_box" id="debugSummary">
     <h2>Debug Summary</h2>
     <?php DebugShowSummary(); ?>
   </div>
@@ -55,8 +55,10 @@ function ArchitectBodyCallback(){
     ?>
   </div>
   <div class="col-xs-12 hidden_box" id="session">
+    Disabled during development until permissions are completed.
     <?php 
-      pd(htmlentities(var_export($_SESSION,true)));
+      //TODO
+      //pd(htmlentities(var_export($_SESSION,true)));
     ?>
   </div>
 </div>
