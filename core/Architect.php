@@ -33,11 +33,22 @@ function ArchitectBodyCallback(){
       echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
     ?>
   </div>
-  
+  Diagnostic Tools: 
   <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
   <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
   <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
   <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
+  <br>
+  User Tools: 
+  <button type="button" class="btn btn-success">Invite User</button>
+  <br>
+  Views:
+  <button type="button" class="btn btn-outline-primary">New View</button>
+  <form class="form-inline float-lg-right">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-outline-success" type="submit">Find View</button>
+  </form>
+  
   <br><br>
 </div>
 <div class="row">
