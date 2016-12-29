@@ -21,7 +21,7 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
     $first=false;
     $return.= "			<tr>\n";
     foreach($row as $key => $value){
-      $return.=AutoTabler_Table_Field_Handler_Return($key, $value,$row);
+      $return.=TableMask($key, $value,$row);
     }
     $return.= "			</tr>\n";
   }
