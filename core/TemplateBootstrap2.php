@@ -50,7 +50,7 @@ function TemplateBootstrap2($title=''){
           ?>
           
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo $link; ?>"><?php echo $link.' ';
+        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link.' ';
           if(path()==ltrim($path,"/")){
             ?><span class="sr-only">(current)</span></a><?php
           }
