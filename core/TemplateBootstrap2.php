@@ -64,7 +64,9 @@ function TemplateBootstrap2($title=''){
       ?>
     </ul>
     <ul class="nav navbar-nav float-xs-right">
-      <li><a href="/logout">Log Out</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Log Out</a>
+      </li>
     </ul>
   </nav>
 
