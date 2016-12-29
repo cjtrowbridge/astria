@@ -20,7 +20,7 @@ function Query(
 	global $ASTRIA;
 	switch($ASTRIA['databases'][$Database]['type']){
 		case 'mysql':
-			$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error());
+			$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 			if(!(is_bool($result))){
 				$Output=array();
 				while($Row=mysqli_fetch_assoc($result)){
