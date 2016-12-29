@@ -28,7 +28,7 @@ function readDiskCache($hash,$ttl){
   }
   
   $value=file_get_contents($path);
-  $value=ltrim($value,"<?php //";
+  $value=ltrim($value,"<?php //");
   $value=BlowfishDecrypt($value);
   
   eval('$return = ' . $value);
