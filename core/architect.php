@@ -10,7 +10,7 @@ function prepareArchitect(){
     //&& TODO Should user be able to see this?
   ){
     
-    Hook('User Is Logged In - Presentation','showArchitect');
+    Hook('User Is Logged In - Presentation','showArchitect();');
     
   }
 }
