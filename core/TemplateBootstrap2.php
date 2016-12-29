@@ -50,7 +50,7 @@ function TemplateBootstrap2($title=''){
           ?>
           
       <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
-        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?>
+        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?></a>
       </li>
           
           <?php
