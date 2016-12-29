@@ -5,6 +5,7 @@ define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");he
 define('DISKCACHETTL',60*60*24*7);
 
 function deleteDiskCache($hash){
+  include_once('cache/isValidMd5.php');
   if(!(isValidMd5($hash))){
     return false;
   }
@@ -18,6 +19,7 @@ function deleteDiskCache($hash){
 }
   
 function writeDiskCache($hash,$value){
+  include_once('cache/isValidMd5.php');
   if(!(isValidMd5($hash))){
     return false;
   }
@@ -32,6 +34,7 @@ function writeDiskCache($hash,$value){
 }
 
 function readDiskCache($hash,$ttl){
+  include_once('cache/isValidMd5.php');
   if(!(isValidMd5($hash))){
     return false;
   }
