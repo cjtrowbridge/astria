@@ -13,16 +13,16 @@ function Event($EventDescription){
     
     //BEGIN DEBUG SECTION
     
+    global $DEBUG, $START_TIME;
+    $temp_debug_output=array(
+      'debug point'=> $EventDescription,
+      'memory usage'=> (memory_get_usage()/1000000),
+      'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
+      'time'=> round(microtime(true)-$START_TIME,4)
+    );
+    $DEBUG[]=$temp_debug_output;
+    
     if($ASTRIA['debugging']['verbose']){
-      
-      global $DEBUG, $START_TIME;
-      $temp_debug_output=array(
-        'debug point'=> $EventDescription,
-        'memory usage'=> (memory_get_usage()/1000000),
-        'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
-        'time'=> round(microtime(true)-$START_TIME,4)
-      );
-      $DEBUG[]=$temp_debug_output;
       
       echo "\n<!-- Listing Hooks for Event: ".$EventDescription."\n\n";
       if(isset($EVENTS[$EventDescription])){
