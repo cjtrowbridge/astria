@@ -20,12 +20,22 @@ if(
 ){
 	
 }else{
-	$_SESSION['Auth']=array(
-		'Logged In'		=> false,
-		'Last Validated'	=> 0,
-		'Expires'		=> 0,
-		'Already Attempted'	=> false
-	);
+	
+	//Check for disk session cache with current session's cookie hash
+	/*
+	if(ttl ok){
+		move that into the current session
+	}else{
+	*/
+	
+		$_SESSION['Auth']=array(
+			'Logged In'		=> false,
+			'Last Validated'	=> 0,
+			'Expires'		=> 0,
+			'Already Attempted'	=> false
+		);
+	
+	//}
 }
 
 function LoggedIn(){
