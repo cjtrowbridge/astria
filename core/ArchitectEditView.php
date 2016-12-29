@@ -8,7 +8,7 @@ function ArchitectEditViewBodyCallback(){
   global $ASTRIA;
   MakeSureDBConnected();
   
-  if(is_integer(path(2))){
+  if(intval(trim(path(2)))==trim(path(2))){
     //look up by id
     $View=Query("
       SELECT * FROM View 
