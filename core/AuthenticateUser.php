@@ -54,17 +54,11 @@ function AuthenticateUser($email=null){
   
   $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],md5(uniqid(true)));
   
-  $sql="
+  Query("
     INSERT INTO `Session` 
     (`SessionHash`, `UserID`, `UserAgentHash`, `UserAgent`, `UserIPHash`, `UserIP`, `Expires`) VALUES 
-    (CONCAT(MD5(CONCAT(RAND(), '')),'".$SessionHash."') , ".$UserIDClean.", '".$UserAgentHashClean."', '".$UserAgentClean."', '".$UserIPHashClean."', '".$UserIPClean."', '".$Expires."');
-    SELECT SessionHash FROM Session WHERE SessionID = LAST_INSERT_ID();
-  ";
-  
-  pd($sql);
-  exit;
-  
-  $SessionHash=Query($sql)[0]['SessionHash'];
+    ('".$SessionHash."' , ".$UserIDClean.", '".$UserAgentHashClean."', '".$UserAgentClean."', '".$UserIPHashClean."', '".$UserIPClean."', '".$Expires."');
+  ");
   
   $_SESSION['SessionHash']=$SessionHash;
   
