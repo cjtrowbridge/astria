@@ -46,7 +46,7 @@ function TemplateBootstrap2($title=''){
     <a class="navbar-brand" href="#"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
-        foreach($ASTRIRA['nav'] as $link => $path){
+        foreach($ASTRIA['nav'] as $link => $path){
           ?>
           
       <li class="nav-item">
