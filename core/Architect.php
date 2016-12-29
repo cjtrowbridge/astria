@@ -70,8 +70,8 @@ function ArchitectBodyCallback(){
   </div>
   <div class="hidden" id="newView">
     <div class="row">
-      <div class="col-xs-12"><input type="text" placeholder="View Name"></div>
-      <div class="col-xs-12"><input type="text" placeholder="Description"></div>
+      <div class="col-xs-12"><input type="text" class="form-control" placeholder="View Name"></div>
+      <div class="col-xs-12"><input type="text" class="form-control" placeholder="Description"></div>
       <button type="button" class="btn btn-success">Create View</button>
     </div>
   </div>
