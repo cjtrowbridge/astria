@@ -42,7 +42,17 @@ function ArchitectBodyCallback(){
       <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
       <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
       <input class="form-control" type="text" placeholder="Search" id="search">
-      <script>$('#search').focus();</script>
+      <script>
+          $('#search').focus();
+          $(document).ready(function() {
+            $(window).keydown(function(event){
+              if(event.keyCode == 13) {
+                event.preventDefault();
+                return false;
+              }
+            });
+          });
+      </script>
     </form>
   </div>
 </div><br>
