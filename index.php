@@ -20,7 +20,6 @@ include('loader.php');
 
 Loader('core');
 Loader('auth/Google');
-Loader('architect');
 Loader('view');
 
 RequireSSL();
