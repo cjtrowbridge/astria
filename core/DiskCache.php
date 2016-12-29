@@ -4,6 +4,19 @@ define('DISK_CACHE_FILE_PREFIX','<?php /* ');
 define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
 define('DISKCACHETTL',60*60*24*7);
 
+function deleteDiskCache($hash){
+  if(!(isValidMd5($hash))){
+    return false;
+  }
+  $path='cache/'.$hash.'.php';
+  
+  if(!(file_exists($path))){
+    return false;
+  }
+  unlink($path);
+  return true;
+}
+  
 function writeDiskCache($hash,$value){
   if(!(isValidMd5($hash))){
     return false;
