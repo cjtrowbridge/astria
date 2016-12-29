@@ -34,8 +34,8 @@ function ArchitectBodyCallback(){
     ?>
   </div>
   
-  <button onclick="$('#debug').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
-  <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
+  <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
+  <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
   <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
   <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
   <br><br>
