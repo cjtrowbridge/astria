@@ -36,14 +36,14 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="hidden" id="groups">
     <?php
-      echo ArrTabler(Query("SELECT * FROM Group"));
+      echo ArrTabler(Query("SELECT * FROM `Group`"));
     ?>
   </div>
   <div class="hidden" id="views">
     <?php
       echo ArrTabler(Query("
-        SELECT * FROM View 
-        LEFT JOIN Hook ON Hook.ViewID = View.ViewID
+        SELECT * FROM `View` 
+        LEFT JOIN Hook ON Hook.ViewID = `View`.ViewID
         LEFT JOIN Callback ON Callback.CallbackID = Hook.CallbackID
       "));
     ?>
