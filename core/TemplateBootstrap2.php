@@ -49,12 +49,8 @@ function TemplateBootstrap2($title=''){
         foreach($ASTRIA['nav'] as $link => $path){
           ?>
           
-      <li class="nav-item">
-        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link.' ';
-          if(path()==ltrim($path,"/")){
-            ?><span class="sr-only">(current)</span></a><?php
-          }
-          ?>
+      <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
+        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?>
       </li>
           
           <?php
