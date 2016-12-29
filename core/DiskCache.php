@@ -2,6 +2,7 @@
 
 define('DISK_CACHE_FILE_PREFIX','<?php /* ');
 define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
+define('DISKCACHETTL',60*60*7);
 
 function writeDiskCache($hash,$value){
   if(!(isValidMd5($hash))){
@@ -42,4 +43,18 @@ function readDiskCache($hash,$ttl){
   eval('$return = ' . $value);
 
   return $return;
+}
+
+function DiskCacheCleanup(){
+  global $ASTRIA;
+  $path = 'cache/';
+  if ($handle = opendir($path)) {
+    while (false !== ($file = readdir($handle))) {
+      if ((time()-filectime($path.$file)) > DISKCACHETTL){  
+        if(!(strpos($file, '.php')===false)){
+          unlink($path.$file);
+        }
+      }
+    }
+  }
 }
