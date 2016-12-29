@@ -8,14 +8,18 @@ function ArchitectEditViewBodyCallback(){
   global $ASTRIA;
   MakeSureDBConnected();
   
+  pd(path(2));
+  
   if(intval(trim(path(2)))==trim(path(2))){
     //look up by id
-    $View=Query("
+    $sql="
       SELECT * FROM View 
       LEFT JOIN Hook ON Hook.ViewID = View.ViewID
       LEFT JOIN Callback ON Callback.CallbackID = Hook.CallbackID
       WHERE View.ViewID = ".intval(path(2))."
-    ");
+    ";
+    die($sql);
+    $View=Query($sql);
   }else{
     //try looking up by slug
     $safeslug=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],path(2));
