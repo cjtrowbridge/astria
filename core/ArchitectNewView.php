@@ -4,6 +4,8 @@ function ArchitectNewView(){
   if(isset($_POST['newViewName'])){
     global $ASTRIA;
     
+    MakeSureDBConnected();
+    
     $newViewName         = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_POST['newViewName']);
     $newViewDescription  = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_POST['newViewDescription']);
     $newViewNameSlug     = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_POST['newViewNameSlug']);
