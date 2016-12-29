@@ -7,7 +7,7 @@ function DebugShowSummary(){
   $summary=array(
     array(
       'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['time']-$DEBUG[0]['time']).'  seconds',
-      'Total Memory Consumption' => $DEBUG[(count($DEBUG)-1)]['memory usage'].' megabytes'
+      'Total RAM' => $DEBUG[(count($DEBUG)-1)]['memory usage'].' megabytes'
     )
   );
   echo ArrTabler($summary);
