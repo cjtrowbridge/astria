@@ -28,3 +28,18 @@ function GetAllGroups($UserID){
   
   return $CleanMemberships;
 }
+
+function GetGroupAncestors($GroupID){
+  $Ancestors = array();
+  while(true){
+    $Output= Query('SELECT ParentID FROM `Group` WHERE GroupID = '.intval($GroupID));
+    
+    if(count($Output)==0){
+      break;
+    }
+    $GroupID=$Output[0]['ParentID'];
+    $Ancestors[]=$GroupID;
+  }
+  
+  return $Ancestors;
+}
