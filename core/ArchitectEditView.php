@@ -68,13 +68,15 @@ function ArchitectEditViewBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Groups:</label>
             <div class="col-xs-10">
-              ???
+              <button type="button" class="btn btn-secondary btn-lg" disabled>New Group</button>
+              List Groups
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Hooks and Callbacks:</label>
             <div class="col-xs-10">
-              ???
+              <button type="button" class="btn btn-secondary btn-lg" disabled>New Hook</button>
+              List Hooks
             </div>
           </div>
           <input class="form-control" type="submit">
