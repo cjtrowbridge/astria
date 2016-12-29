@@ -25,5 +25,5 @@ function paths(){
 }
 
 function url(){
-  return ltrim(strtolower($_SERVER['REQUEST_URI']), '/');
+  return rtrim(trim(strtolower($_SERVER['REQUEST_URI']), '/'),'/');
 }
