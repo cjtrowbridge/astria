@@ -11,5 +11,5 @@ function SessionCleanup(){
         }else{echo 'skipped nonsession file'.$file."<br>\n";}
       }else{echo 'skipped fresh file '.$file."<br>\n";}
     }
-  }else{die('Cant open cache dir.')}
+  }else{die('Cant open cache dir.');}
 }
