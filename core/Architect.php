@@ -21,9 +21,27 @@ function showArchitect(){
 }
   
 function ArchitectBodyCallback(){
-  global $EVENTS;
+  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN;
   ?>
 <h1>Architect</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <?php
+      echo 'User '.$_SESSION['User']['Email'].' is logged in, but nothing happened at this url.<br>';
+      echo 'Runtime '.round(microtime(true)-$DEBUG[0]['time'],4)." seconds.<br>";
+      echo 'Ran '.$NUMBER_OF_QUERIES_RUN.' <a href="javscript:void(0);" onclick="$('#queriesRun').slideToggle();">Queries</a>.<br>';
+    ?>
+  </div>
+  <div class="col-xs-12" id="queriesRun" style="display: none;>
+    <?php 
+      pd($QUERIES_RUN);
+    ?>
+  </div>
+    <?php
+      echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
+    ?>
+  </div>
+</div>
 <div class="row">
   <div class="col-xs-12 col-md-5">
     <h2>Current Hooks</h2>
