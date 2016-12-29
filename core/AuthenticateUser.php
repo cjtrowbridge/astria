@@ -11,33 +11,8 @@ function AuthenticateUser($email=null){
   $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
   $_SESSION['User']=$User;
   
-  //Find the groups they are a member of, as well as all the ancestor groups
-  $Memberships=array();
-  $DirectMemberships = Query("SELECT DISTINCT(GroupID) FROM `Membership` WHERE UserID = ".$_SESSION['User']['UserID']);
-    
-    foreach($DirectMemberships as $DirectMembership){
-      
-      $Memberships[$DirectMembership['GroupID']]=$DirectMembership['GroupID'];
-      
-      $IndirectMemberships = GetGroupAncestors($DirectMembership['GroupID']);
-      foreach($IndirectMemberships as $IndirectMembership){
-        $Memberships[$IndirectMembership]=$IndirectMembership;
-      }
-      
-    }
-  ksort($Memberships);
-  
-  //The groups are in order but they are strings and some might be blank. Let's clean them up
-  $CleanMemberships=array();
-  foreach($Memberships as $Membership){
-    $temp=trim(intval($Membership));
-    if(!($temp=='')){
-      $CleanMemberships[]=$temp;
-    }
-  }
-  
   //Insert group memberships into the session
-  $_SESSION['User']['Memberships']=$CleanMemberships;
+  $_SESSION['User']['Memberships']=GetAllGroups($_SESSION['User']['UserID']);
   
   //Create a high-entropy hash to connect the cookie with the session
   $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],md5(uniqid(true)));
@@ -73,19 +48,4 @@ function AuthenticateUser($email=null){
   //Cache the entire session to disk with the cookie's SessionHash as the key.
   writeDiskCache($SessionHash,$_SESSION);
   
-}
-
-function GetGroupAncestors($GroupID){
-  $Ancestors = array();
-  while(true){
-    $Output= Query('SELECT ParentID FROM `Group` WHERE GroupID = '.intval($GroupID));
-    
-    if(count($Output)==0){
-      break;
-    }
-    $GroupID=$Output[0]['ParentID'];
-    $Ancestors[]=$GroupID;
-  }
-  
-  return $Ancestors;
 }
