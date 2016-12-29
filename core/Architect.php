@@ -37,10 +37,10 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <form class="form-inline">
-      <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
-      <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
-      <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
-      <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
+      <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-primary">Events</button>
+      <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-primary">Hooks</button>
+      <button onclick="Cardify('Events','queriesRun');" type="button" class="btn btn-outline-primary">Queries</button>
+      <button onclick="Cardify('Events','session');" type="button" class="btn btn-outline-primary">Session</button>
     </form><br>
     <form class="form-inline">
       <button type="button" class="btn btn-info" onclick="NewView();">New View</button>
