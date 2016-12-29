@@ -85,6 +85,10 @@ function LoggedIn(){
 }
 function LogOut(){
 	session_destroy();
+	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
+	unset($_COOKIE[$CookieName]);
+    	setcookie($CookieName, null, -1, '/');
+	deleteDiskCache($_SESSION['SessionHash']);
 	header('Location: /');	
 	exit;
 }
