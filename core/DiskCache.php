@@ -4,7 +4,7 @@ function writeDiskCache($hash,$value){
   
   $value=var_export($value,true);
   
-  $value=BlowfishEncrypt($value);
+  //$value=BlowfishEncrypt($value);
   
   return file_put_contents('cache/'.$hash.'.php',$value);
 
