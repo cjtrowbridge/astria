@@ -5,6 +5,10 @@ session_start();
 //We need this to happen before this script can work
 include_once('Path.php');
 
+//TODO make this happen on a cron
+include_once('SessionCleanup.php');
+SessionCleanup();
+
 if(
 	path()=='logout'||
 	isset($_GET['logout'])  
