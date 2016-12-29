@@ -8,8 +8,6 @@ function ArchitectEditViewBodyCallback(){
   global $ASTRIA;
   MakeSureDBConnected();
   
-  pd(path(2));
-  
   if(intval(trim(path(2)))>0){
     //look up by id
     $sql="
