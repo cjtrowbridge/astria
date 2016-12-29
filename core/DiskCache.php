@@ -4,6 +4,9 @@ define('DISK_CACHE_FILE_PREFIX','<?php /* ');
 define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
 
 function writeDiskCache($hash,$value){
+  if(!(isValidMd5($hash))){
+    return false;
+  }
   
   $value=var_export($value,true);
   
