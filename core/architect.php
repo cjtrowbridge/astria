@@ -14,11 +14,11 @@ function ArchitectBodyCallback(){
   ?>
 <h1>Architect</h1>
 <div class="row">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-xs-12 col-md-4">
     <h2>Current Hooks</h2>
     <?php pd($EVENTS); ?>
   </div>
-  <div class="col-xs-12 col-md-6">
+  <div class="col-xs-12 col-md-8">
     <h2>Debug Summary</h2>
     <?php DebugShowSummary(); ?>
   </div>
