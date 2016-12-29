@@ -7,6 +7,7 @@ if(
   //&& TODO User should be able to see this
 ){
   Hook('Template Body','ArchitectBodyCallback();');
+  TemplateBootstrap2('Architect');
 }
 
 function ArchitectBodyCallback(){
