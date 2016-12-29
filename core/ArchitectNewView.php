@@ -11,7 +11,6 @@ function ArchitectNewView(){
     $newViewSlug     = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_POST['newViewSlug']);
 
     $sql="INSERT INTO `View` (`Slug`, `Name`, `Description`) VALUES ('".$newViewSlug."', '".$newViewName."', '".$newViewDescription."');";
-    die($sql);
     Query($sql);
     $ViewID=mysqli_insert_id($ASTRIA['databases']['astria core administrative database']['resource']);
     
