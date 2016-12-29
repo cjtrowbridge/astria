@@ -42,13 +42,13 @@ function ArchitectBodyCallback(){
     <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
     <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
   </div>
-</div>
+</div><br>
 <div class="row">
   <div class="col-xs-12">
     User Tools: 
     <button type="button" class="btn btn-success">Invite User</button>
   </div>
-</div>
+</div><br>
 <div class="row">
   <div class="col-xs-12">
     Views:
@@ -58,7 +58,7 @@ function ArchitectBodyCallback(){
       <button class="btn btn-outline-success" type="submit">Find View</button>
     </form>
   </div>
-</div>
+</div><br>
 <div class="row">
   <div class="col-xs-12 hidden_box" id="hooks">
     <h2>Current Hooks</h2>
