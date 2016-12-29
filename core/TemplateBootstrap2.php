@@ -74,5 +74,5 @@ function TemplateBootstrap2($title=''){
 </body>
 </html>
 <?php
-  
+  exit;
 }
