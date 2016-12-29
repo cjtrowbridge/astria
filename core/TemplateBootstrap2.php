@@ -74,7 +74,7 @@ function TemplateBootstrap2($title=''){
     <?php } ?>
   </nav>
 
-  <div class="container">
+  <div class="container" id="bodyContainer">
 
     <?php Event('Template Body'); ?>
 
