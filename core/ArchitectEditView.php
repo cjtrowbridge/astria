@@ -35,7 +35,7 @@ function ArchitectEditViewBodyCallback(){
     echo '<h1>View Not Found!</h1>';
     return false;
   }
-  pd($View);
+  $View=$View[0];
   ?>
 
 <div class="container">
