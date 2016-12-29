@@ -3,6 +3,7 @@
 function DebugShowSummary(){
   
   global $DEBUG;
+  echo "<h3>Summary</h3>\n";
   $summary=array(
     array(
       'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['time']-$DEBUG[0]['time']).'  seconds',
@@ -10,7 +11,7 @@ function DebugShowSummary(){
     )
   );
   ArrTabler($summary);
-  echo '<h3>Debug Detail:</h3>';
+  echo "<h3>Detail:</h3>\n";
   ArrTabler($DEBUG);
   ?>
   <script>$('.tablesorter').tablesorter({widgets: ["zebra", "filter"]});</script>
