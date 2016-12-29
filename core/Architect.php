@@ -33,13 +33,7 @@ function ArchitectBodyCallback(){
       echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
     ?>
   </div>
-</div><br>
-<div class="row">
-  <div class="col-xs-12">
-    Diagnostic Tools: 
-    
-  </div>
-</div><br>
+</div>
 <div class="row">
   <div class="col-xs-12">
     <form class="form-inline">
