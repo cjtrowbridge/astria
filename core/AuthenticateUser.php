@@ -61,6 +61,9 @@ function AuthenticateUser($email=null){
     SELECT SessionHash FROM Session WHERE SessionID = LAST_INSERT_ID();
   ";
   
+  pd($sql);
+  exit;
+  
   $SessionHash=Query($sql)[0]['SessionHash'];
   
   $_SESSION['SessionHash']=$SessionHash;
