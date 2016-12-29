@@ -16,7 +16,7 @@ function Event($EventDescription){
     global $DEBUG, $START_TIME;
     $temp_debug_output=array(
       'debug point'=> $EventDescription,
-      'memory usage'=> (memory_get_usage()/1000000),
+      'ram'=> (memory_get_usage()/1000000),
       'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
       'time'=> round(microtime(true)-$START_TIME,4)
     );
