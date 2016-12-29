@@ -2,7 +2,7 @@
 
 define('DISK_CACHE_FILE_PREFIX','<?php /* ');
 define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
-define('DISKCACHETTL',60*60*7);
+define('DISKCACHETTL',60*60*24*7);
 
 function writeDiskCache($hash,$value){
   if(!(isValidMd5($hash))){
