@@ -37,24 +37,17 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     Diagnostic Tools: 
-    <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
-    <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
-    <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
-    <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
-  </div>
-</div><br>
-<div class="row">
-  <div class="col-xs-12">
-    User Tools: 
-    <button type="button" class="btn btn-success">Invite User</button>
+    
   </div>
 </div><br>
 <div class="row">
   <div class="col-xs-12">
     <form class="form-inline">
-      <button class="btn btn-outline-success" type="submit">Find View</button>
-      <button type="button" class="btn btn-outline-primary">New View</button>
-      <input class="form-control" type="text" placeholder="Name">
+      <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
+      <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
+      <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
+      <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
+      <input class="form-control" type="text" placeholder="Search">
     </form>
   </div>
 </div><br>
