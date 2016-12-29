@@ -7,10 +7,9 @@ function SessionCleanup(){
     while (false !== ($file = readdir($handle))) {
       if ((time()-filectime($path.$file)) > $ASTRIA['app']['defaultSessionLength']){  
         if(strpos($file, 'session_')==0){
-          //unlink($path.$file);
-          echo 'deleted file: '.$file."<br>\n";
-        }else{echo 'skipped nonsession file'.$file.": ".(strpos($file, 'session_'))."<br>\n";}
-      }else{echo 'skipped fresh file '.$file." age: ".(time()-filectime($path.$file))."/ ".$ASTRIA['app']['defaultSessionLength']."<br>\n";}
+          unlink($path.$file);
+        }
+      }
     }
-  }else{die('Cant open cache dir.');}
+  }else{die('Cant open cache dir. Please make sure it has the correct permissions.');}
 }
