@@ -3,7 +3,6 @@
 function DebugShowSummary(){
   
   global $DEBUG;
-  echo "<h3><br>Debug Summary</h3>\n";
   $summary=array(
     array(
       'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['time']-$DEBUG[0]['time']).'  seconds',
