@@ -49,11 +49,9 @@ function ArchitectBodyCallback(){
 </div><br>
 <div class="row">
   <div class="hidden" id="hooks">
-    <h2>Current Hooks</h2>
     <?php pd($EVENTS); ?>
   </div>
   <div class="hidden" id="debugSummary">
-    <h2>Debug Summary</h2>
     <?php DebugShowSummary(); ?>
   </div>
   <div class="hidden" id="queriesRun">
