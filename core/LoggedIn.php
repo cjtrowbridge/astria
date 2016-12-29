@@ -46,6 +46,7 @@ if(
 }
 
 //Make sure that the user agent and ip have not changed and that the sessions is not expired
+/*
 if(!($_SESSION['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
 	LogOut();
 }
@@ -55,6 +56,7 @@ if(!($_SESSION['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
 if(!($_SESSION['Auth']['Expires']>time())){
 	LogOut();
 }
+*/
 
 function LoggedIn(){
     	if(!(isset($_SESSION['Auth']['Already Attempted']))){
@@ -95,6 +97,7 @@ function LoggedIn(){
   
 }
 function LogOut(){
+	global $ASTRIA;
 	session_destroy();
 	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
 	unset($_COOKIE[$CookieName]);
