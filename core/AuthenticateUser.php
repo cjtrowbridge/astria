@@ -57,11 +57,9 @@ function AuthenticateUser($email=null){
   $sql="
     INSERT INTO `Session` 
     (`SessionHash`, `UserID`, `UserAgentHash`, `UserAgent`, `UserIPHash`, `UserIP`, `Expires`) VALUES 
-    CONCAT(MD5(CONCAT(RAND(), '')),".$SessionHash.") , ".$UserIDClean.", '".$UserAgentHashClean."', '".$UserAgentClean."', '".$UserIPHashClean."', '".$UserIPClean."', '".$Expires."');
+    CONCAT(MD5(CONCAT(RAND(), '')),'".$SessionHash."') , ".$UserIDClean.", '".$UserAgentHashClean."', '".$UserAgentClean."', '".$UserIPHashClean."', '".$UserIPClean."', '".$Expires."');
     SELECT SessionHash FROM Session WHERE SessionID = LAST_INSERT_ID();
   ";
-  pd($sql);
-  exit;
   
   $SessionHash=Query($sql)[0]['SessionHash'];
   
