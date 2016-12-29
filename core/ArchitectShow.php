@@ -50,38 +50,29 @@ function ArchitectBodyCallback(){
     ?>
   </div>
   <div class="hidden" id="newView">
-    <div class="form-group row">
-      <div class="col-xs-12">
-        <input type="text" class="form-control" placeholder="View Name" name="newViewName" id="newViewName">
+    <form action="/architect/new-view" method="post">
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <input type="text" class="form-control" placeholder="View Name" name="newViewName" id="newViewName">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-xs-12">
-        <input type="text" class="form-control" placeholder="Description" name="newViewDescription" id="newViewDescription">
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <input type="text" class="form-control" placeholder="Description" name="newViewDescription" id="newViewDescription">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-xs-12">
-        <input type="text" class="form-control" placeholder="Slug" name="newViewSlug" id="newViewSlug">
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <input type="text" class="form-control" placeholder="Slug" name="newViewSlug" id="newViewSlug">
+        </div>
       </div>
-    </div>
-    <div class="form-group row">
-      <div class="col-xs-12">
-        <button type="button" class="btn btn-success">Create View</button>
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Create View</button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
-<script>
-  $('#search').focus();
-  $(document).ready(function() {
-    $(window).keydown(function(event){
-      if(event.keyCode == 13) {
-        event.preventDefault();
-        return false;
-      }
-    });
-  });
-</script>
 <?php
 }
