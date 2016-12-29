@@ -49,6 +49,12 @@ function ArchitectBodyCallback(){
       pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
+  <div class="hidden" id="databases">
+    <?php 
+      $temp=$ASTRIA['Databases'];
+      pd(htmlentities(var_export($temp,true)));
+    ?>
+  </div>
   <div class="hidden" id="newView">
     <form action="/architect/new-view" method="post">
       <div class="form-group row">
