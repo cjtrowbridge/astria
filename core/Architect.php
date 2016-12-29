@@ -34,7 +34,7 @@ function ArchitectBodyCallback(){
   </div>
   <div class="col-xs-12" id="queriesRun" style="display: none;>
     <?php 
-      pd($QUERIES_RUN);
+      pd(htmlentities($QUERIES_RUN));
     ?>
   </div>
     <?php
