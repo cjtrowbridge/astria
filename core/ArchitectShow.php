@@ -55,7 +55,7 @@ function ArchitectBodyCallback(){
       global $ASTRIA;
       $temp=array();
       foreach($ASTRIA['databases'] as $name => $database){
-        $temp[$name] => $database['resource'];
+        $temp[$name]=$database['resource'];
       }
       pd(htmlentities(var_export($temp,true)));
     ?>
