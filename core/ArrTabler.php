@@ -21,7 +21,7 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
     $first=false;
     $return.= "			<tr>\n";
     foreach($row as $key => $value){
-      $return.="<td>".TableMask($key, $value,$row)."</td>";
+      $return.="<td>".FieldMask($key, $value,$row)."</td>";
     }
     $return.= "			</tr>\n";
   }
