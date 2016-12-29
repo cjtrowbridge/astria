@@ -53,7 +53,6 @@ function TemplateBootstrap2($title=''){
     <ul class="nav navbar-nav">
       <?php
         if(LoggedIn()){
-
           foreach($ASTRIA['nav'] as $link => $path){
             ?>
           
@@ -66,11 +65,13 @@ function TemplateBootstrap2($title=''){
         }
       ?>
     </ul>
+    <?php if(LoggedIn()){ ?>
     <ul class="nav navbar-nav float-xs-right">
       <li class="nav-item">
         <a class="nav-link active" href="/logout">Log Out</a>
       </li>
     </ul>
+    <?php } ?>
   </nav>
 
   <div class="container">
