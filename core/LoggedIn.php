@@ -13,9 +13,7 @@ if(
 	path()=='logout'||
 	isset($_GET['logout'])  
 ){
-	session_destroy();
-	header('Location: /');
-	exit;
+	LogOut();
 }
 
 if(
@@ -44,9 +42,7 @@ if(
 
 function LoggedIn(){
     	if(!(isset($_SESSION['Auth']['Already Attempted']))){
-		session_destroy();
-		header('Location: /');
-		exit;
+		LogOut();
 	}
 	
 	if($_SESSION['Auth']['Already Attempted']==true){
@@ -81,4 +77,9 @@ function LoggedIn(){
 			
   }
   
+}
+function LogOut(){
+	session_destroy();
+	header('Location: /');	
+	exit;
 }
