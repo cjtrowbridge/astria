@@ -78,7 +78,7 @@ function AttemptGoogleAuth(){
         WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->email)."';
       ");
     
-      CacheUserToSession($_SESSION['google_oauth2']['user_object']->email);
+      AuthenticateUser($_SESSION['google_oauth2']['user_object']->email);
     
   }else{
     $authUrl = $client->createAuthUrl();
