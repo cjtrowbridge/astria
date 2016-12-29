@@ -6,7 +6,7 @@ function DebugShowSummary(){
   echo "<h3>Summary:</h3>\n";
   $summary=array(
     array(
-      'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['time']-$DEBUG[0]['time']).'  seconds',
+      'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['timestamp']-$DEBUG[0]['timestamp']).'  seconds',
       'Total RAM' => $DEBUG[(count($DEBUG)-1)]['ram'].' megabytes'
     )
   );
