@@ -27,10 +27,10 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <?php
-      echo 'Current User: ID '.$_SESSION['User']['UserID'].', Email '.$_SESSION['User']['Email'].'.';
+      echo '<p>Current User: ID '.$_SESSION['User']['UserID'].', Email '.$_SESSION['User']['Email'].'.';
       echo ' Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.";
       echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Queries.';
-      echo ' Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
+      echo ' Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.</p>';
     ?>
   </div>
 </div>
