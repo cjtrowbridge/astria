@@ -2,14 +2,24 @@
 
 include_once('Path.php');
 
-if(
-  path()=='architect'
-  //&& TODO User should be able to see this
-){
-  Hook('Template Body','ArchitectBodyCallback();');
-  TemplateBootstrap2('Architect');
+Hook('User Is Logged In - Before Presentation','prepareArchitect();');
+
+function prepareArchitect(){
+  if(
+    path()=='architect'
+    //&& TODO Should user be able to see this?
+  ){
+    
+    Hook('User Is Logged In - Presentation','showArchitect');
+    
+  }
 }
 
+function showArchitect(){
+  Hook('Template Body','ArchitectBodyCallback();');
+  TemplateBootstrap2('Architect'); 
+}
+  
 function ArchitectBodyCallback(){
   global $EVENTS;
   ?>
