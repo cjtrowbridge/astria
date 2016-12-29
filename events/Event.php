@@ -17,7 +17,7 @@ function Event($EventDescription){
     $temp_debug_output=array(
       'description'=> $EventDescription,
       'ram'=> (memory_get_usage()/1000000),
-      'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['time'],4),
+      'runtime'=>round(microtime(true)-$DEBUG[(count($DEBUG)-1)]['timestamp'],4),
       'timestamp'=> round(microtime(true)-$START_TIME,4)
     );
     $DEBUG[]=$temp_debug_output;
