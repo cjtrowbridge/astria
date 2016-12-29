@@ -28,7 +28,7 @@ function ArchitectBodyCallback(){
   <div class="col-xs-12">
     <?php
       echo 'User '.$_SESSION['User']['Email'].' is logged in, but nothing happened at this url.<br>';
-      echo 'Runtime '.round(microtime(true)-$DEBUG[0]['time'],4)." seconds.<br>";
+      echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.<br>";
       echo 'Ran '.$NUMBER_OF_QUERIES_RUN.' <a href="javscript:void(0);" onclick="$('#queriesRun').slideToggle();">Queries</a>.<br>';
     ?>
   </div>
