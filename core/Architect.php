@@ -71,10 +71,8 @@ function ArchitectBodyCallback(){
     ?>
   </div>
   <div class="col-xs-12 hidden_box" id="session">
-    Disabled during development until permissions are completed.
     <?php 
-      //TODO
-      //pd(htmlentities(var_export($_SESSION,true)));
+      pd(htmlentities(var_export($_SESSION,true)));
     ?>
   </div>
 </div>
