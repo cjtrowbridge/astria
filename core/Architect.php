@@ -41,7 +41,6 @@ function ArchitectBodyCallback(){
       <button onclick="$('#hooks').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
       <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
       <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
-      <input class="form-control" type="text" placeholder="Search" id="search">
     </form>
     <form class="form-inline">
       <button type="button" class="btn btn-info" onclick="NewView();">New View</button>
