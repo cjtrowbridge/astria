@@ -43,7 +43,7 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Events','session');" type="button" class="btn btn-outline-primary">Session</button>
     </form><br>
     <form class="form-inline">
-      <button type="button" class="btn btn-info" onclick="NewView();">New View</button>
+      <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
     </form>
   </div>
 </div><br>
@@ -52,21 +52,28 @@ function ArchitectBodyCallback(){
     <h2>Current Hooks</h2>
     <?php pd($EVENTS); ?>
   </div>
-  <div class="col-xs-12 hidden_box" id="debugSummary">
+  <div class="hidden" id="debugSummary">
     <h2>Debug Summary</h2>
     <?php DebugShowSummary(); ?>
   </div>
-  <div class="col-xs-12 hidden_box" id="queriesRun">
+  <div class="hidden" id="queriesRun">
     <?php 
       pd(htmlentities($QUERIES_RUN));
     ?>
   </div>
-  <div class="col-xs-12 hidden_box" id="session">
+  <div class="hidden" id="session">
     <?php 
       $temp=$_SESSION;
       unset($temp['google_oauth2']);
       pd(htmlentities(var_export($temp,true)));
     ?>
+  </div>
+  <div class="hidden" id="newView">
+    <div class="row">
+      <div class="col-xs-12"><input type="text" placeholder="View Name"></div>
+      <div class="col-xs-12"><input type="text" placeholder="Description"></div>
+      <button type="button" class="btn btn-success">Create View</button>
+    </div>
   </div>
 </div>
 <script>
