@@ -36,7 +36,7 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="hidden" id="groups">
     <?php
-      echo ArrTabler(Query("SELECT * FROM Groups"));
+      echo ArrTabler(Query("SELECT * FROM Group"));
     ?>
   </div>
   <div class="hidden" id="views">
