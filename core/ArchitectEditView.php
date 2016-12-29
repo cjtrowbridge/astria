@@ -29,7 +29,6 @@ function ArchitectEditViewBodyCallback(){
       LEFT JOIN Callback.CallbackID = Hook.CallbackID
       WHERE View.Slug LIKE '".$safeslug."'
     ";
-    die($sql);
     $View=Query($sql);
   }
   if(!(isset($View[0]))){
