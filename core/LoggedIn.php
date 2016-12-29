@@ -6,8 +6,8 @@ session_start();
 include_once('Path.php');
 
 //TODO make this happen on a cron
-include_once('SessionCleanup.php');
-SessionCleanup();
+include_once('DiskCache.php');
+DiskCacheCleanup();
 
 if(
 	path()=='logout'||
