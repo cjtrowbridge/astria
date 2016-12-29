@@ -12,6 +12,7 @@ function prepareArchitect(){
         ArchitectNewView();
         break;
       case 'edit':
+      case 'edit-view':
         ArchitectEditView();
         break;
       default:
