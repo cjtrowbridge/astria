@@ -18,5 +18,6 @@ function prepareArchitect(){
         Hook('User Is Logged In - Presentation','showArchitect();');
         break;
     }
+  }
 }
 
