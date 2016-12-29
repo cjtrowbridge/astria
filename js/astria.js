@@ -9,6 +9,7 @@ function AddCard(
 '      <p class="card-text">'+text+'</p>'+
 '    </div>'
   );
+  $('body card:last-of-type input:first-of-type').focus();
 }
 function Cardify(title,id){
   AddCard(
