@@ -40,7 +40,7 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-primary">Events</button>
       <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-primary">Hooks</button>
       <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-primary">Queries</button>
-      <button onclick="Cardify('Events','session');" type="button" class="btn btn-outline-primary">Session</button>
+      <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-primary">Session</button>
     </form><br>
     <form class="form-inline">
       <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
