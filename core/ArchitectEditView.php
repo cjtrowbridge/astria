@@ -5,6 +5,7 @@ function ArchitectEditView(){
   TemplateBootstrap2('Architect'); 
 }
 function ArchitectEditViewBodyCallback(){
+  global $ASTRIA;
   MakeSureDBConnected();
   
   if(is_integer(path(2))){
