@@ -53,8 +53,11 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="databases">
     <?php 
       global $ASTRIA;
-      $temp=$ASTRIA;
-      //pd(htmlentities(var_export($temp,true)));
+      $temp=array();
+      foreach($ASTRIA['databases'] as $name => $database){
+        $temp[$name] => $database['resource'];
+      }
+      pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
   <div class="hidden" id="newView">
