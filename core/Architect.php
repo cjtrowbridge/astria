@@ -52,10 +52,10 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     Views:
-    <button type="button" class="btn btn-outline-primary">New View</button>
     <form class="form-inline">
       <input class="form-control" type="text" placeholder="Search">
       <button class="btn btn-outline-success" type="submit">Find View</button>
+      <button type="button" class="btn btn-outline-primary">New View</button>
     </form>
   </div>
 </div><br>
