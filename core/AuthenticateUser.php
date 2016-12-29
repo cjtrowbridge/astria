@@ -67,7 +67,7 @@ function AuthenticateUser($email=null){
     die('Could not set cookie.');
   }
   
-  writeDiskCache('session_'.$SessionHash,$_SESSION);
+  writeDiskCache($SessionHash,$_SESSION);
   
 }
 function GetGroupAncestors($GroupID){
