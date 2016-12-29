@@ -33,21 +33,32 @@ function ArchitectBodyCallback(){
       echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
     ?>
   </div>
-  <div class="col-xs-12" id="queriesRun" style="display: none; border:1px solid #000;">
+  
+  <button onclick="$('#debugs').slideToggle();" type="button" class="btn btn-outline-primary">Debug</button>
+  <button onclick="$('#debugSummary').slideToggle();" type="button" class="btn btn-outline-primary">Hooks</button>
+  <button onclick="$('#queriesRun').slideToggle();" type="button" class="btn btn-outline-primary">Queries</button>
+  <button onclick="$('#session').slideToggle();" type="button" class="btn btn-outline-primary">Session</button>
+  
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-5 hidden_box" id="hooks">
+    <h2>Current Hooks</h2>
+    <?php pd($EVENTS); ?>
+  </div>
+  <div class="col-xs-12 col-md-7 hidden_box" id="debugSummary">
+    <h2>Debug Summary</h2>
+    <?php DebugShowSummary(); ?>
+  </div>
+  <div class="col-xs-12 hidden_box" id="queriesRun">
     <?php 
       pd(htmlentities($QUERIES_RUN));
     ?>
   </div>
+  <div class="col-xs-12 hidden_box" id="queriesRun">
+    <?php 
+      pd(htmlentities($_SESSION));
+    ?>
+  </div>
 </div>
-<div class="row">
-  <div class="col-xs-12 col-md-5">
-    <h2>Current Hooks</h2>
-    <?php pd($EVENTS); ?>
-  </div>
-  <div class="col-xs-12 col-md-7">
-    <h2>Debug Summary</h2>
-    <?php DebugShowSummary(); ?>
-  </div>
-  </div>
 <?php
 }
