@@ -48,7 +48,7 @@ function ArchitectBodyCallback(){
   </div>
 </div><br>
 <div class="row">
-  <div class="col-xs-12 hidden_box" id="hooks">
+  <div class="hidden" id="hooks">
     <h2>Current Hooks</h2>
     <?php pd($EVENTS); ?>
   </div>
