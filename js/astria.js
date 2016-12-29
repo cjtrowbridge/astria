@@ -10,3 +10,9 @@ function AddCard(
 '    </div>'
   );
 }
+function Cardify(title,id){
+  AddCard(
+    title,
+    $('#'+id).html()
+  );
+}
