@@ -75,6 +75,12 @@ function ArchitectBodyCallback(){
       'New View',
       'Please fill out the form which will eventually be added here.'
     );
+    function Cardify(title,id){
+      AddCard(
+        title,
+        $('#'+id).html()
+      );
+    }
   }
   $('#search').focus();
   $(document).ready(function() {
