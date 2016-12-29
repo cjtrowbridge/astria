@@ -26,6 +26,10 @@ function ArchitectEditViewBodyCallback(){
       WHERE View.Slug LIKE '".$safeslug."'
     ");
   }
+  if(!(isset($View[0]))){
+    echo '<h1>View Not Found!</h1>';
+    return false;
+  }
   pd($View);
   
   
