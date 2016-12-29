@@ -10,7 +10,7 @@ function ArchitectEditViewBodyCallback(){
   
   pd(path(2));
   
-  if(intval(trim(path(2)))==trim(path(2))){
+  if(is_integer(trim(path(2)))){
     //look up by id
     $sql="
       SELECT * FROM View 
