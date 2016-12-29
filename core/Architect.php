@@ -53,6 +53,7 @@ function ArchitectBodyCallback(){
             });
           });
       </script>
+      <button type="button" class="btn btn-info">New View</button>
     </form>
   </div>
 </div><br>
