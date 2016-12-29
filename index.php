@@ -9,6 +9,12 @@ if(!file_exists('config.php')){
 }
 
 include('config.php');
+
+global $ASTRIA;
+$ASTRIA['nav']=array(
+  'Architect' => '/architect'
+);
+
 include('events/main.php');
 include('loader.php');
 
