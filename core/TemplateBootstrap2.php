@@ -45,7 +45,21 @@ function TemplateBootstrap2($title=''){
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
     <a class="navbar-brand" href="#"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
-      <?php Event('Template Nav'); ?>
+      <?php
+        foreach($ASTRIRA['nav'] as $link => $path){
+          ?>
+          
+      <li class="nav-item">
+        <a class="nav-link" href="<?php echo $link; ?>"><?php echo $link.' ';
+          if(path()==ltrim($path,"/")){
+            ?><span class="sr-only">(current)</span></a><?php
+          }
+          ?>
+      </li>
+          
+          <?php
+        }
+      ?>
     </ul>
   </nav>
 
