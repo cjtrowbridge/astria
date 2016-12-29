@@ -1,6 +1,6 @@
 <?php
 
-function GetAllMemberships($UserID){
+function GetAllGroups($UserID){
   //Find the groups they are a member of, as well as all the ancestor groups
   $Memberships=array();
   $DirectMemberships = Query("SELECT DISTINCT(GroupID) FROM `UserMembership` WHERE UserID = ".intval($UserID));
