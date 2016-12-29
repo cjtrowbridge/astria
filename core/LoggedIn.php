@@ -23,21 +23,26 @@ if(
 	
 }else{
 	
-	//Check for disk session cache with current session's cookie hash
-	/*
-	if(ttl ok){
-		move that into the current session
+	//Check for disk session cache with current session's cookie hash if present.
+	global $ASTRIA;
+	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
+	if(isset($_COOKIE[$CookieName])){
+		$Cache=readDiskCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
 	}else{
-	*/
+		$Cache=false;	
+	}
 	
+	if($Cache==false){
 		$_SESSION['Auth']=array(
 			'Logged In'		=> false,
 			'Last Validated'	=> 0,
 			'Expires'		=> 0,
 			'Already Attempted'	=> false
 		);
+	}else{
+		$_SESSION=$Cache;
+	}
 	
-	//}
 }
 
 function LoggedIn(){
