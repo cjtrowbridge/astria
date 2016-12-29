@@ -18,7 +18,6 @@ function ArchitectEditViewBodyCallback(){
       LEFT JOIN Callback ON Callback.CallbackID = Hook.CallbackID
       WHERE View.ViewID = ".intval(path(2))."
     ";
-    die($sql);
     $View=Query($sql);
   }else{
     //try looking up by slug
