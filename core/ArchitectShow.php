@@ -27,11 +27,27 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-warning">Queries</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
+      <button onclick="Cardify('Views','views');" type="button" class="btn btn-outline-warning">Views</button>
+      <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
     </form>
   </div>
 </div><br>
 <div class="row">
+  <div class="hidden" id="groups">
+    <?php
+      echo ArrTabler(Query("SELECT * FROM Groups"));
+    ?>
+  </div>
+  <div class="hidden" id="views">
+    <?php
+      echo ArrTabler(Query("
+        SELECT * FROM View 
+        LEFT JOIN Hook ON Hook.ViewID = View.ViewID
+        LEFT JOIN Callback ON Callback.CallbackID = Hook.CallbackID
+      "));
+    ?>
+  </div>
   <div class="hidden" id="hooks">
     <?php pd($EVENTS); ?>
   </div>
