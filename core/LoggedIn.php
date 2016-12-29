@@ -10,7 +10,7 @@ if(
 	isset($_GET['logout'])  
 ){
 	session_destroy();
-	header('Location: ./');
+	header('Location: /');
 	exit;
 }
 
@@ -39,9 +39,15 @@ if(
 }
 
 function LoggedIn(){
-    if($_SESSION['Auth']['Already Attempted']==true){
-	    return $_SESSION['Auth']['Logged In'];
-    }
+    	if(!(isset($_SESSION['Auth']['Already Attempted']))){
+		session_destroy();
+		header('Location: /');
+		exit;
+	}
+	
+	if($_SESSION['Auth']['Already Attempted']==true){
+		return $_SESSION['Auth']['Logged In'];
+	}
 	/*
 	
 		This function determines whether the user is logged in and returns true or false
