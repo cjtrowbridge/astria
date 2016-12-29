@@ -63,11 +63,11 @@ function TemplateBootstrap2($title=''){
         }
       ?>
     </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#about">Right</a></li>
+      <li><a href="#contact">Right</a></li>
+    </ul>
   </nav>
-  <ul class="nav navbar-nav navbar-right">
-    <li><a href="#about">Right</a></li>
-    <li><a href="#contact">Right</a></li>
-  </ul>
 
   <div class="container">
 
