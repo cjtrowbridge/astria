@@ -5,7 +5,7 @@ function SessionCleanup(){
   $path = 'cache/';
   if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
-      if ((time()-filectime($path.$file)) > $ASTRIA['app']['defaultSessionLength']){  
+      if ((time()-filectime($path.$file)) > 1){  
         if(strpos($file, 'session_')==1){
           //unlink($path.$file);
           echo 'deleted file: '.$file."<br>\n";
