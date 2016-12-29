@@ -20,7 +20,7 @@ if(
 	isset($_SESSION['Auth'])&&
 	($_SESSION['Auth']['Expires']>time())
 ){
-	
+	VerifyAgentAndIP();
 }else{
 	
 	//Check for disk session cache with current session's cookie hash if present.
@@ -41,22 +41,12 @@ if(
 		);
 	}else{
 		$_SESSION=$Cache;
+		VerifyAgentAndIP();
 	}
 	
 }
 
-//Make sure that the user agent and ip have not changed and that the sessions is not expired
-/*
-if(!($_SESSION['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
-	LogOut();
-}
-if(!($_SESSION['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
-	LogOut();
-}
-if(!($_SESSION['Auth']['Expires']>time())){
-	LogOut();
-}
-*/
+
 
 function LoggedIn(){
     	if(!(isset($_SESSION['Auth']['Already Attempted']))){
@@ -105,4 +95,16 @@ function LogOut(){
 	deleteDiskCache($_SESSION['SessionHash']);
 	header('Location: /');	
 	exit;
+}
+function VerifyAgentAndIP(){
+	//Make sure that the user agent and ip have not changed and that the sessions is not expired
+	if(!($_SESSION['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
+		LogOut();
+	}
+	if(!($_SESSION['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
+		LogOut();
+	}
+	if(!($_SESSION['Auth']['Expires']>time())){
+		LogOut();
+	}
 }
