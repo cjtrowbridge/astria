@@ -52,14 +52,17 @@ function TemplateBootstrap2($title=''){
     <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
-        foreach($ASTRIA['nav'] as $link => $path){
-          ?>
+        if(LoggedIn()){
+
+          foreach($ASTRIA['nav'] as $link => $path){
+            ?>
           
       <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
         <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?></a>
       </li>
           
-          <?php
+            <?php
+          }
         }
       ?>
     </ul>
