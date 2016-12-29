@@ -48,7 +48,7 @@ function TemplateBootstrap2($title=''){
 
 <body>
 
-  <nav class="navbar navbar-fixed-top navbar-dark bg-primary">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary container">
     <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
