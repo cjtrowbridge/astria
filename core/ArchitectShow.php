@@ -52,6 +52,7 @@ function ArchitectBodyCallback(){
   </div>
   <div class="hidden" id="databases">
     <?php 
+      global $ASTRIA;
       $temp=$ASTRIA['Databases'];
       pd(htmlentities(var_export($temp,true)));
     ?>
