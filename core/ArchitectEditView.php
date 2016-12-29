@@ -64,19 +64,17 @@ function ArchitectEditViewBodyCallback(){
               <input class="form-control" type="text" name="viewDescription" value="<?php echo $View['Description']; ?>">
             </div>
           </div>
-          
-          <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Groups:</label>
-            <div class="col-xs-10">
-              <button type="button" class="btn btn-secondary btn-lg float-xs-right" disabled>New Group</button>
-              List Groups
-            </div>
-          </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Hooks and Callbacks:</label>
             <div class="col-xs-10">
-              <button type="button" class="btn btn-secondary btn-lg float-xs-right" disabled>New Hook</button>
-              List Hooks
+              <div class="form-group row">
+                <button type="button" class="btn btn-secondary btn-lg float-xs-right" disabled>New Hook</button>
+              </div>
+              <div class="row">
+                <?php
+                  
+                ?>
+              </div>
             </div>
           </div>
           <input class="form-control" type="submit">
