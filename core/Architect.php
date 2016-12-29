@@ -21,7 +21,7 @@ function showArchitect(){
 }
   
 function ArchitectBodyCallback(){
-  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN;
+  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG;
   ?>
 <h1>Architect</h1>
 <div class="row">
