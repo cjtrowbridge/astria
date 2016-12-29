@@ -39,6 +39,9 @@ function CacheUserToSession($email=null){
   //Cache them to the session
   $_SESSION['User']['Memberships']=$CleanMemberships;
   
+  $hash=md5($_SESSION);
+  writeDiskCache($hash,$_SESSION);
+  
 }
 function GetGroupAncestors($GroupID){
   $Ancestors = array();
