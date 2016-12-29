@@ -54,7 +54,7 @@ function ArchitectBodyCallback(){
     <?php 
       global $ASTRIA;
       $temp=$ASTRIA;
-      pd(htmlentities(var_export($temp,true)));
+      //pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
   <div class="hidden" id="newView">
