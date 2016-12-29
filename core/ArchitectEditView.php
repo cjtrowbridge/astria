@@ -43,7 +43,6 @@ function ArchitectEditViewBodyCallback(){
         
         <form action="/architect/edit-view/" method="post">
           
-          <h2>The View</h2>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">View Name:</label>
             <div class="col-xs-10">
