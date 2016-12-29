@@ -39,7 +39,7 @@ function CacheUserToSession($email=null){
   //Cache them to the session
   $_SESSION['User']['Memberships']=$CleanMemberships;
   
-  $hash=md5($_SESSION);
+  $hash=md5(serialize($_SESSION));
   writeDiskCache($hash,$_SESSION);
   
 }
