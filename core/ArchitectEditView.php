@@ -1,7 +1,7 @@
 <?php
 
 function ArchitectEditView(){
-  Hook('Template Body','ArchitectEditViewBodyCallback');
+  Hook('Template Body','ArchitectEditViewBodyCallback();');
   TemplateBootstrap2('Architect'); 
 }
 function ArchitectEditViewBodyCallback(){
