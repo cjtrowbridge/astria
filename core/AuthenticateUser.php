@@ -67,6 +67,9 @@ function AuthenticateUser($email=null){
     die('Could not set cookie.');
   }
   
+  //Update the expiration date
+  $_SESSION['auth']['Expires'] = $ExpiresTime;
+  
   //Cache the entire session to disk with the cookie's SessionHash as the key.
   writeDiskCache($SessionHash,$_SESSION);
   
