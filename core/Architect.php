@@ -27,7 +27,7 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <?php
-      echo 'UserID '.$_SESSION['User']['UserID'].', Eamil '.$_SESSION['User']['Email'].' is logged in.<br>';
+      echo 'Current User: ID '.$_SESSION['User']['UserID'].', Email '.$_SESSION['User']['Email'].'.<br>';
       echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.<br>";
       echo 'Ran '.$NUMBER_OF_QUERIES_RUN.' <a href="javscript:void(0);" onclick="$(\'#queriesRun\').slideToggle();">Queries</a>.<br>';
       echo 'Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.<br>';
