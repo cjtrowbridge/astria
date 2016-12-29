@@ -40,6 +40,7 @@ function TemplateBootstrap2($title=''){
 
   <!--Theme-->
   <script src="/js/hamburgerMenu.js"></script>
+  <script src="/js/astria.js"></script>
   <link rel="stylesheet" href="/css/hamburgerMenu.css">
   <link rel="stylesheet" href="/css/style.css">
 
