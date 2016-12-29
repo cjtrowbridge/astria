@@ -43,7 +43,7 @@ function TemplateBootstrap2($title=''){
 <body>
 
   <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
-    <a class="navbar-brand" href="#"><?php echo $ASTRIA['app']['appName']; ?></a>
+    <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
         foreach($ASTRIA['nav'] as $link => $path){
