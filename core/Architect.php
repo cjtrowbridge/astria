@@ -72,7 +72,9 @@ function ArchitectBodyCallback(){
   </div>
   <div class="col-xs-12 hidden_box" id="session">
     <?php 
-      pd(htmlentities(var_export($_SESSION,true)));
+      $temp=$_SESSION;
+      unset($temp['google_oauth2']);
+      pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
 </div>
