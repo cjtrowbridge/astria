@@ -56,7 +56,7 @@ function ArchitectBodyCallback(){
   </div>
   <div class="col-xs-12 hidden_box" id="queriesRun">
     <?php 
-      pd(htmlentities($_SESSION));
+      pd(htmlentities(var_export($_SESSION,true)));
     ?>
   </div>
 </div>
