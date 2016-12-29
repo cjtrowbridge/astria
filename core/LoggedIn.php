@@ -45,6 +45,17 @@ if(
 	
 }
 
+//Make sure that the user agent and ip have not changed and that the sessions is not expired
+if(!($_SESSION['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
+	LogOut();
+}
+if(!($_SESSION['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
+	LogOut();
+}
+if(!($_SESSION['Auth']['Expires']>time())){
+	LogOut();
+}
+
 function LoggedIn(){
     	if(!(isset($_SESSION['Auth']['Already Attempted']))){
 		LogOut();
