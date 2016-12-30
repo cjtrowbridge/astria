@@ -16,10 +16,7 @@ function prepareArchitect(){
         break;
       case 'edit':
       case 'edit-view':
-        if(
-          isset(path(3)) &&
-          path(3)=='new-hook'
-        ){
+        if(path(3)=='new-hook'){
           ArchitectEditViewNewHook();
         }else{
           ArchitectEditView();
