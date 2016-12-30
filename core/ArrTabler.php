@@ -6,7 +6,8 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
     $table_id=md5(uniqid(true));
   }
   if(count($arr)>0){
-    $return.= "\r\n".'	<table id="'.$table_id.'" class="'.$table_class.'">'."\n";
+    $return.="\n<div class=\"table-responsive\">\n";
+    $return.= "\r\n".'	<table id="'.$table_id.'" class=" table'.$table_class.'">'."\n";
     $first=true;
     foreach($arr as $row){
       if($first){
@@ -28,7 +29,8 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
     }
     $return.= "		</tbody>\n";
     $return.= "	</table>\n";
-    $return.= "	<script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
+    $return.= </div>\n";
+    $return.= <script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
   }else{
     $return.="No Results Found.";
   }
