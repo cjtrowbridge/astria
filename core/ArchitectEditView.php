@@ -78,6 +78,11 @@ function ArchitectEditViewBodyCallback(){
               echo ArrTabler(Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']));
             ?>
           </div>
+        <div class="row">
+          <div class="col-xs-12">
+            &nbsp;
+          </div>
+        </div>
           <div class="col-xs-12">
             <h2>Permissions <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h2>
             <?php
@@ -85,8 +90,11 @@ function ArchitectEditViewBodyCallback(){
             ?>
           </div>
         </div>
-        <br>
-        <br>
+        <div class="row">
+          <div class="col-xs-12">
+            &nbsp;
+          </div>
+        </div>
       </div>
     </div>
 </div>
