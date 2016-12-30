@@ -66,24 +66,20 @@ function ArchitectEditViewBodyCallback(){
             </div>
           </div>
         </form>
-        <div class="form-group row">
-          <label class="col-xs-12 col-md-4 col-form-label">Hooks and Permissions:</label>
-          <div class="col-xs-12 col-md-8">
-            <div class="form-group row">
-              <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button>
-              <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button>
-            </div>
+        <div class="row">
+          <div class="col-xs-12">
+            &nbsp;
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <h2>Hooks</h2>
+            <h2>Hooks <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h2>
             <?php
               echo ArrTabler(Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']));
             ?>
           </div>
           <div class="col-xs-12">
-            <h2>Permissions</h2>
+            <h2>Permissions <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h2>
             <?php
               echo ArrTabler(Query("SELECT * FROM Permission WHERE ViewID = ".$View['ViewID']));
             ?>
