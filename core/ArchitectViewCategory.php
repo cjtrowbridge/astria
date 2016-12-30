@@ -22,9 +22,7 @@ function ArchitectViewCategory(){
 }
 
 function ShowAllCategories(){
-  echo ArrTabler(Query("
-    SELECT * FROM Views
-  "));
+  echo ArrTabler(Query("SELECT * FROM ViewCategory"));
 }
 
 function ShowCategory($View){
