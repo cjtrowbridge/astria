@@ -9,7 +9,7 @@ function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
       case 'view-category':
-        ArchitectViewCategory();
+        showArchitectViewCategory();
         break;
       case 'new-view':
         ArchitectNewView();
