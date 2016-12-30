@@ -70,13 +70,13 @@ function ArchitectEditViewBodyCallback(){
             </div>
           </div>
           <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12">
               <h2>Hooks</h2>
               <?php
                 echo ArrTabler(Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']));
               ?>
             </div>
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12">
               <h2>Permissions</h2>
               <?php
                 echo ArrTabler(Query("SELECT * FROM Permission WHERE ViewID = ".$View['ViewID']));
