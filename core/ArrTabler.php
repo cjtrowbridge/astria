@@ -29,8 +29,8 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
     }
     $return.= "		</tbody>\n";
     $return.= "	</table>\n";
-    $return.= </div>\n";
-    $return.= <script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
+    $return.= "</div>\n";
+    $return.= "<script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
   }else{
     $return.="No Results Found.";
   }
