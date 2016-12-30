@@ -62,7 +62,7 @@ function ArchitectEditViewBodyCallback(){
           </div>
           <div class="form-group row">
             <div class="col-xs-12">
-              <input class="form-control" type="submit">
+              <input class="form-control" type="submit" value="Save View Changes">
             </div>
           </div>
         </form>
