@@ -64,7 +64,7 @@ function ArchitectEditViewBodyCallback(){
             <label class="col-xs-2 col-form-label">Hooks and Callbacks:</label>
             <div class="col-xs-10">
               <div class="form-group row">
-                <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button>
+                <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button>
               </div>
               <div class="row">
                 <?php
