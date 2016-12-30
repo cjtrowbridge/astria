@@ -1,27 +1,27 @@
 <?php
 
 function ArchitectViewCategory(){
-  //TODO this should eventually work for View Slugs in addition to ViewIDs
+  //TODO this should eventually work for View Category Slugs in addition to ViewCategoryIDs
   if(path(2)==intval(path(2))){
     
-    //Show a specific view
-    $View=Query("SELECT * FROM Views WHERE ViewID = ".intval(path(2))."")
-    ShowAView($View);
+    //Show a specific view category
+    $View=Query("SELECT * FROM ViewCategory WHERE ViewCategoryID = ".intval(path(2))."")
+    ShowCategory($View);
     
   }else{
     
-    //List all views 
-    ShowAllViews();
+    //List all view categories
+    ShowAllCategories();
     
   }
 }
 
-function ShowAllViews(){
+function ShowAllCategories(){
   echo ArrTabler(Query("
     SELECT * FROM Views
   "));
 }
 
-function ShowAView($View){
+function ShowCategory($View){
    echo ArrTabler($View); 
 }
