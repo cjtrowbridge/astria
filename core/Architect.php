@@ -16,7 +16,14 @@ function prepareArchitect(){
         break;
       case 'edit':
       case 'edit-view':
-        ArchitectEditView();
+        if(
+          isset(path(3))=='')&&
+          path(3)=='new-hook'
+        ){
+          ArchitectEditViewNewHook();
+        }else{
+          ArchitectEditView();
+        }
         break;
       default:
         Hook('User Is Logged In - Presentation','showArchitect();');
