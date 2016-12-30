@@ -29,6 +29,10 @@ function ArchitectEditViewNewHookBodyCallback(){
     return false;
   }
   $View=$View[0];
+  
+  //TODO Insert or update
+  //INSERT INTO `Callback` (`CallbackID`, `ViewID`, `Event`, `Content`, `InsertedUser`, `InsertedTime`, `UpdatedUser`, `UpdatedTime`) VALUES (NULL, '1004', 'User Is Logged In - Presentation', 'phpinfo()\r\nexit;', '1', NOW(), NULL, NULL);
+  
   ?>
 
 <div class="container">
