@@ -1,5 +1,10 @@
 <?php
 
+function showArchitectViewCategory(){
+  Hook('Template Body','ArchitectViewCategory();');
+  TemplateBootstrap2('View Category - Architect'); 
+}
+
 function ArchitectViewCategory(){
   //TODO this should eventually work for View Category Slugs in addition to ViewCategoryIDs
   if(path(2)==intval(path(2))){
