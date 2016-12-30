@@ -67,8 +67,8 @@ function ArchitectEditViewBodyCallback(){
           </div>
         </form>
         <div class="form-group row">
-          <label class="col-xs-2 col-form-label">Hooks and Permissions:</label>
-          <div class="col-xs-10">
+          <label class="col-xs-12 col-md-4 col-form-label">Hooks and Permissions:</label>
+          <div class="col-xs-12 col-md-8">
             <div class="form-group row">
               <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button>
               <button type="button" class="btn btn-secondary btn-lg float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button>
