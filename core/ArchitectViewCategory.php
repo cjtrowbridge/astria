@@ -5,7 +5,7 @@ function ArchitectViewCategory(){
   if(path(2)==intval(path(2))){
     
     //Show a specific view category
-    $View=Query("SELECT * FROM ViewCategory WHERE ViewCategoryID = ".intval(path(2))."")
+    $View=Query("SELECT * FROM ViewCategory WHERE ViewCategoryID = ".intval(path(2))."");
     ShowCategory($View);
     
   }else{
