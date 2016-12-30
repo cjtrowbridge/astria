@@ -64,7 +64,7 @@ function ArchitectEditViewBodyCallback(){
             <label class="col-xs-2 col-form-label">Hooks and Callbacks:</label>
             <div class="col-xs-10">
               <div class="form-group row">
-                <button type="button" class="btn btn-secondary btn-lg float-xs-right" disabled>New Hook</button>
+                <button type="button" class="btn btn-secondary btn-lg float-xs-right">New Hook</button>
               </div>
               <div class="row">
                 <?php
