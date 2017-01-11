@@ -1,7 +1,12 @@
 <?php
 
 function LoadViews(){
+  
   MakeSureDBConnected(); 
+  $resource     = $ASTRIA['databases']['astria core administrative database']['resource'];;
+  $cleanSlug    = mysqli_real_escape_string($resource,url()); 
+  $cleanViewID  = intval(path(0));
+  
   //find views with slug matching output of url() function and group same as user
   $sql="
     SELECT * FROM View
@@ -9,8 +14,9 @@ function LoadViews(){
     LEFT JOIN Callback on Hook.CallbackID = Callback.CallbackID
     WHERE
       (
-        View.Slug LIKE '".mysql_real_escape_string(url())."' OR
-        View.ViewID = ".intval(mysql_real_escape_string(path(0)))."
+        lower(View.Slug) LIKE 'all' OR
+        View.Slug LIKE '".$cleanSlug."' OR
+        View.ViewID = ".$cleanViewID."
       ) AND
       (
   ";
@@ -27,9 +33,9 @@ function LoadViews(){
   ";
   $Views=Query($sql);
  
- 
   //attach any hooks
   foreach($Views as $View){
     Hook($View['Event'],$View['Content']);
   }
+  
 }
