@@ -4,6 +4,7 @@ Hook('Before Checking If User Is Logged In','LoadViews();');
 Hook('User Is Logged In','LoadViews();');
 
 function LoadViews(){
+  global $ASTRIA;
   
   MakeSureDBConnected(); 
   $resource     = $ASTRIA['databases']['astria core administrative database']['resource'];;
