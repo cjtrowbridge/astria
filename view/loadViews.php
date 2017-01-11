@@ -27,13 +27,13 @@ function LoadViews(){
   ";
   foreach($_SESSION['User']['Memberships'] as $GroupID){
     $sql.="
-       View.GroupID = ".$GroupID." OR
+       Hook.GroupID = ".$GroupID." OR
     ";
   }
  
   $sql.="
-       View.GroupID = 0 OR
-       View.GroupID IS NULL
+       Hook.GroupID = 0 OR
+       Hook.GroupID IS NULL
      )
     ORDER BY View.ViewID ASC
   ";
