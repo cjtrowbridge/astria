@@ -15,9 +15,8 @@ function LoadViews(){
   //  slug matching output of url() function or assigned to all slugs
   //  group or user matching current user or assigned to all groups or users
   $sql="
-    SELECT * FROM View
-    LEFT JOIN Hook on Hook.ViewID = View.ViewID
-    LEFT JOIN Callback on Hook.CallbackID = Callback.CallbackID
+    SELECT * FROM Hook
+    LEFT JOIN View on Hook.ViewID = View.ViewID
     WHERE
       (
         View.Slug LIKE '".$cleanSlug."' OR
