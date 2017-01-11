@@ -1,5 +1,8 @@
 <?php
 
+Hook('Before Checking If User Is Logged In','LoadViews();');
+Hook('User Is Logged In','LoadViews();');
+
 function LoadViews(){
   
   MakeSureDBConnected(); 
@@ -7,15 +10,17 @@ function LoadViews(){
   $cleanSlug    = mysqli_real_escape_string($resource,url()); 
   $cleanViewID  = intval(path(0));
   
-  //find views with slug matching output of url() function and group same as user
+  //find views with;
+  //  slug matching output of url() function or assigned to all slugs
+  //  group or user matching current user or assigned to all groups or users
   $sql="
     SELECT * FROM View
     LEFT JOIN Hook on Hook.ViewID = View.ViewID
     LEFT JOIN Callback on Hook.CallbackID = Callback.CallbackID
     WHERE
       (
-        lower(View.Slug) LIKE 'all' OR
         View.Slug LIKE '".$cleanSlug."' OR
+        lower(View.Slug) LIKE 'all' OR
         View.ViewID = ".$cleanViewID."
       ) AND
       (
@@ -27,7 +32,8 @@ function LoadViews(){
   }
  
   $sql.="
-       View.GroupID = 0
+       View.GroupID = 0 OR
+       View.GroupID IS NULL
      )
     ORDER BY View.ViewID ASC
   ";
