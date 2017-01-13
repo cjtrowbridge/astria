@@ -43,10 +43,8 @@ function ArchitectBodyCallback(){
         $path = 'cache/';
         if ($handle = opendir($path)) {
           while (false !== ($file = readdir($handle))) {
-            if ((time()-filectime($path.$file)) > DISKCACHETTL){  
-              if(!(strpos($file, '.php')===false)){
-                echo '<a href="/'.($path.$file).'">'.($path.$file).'</a> ('.filesize($path.$file).')<br>';
-              }
+            if(!(strpos($file, '.php')===false)){
+              echo '<a href="/'.($path.$file).'">'.($path.$file).'</a> ('.filesize($path.$file).')<br>';
             }
           }
         }
