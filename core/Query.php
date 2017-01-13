@@ -7,7 +7,7 @@ $QUERIES_RUN='';
 function Query(
 	$SQL,
 	$Database = 'astria core administrative database',
-	$ForceFresh = false
+	$TTL = 60
 ){
 
 	global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN;
@@ -20,7 +20,14 @@ function Query(
 	global $ASTRIA;
 	switch($ASTRIA['databases'][$Database]['type']){
 		case 'mysql':
-			$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
+			$sqlHash   = md5($SQL);
+			$diskCache = readDiskCache($sqlHash,$TTL);
+			if($diskCache==false){
+				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
+				writeDiskCache($sqlHash,$result);
+			}else{
+				$result = $diskCache;
+			}
 			if(!(is_bool($result))){
 				$Output=array();
 				while($Row=mysqli_fetch_assoc($result)){
