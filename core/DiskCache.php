@@ -75,3 +75,15 @@ function DiskCacheCleanup(){
     }
   }
 }
+
+function DiskCacheExists($hash){
+ if(!(isValidMd5($hash))){
+    return false;
+  }
+  $path='cache/'.$hash.'.php';
+  
+  if(!(file_exists($path))){
+    return false;
+  }
+  return true;
+}
