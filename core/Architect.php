@@ -6,9 +6,12 @@ if(
 ){
   include_once('Path.php');
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
-}else{
-  include_once('pd.php');
-  pd($_SESSION);
+  
+  global $ASTRIA;
+  $ASTRIA['nav']=array(
+    'Architect' => '/architect'
+  );
+  
 }
 
 function prepareArchitect(){
