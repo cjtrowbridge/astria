@@ -45,12 +45,15 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
     return false;
   }
   
-  if((filemtime($path)+$ttl)>time()){
+  if((filemtime($path)+$ttl)<time()){
     unlink($path);
     return false;
   }
   
   $value=file_get_contents($path);
+  if($value==false){
+    return false; 
+  }
   $value=ltrim($value,DISK_CACHE_FILE_PREFIX);
   $value=rtrim($value,DISK_CACHE_FILE_SUFFIX);
   
