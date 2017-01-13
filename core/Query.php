@@ -10,8 +10,8 @@ function Query(
 	$TTL = 60
 ){
 
-	global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN;
-	$NUMBER_OF_QUERIES_RUN+=1;
+	global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
+	
 	$QUERIES_RUN.=$SQL."\n\n";
 	
 	//Check that database exists and is available, and connect to it.
@@ -25,8 +25,10 @@ function Query(
 			if($diskCache==false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				writeDiskCache($sqlHash,$result);
+				$NUMBER_OF_QUERIES_RUN+=1;
 			}else{
 				$result = $diskCache;
+				$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
 			}
 			if(!(is_bool($result))){
 				$Output=array();
