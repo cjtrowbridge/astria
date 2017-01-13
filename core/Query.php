@@ -25,17 +25,21 @@ function Query(
 			$diskCache = readDiskCache($sqlHash,$TTL);
 			if($diskCache==false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
-				writeDiskCache($sqlHash,$result);
-				$NUMBER_OF_QUERIES_RUN+=1;
-			}else{
-				$result = $diskCache;
-				$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
-			}
-			if(!(is_bool($result))){
+				if(is_bool($result)){
+					return $result;
+				}
 				$Output=array();
 				while($Row=mysqli_fetch_assoc($result)){
 					$Output[]=$Row;
 				}
+				writeDiskCache($sqlHash,$Output);
+				$NUMBER_OF_QUERIES_RUN+=1;
+			}else{
+				$Output = $diskCache;
+				$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
+			}
+			if(!(is_bool($result))){
+				
 				return $Output;
 			}
 			
