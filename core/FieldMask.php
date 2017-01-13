@@ -5,6 +5,9 @@ function FieldMask($key, $value,$row){
     case 'HookID':
       return '<a href="/architect/edit-hook/'.$value.'">'.$value.'</a>';
       break;
+    case 'PermissionID':
+      return '<a href="/architect/edit-permission/'.$value.'">'.$value.'</a>';
+      break;
     case 'ViewID':
       return '<a href="/architect/edit-view/'.$value.'">'.$value.'</a>';
       break;
