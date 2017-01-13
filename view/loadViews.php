@@ -25,10 +25,12 @@ function LoadViews(){
       ) AND
       (
   ";
-  foreach($_SESSION['User']['Memberships'] as $GroupID){
-    $sql.="
-       Hook.GroupID = ".$GroupID." OR
-    ";
+  if(isset($_SESSION['User'])){
+    foreach($_SESSION['User']['Memberships'] as $GroupID){
+      $sql.="
+         Hook.GroupID = ".$GroupID." OR
+      ";
+    }
   }
  
   $sql.="
