@@ -21,7 +21,7 @@ function prepareArchitect(){
         showArchitectViewCategory();
         break;
       case 'view-cache':
-        showArchitectViewCache(path(2));
+        showArchitectViewCache();
         break;
       case 'new-view':
         ArchitectNewView();
