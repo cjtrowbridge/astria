@@ -36,7 +36,19 @@ function ArchitectDiskCache($hash = false){
         }
       }else{
         pd(readDiskCache($hash));
-
+        
+        echo '<br><br>$value=file_get_contents($path);<br>';
+        $value=file_get_contents($path);
+        pd($value);
+        echo '<br><br>$value=ltrim($value,DISK_CACHE_FILE_PREFIX);<br>';
+        $value=ltrim($value,DISK_CACHE_FILE_PREFIX);
+        pd($value);
+        echo '<br><br>$value=rtrim($value,DISK_CACHE_FILE_SUFFIX);<br>';
+        $value=rtrim($value,DISK_CACHE_FILE_SUFFIX);
+        pd($value);
+        echo '<br><br>$value=BlowfishDecrypt($value);<br>';
+        $value=BlowfishDecrypt($value);
+        pd($value);
       }
     ?>
   </div>
