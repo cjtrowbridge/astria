@@ -67,7 +67,7 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   //$eval="\$return = " . $value.';';
   //eval($eval);
   $return=unserialize($value);
-
+  echo 'disk cache worked';
   return $return;
 }
 
