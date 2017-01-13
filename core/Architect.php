@@ -20,6 +20,9 @@ function prepareArchitect(){
       case 'view-category':
         showArchitectViewCategory();
         break;
+      case 'view-cache':
+        showArchitectViewCache(path(2));
+        break;
       case 'new-view':
         ArchitectNewView();
         break;
