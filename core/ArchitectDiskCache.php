@@ -52,7 +52,7 @@ function ArchitectDiskCache($hash = false){
         $value=BlowfishDecrypt($value);
         pd($VALUE);
         
-        echo '<br><br>$eval='$return = ' . $value;<br>';
+        echo '<br><br>$eval= \'$return = \'' . $value.';<br>';
         $eval='$return = ' . $value;
         pd($VALUE);
         
