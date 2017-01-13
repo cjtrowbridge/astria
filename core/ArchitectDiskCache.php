@@ -37,6 +37,9 @@ function ArchitectDiskCache($hash = false){
       }else{
         pd(readDiskCache($hash));
         
+        echo '<br>$path='cache/'.$hash.'.php';<br><br>';
+        $path='cache/'.$hash.'.php';
+        pd($path);
         echo '<br><br>$value=file_get_contents($path);<br>';
         $value=file_get_contents($path);
         pd($value);
