@@ -1,2 +1,2 @@
 # astria
-Asria is an availability framework. Connecting disparate data sources and facilitating user interfaces that scale.
+An availability framework. Connecting disparate data sources, we facilitate user interfaces that scale.
