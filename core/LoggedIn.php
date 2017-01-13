@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-
 //We need this to happen before this script can work
 include_once('Path.php');
 
