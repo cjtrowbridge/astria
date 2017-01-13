@@ -1,7 +1,7 @@
 <?php 
 
 function ago($time){
-  $time=MaybeStrToTime($time);
+  $time=strtotime($time);
   if(($time==0)||(empty($time))){
     return 'Never';
   }
