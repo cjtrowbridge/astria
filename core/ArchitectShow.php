@@ -25,6 +25,7 @@ function ArchitectBodyCallback(){
     <form class="form-inline">
       <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-warning">Events</button>
       <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-warning">Hooks</button>
+      <button onclick="Cardify('Cache','cache');" type="button" class="btn btn-outline-warning">Cache</button>
       <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-warning">Queries</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
