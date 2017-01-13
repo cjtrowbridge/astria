@@ -6,7 +6,7 @@ function showArchitect(){
 }
   
 function ArchitectBodyCallback(){
-  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG;
+  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
   ?>
 <h1>Architect</h1>
 <div class="row">
@@ -14,7 +14,8 @@ function ArchitectBodyCallback(){
     <?php
       echo '<p>Current User: ID '.$_SESSION['User']['UserID'].', Email '.$_SESSION['User']['Email'].'.';
       echo ' Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.";
-      echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Queries.';
+      echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries.';
+      echo ' Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';
       echo ' Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.</p>';
     ?>
   </div>
