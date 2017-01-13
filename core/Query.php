@@ -38,10 +38,6 @@ function Query(
 				$Output = $diskCache;
 				$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
 			}
-			if(!(is_bool($result))){
-				
-				return $Output;
-			}
 			
 			//TODO if this is an insert or an update and there is a table with the same name followed by the table history suffix, run it on that table too with the returned primary key.
 			break;
