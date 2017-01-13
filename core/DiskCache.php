@@ -57,6 +57,7 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   $value=BlowfishDecrypt($value);
   
   $eval="\$return = " . $value.';';
+  pd($eval);
   eval($eval);
 
   return $return;
