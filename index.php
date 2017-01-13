@@ -16,7 +16,6 @@ include('loader.php');
 
 Loader('core');
 Loader('auth/Google');
-Loader('view');
 
 RequireSSL();
 
