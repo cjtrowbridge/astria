@@ -14,7 +14,7 @@ function PromptForLoginBodyCallback(){
 				<?php Event('Auth Login Options'); ?>
 			</div>
 			<div class="col-xs-12">
-				<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds. 'Ran '.$NUMBER_OF_QUERIES_RUN.' Queries.'; ?>
+				<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Queries.'; ?>
 			</div>
 		</div>
 	</div>
