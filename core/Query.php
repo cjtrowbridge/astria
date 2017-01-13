@@ -40,7 +40,7 @@ function Query(
 WROTE DISK CACHE: <?php echo $sqlHash; ?>
 
 Query:
-<?php echo $sql; ?>
+<?php echo $SQL; ?>
 
 
 Output:
