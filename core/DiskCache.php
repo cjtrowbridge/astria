@@ -24,7 +24,6 @@ function writeDiskCache($hash,$value){
     return false;
   }
   
-  //$value=var_export($value,true);
   $value=serialize($value);
   
   $value=BlowfishEncrypt($value);
@@ -37,26 +36,22 @@ function writeDiskCache($hash,$value){
 function readDiskCache($hash,$ttl = DISKCACHETTL){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($hash))){
-    echo 'invalid md5';
     return false;
   }
   
   $path='cache/'.$hash.'.php';
   
   if(!(file_exists($path))){
-    echo 'file does not exist';
     return false;
   }
   
   if((filemtime($path)+$ttl)<time()){
-    echo 'cache is older than ttl';
     unlink($path);
     return false;
   }
   
   $value=file_get_contents($path);
   if($value==false){
-    echo 'file_get_contents failed';
     return false; 
   }
   $value=ltrim($value,DISK_CACHE_FILE_PREFIX);
@@ -64,10 +59,7 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   
   $value=BlowfishDecrypt($value);
   
-  //$eval="\$return = " . $value.';';
-  //eval($eval);
   $return=unserialize($value);
-  echo 'disk cache worked: '.$hash.' ';
   return $return;
 }
 
