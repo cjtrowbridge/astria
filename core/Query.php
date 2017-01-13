@@ -23,7 +23,7 @@ function Query(
 		case 'mysql':
 			$sqlHash   = md5($SQL);
 			$diskCache = readDiskCache($sqlHash,$TTL);
-			if($diskCache==false){ echo 'disk cache returned false;';
+			if($diskCache==false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				if(is_bool($result)){
 					return $result;
