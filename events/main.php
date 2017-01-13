@@ -14,4 +14,3 @@ $DEBUG=array(
 
 include('Hook.php');
 include('Event.php');
-include('DebugShowSummary.php');
