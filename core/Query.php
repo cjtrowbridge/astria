@@ -23,7 +23,7 @@ function Query(
 		case 'mysql':
 			$sqlHash   = md5($SQL);
 			$diskCache = readDiskCache($sqlHash,$TTL);
-			if($diskCache==false){
+			if($diskCache==false){ echo 'disk cache returned false;';
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				if(is_bool($result)){
 					return $result;
@@ -33,22 +33,7 @@ function Query(
 					$Output[]=$Row;
 				}
 				writeDiskCache($sqlHash,$Output);
-				?>
-
-<!--
-
-WROTE DISK CACHE: <?php echo $sqlHash; ?>
-
-Query:
-<?php echo $SQL; ?>
-
-
-Output:
-<?php var_dump($Output); ?>
-
--->
-
-				<?php
+				
 				$NUMBER_OF_QUERIES_RUN+=1;
 			}else{
 				$Output = $diskCache;
