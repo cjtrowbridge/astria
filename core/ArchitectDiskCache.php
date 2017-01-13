@@ -52,6 +52,10 @@ function ArchitectDiskCache($hash = false){
         echo '<br><br>$value=BlowfishDecrypt($value);<br>';
         $value=BlowfishDecrypt($value);
         pd($value);
+        echo '<br><br>$value=unserialize($value);<br>';
+        $value=unserialize($value);
+        pd($value);
+        
       }
     ?>
   </div>
