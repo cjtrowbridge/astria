@@ -24,7 +24,8 @@ function writeDiskCache($hash,$value){
     return false;
   }
   
-  $value=var_export($value,true);
+  //$value=var_export($value,true);
+  $value=serialize($value);
   
   $value=BlowfishEncrypt($value);
   $value=DISK_CACHE_FILE_PREFIX.$value.DISK_CACHE_FILE_SUFFIX;
@@ -59,10 +60,9 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   
   $value=BlowfishDecrypt($value);
   
-  $eval="\$return = " . $value.';';
-  pd($hash);
-  pd($eval);
-  eval($eval);
+  //$eval="\$return = " . $value.';';
+  //eval($eval);
+  $return=unserialize($value);
 
   return $return;
 }
