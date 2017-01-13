@@ -17,7 +17,10 @@ function ArchitectDiskCache(){
     $path = 'cache/';
     if ($handle = opendir($path)) {
       while (false !== ($file = readdir($handle))) {
-        if(!(strpos($file, '.php')===false)){
+        if(!(
+            strpos($file, '.php')===false)||
+            (!strpos($file, 'index.php')===false))
+        ){
           $hash = rtrim($file,'.php');
           echo '<a href="/architect/disk-cache/'.$hash.'">'.$hash.'</a> ('.(filesize($path.$file)/1024).'kb)<br>';
         }
