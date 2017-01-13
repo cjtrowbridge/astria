@@ -33,6 +33,22 @@ function Query(
 					$Output[]=$Row;
 				}
 				writeDiskCache($sqlHash,$Output);
+				?>
+
+<!--
+
+WROTE DISK CACHE: <?php echo $sqlHash; ?>
+
+Query:
+<?php echo $sql; ?>
+
+
+Output:
+<?php echo Output; ?>
+
+-->
+
+				<?php
 				$NUMBER_OF_QUERIES_RUN+=1;
 			}else{
 				$Output = $diskCache;
