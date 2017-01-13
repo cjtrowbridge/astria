@@ -17,12 +17,11 @@ function ArchitectDiskCache(){
     $path = 'cache/';
     if ($handle = opendir($path)) {
       while (false !== ($file = readdir($handle))) {
-        if(!(
-            (strpos($file, '.php')===false)&&
-            (!($file=='index.php'))
-        )){
+        if(!(strpos($file, '.php')===false)){
           $hash = rtrim($file,'.php');
-          echo '<a href="/architect/disk-cache/'.$hash.'">'.$hash.'</a> ('.(filesize($path.$file)/1024).'kb)<br>';
+          if(!($hash == 'index')){
+            echo '<a href="/architect/disk-cache/'.$hash.'">'.$hash.'</a> ('.(filesize($path.$file)/1024).'kb)<br>';
+          }
         }
       }
     }
