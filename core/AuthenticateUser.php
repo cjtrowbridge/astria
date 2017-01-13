@@ -48,8 +48,6 @@ function AuthenticateUser($email=null){
   //Cache the entire session to disk with the cookie's SessionHash as the key.
   writeDiskCache($SessionHash,$_SESSION);
   
-  $header='Location: '.$_SERVER[REQUEST_URI];
-  pd($header);die();
-  header($header);
+  header('Location: '.$_SERVER['REQUEST_URI']);
   
 }
