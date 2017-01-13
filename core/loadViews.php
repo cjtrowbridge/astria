@@ -42,7 +42,7 @@ function LoadViews(){
      )
     ORDER BY View.ViewID ASC
   ";
-  $Views=Query($sql);
+  $Views=Query($sql,60);
  
   //attach any hooks
   foreach($Views as $View){
