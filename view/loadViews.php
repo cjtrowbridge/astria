@@ -45,7 +45,6 @@ function LoadViews(){
   $Views=Query($sql);
  
   //attach any hooks
-  pd($Views);
   foreach($Views as $View){
     Hook($View['Event'],$View['Content']);
   }
