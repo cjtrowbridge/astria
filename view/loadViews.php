@@ -1,7 +1,7 @@
 <?php
 
-Hook('Before Checking If User Is Logged In','LoadViews();');
 Hook('User Is Logged In','LoadViews();');
+Hook('User Is Not Logged In','LoadViews();');
 
 function LoadViews(){
   global $ASTRIA;
