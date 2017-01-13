@@ -29,7 +29,7 @@ function ArchitectDiskCache($hash = false){
             if(!(strpos($file, '.php')===false)){
               $hash = rtrim($file,'.php');
               if(!($hash == 'index')){
-                echo '<a href="/architect/disk-cache/'.$hash.'">'.$hash.'</a> ('.(filesize($path.$file)/1024).'kb)<br>';
+                echo '<a href="/architect/disk-cache/'.$hash.'">'.$hash.'</a> ('.(filesize($path.$file)/1024).'kb) ('.ago(filemtime($path.$file)).')<br>';
               }
             }
           }
