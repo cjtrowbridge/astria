@@ -7,8 +7,8 @@ $QUERIES_RUN='';
 
 function Query(
 	$SQL,
-	$Database = 'astria core administrative database',
-	$TTL = 1
+	$TTL = 1,
+	$Database = 'astria core administrative database'
 ){
 
 	global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
