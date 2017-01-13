@@ -73,7 +73,7 @@ function ArchitectEditViewBodyCallback(){
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <h2>Event-Driven Functions (Hooks) Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h2>
+            <h3>Event-Driven Functions (Hooks) Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h3>
             <?php
               echo ArrTabler(Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']));
             ?>
@@ -84,7 +84,7 @@ function ArchitectEditViewBodyCallback(){
           </div>
         </div>
           <div class="col-xs-12">
-            <h2>Permissions <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h2>
+            <h3>User and Group Permissions Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h3>
             <?php
               echo ArrTabler(Query("SELECT * FROM Permission WHERE ViewID = ".$View['ViewID']));
             ?>
