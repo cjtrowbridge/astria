@@ -23,7 +23,6 @@ function Query(
 		case 'mysql':
 			$sqlHash   = md5($SQL);
 			$diskCache = readDiskCache($sqlHash,$TTL);
-			$diskCache=false;
 			if($diskCache==false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				if(is_bool($result)){
@@ -39,7 +38,7 @@ function Query(
 				$Output = $diskCache;
 				$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
 			}
-			
+			return $Output;
 			//TODO if this is an insert or an update and there is a table with the same name followed by the table history suffix, run it on that table too with the returned primary key.
 			break;
 		default:
