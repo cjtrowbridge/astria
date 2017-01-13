@@ -27,6 +27,7 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-warning">Queries</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
+      <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Views','views');" type="button" class="btn btn-outline-warning">Views</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
@@ -43,6 +44,13 @@ function ArchitectBodyCallback(){
     <?php
       echo ArrTabler(Query("
         SELECT * FROM `View`
+      "));
+    ?>
+  </div>
+  <div class="hidden" id="users">
+    <?php
+      echo ArrTabler(Query("
+        SELECT * FROM `User`
       "));
     ?>
   </div>
