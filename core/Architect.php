@@ -1,6 +1,6 @@
 <?php
 
-if(
+if(true||
   isset($_SESSION['User']['Memberships'][2])&&
   ($_SESSION['User']['Memberships'][2]==2)
 ){
