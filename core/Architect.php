@@ -1,11 +1,14 @@
 <?php
 
-include_once('Path.php');
-
-Hook('User Is Logged In - Before Presentation','prepareArchitect();');
+if(
+  isset($_SESSION['User']['Memberships'][2])&&
+  ($_SESSION['User']['Memberships'][2]==2)
+){
+  include_once('Path.php');
+  Hook('User Is Logged In - Before Presentation','prepareArchitect();');
+}
 
 function prepareArchitect(){
-  // TODO Should user be able to see this?
   if(path(0)=='architect'){
     switch(path(1)){
       case 'view-category':
