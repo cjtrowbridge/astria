@@ -44,7 +44,7 @@ Query:
 
 
 Output:
-<?php echo $Output; ?>
+<?php var_dump($Output); ?>
 
 -->
 
