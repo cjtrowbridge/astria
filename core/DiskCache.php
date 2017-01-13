@@ -33,7 +33,7 @@ function writeDiskCache($hash,$value){
 
 }
 
-function readDiskCache($hash,$ttl){
+function readDiskCache($hash,$ttl = DISKCACHETTL){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($hash))){
     return false;
