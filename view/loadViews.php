@@ -17,6 +17,7 @@ function LoadViews(){
   $sql="
     SELECT * FROM Hook
     LEFT JOIN View on Hook.ViewID = View.ViewID
+    LEFT JOIN Permission ON Permission.ViewID = View.ViewID
     WHERE
       (
         View.Slug LIKE '".$cleanSlug."' OR
@@ -26,16 +27,18 @@ function LoadViews(){
       (
   ";
   if(isset($_SESSION['User'])){
+    $sql.="
+         Permission.UserID = ".intval($_SESSION['User']['UserID'])." OR
+      ";
     foreach($_SESSION['User']['Memberships'] as $GroupID){
       $sql.="
-         Hook.GroupID = ".$GroupID." OR
+         Permission.GroupID = ".$GroupID." OR
       ";
     }
   }
  
   $sql.="
-       Hook.GroupID = 0 OR
-       Hook.GroupID IS NULL
+       Permission.GroupID = 1
      )
     ORDER BY View.ViewID ASC
   ";
