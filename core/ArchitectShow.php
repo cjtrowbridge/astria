@@ -36,6 +36,21 @@ function ArchitectBodyCallback(){
   </div>
 </div><br>
 <div class="row">
+  <div class="hidden" id="cache">
+    <?php
+      global $ASTRIA;
+        $path = 'cache/';
+        if ($handle = opendir($path)) {
+          while (false !== ($file = readdir($handle))) {
+            if ((time()-filectime($path.$file)) > DISKCACHETTL){  
+              if(!(strpos($file, '.php')===false)){
+                echo '<a href="/'.($path.$file).'">'.($path.$file).'</a> ('.filesize($path.$file).')<br>';
+              }
+            }
+          }
+        }
+    ?>
+  </div>
   <div class="hidden" id="groups">
     <?php
       echo ArrTabler(Query("SELECT * FROM `Group`"));
