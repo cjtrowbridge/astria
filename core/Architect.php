@@ -1,11 +1,13 @@
 <?php
 
-if(true||
+if(
   isset($_SESSION['User']['Memberships'][2])&&
   ($_SESSION['User']['Memberships'][2]==2)
 ){
   include_once('Path.php');
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
+}else{
+  pd($_SESSION);
 }
 
 function prepareArchitect(){
