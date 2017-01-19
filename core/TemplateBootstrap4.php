@@ -53,7 +53,7 @@ function TemplateBootstrap4($title=''){
     <ul class="nav navbar-nav">
       <?php
         if(LoggedIn()){
-          if(isset(ASTRIA['nav'])){
+          if(isset($ASTRIA['nav'])){
             foreach($ASTRIA['nav'] as $link => $path){
               ?>
           
