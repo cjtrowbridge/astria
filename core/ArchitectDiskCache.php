@@ -10,7 +10,7 @@ function showArchitectDiskCache(){
     Hook('Template Body',"ArchitectDiskCache();");
   }
   
-  TemplateBootstrap2('View Cache - Architect'); 
+  TemplateBootstrap4('View Cache - Architect'); 
 }
 
 function ArchitectDiskCache($hash = false){
