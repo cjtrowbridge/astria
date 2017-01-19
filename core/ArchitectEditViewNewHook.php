@@ -17,7 +17,7 @@ function ArchitectEditViewNewHookBodyCallback(){
     $View=Query($sql);
   }else{
     //try looking up by slug
-    $safeslug=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],path(2));
+    $safeslug=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],path(2));
     $sql="
       SELECT * FROM View
       WHERE View.Slug LIKE '".$safeslug."'
