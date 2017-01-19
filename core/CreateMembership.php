@@ -1,6 +1,6 @@
 <?php
 
-function createMembership($UserID,$GroupID){
+function CreateMembership($UserID,$GroupID){
 
   if(
     (intval($UserID)==0)||
