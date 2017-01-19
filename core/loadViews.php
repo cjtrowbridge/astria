@@ -7,7 +7,7 @@ function LoadViews(){
   global $ASTRIA;
   
   MakeSureDBConnected(); 
-  $resource     = $ASTRIA['databases']['astria core administrative database']['resource'];;
+  $resource     = $ASTRIA['databases']['astria']['resource'];;
   $cleanSlug    = mysqli_real_escape_string($resource,url()); 
   $cleanViewID  = intval(path(0));
   
