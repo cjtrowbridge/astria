@@ -4,7 +4,7 @@ Hook('User Is Logged In - No Presentation','noView();');
 
 function noView(){
   Hook('Template Body','noViewBodyCallback();');
-  TemplateBootstrap2('404');
+  TemplateBootstrap4('404');
 }
 function noViewBodyCallback(){
   global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
