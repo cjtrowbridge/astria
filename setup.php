@@ -115,7 +115,7 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Hostname:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['host'];}else{echo 'localhost';} ?>">
+              <input class="form-control" type="text" name="dbHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['hostname'];}else{echo 'localhost';} ?>">
               <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
             </div>
           </div>
