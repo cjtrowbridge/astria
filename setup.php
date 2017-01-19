@@ -1,9 +1,9 @@
 <?php
 
 function setup(){
-  require('core/SimplePage.php');
-  require('core/MakeRandomString.php');
-  require('core/RequireSSL.php');
+  require_once('core/SimplePage.php');
+  require_once('core/MakeRandomString.php');
+  require_once('core/RequireSSL.php');
   RequireSSL();
   
   if(isset($_POST['appName'])){
