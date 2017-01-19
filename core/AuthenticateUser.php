@@ -5,7 +5,7 @@ function AuthenticateUser($email=null){
   
   //Validate and sanitize the email
   if($email == null){die('Tried to cache invalid user.');}
-  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->email);
+  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email);
   
   //Get all the user's profile info for the session
   $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
@@ -15,14 +15,14 @@ function AuthenticateUser($email=null){
   $_SESSION['User']['Memberships']=GetAllGroups($_SESSION['User']['UserID']);
   
   //Create a high-entropy hash to connect the cookie with the session
-  $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],md5(uniqid(true)));
+  $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
   
   //Insert session into database
-  $UserIDClean         = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$User['UserID']);
-  $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
-  $UserAgentClean      = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SERVER['HTTP_USER_AGENT']);
-  $UserIPHashClean     = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],md5($_SERVER['REMOTE_ADDR']));
-  $UserIPClean         = mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SERVER['REMOTE_ADDR']);
+  $UserIDClean         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$User['UserID']);
+  $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
+  $UserAgentClean      = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['HTTP_USER_AGENT']);
+  $UserIPHashClean     = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['REMOTE_ADDR']));
+  $UserIPClean         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['REMOTE_ADDR']);
   $ExpiresTime         = (time()+$ASTRIA['app']['defaultSessionLength']);
   $Expires             = date('Y-m-d H:i:s',$ExpiresTime);
   Query("
