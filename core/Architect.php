@@ -17,6 +17,9 @@ if(
 function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
+      case 'config':
+        setup();
+        break;
       case 'view-category':
         showArchitectViewCategory();
         break;
