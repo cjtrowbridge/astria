@@ -57,7 +57,7 @@ function AttemptGoogleAuth(){
         //SIGNING UP!
         Query("INSERT INTO `User`(`Email`)VALUES('".$cleanEmail."');");
         //Add this new user to the default group 
-        CreateMembership(mysql_insert_id(),1);
+        CreateMembership(mysqli_insert_id(),1);
         
         
       }
