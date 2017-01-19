@@ -55,8 +55,9 @@ function AttemptGoogleAuth(){
       if(count($results)==0){
         
         //SIGNING UP!
-        $sql="INSERT INTO `User`(`Email`)VALUES('".$cleanEmail."');";
-        Query($sql);
+        Query("INSERT INTO `User`(`Email`)VALUES('".$cleanEmail."');");
+        //Add this new user to the default group 
+        CreateMembership(mysql_insert_id(),1);
         
         
       }
