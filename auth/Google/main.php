@@ -57,7 +57,7 @@ function AttemptGoogleAuth(){
         //SIGNING UP!
         Query("INSERT INTO `User`(`Email`)VALUES('".$cleanEmail."');");
         //Add this new user to the default group 
-        CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria core administrative database']['resource']),1);
+        CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria']['resource']),1);
         
         
       }
@@ -73,10 +73,10 @@ function AttemptGoogleAuth(){
       Query("
         UPDATE `User` 
         SET 
-          `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->picture)."', 
-          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->givenName)."', 
-          `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->familyName)."' 
-        WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->email)."';
+          `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->picture)."', 
+          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astri']['resource'],$_SESSION['google_oauth2']['user_object']->givenName)."', 
+          `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->familyName)."' 
+        WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email)."';
       ");
     
       AuthenticateUser($_SESSION['google_oauth2']['user_object']->email);
