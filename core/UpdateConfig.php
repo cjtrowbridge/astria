@@ -92,7 +92,7 @@ function UpdateConfig(
     ),
 
     'databases'=>array(
-      'astria core administrative database' => array(
+      'astria' => array(
 
         'type'                     => '".$dbType."',
         'hostname'                 => '".$dbHost."',
