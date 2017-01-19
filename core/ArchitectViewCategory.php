@@ -2,7 +2,7 @@
 
 function showArchitectViewCategory(){
   Hook('Template Body','ArchitectViewCategory();');
-  TemplateBootstrap2('View Category - Architect'); 
+  TemplateBootstrap4('View Category - Architect'); 
 }
 
 function ArchitectViewCategory(){
