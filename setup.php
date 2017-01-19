@@ -115,26 +115,26 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Hostname:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['hostname'];}else{echo 'localhost';} ?>">
+              <input class="form-control" type="text" name="dbHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['hostname'];}else{echo 'localhost';} ?>">
               <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Username:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['username'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="dbUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['username'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Password:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['password'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="dbPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['password'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Name:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['database'];}else{echo 'astria';} ?>">
+              <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['database'];}else{echo 'astria';} ?>">
             </div>
           </div>
           
