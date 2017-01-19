@@ -1,6 +1,6 @@
 <?php
 
-function MakeSureDBConnected($Database='astria core administrative database'){
+function MakeSureDBConnected($Database='astria'){
 
   global $ASTRIA;
 
