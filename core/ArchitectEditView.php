@@ -2,7 +2,7 @@
 
 function ArchitectEditView(){
   Hook('Template Body','ArchitectEditViewBodyCallback();');
-  TemplateBootstrap2('Edit View - Architect'); 
+  TemplateBootstrap4('Edit View - Architect'); 
 }
 function ArchitectEditViewBodyCallback(){
   global $ASTRIA;
