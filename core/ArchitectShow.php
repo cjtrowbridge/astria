@@ -2,7 +2,7 @@
 
 function showArchitect(){
   Hook('Template Body','ArchitectBodyCallback();');
-  TemplateBootstrap2('Architect'); 
+  TemplateBootstrap4('Architect'); 
 }
   
 function ArchitectBodyCallback(){
