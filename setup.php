@@ -143,13 +143,13 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">ClientID:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['google']['GoogleOAuth2ClientID'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Client Secret:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['google']['GoogleOAuth2ClientSecret'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret'];}else{echo '';} ?>">
             </div>
           </div>
   
