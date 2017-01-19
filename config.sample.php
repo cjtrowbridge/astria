@@ -40,7 +40,7 @@ $ASTRIA = array(
   ),
   
   'databases'=array(
-    'astria core administrative database' => array(
+    'astria' => array(
       
       'type'                     => 'mysql',
       'hostname'                 => 'localhost',
