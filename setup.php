@@ -13,6 +13,7 @@ function setup(){
 }
 
 function setupBodyCallback(){
+  global $ASTRIA;
   //TODO make timezone a dropdown
   //TODO link to documentation with best practices and examples for setting up databases and mail servers
   //TODO support more database types
@@ -31,7 +32,7 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App Name:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="appName" value="Astria" id="appName">
+              <input class="form-control" type="text" name="appName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appName'];}else{echo 'Astria';} ?>" id="appName">
               <small class="form-text text-muted">This will go in the titles.</small>
             </div>
           </div>
@@ -41,63 +42,63 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App URL:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="appURL" value="Astria">
+              <input class="form-control" type="text" name="appURL" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appURL'];}else{echo 'https://astria.tech';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Favicon URL:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="favicon" value="">
+              <input class="form-control" type="text" name="favicon" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['favicon'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Default Session Length:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="defaultSessionLength" value="604800">
+              <input class="form-control" type="text" name="defaultSessionLength" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['defaultSessionLength'];}else{echo '604800';} ?>">
               <small class="form-text text-muted">In seconds. Default is one week.</small>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Encryption Key:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="encryptionKey" value="<?php echo MakeRandomString(32); ?>">
+              <input class="form-control" type="text" name="encryptionKey" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['encryptionKey'];}else{echo MakeRandomString(32);} ?>">
             </div>
           </div>
           <h2>Mail</h2>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Server:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpHost" value="localhost">
+              <input class="form-control" type="text" name="smtpHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['host'];}else{echo 'localhost';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Port:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpPort" value="25">
+              <input class="form-control" type="text" name="smtpPort" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['port'];}else{echo '25';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Username:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpUsername" value="">
+              <input class="form-control" type="text" name="smtpUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['username'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Password:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpPassword" value="">
+              <input class="form-control" type="text" name="smtpPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['password'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Admin Email:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpAdminEmail" value="">
+              <input class="form-control" type="text" name="smtpAdminEmail" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['adminEmail'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Default From:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpDefaultFrom" value="">
+              <input class="form-control" type="text" name="smtpDefaultFrom" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['defaultEmailFrom'];}else{echo '';} ?>">
             </div>
           </div>
           
@@ -114,26 +115,26 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Hostname:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbHost" value="localhost">
+              <input class="form-control" type="text" name="dbHost" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['host'];}else{echo 'localhost';} ?>">
               <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Username:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbUsername" value="">
+              <input class="form-control" type="text" name="dbUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['username'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Password:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbPassword" value="">
+              <input class="form-control" type="text" name="dbPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['password'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Name:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbName" value="astria">
+              <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria core administrative database']['database'];}else{echo 'astria';} ?>">
             </div>
           </div>
           
@@ -142,13 +143,13 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">ClientID:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['google']['GoogleOAuth2ClientID'];}else{echo '';} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Client Secret:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['google']['GoogleOAuth2ClientSecret'];}else{echo '';} ?>">
             </div>
           </div>
   
@@ -156,7 +157,7 @@ function setupBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Timezone:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="timezone">
+              <input class="form-control" type="text" name="timezone" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['locale']['timezone'];}else{echo 'America/Los Angeles';} ?>">
             </div>
           </div>
           
