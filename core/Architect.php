@@ -17,6 +17,9 @@ if(
 function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
+      case 'schema':
+        showArchitectSchema();
+        break;
       case 'config':
         include('setup.php');
         setup();
