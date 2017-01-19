@@ -1,6 +1,6 @@
 <?php
 
-function TemplateBootstrap2($title=''){
+function TemplateBootstrap4($title=''){
   global $HAMBURGER, $ASTRIA;
   $HAMBURGER=array('Home'=>'/');
 
