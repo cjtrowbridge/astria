@@ -18,7 +18,7 @@ function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
       case 'config':
-        include('../setup.php');
+        include('setup.php');
         setup();
         break;
       case 'view-category':
