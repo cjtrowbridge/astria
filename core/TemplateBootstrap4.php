@@ -53,14 +53,16 @@ function TemplateBootstrap4($title=''){
     <ul class="nav navbar-nav">
       <?php
         if(LoggedIn()){
-          foreach($ASTRIA['nav'] as $link => $path){
-            ?>
+          if(isset(ASTRIA['nav'])){
+            foreach($ASTRIA['nav'] as $link => $path){
+              ?>
           
       <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
         <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?></a>
       </li>
           
-            <?php
+              <?php
+            }
           }
         }
       ?>
