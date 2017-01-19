@@ -49,7 +49,7 @@ function AttemptGoogleAuth(){
     $_SESSION['google_oauth2']['user_object']=$service->userinfo->get();
     
       MakeSureDBConnected();
-      $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria core administrative database']['resource'],$_SESSION['google_oauth2']['user_object']->email);
+      $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email);
     
       $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1"); 
       if(count($results)==0){
