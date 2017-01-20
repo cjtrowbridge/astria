@@ -21,7 +21,7 @@ function ArchitectSchemaBodyCallback(){
       <div class="form-group row">
         <div class="col-xs-12">
           What would you call one object in this schema?<br>
-          (Ie, Cats would be "Cat.")<br>
+          (Ie, Cats would be "Cat." Alphanumeric characters only.)<br>
           <input type="text" class="form-control" placeholder="Schema Object Name" name="newSchemaObject" id="newSchemaObject">
         </div>
       </div>
