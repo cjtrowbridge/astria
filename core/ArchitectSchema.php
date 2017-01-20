@@ -7,7 +7,7 @@ function showArchitectSchema(){
   
 function ArchitectSchemaBodyCallback(){
 ?>
-<h2>Architect - Schema</h2>
+<h1>Architect - Schema</h1>
 <div class="row">
   <div class="col-xs-12">
     <form class="form-inline">
