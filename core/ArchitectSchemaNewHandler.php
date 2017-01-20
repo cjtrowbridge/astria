@@ -1,6 +1,7 @@
 <?php
 
 function handleArchitectSchemaNew(){
+  global $ASTRIA;
   
   if(!(ctype_alnum($_POST['newSchemaObject']))){
     die('Only letters and numbers allowed in Schema object name.');
