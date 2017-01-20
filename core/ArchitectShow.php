@@ -23,6 +23,7 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <form class="form-inline">
+      <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
       <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-warning">Events</button>
       <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-warning">Hooks</button>
       <button onclick="document.location='/architect/disk-cache'" type="button" class="btn btn-outline-warning">Cache</button>
