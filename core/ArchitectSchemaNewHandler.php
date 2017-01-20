@@ -26,7 +26,7 @@ function handleArchitectSchemaNew(){
   $sql="CREATE TABLE `".$cleanObject."` ( `".$cleanObject."ID` INT NOT NULL AUTO_INCREMENT , `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."ID`)) ENGINE = InnoDB;";
   
   if($_POST['newSchemaVersioning']=='yes'){
-    $sql.=" CREATE TABLE `".$cleanObject."` ( `".$cleanObject."HistoryID` INT NOT NULL AUTO_INCREMENT ,`".$cleanObject."ID` INT NOT NULL, `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."HistoryID`)) ENGINE = InnoDB;";
+    $sql.=" CREATE TABLE `".$cleanObject."_History` ( `".$cleanObject."HistoryID` INT NOT NULL AUTO_INCREMENT ,`".$cleanObject."ID` INT NOT NULL, `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."HistoryID`)) ENGINE = InnoDB;";
   }
   
   pd($sql);
