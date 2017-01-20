@@ -13,7 +13,7 @@ function handleArchitectSchemaNew(){
   $tableExists = count($result) > 0;
   
   //Check if history table exists
-  $result = Query("SHOW TABLES LIKE '".$cleanObject."_History'");
+  $result = Query("SHOW TABLES LIKE 'History_".$cleanObject."'");
   $historyExists = count($result) > 0;
 
   if(
@@ -26,7 +26,7 @@ function handleArchitectSchemaNew(){
   Query("CREATE TABLE `".$cleanObject."` ( `".$cleanObject."ID` INT NOT NULL AUTO_INCREMENT , `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."ID`)) ENGINE = InnoDB;");
   
   if($_POST['newSchemaVersioning']=='yes'){
-    Query(" CREATE TABLE `".$cleanObject."_History` ( `".$cleanObject."HistoryID` INT NOT NULL AUTO_INCREMENT ,`".$cleanObject."ID` INT NOT NULL, `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."HistoryID`)) ENGINE = InnoDB;");
+    Query(" CREATE TABLE `History_".$cleanObject."` ( `".$cleanObject."HistoryID` INT NOT NULL AUTO_INCREMENT ,`".$cleanObject."ID` INT NOT NULL, `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."HistoryID`)) ENGINE = InnoDB;");
   }
   
   header('Location: /architect/schema/'.$cleanObject);
