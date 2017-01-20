@@ -29,6 +29,8 @@ function handleArchitectSchemaNew(){
     $sql.=" CREATE TABLE `".$cleanObject."` ( `".$cleanObject."HistoryID` INT NOT NULL AUTO_INCREMENT ,`".$cleanObject."ID` INT NOT NULL, `UserInserted` INT NOT NULL , `TimeInserted` DATETIME NOT NULL , `UserUpdated` INT NULL , `TimeUpdated` DATETIME NULL , PRIMARY KEY (`".$cleanObject."HistoryID`)) ENGINE = InnoDB;";
   }
   
+  pd($sql);
+  
   Query($sql);
   
   header('Location: /architect/schema/'.$cleanObject);
