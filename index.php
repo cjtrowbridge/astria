@@ -9,7 +9,7 @@ if(!file_exists('config.php')){
 }
 
 include('config.php');
-include('loader.php');
+include('core/Loader.php');
 session_start();
 
 Loader('core');
