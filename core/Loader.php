@@ -1,5 +1,7 @@
 <?php 
 
+include_once('core/Event.php');
+
 function Loader($dir = 'core'){
   if($dir=='core'){
   
