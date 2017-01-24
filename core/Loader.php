@@ -1,6 +1,7 @@
 <?php 
 
 include_once('core/Event.php');
+include_once('core/Hook.php');
 
 function Loader($dir = 'core'){
   if($dir=='core'){
