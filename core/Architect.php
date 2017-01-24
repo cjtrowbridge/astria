@@ -25,8 +25,8 @@ function prepareArchitect(){
         }
         break;
       case 'config':
-        include('setup.php');
-        setup();
+        include('core/Setup.php');
+        Setup();
         break;
       case 'view-category':
         showArchitectViewCategory();
