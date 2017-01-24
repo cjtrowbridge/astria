@@ -9,10 +9,8 @@ if(!file_exists('config.php')){
 }
 
 include('config.php');
-session_start();
-
-include('events/main.php');
 include('loader.php');
+session_start();
 
 Loader('core');
 Loader('auth/Google');
