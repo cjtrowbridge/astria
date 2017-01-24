@@ -1,6 +1,8 @@
 <?php
 
-function setup(){
+
+
+function Setup(){
   require_once('core/SimplePage.php');
   require_once('core/MakeRandomString.php');
   require_once('core/RequireSSL.php');
