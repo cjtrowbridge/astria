@@ -1,4 +1,3 @@
-# astria v13
-*An availability framework.*
+# Astria v13
 
-Connecting disparate data sources, we facilitate excellent user interfaces that scale effortlessly to immense complexity and volume.
+Astria manages schema and implements smart user-interfaces that scale.
