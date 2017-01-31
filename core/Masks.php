@@ -3,10 +3,10 @@
 function InputMask($Key, $Value,$Row = false,$Class = ''){
  switch($Key){
    case 'Code':
-     return '<textarea name="'.$Key.'" id="'.$Key.'" class="'.$Class.'">'.$Value.'</teaxtarea>';
+     return '    <textarea name="'.$Key.'" id="'.$Key.'" class="'.$Class.'">'.$Value.'</teaxtarea>'."\n";
      break;
    default:
-     return $Value;
+     return "    <input class=\"".$Class."\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
      break;
  }
 }
