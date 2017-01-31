@@ -46,7 +46,7 @@ function ArchitectEditViewNewHookBodyCallback(){
           $Readable=array(
             'View'  => $View['ViewID']
           );
-          AstriaBootstrapAutoForm($Editable,$Readable);
+          echo AstriaBootstrapAutoForm($Editable,$Readable);
   
         ?>
         <br>
