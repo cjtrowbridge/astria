@@ -60,36 +60,20 @@ function ArchitectEditViewBodyCallback(){
       <div class="col-xs-12">
         <h1>Edit View: <?php echo $View['Name']; ?></h1>
         
-        
-        <form action="/architect/edit-view/" method="post">
-          
-          <div class="form-group row">
-            <label class="col-xs-2 col-form-label">View Name:</label>
-            <div class="col-xs-10">
-              <input class="form-control" type="text" name="viewName" value="<?php echo $View['Name']; ?>" id="viewName">
-            </div>
-          </div>
-          <script>
-            $('#viewName').focus();
-          </script> 
-          <div class="form-group row">
-            <label class="col-xs-2 col-form-label">View Slug:</label>
-            <div class="col-xs-10">
-              <input class="form-control" type="text" name="slug" value="<?php echo $View['Slug']; ?>">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="col-xs-2 col-form-label">Description:</label>
-            <div class="col-xs-10">
-              <input class="form-control" type="text" name="viewDescription" value="<?php echo $View['Description']; ?>">
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-xs-12">
-              <input class="form-control" type="submit" value="Save View Changes">
-            </div>
-          </div>
-        </form>
+        <div class="row">
+          <?php
+            $Editable=array(
+              'View Name'        => $View['Name'],
+              'View Slug'        => $View['Slug'],
+              'View Description' => $View['Description']
+
+            );
+            $Readable=array(
+              'ViewID'  => $View['ViewID']
+            );
+            echo AstriaBootstrapAutoForm($Editable,$Readable);
+          ?>
+        </div>
         <div class="row">
           <div class="col-xs-12">
             &nbsp;
