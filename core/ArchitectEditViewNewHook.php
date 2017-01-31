@@ -8,6 +8,28 @@ function ArchitectEditViewNewHookBodyCallback(){
   global $ASTRIA;
   MakeSureDBConnected();
   
+  if(intval(trim(path(2)))>0){
+    //look up by id
+    $sql="
+      SELECT * FROM View
+      WHERE View.ViewID = ".intval(path(2))."
+    ";
+    $View=Query($sql);
+  }else{
+    //try looking up by slug
+    $safeslug=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],path(2));
+    $sql="
+      SELECT * FROM View
+      WHERE View.Slug LIKE '".$safeslug."'
+    ";
+    $View=Query($sql);
+  }
+  if(!(isset($View[0]))){
+    echo '<h1>View Not Found!</h1>';
+    return false;
+  }
+  $View=$View[0];
+  
   
   ?>
 
@@ -18,15 +40,13 @@ function ArchitectEditViewNewHookBodyCallback(){
         <?php
           
           $Editable=array(
-            
+            'Astria Event'  => '',
+            'Code'          => ''
           );
           $Readable=array(
-          
+            'View'  => $View['ViewID']
           );
-          $Hidden=array(
-          
-          );
-          AstriaBootstrapAutoForm($Editable,$Readable,$Hidden);
+          AstriaBootstrapAutoForm($Editable,$Readable);
   
         ?>
         <br>
