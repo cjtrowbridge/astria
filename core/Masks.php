@@ -11,7 +11,7 @@ function InputMask($Key, $Value,$Row = false,$Class = ''){
  }
 }
   
-function OutputMask($Key, $value,$row = false,$Class = ''){
+function OutputMask($Key, $Value,$Row = false,$Class = ''){
   switch($Key){
     case 'GroupID':
       return '<a href="/architect/edit-group/'.$Value.'">'.$Value.'</a>';
