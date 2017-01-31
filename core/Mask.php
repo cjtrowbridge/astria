@@ -6,10 +6,12 @@ function InputMask($Key, $Value,$Row = false,$Class = ''){
       return '    <textarea name="'.$Key.'" id="'.$Key.'" class="'.$Class.'">'.$Value.'</textarea>'."\n";
     case 'Astria Event':
       $Return = "    <select name=\"".$Key."\" id=\"".$Key."\" class=\"".$Class."\">\n";
-      global $EVENTS;
-      foreach($EVENTS as $Event => $List){
-        $Return.= "      <option value=\"".$Event."\">".$Event."</option>\n";
-      }
+      $Return.= "      <option value=\"User Is Logged In\">User Is Logged In</option>\n";
+      $Return.= "      <option value=\"User Is Logged In - Before Presentation\">User Is Logged In - Before Presentation</option>\n";
+      $Return.= "      <option value=\"User Is Logged In - Presentation\">User Is Logged In - Presentation</option>\n";
+      $Return.= "      <option value=\"Template Body\">Template Body</option>\n";
+      $Return.= "      <option value=\"User Is Logged In - No Presentation\">User Is Logged In - No Presentation</option>\n";
+      $Return.= "      <option value=\"User Is Not Logged In\">User Is Not Logged In</option>\n"
       $Return.= "    </select>\n";
       return $Return;
     default:
