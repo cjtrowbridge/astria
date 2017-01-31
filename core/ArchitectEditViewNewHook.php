@@ -1,11 +1,28 @@
 <?php
 
 function ArchitectEditViewNewHook(){
-  if(isset($_POST['Astria_Event'])){
+  if(isset($_POST['ViewID'])){
     //Creating a new hook!
+    global $ASTRIA;
+    MakeSureDBConnected();
     
-    pd($_POST);
-    die('ok lets create one.');
+    //Validate ViewID 
+    $ViewID = intval($_POST['ViewID']);
+    if($ViewID==0){echo '<p>Please Specify a ViewID. For example /architect/edit-view/1</p>';return;}
+    
+    //Get it from the database and make sure it exists
+    $View = Query('SELECT ViewID FROM View WHERE ViewID = '.$ViewID);
+    if(!(isset($View[0]))){die('That view was not found. :[');}
+    $View=$View[0];
+    
+    $newEvent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
+    $newCode  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
+    
+    $sql="INSERT INTO `Hook` (`ViewID`, `Event`, `Code`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newEvent."', '".$newCode."',NOW(),".intval($_SESSION['User']['UserID']).");";
+    Query($sql);
+    
+    header('Location: /architect/edit-view/'.$ViewID);
+    
   }
   Hook('Template Body','ArchitectEditViewNewHookBodyCallback();');
   TemplateBootstrap4('New Hook - Architect'); 
@@ -52,7 +69,10 @@ function ArchitectEditViewNewHookBodyCallback(){
           $Readable=array(
             'ViewID'  => $View['ViewID']
           );
-          echo AstriaBootstrapAutoForm($Editable,$Readable);
+          $Hidden=array(
+            'ViewID'  => $View['ViewID']
+          );
+          echo AstriaBootstrapAutoForm($Editable,$Readable,$Hidden);
   
         ?>
         <br>
