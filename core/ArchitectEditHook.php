@@ -27,7 +27,7 @@ function EditHookBodyCallback(){
   //Classify each column
   $Writeable=array(
     'Event' => $Hook['Event'],
-    'Content' => $Hook['Content']
+    'Code' => $Hook['Content']
   );
   $Readable=array(
     'ViewID' => $Hook['ViewID']
