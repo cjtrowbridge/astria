@@ -23,7 +23,7 @@ function ArrTabler($arr, $table_id = null, $table_class = 'tablesorter tablesort
       $first=false;
       $return.= "			<tr>\n";
       foreach($row as $key => $value){
-        $return.="<td>".FieldMask($key, $value,$row)."</td>";
+        $return.="<td>".OutputMask($key, $value,$row)."</td>";
       }
       $return.= "			</tr>\n";
     }
