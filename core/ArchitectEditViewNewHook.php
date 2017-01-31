@@ -1,6 +1,12 @@
 <?php
 
 function ArchitectEditViewNewHook(){
+  if(isset($_POST['Astria_Event'])){
+    //Creating a new hook!
+    
+    pd($_POST);
+    die('ok lets create one.);
+  }
   Hook('Template Body','ArchitectEditViewNewHookBodyCallback();');
   TemplateBootstrap4('New Hook - Architect'); 
 }
