@@ -11,8 +11,9 @@ function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array()
     $Return .= "<div class=\"form-group row\">\n";
     $Return .= "  <label class=\"col-xs-2 col-form-label\">".$Key.":</label>\n";
     $Return .= "  <div class=\"col-xs-10\">\n";
-    //TODO check the schema for data type and use the correct input for whatever it is
-    $Return .= "    <input class=\"form-control astriaBootstrapFormInput\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
+    
+    $Return .= InputMask($Key, $Value,false,'form-control astriaBootstrapFormInput');
+    
     $Return .= "  </div>\n";
     $Return .= "</div>\n";
   }
