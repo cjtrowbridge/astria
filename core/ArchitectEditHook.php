@@ -15,7 +15,7 @@ function showEditHook(){
     $NewEvent   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
     $NewContent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
     
-    $sql="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
+    $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
     pd($SQL);
     header('Location: /architect/edit-hook/'.$_POST['HookID']);
