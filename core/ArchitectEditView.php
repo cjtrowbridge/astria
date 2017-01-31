@@ -1,6 +1,30 @@
 <?php
 
 function ArchitectEditView(){
+   if(isset($_POST['ViewID'])){
+    global $USER,$ASTRIA;
+    
+    pd($_POST);exit;
+     
+    $ViewID = intval($_POST['ViewID']);
+    if($ViewID==0){echo '<p>Please Specify a ViewID. For example /architect/edit-view/1</p>';return;}
+    //Get it from the database and make sure it exists
+    $View = Query('SELECT ViewID FROM View WHERE ViewID = '.$ViewID);
+    if(!(isset($View[0]))){die('That view was not found. :[');}
+    $View=$View[0];
+    
+    $NewName        = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
+    $NewSlug        = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
+    $NewDescription = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
+    
+    $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
+    Query($SQL);
+    pd($SQL);
+    header('Location: /architect/edit-hook/'.$_POST['HookID']);
+    exit;
+    
+  }
+  
   Hook('Template Body','ArchitectEditViewBodyCallback();');
   TemplateBootstrap4('Edit View - Architect'); 
 }
