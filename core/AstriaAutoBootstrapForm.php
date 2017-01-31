@@ -1,6 +1,9 @@
 <?php
 
-function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = '/', $Method = 'post'){
+function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = 'Current URL', $Method = 'post'){
+  if($Action == 'Current URL'){
+    $Action=url();
+  }
   
   $Return="\n\n<!--\nAstria Bootstrap AutoForm v1.0\n\nInput:\n".var_export($Array,true)."\n\n-->\n\n";
   $Return .= "<form action=\"".$Action."\" method=\"".$Method."\">\n";
