@@ -2,7 +2,7 @@
 
 function showEditHook(){
   Hook('Template Body','EditHookBodyCallback();');
-  TemplateBootstrap2('Edit Hook| Architect'); 
+  TemplateBootstrap4('Edit Hook| Architect'); 
 
 }
 
