@@ -1,14 +1,21 @@
 <?php
 
 function InputMask($Key, $Value,$Row = false,$Class = ''){
- switch($Key){
-   case 'Code':
-     return '    <textarea name="'.$Key.'" id="'.$Key.'" class="'.$Class.'">'.$Value.'</textarea>'."\n";
-     break;
-   default:
-     return "    <input class=\"".$Class."\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
-     break;
- }
+  switch($Key){
+    case 'Code':
+      return '    <textarea name="'.$Key.'" id="'.$Key.'" class="'.$Class.'">'.$Value.'</textarea>'."\n";
+    case 'Astria Event':
+      $Return = "    <select name=\"".$Key."\" id=\"".$Key."\" class=\"".$Class."\">\n";
+      global $EVENTS;
+      foreach($EVENTS as $Event => $List){
+        $Return.= "      <option value=\"".$Event."\">".$Event."</option>\n";
+      }
+      $Return.= "    </select>\n"
+      return $Return;
+    default:
+      return "    <input class=\"".$Class."\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
+      break;
+  }
 }
   
 function OutputMask($Key, $Value,$Row = false,$Class = ''){
