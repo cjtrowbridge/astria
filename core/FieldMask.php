@@ -1,6 +1,6 @@
 <?php
 
-function FieldMask($key, $value,$row){
+function FieldMask($key, $value,$row = false){
   switch($key){
     case 'GroupID':
       return '<a href="/architect/edit-group/'.$value.'">'.$value.'</a>';
