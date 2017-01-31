@@ -5,7 +5,7 @@ function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array()
     $Action=url();
   }
   
-  $Return="\n\n<!--\nAstria Bootstrap AutoForm v1.0\n\nInput:\n".var_export($Array,true)."\n\n-->\n\n";
+  $Return="\n\n<!--\nAstria Bootstrap AutoForm v1.0\n\nEditable:\n".var_export($Editable,true)."\n\nReadable:\n".var_export($Readable,true)."\n\nHidden:\n".var_export($Hidden,true)."\n\n-->\n\n";
   $Return .= "<form action=\"".$Action."\" method=\"".$Method."\">\n";
   foreach($Editable as $Key => $Value){
     $Return .= "<div class=\"form-group row\">\n";
