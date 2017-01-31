@@ -8,19 +8,19 @@ function ArchitectEditViewNewHookBodyCallback(){
   global $ASTRIA;
   MakeSureDBConnected();
   
-  if(intval(trim(path(2)))>0){
-    //look up by id
-    $sql="
-      SELECT * FROM View
-      WHERE View.ViewID = ".intval(path(2))."
-    ";
-    $View=Query($sql);
-  }else{
+  if(intval(path(2))==0){
     //try looking up by slug
     $safeslug=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],path(2));
     $sql="
       SELECT * FROM View
       WHERE View.Slug LIKE '".$safeslug."'
+    ";
+    $View=Query($sql);
+  }else{
+    //look up by id
+    $sql="
+      SELECT * FROM View
+      WHERE View.ViewID = ".intval(path(2))."
     ";
     $View=Query($sql);
   }
