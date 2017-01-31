@@ -18,7 +18,7 @@ function ArchitectEditViewNewHook(){
     $newEvent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
     $newCode  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
     
-    $sql="INSERT INTO `Hook` (`ViewID`, `Event`, `Code`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newEvent."', '".$newCode."',NOW(),".intval($_SESSION['User']['UserID']).");";
+    $sql="INSERT INTO `Hook` (`ViewID`, `Event`, `Content`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newEvent."', '".$newCode."',NOW(),".intval($_SESSION['User']['UserID']).");";
     Query($sql);
     
     header('Location: /architect/edit-view/'.$ViewID);
