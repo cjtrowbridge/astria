@@ -71,7 +71,10 @@ function ArchitectEditViewBodyCallback(){
             $Readable=array(
               'ViewID'  => $View['ViewID']
             );
-            echo AstriaBootstrapAutoForm($Editable,$Readable);
+            $Hidden=array(
+              'ViewID'  => $View['ViewID']
+            );
+            echo AstriaBootstrapAutoForm($Editable,$Readable,$Hidden);
           ?>
         </div>
         <div class="row">
