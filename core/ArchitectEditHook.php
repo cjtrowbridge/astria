@@ -48,5 +48,4 @@ function EditHookBodyCallback(){
 </div>
 
   <?php
-  global $EVENTS;pd($EVENTS);
 }
