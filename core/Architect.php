@@ -24,6 +24,9 @@ function prepareArchitect(){
           showArchitectSchema();
         }
         break;
+      case 'edit-hook':
+        showEditHook();
+        break;
       case 'config':
         include('core/Setup.php');
         Setup();
