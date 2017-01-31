@@ -2,6 +2,8 @@
 
 function showEditHook(){
   if(isset($_POST['HookID'])){
+    global $USER,$ASTRIA;
+    
     $HookID = intval($_POST['HookID']);
     if($HookID==0){echo '<p>Please Specify a HookID. For example /architect/edit-hook/1</p>';return;}
 
@@ -13,7 +15,6 @@ function showEditHook(){
     $NewEvent   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
     $NewContent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
     
-    global $USER;
     $sql="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
     pd($SQL);
