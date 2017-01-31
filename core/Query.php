@@ -5,6 +5,8 @@ $NUMBER_OF_QUERIES_RUN=0;
 $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE=0;
 $QUERIES_RUN='';
 
+//TODO abstract string escaping into a separate function which is aware of the database type and best way of doing that for each database.
+
 function Query(
 	$SQL,
 	$TTL = 1,
