@@ -20,13 +20,25 @@ function EditHookBodyCallback(){
   if(!(isset($Hook[0]))){echo '<p>That hook was not found. :[</p>';return;}
   $Hook=$Hook[0];
   
+  //Classify each column
+  $Writeable=array(
+    'Event Driven By' => $Hook['Event'],
+    'Content' => $Hook['Content']
+  );
+  $Readable=array(
+    'ViewID' => $Hook['ViewID']
+  );
+  $Hidden=array(
+    'HookID' => $Hook['HookID']
+  );
+  
   //Display the form
   ?>
 
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <?php echo AstriaBootstrapAutoForm($Hook); ?>
+        <?php echo AstriaBootstrapAutoForm($Writeable,$Readable,$Hidden); ?>
       </div>
     </div>
 </div>
