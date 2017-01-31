@@ -9,7 +9,7 @@ function AstriaBootstrapAutoForm($Array,$Action = '/', $Method = 'post'){
     $Return .= "  <label class=\"col-xs-2 col-form-label\">".$Key.":</label>\n";
     $Return .= "  <div class=\"col-xs-10\">\n";
     $Return .= "    <input class=\"form-control astriaBootstrapFormInput\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
-    $Return .= "  </div>\n"
+    $Return .= "  </div>\n";
     $Return .= "</div>\n";
   }
   $Return .= "  <input class=\"form-control\" type=\"submit\">\n";
