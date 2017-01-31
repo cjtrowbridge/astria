@@ -10,7 +10,7 @@ function InputMask($Key, $Value,$Row = false,$Class = ''){
       foreach($EVENTS as $Event => $List){
         $Return.= "      <option value=\"".$Event."\">".$Event."</option>\n";
       }
-      $Return.= "    </select>\n"
+      $Return.= "    </select>\n";
       return $Return;
     default:
       return "    <input class=\"".$Class."\" type=\"text\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
