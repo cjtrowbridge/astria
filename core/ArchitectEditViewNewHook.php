@@ -40,7 +40,7 @@ function ArchitectEditViewNewHookBodyCallback(){
         <?php
           
           $Editable=array(
-            'Astria Event'  => '',
+            'Astria Event'  => 'Template Body',
             'Code'          => ''
           );
           $Readable=array(
