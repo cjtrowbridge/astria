@@ -4,3 +4,6 @@ body {
 .hidden{
   display: none;
 }
+textarea.astriaBootstrapFormInput{
+ min-height: 10em; 
+}
