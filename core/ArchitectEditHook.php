@@ -1,6 +1,10 @@
 <?php
 
 function showEditHook(){
+  if(isset($_POST['HookID'])){
+    pd($_POST);
+    die('Handle Post for Edit-Hook'); 
+  }
   Hook('Template Body','EditHookBodyCallback();');
   TemplateBootstrap4('Edit Hook | Architect'); 
 
