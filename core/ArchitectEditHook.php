@@ -2,7 +2,7 @@
 
 function showEditHook(){
   if(isset($_POST['HookID'])){
-    $HookID = intval(path(2));
+    $HookID = intval($_POST['HookID']);
     if($HookID==0){echo '<p>Please Specify a HookID. For example /architect/edit-hook/1</p>';return;}
 
     //Get it from the database and make sure it exists
