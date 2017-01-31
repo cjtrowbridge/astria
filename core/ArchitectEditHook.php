@@ -18,6 +18,7 @@ function EditHookBodyCallback(){
   //Get it from the database and make sure it exists
   $Hook = Query('SELECT * FROM Hook WHERE HookID = '.$HookID);
   if(!(isset($Hook[0]))){echo '<p>That hook was not found. :[</p>';return;}
+  $Hook=$Hook[0];
   
   //Display the form
   ?>
