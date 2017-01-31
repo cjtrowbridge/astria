@@ -11,7 +11,7 @@ function InputMask($Key, $Value,$Row = false,$Class = ''){
       $Return.= "      <option value=\"User Is Logged In - Presentation\">User Is Logged In - Presentation</option>\n";
       $Return.= "      <option value=\"Template Body\">Template Body</option>\n";
       $Return.= "      <option value=\"User Is Logged In - No Presentation\">User Is Logged In - No Presentation</option>\n";
-      $Return.= "      <option value=\"User Is Not Logged In\">User Is Not Logged In</option>\n"
+      $Return.= "      <option value=\"User Is Not Logged In\">User Is Not Logged In</option>\n";
       $Return.= "    </select>\n";
       return $Return;
     default:
