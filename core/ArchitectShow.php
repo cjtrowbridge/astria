@@ -12,11 +12,11 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <?php
-      echo '<p>Current User: ID '.$_SESSION['User']['UserID'].', Email '.$_SESSION['User']['Email'].'.';
+      echo '<p>Current User: ID '.$_SESSION['User']['UserID'].', Email '.$ASTRIA['Session']['User']['Email'].'.';
       echo ' Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.";
       echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries.';
       echo ' Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';
-      echo ' Session Expires '.date('r',$_SESSION['Auth']['Expires']).'.</p>';
+      echo ' Session Expires '.date('r',$ASTRIA['Session']['Auth']['Expires']).'.</p>';
     ?>
   </div>
 </div>
@@ -70,7 +70,7 @@ function ArchitectBodyCallback(){
   </div>
   <div class="hidden" id="session">
     <?php 
-      $temp=$_SESSION;
+      $temp=$ASTRIA['Session'];
       unset($temp['google_oauth2']);
       pd(htmlentities(var_export($temp,true)));
     ?>
