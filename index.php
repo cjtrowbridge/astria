@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 echo 'wtf';
-exit;
+
 if(!file_exists('config.php')){
   include('core/Setup.php');
   Setup();
@@ -13,6 +13,7 @@ include('config.php');
 include('core/Loader.php');
 //session_start();
 echo 'white rabbit ';
+exit;
 Loader('core');
 echo 'blue rabbit ';
 Loader('auth/Google');
