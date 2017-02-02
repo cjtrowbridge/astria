@@ -19,7 +19,7 @@ if(
 
 if(
 	isset($ASTRIA['Session']['Auth'])&&
-	($ASTRIA['Session']['Auth']['Expires']>time())
+	($ASTRIA['Session']['Expires']>time())
 ){
 	VerifyAgentAndIP();
 }else{
@@ -34,11 +34,11 @@ if(
 	}
 	
 	if($Cache==false){
+		$ASTRIA['Session']['Expires']		= 0;
 		$ASTRIA['Session']=array(
 			'Auth'=>array(
 				'Logged In'		=> false,
-				'Last Validated'	=> 0,
-				'Expires'		=> 0,
+				'Last Validated'	=> 0,				
 				'Already Attempted'	=> false
 			)
 		);
