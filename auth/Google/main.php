@@ -35,7 +35,7 @@ function AttemptGoogleAuth(){
   bundle in the session, and redirect to ourself. */
   if(isset($_GET['code'])){
     $client->authenticate($_GET['code']);
-    $_SESSION['google_oauth2']=array('access_token' => $client->getAccessToken());
+    $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
     header('Location: /');
     exit;
   }
@@ -44,12 +44,12 @@ function AttemptGoogleAuth(){
   If we have an access token, we can make
   requests, else we generate an authentication URL.
   ************************************************/
-  if(isset($_SESSION['google_oauth2']) && isset($_SESSION['google_oauth2']['access_token']) && $_SESSION['google_oauth2']['access_token']){
-    $client->setAccessToken($_SESSION['google_oauth2']['access_token']);
-    $_SESSION['google_oauth2']['user_object']=$service->userinfo->get();
+  if(isset($ASTRIA['Session']['google_oauth2']) && isset($ASTRIA['Session']['google_oauth2']['access_token']) && $ASTRIA['Session']['google_oauth2']['access_token']){
+    $client->setAccessToken($ASTRIA['Session']['google_oauth2']['access_token']);
+    $ASTRIA['Session']['google_oauth2']['user_object']=$service->userinfo->get();
     
       MakeSureDBConnected();
-      $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email);
+      $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email);
     
       $results=Query("SELECT UserID FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1"); 
       if(count($results)==0){
@@ -61,7 +61,7 @@ function AttemptGoogleAuth(){
         
         
       }
-      $_SESSION['Auth']=array(
+      $ASTRIA['Session']['Auth']=array(
         'Logged In'		          => true,
         'Last Validated'        => time(),
         'Expires'               => (time()+$ASTRIA['app']['defaultSessionLength'])
@@ -73,17 +73,17 @@ function AttemptGoogleAuth(){
       Query("
         UPDATE `User` 
         SET 
-          `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->picture)."', 
-          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astri']['resource'],$_SESSION['google_oauth2']['user_object']->givenName)."', 
-          `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->familyName)."' 
-        WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email)."';
+          `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->picture)."', 
+          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astri']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->givenName)."', 
+          `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->familyName)."' 
+        WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email)."';
       ");
     
-      AuthenticateUser($_SESSION['google_oauth2']['user_object']->email);
+      AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
     
   }else{
     $authUrl = $client->createAuthUrl();
-    $_SESSION['google_oauth2']=array('auth_url'=>$authUrl);
+    $ASTRIA['Session']['google_oauth2']=array('auth_url'=>$authUrl);
     
   }
   
@@ -92,6 +92,6 @@ function AttemptGoogleAuth(){
 Hook('Auth Login Options','authGoogleCallback();');
 function authGoogleCallback(){
   ?>
-    <p><a class="login" href="<?php echo $_SESSION['google_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" alt="Login with Google" /></a></p>
+    <p><a class="login" href="<?php echo $ASTRIA['Session']['google_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" alt="Login with Google" /></a></p>
   <?php
 }
