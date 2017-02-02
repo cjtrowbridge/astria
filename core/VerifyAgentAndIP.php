@@ -5,12 +5,12 @@ function VerifyAgentAndIP(){
 	global $ASTRIA;
 	
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
-		LogOut();
+		AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
-		LogOut();
+		AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['Auth']['Expires']>time())){
-		LogOut();
+		AstriaSessionDestroy();
 	}
 }
