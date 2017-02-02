@@ -13,6 +13,8 @@ function AstriaSessionSetUp(){
     //Create a random hash to connect the cookie with the session
     $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
     
+    $ASTRIA['Session']['SessionHash']=$SessionHash;
+    
     if (!setcookie($CookieName, $SessionHash, $ExpiresTime, '/', NULL, true,true)){
       die('Could not set cookie.');
     }
@@ -30,16 +32,22 @@ function AstriaSessionSetUp(){
       ('".$SessionHash."' , '".$UserAgentHashClean."', '".$UserAgentClean."', '".$UserIPHashClean."', '".$UserIPClean."', '".$Expires."');
     ");
     
+    AstriaSessionSave();
+    
+  }else{
+    
+    include_once('VerifyAgentAndIP.php');
+    $ASTRIA=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
+    VerifyAgentAndIP();
+    
   }
-  
-	
-	
-  
-  
 }
+
 function AstriaSessionSave(){
-  
+  global $ASTRIA;
+  WriteCache('session_'.$ASTRIA['Session']['SessionHash'],$ASTRIA);
 }
+
 function AstriaSessionDestroy(){
   global $ASTRIA;
   session_destroy();
