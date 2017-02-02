@@ -10,7 +10,7 @@ if(!file_exists('config.php')){
 
 include('config.php');
 include('core/Loader.php');
-session_start();
+//session_start();
 
 Loader('core');
 Loader('auth/Google');
