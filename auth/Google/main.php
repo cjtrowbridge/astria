@@ -66,7 +66,8 @@ function AttemptGoogleAuth(){
       $ASTRIA['Session']['Auth']=array(
         'Logged In'		          => true,
         'Last Validated'        => time(),
-        'Expires'               => (time()+$ASTRIA['app']['defaultSessionLength'])
+        'Expires'               => (time()+$ASTRIA['app']['defaultSessionLength']),
+        'Already Attempted'     => true
       );
     
     
