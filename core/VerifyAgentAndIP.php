@@ -15,8 +15,6 @@ function VerifyAgentAndIP(){
 	}
 	if(!($ASTRIA['Session']['Expires']>time())){
 		echo 'Session expired';
-		include_once('pd.php');
-		pd($ASTRIA['Session']);
 		exit;//AstriaSessionDestroy();
 	}
 }
