@@ -13,6 +13,8 @@ function AstriaSessionSetUp(){
       die('Could not set cookie.');
     }
     
+    MakeSureDBConnected();
+    
     //Insert session into database
     $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
     $UserAgentClean      = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['HTTP_USER_AGENT']);
