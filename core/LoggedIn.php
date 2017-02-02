@@ -19,7 +19,7 @@ function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
 		include_once('pd.php');
-		pd($ASTRIA);
+		pd($ASTRIA['Session']);
 		exit;
 		
 		//AstriaSessionDestroy();
