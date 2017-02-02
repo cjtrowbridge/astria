@@ -3,6 +3,7 @@
 
 Hook('Attempt Auth','AttemptGoogleAuth();');
 function AttemptGoogleAuth(){
+  include_once('core/Session.php');
   include_once('auth/Google/autoload.php');
   global $ASTRIA;
   
@@ -36,7 +37,6 @@ function AttemptGoogleAuth(){
   if(isset($_GET['code'])){
     $client->authenticate($_GET['code']);
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
-    include_once('Session.php');
     AstriaSaveSession();
     header('Location: /');
     exit;
