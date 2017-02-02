@@ -20,6 +20,7 @@ function deleteDiskCache($hash){
   
 function writeDiskCache($hash,$value){
   include_once('core/isValidMd5.php');
+  include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
     return false;
   }
@@ -35,6 +36,7 @@ function writeDiskCache($hash,$value){
 
 function readDiskCache($hash,$ttl = DISKCACHETTL){
   include_once('core/isValidMd5.php');
+  include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
     return false;
   }
