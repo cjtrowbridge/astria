@@ -49,6 +49,7 @@ if(
 
 
 function LoggedIn(){
+	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
 		LogOut();
 	}
