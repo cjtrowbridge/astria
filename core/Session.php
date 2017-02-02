@@ -33,7 +33,8 @@ function AstriaSessionSetUp(){
     $ASTRIA['Session']=array(
       'SessionHash'    => $SessionHash,
       'UserAgentHash'  => md5($_SERVER['HTTP_USER_AGENT']),
-	    'RemoteAddrHash' => md5($_SERVER['REMOTE_ADDR'])
+      'RemoteAddrHash' => md5($_SERVER['REMOTE_ADDR']),
+      'Expires' => $ExpiresTime
     );
     
     AstriaSessionSave();
