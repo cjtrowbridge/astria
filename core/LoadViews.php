@@ -46,7 +46,7 @@ function LoadViews(){
  
   //attach any hooks
   foreach($Views as $View){
-    Hook($View['Event'],$View['Content']);
+    Hook($View['Event'],base64_decode($View['Content']));
   }
   
 }
