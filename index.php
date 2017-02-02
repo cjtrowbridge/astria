@@ -17,6 +17,7 @@ Loader('core');
 Loader('auth/Google');
 RequireSSL();
 
+if(isset($_GET['verbose'])&&($_GET['verbose']=='beforelogin')){die('we made it!');}
 
 if(LoggedIn()){
   
