@@ -7,7 +7,7 @@ if(!file_exists('config.php')){
   include('core/Setup.php');
   Setup();
 }
-
+echo 'the first rabbit ';
 include('config.php');
 include('core/Loader.php');
 //session_start();
