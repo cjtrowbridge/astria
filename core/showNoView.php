@@ -19,5 +19,5 @@ function noViewBodyCallback(){
   echo '<h4>Session:</h4>';
   pd($ASTRIA['Session']); 
   echo '<h4>User:</h4>';
-  pd($ASTRIA['User']); 
+  pd($ASTRIA['Session']['User']); 
 }
