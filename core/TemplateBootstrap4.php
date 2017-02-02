@@ -66,6 +66,10 @@ function TemplateBootstrap4($title=''){
           }
         }
       ?>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/cjtrowbridge/astria"><span class="icon-github">GitHub</span></a>
+      </li>
+      
     </ul>
     <?php if(LoggedIn()){ ?>
     <ul class="nav navbar-nav float-xs-right">
