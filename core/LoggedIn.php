@@ -15,8 +15,8 @@ if(
 }
 
 if(
-	isset($_SESSION['Auth'])&&
-	($_SESSION['Auth']['Expires']>time())
+	isset($ASTRIA['Session']['Auth'])&&
+	($ASTRIA['Session']['Auth']['Expires']>time())
 ){
 	VerifyAgentAndIP();
 }else{
@@ -31,14 +31,22 @@ if(
 	}
 	
 	if($Cache==false){
+		$ASTRIA['Session']['Auth']=array(
+			'Logged In'		=> false,
+			'Last Validated'	=> 0,
+			'Expires'		=> 0,
+			'Already Attempted'	=> false
+		);
+		/*
 		$_SESSION['Auth']=array(
 			'Logged In'		=> false,
 			'Last Validated'	=> 0,
 			'Expires'		=> 0,
 			'Already Attempted'	=> false
 		);
+		*/
 	}else{
-		$_SESSION=$Cache;
+		$ASTRIA['Session']=$Cache;
 		VerifyAgentAndIP();
 	}
 	
@@ -47,12 +55,12 @@ if(
 
 
 function LoggedIn(){
-    	if(!(isset($_SESSION['Auth']['Already Attempted']))){
+    	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
 		LogOut();
 	}
 	
-	if($_SESSION['Auth']['Already Attempted']==true){
-		return $_SESSION['Auth']['Logged In'];
+	if($ASTRIA['Session']['Auth']['Already Attempted']==true){
+		return $ASTRIA['Session']['Auth']['Logged In'];
 	}
 	/*
 	
@@ -63,7 +71,7 @@ function LoggedIn(){
 	//check for a current session and determine whether the user has one
 	Event('Verify Session');
 	
-	if($_SESSION['Auth']['Logged In']==true){
+	if($ASTRIA['Session']['Auth']['Logged In']==true){
 		
 		//we already checked and the user is logged in!
 		return true;
@@ -72,10 +80,10 @@ function LoggedIn(){
 	  
     //we need to attempt to authorize the user. one of the called hooks should change the 'Logged In' to true if it was able to authorize the user.
     Event('Attempt Auth');
-    $_SESSION['Auth']['Already Attempted']=true;
+    $ASTRIA['Session']['Auth']['Already Attempted']=true;
 	  
     //check whether we were sucesful in authorizing the user
-    if($_SESSION['Auth']['Logged In']==true){
+    if($ASTRIA['Session']['Auth']['Logged In']==true){
       return true;
     }else{
       return false;
@@ -90,19 +98,19 @@ function LogOut(){
 	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
 	unset($_COOKIE[$CookieName]);
     	setcookie($CookieName, null, -1, '/');
-	deleteDiskCache($_SESSION['SessionHash']);
+	deleteDiskCache($ASTRIA['Session']['SessionHash']);
 	header('Location: /');	
 	exit;
 }
 function VerifyAgentAndIP(){
 	//Make sure that the user agent and ip have not changed and that the sessions is not expired
-	if(!($_SESSION['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
+	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
 		LogOut();
 	}
-	if(!($_SESSION['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
+	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
 		LogOut();
 	}
-	if(!($_SESSION['Auth']['Expires']>time())){
+	if(!($ASTRIA['Session']['Auth']['Expires']>time())){
 		LogOut();
 	}
 }
