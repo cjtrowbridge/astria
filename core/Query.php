@@ -19,12 +19,13 @@ function Query(
 	
 	//Check that database exists and is available, and connect to it.
 	MakeSureDBConnected($Database);
+	include_once('Cache.php');
 	
 	global $ASTRIA;
 	switch($ASTRIA['databases'][$Database]['type']){
 		case 'mysql':
 			$sqlHash   = md5($SQL);
-			$diskCache = readDiskCache($sqlHash,$TTL);
+			$diskCache = ReadCache($sqlHash,$TTL);
 			if($diskCache===false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				if(is_bool($result)){
@@ -34,7 +35,7 @@ function Query(
 				while($Row=mysqli_fetch_assoc($result)){
 					$Output[]=$Row;
 				}
-				writeDiskCache($sqlHash,$Output);
+				WriteCache($sqlHash,$Output);
 				
 				$NUMBER_OF_QUERIES_RUN+=1;
 			}else{
