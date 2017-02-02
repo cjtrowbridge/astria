@@ -10,7 +10,9 @@ function Loader($dir = 'core'){
       while (false !== ($class = readdir($handle))){
         $include_path='core/'.$class;
         if($class != "." && $class != ".." && file_exists($include_path)){
+          Event('Before Loading: '.$include_path);
           include_once($include_path);
+          Event('After Loading: '.$include_path);
         }
       }
       closedir($handle);
