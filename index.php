@@ -9,7 +9,7 @@ if(!file_exists('config.php')){
 }
 
 include('config.php');
-include('core/Sessions.php');
+include('core/Session.php');
 AstriaSessionSetUp();
 include('core/Loader.php');
 
