@@ -67,7 +67,7 @@ function TemplateBootstrap4($title=''){
         }
       ?>
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/cjtrowbridge/astria"><span class="icon-github">GitHub</span></a>
+        <a class="nav-link" href="https://github.com/cjtrowbridge/astria" target="_blank">GitHub</a>
       </li>
       
     </ul>
