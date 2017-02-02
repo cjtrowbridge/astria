@@ -6,14 +6,14 @@ function VerifyAgentAndIP(){
 	
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
 		echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
-		AstriaSessionDestroy();
+		exit;//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
 		echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['REMOTE_ADDR'];
-		AstriaSessionDestroy();
+		exit;//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['Auth']['Expires']>time())){
 		echo 'Session expired';
-		AstriaSessionDestroy();
+		exit;//AstriaSessionDestroy();
 	}
 }
