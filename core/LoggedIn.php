@@ -7,6 +7,8 @@ include_once('Path.php');
 include_once('DiskCache.php');
 DiskCacheCleanup();
 
+AstriaSessionSetUp();
+
 if(
 	path()=='logout'||
 	isset($_GET['logout'])  
