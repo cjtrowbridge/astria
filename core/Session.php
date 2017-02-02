@@ -10,20 +10,19 @@ function AstriaSessionSetUp(){
   if(!(isset($_COOKIE[$CookieName]))){
     MakeSureDBConnected();
     
-    //Create a random hash to connect the cookie with the session
-    $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
-    
-    if (!setcookie($CookieName, $SessionHash, $ExpiresTime, '/', NULL, true,true)){
-      die('Could not set cookie.');
-    }
-    
-    //Insert session into database
+    $SessionHash         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
     $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
     $UserAgentClean      = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['HTTP_USER_AGENT']);
     $UserIPHashClean     = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['REMOTE_ADDR']));
     $UserIPClean         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['REMOTE_ADDR']);
     $ExpiresTime         = (time()+$ASTRIA['app']['defaultSessionLength']);
     $Expires             = date('Y-m-d H:i:s',$ExpiresTime);
+    
+    if (!setcookie($CookieName, $SessionHash, $ExpiresTime, '/', NULL, true,true)){
+      die('Could not set cookie.');
+    }
+    
+    //Insert session into database
     Query("
       INSERT INTO `Session` 
       (`SessionHash`, `UserAgentHash`, `UserAgent`, `UserIPHash`, `UserIP`, `Expires`) VALUES 
