@@ -41,7 +41,7 @@ function AstriaSessionSetUp(){
     
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
-    $ASTRIA=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
+    $ASTRIA['Session']=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
     VerifyAgentAndIP();
     
   }
@@ -50,7 +50,7 @@ function AstriaSessionSetUp(){
 function AstriaSessionSave(){
   global $ASTRIA;
   include_once('Cache.php');
-  WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA);
+  WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
 }
 
 function AstriaSessionDestroy(){
