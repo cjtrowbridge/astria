@@ -31,11 +31,13 @@ if(
 	}
 	
 	if($Cache==false){
-		$ASTRIA['Session']['Auth']=array(
-			'Logged In'		=> false,
-			'Last Validated'	=> 0,
-			'Expires'		=> 0,
-			'Already Attempted'	=> false
+		$ASTRIA['Session']=array(
+				'Auth'=+array(
+				'Logged In'		=> false,
+				'Last Validated'	=> 0,
+				'Expires'		=> 0,
+				'Already Attempted'	=> false
+			)
 		);
 	}else{
 		$ASTRIA['Session']=$Cache;
