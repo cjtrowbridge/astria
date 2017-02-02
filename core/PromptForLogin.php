@@ -14,7 +14,14 @@ function PromptForLoginBodyCallback(){
 				<?php Event('Auth Login Options'); ?>
 			</div>
 			<div class="col-xs-12">
-				<?php global $NUMBER_OF_QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE, $DEBUG; echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; ?>
+				<?php global $NUMBER_OF_QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE, $DEBUG; echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; 
+				
+				if(isset($_GET['verbose'])){
+					global $ASTRIA;
+					pd($ASTRIA);
+				}
+				
+				?>
 			</div>
 		</div>
 	</div>
