@@ -36,6 +36,7 @@ function AttemptGoogleAuth(){
   if(isset($_GET['code'])){
     $client->authenticate($_GET['code']);
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
+    include_once('Session.php');
     AstriaSaveSession();
     header('Location: /');
     exit;
