@@ -15,40 +15,6 @@ if(
 	LogOut();
 }
 
-if(
-	isset($ASTRIA['Session']['Auth'])&&
-	($ASTRIA['Session']['Expires']>time())
-){
-	VerifyAgentAndIP();
-}else{
-	
-	//Check for disk session cache with current session's cookie hash if present.
-	global $ASTRIA;
-	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
-	if(isset($_COOKIE[$CookieName])){
-		$Cache=readDiskCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
-	}else{
-		$Cache=false;	
-	}
-	
-	if($Cache==false){
-		$ASTRIA['Session']['Expires']		= 0;
-		$ASTRIA['Session']=array(
-			'Auth'=>array(
-				'Logged In'		=> false,
-				'Last Validated'	=> 0,				
-				'Already Attempted'	=> false
-			)
-		);
-	}else{
-		$ASTRIA['Session']=$Cache;
-		VerifyAgentAndIP();
-	}
-	
-}
-
-
-
 function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
