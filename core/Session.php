@@ -50,7 +50,10 @@ function AstriaSessionSetUp(){
 function AstriaSessionSave(){
   global $ASTRIA;
   include_once('Cache.php');
-  WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
+  $CacheResult=WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
+  pd($CacheResult);
+  pd($ASTRIA);
+  exit;
 }
 
 function AstriaSessionDestroy(){
