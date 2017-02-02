@@ -13,7 +13,7 @@ function VerifyAgentAndIP(){
 		echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['REMOTE_ADDR'];
 		exit;//AstriaSessionDestroy();
 	}
-	if(!($ASTRIA['Session']['Auth']['Expires']>time())){
+	if(!($ASTRIA['Session']['Expires']>time())){
 		echo 'Session expired';
 		exit;//AstriaSessionDestroy();
 	}
