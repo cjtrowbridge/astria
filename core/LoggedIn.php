@@ -32,7 +32,7 @@ if(
 	
 	if($Cache==false){
 		$ASTRIA['Session']=array(
-				'Auth'=+array(
+			'Auth'=>array(
 				'Logged In'		=> false,
 				'Last Validated'	=> 0,
 				'Expires'		=> 0,
