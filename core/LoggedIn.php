@@ -53,7 +53,7 @@ if(
 function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
-		LogOut();
+		AstriaSessionDestroy();
 	}
 	
 	if($ASTRIA['Session']['Auth']['Already Attempted']==true){
@@ -88,16 +88,6 @@ function LoggedIn(){
 			
   }
   
-}
-function LogOut(){
-	global $ASTRIA;
-	session_destroy();
-	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
-	unset($_COOKIE[$CookieName]);
-    	setcookie($CookieName, null, -1, '/');
-	deleteDiskCache($ASTRIA['Session']['SessionHash']);
-	header('Location: /');	
-	exit;
 }
 function VerifyAgentAndIP(){
 	//Make sure that the user agent and ip have not changed and that the sessions is not expired
