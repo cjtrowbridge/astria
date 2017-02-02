@@ -1,6 +1,7 @@
 <?php
 
 function AstriaSessionSetUp(){
+  global $ASTRIA;
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
   if(!(isset($_COOKIE[$CookieName]))){
@@ -37,11 +38,11 @@ function AstriaSessionSave(){
 }
 function AstriaSessionDestroy(){
   global $ASTRIA;
-	session_destroy();
-	$CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
-	unset($_COOKIE[$CookieName]);
+  session_destroy();
+  $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
+  unset($_COOKIE[$CookieName]);
   setcookie($CookieName, null, -1, '/');
-	deleteDiskCache($ASTRIA['Session']['SessionHash']);
-	header('Location: /');	
-	exit;
+  deleteDiskCache($ASTRIA['Session']['SessionHash']);
+  header('Location: /');	
+  exit;
 }
