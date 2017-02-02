@@ -10,15 +10,11 @@ if(!file_exists('config.php')){
 
 include('config.php');
 include('core/Loader.php');
-//session_start();
 
 Loader('core');
-echo 'blue rabbit ';
 Loader('auth/Google');
-echo 'red rabbit ';
 RequireSSL();
-echo 'white rabbit ';
-exit;
+
 
 if(LoggedIn()){
   
