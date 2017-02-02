@@ -57,6 +57,7 @@ function AstriaSessionSave(){
     include('pd.php');
     echo '<h4>Cache result when saving session...</h4>';
     pd($CacheResult);
+    if($_GET['verbose']=='AstriaSessionSave'){exit;}
   }
 }
 
