@@ -18,7 +18,8 @@ if(
 function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
-		AstriaSessionDestroy();
+		//TODO I dont understand this part. it breaks everything.
+		//AstriaSessionDestroy();
 	}
 	
 	if($ASTRIA['Session']['Auth']['Already Attempted']==true){
