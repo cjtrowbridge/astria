@@ -1,8 +1,8 @@
 <?php
 
 if(
-  isset($_SESSION['User']['Memberships'][2])&&
-  ($_SESSION['User']['Memberships'][2]==2)
+  isset($ASTRIA['Session']['User']['Memberships'][2])&&
+  ($ASTRIA['Session']['User']['Memberships'][2]==2)
 ){
   include_once('Path.php');
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
