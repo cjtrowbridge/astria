@@ -2,6 +2,7 @@
 
 //We need this to happen before this script can work
 include_once('Path.php');
+include_once('Session.php');
 
 //TODO make this happen on a cron
 include_once('DiskCache.php');
