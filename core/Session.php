@@ -1,6 +1,9 @@
 <?php
 
 function AstriaSessionSetUp(){
+  include_once('Query.php');
+  include_once('MakeSureDBConnected.php');
+  
   global $ASTRIA;
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
