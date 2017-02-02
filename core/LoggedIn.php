@@ -37,14 +37,6 @@ if(
 			'Expires'		=> 0,
 			'Already Attempted'	=> false
 		);
-		/*
-		$_SESSION['Auth']=array(
-			'Logged In'		=> false,
-			'Last Validated'	=> 0,
-			'Expires'		=> 0,
-			'Already Attempted'	=> false
-		);
-		*/
 	}else{
 		$ASTRIA['Session']=$Cache;
 		VerifyAgentAndIP();
