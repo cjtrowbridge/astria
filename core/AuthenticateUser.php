@@ -5,14 +5,14 @@ function AuthenticateUser($email=null){
   
   //Validate and sanitize the email
   if($email == null){die('Tried to cache invalid user.');}
-  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SESSION['google_oauth2']['user_object']->email);
+  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email);
   
   //Get all the user's profile info for the session
   $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
-  $_SESSION['User']=$User;
+  $ASTRIA['Session']['User']=$User;
   
   //Insert group memberships into the session
-  $_SESSION['User']['Memberships']=GetAllGroups($_SESSION['User']['UserID']);
+  $ASTRIA['Session']['User']['Memberships']=GetAllGroups($ASTRIA['Session']['User']['UserID']);
   
   //Create a high-entropy hash to connect the cookie with the session
   $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
@@ -32,9 +32,9 @@ function AuthenticateUser($email=null){
   ");
   
   //Insert hash of user agent and IP into session for security checks
-  $_SESSION['SessionHash']    = $SessionHash;
-  $_SESSION['UserAgentHash']  = md5($_SERVER['HTTP_USER_AGENT']);
-  $_SESSION['RemoteAddrHash'] = md5($_SERVER['REMOTE_ADDR']);
+  $ASTRIA['Session']['SessionHash']    = $SessionHash;
+  $ASTRIA['Session']['UserAgentHash']  = md5($_SERVER['HTTP_USER_AGENT']);
+  $ASTRIA['Session']['RemoteAddrHash'] = md5($_SERVER['REMOTE_ADDR']);
   
   //Insert the session hash into a secure cookie
   $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
@@ -43,10 +43,10 @@ function AuthenticateUser($email=null){
   }
   
   //Update the expiration date
-  $_SESSION['Auth']['Expires'] = $ExpiresTime;
+  $ASTRIA['Session']['Auth']['Expires'] = $ExpiresTime;
   
   //Cache the entire session to disk with the cookie's SessionHash as the key.
-  writeDiskCache($SessionHash,$_SESSION);
+  writeDiskCache($SessionHash,$ASTRIA['Session']);
   
   header('Location: /');
   
