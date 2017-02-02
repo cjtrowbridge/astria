@@ -12,6 +12,9 @@ $DEBUG=array(
 );
 
 function Event($EventDescription){
+  if(isset($_GET['verbose'])){
+    echo $EventDescription."<br><br>\n\n";
+  }
 
   global $EVENTS, $ASTRIA;
   /*
