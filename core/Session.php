@@ -53,6 +53,11 @@ function AstriaSessionSave(){
   global $ASTRIA;
   include_once('Cache.php');
   $CacheResult=WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
+  if(isset($_GET['verbose'])){
+    include('pd.php');
+    echo '<h4>Cache result when saving session...</h4>';
+    pd($CacheResult);
+  }
 }
 
 function AstriaSessionDestroy(){
