@@ -8,6 +8,7 @@ function AstriaSessionSetUp(){
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
   if(!(isset($_COOKIE[$CookieName]))){
+    MakeSureDBConnected();
     
     //Create a random hash to connect the cookie with the session
     $SessionHash=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
@@ -15,8 +16,6 @@ function AstriaSessionSetUp(){
     if (!setcookie($CookieName, $SessionHash, $ExpiresTime, '/', NULL, true,true)){
       die('Could not set cookie.');
     }
-    
-    MakeSureDBConnected();
     
     //Insert session into database
     $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
