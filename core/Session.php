@@ -8,7 +8,7 @@ function AstriaSessionSetUp(){
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
   if(!(isset($_COOKIE[$CookieName]))){
-    die('blue');
+    
     MakeSureDBConnected();
     
     $SessionHash         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
@@ -39,7 +39,7 @@ function AstriaSessionSetUp(){
     AstriaSessionSave();
     
   }else{
-    die('red');
+    
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
     $ASTRIA['Session']=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
