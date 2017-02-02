@@ -26,11 +26,11 @@ function LoadViews(){
       ) AND
       (
   ";
-  if(isset($_SESSION['User'])){
+  if(isset($ASTRIA['Session']['User'])){
     $sql.="
-         Permission.UserID = ".intval($_SESSION['User']['UserID'])." OR
+         Permission.UserID = ".intval($ASTRIA['Session']['User']['UserID'])." OR
       ";
-    foreach($_SESSION['User']['Memberships'] as $GroupID){
+    foreach($ASTRIA['Session']['User']['Memberships'] as $GroupID){
       $sql.="
          Permission.GroupID = ".$GroupID." OR
       ";
