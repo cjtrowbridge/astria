@@ -8,8 +8,6 @@ include_once('Session.php');
 include_once('DiskCache.php');
 DiskCacheCleanup();
 
-AstriaSessionSetUp();
-
 if(
 	path()=='logout'||
 	isset($_GET['logout'])  
