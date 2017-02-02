@@ -3,6 +3,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 echo 'wtf';
+exit;
 if(!file_exists('config.php')){
   include('core/Setup.php');
   Setup();
