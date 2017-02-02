@@ -13,7 +13,7 @@ function showEditHook(){
     $Hook=$Hook[0];
     
     $NewEvent   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
-    $NewContent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Code']);
+    $NewContent = mysqli_real_escape_string(base64_encode(ASTRIA['databases']['astria']['resource'],$_POST['Code']));
     
     $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
@@ -44,7 +44,7 @@ function EditHookBodyCallback(){
   //Classify each column
   $Writeable=array(
     'Astria Event' => $Hook['Event'],
-    'Code' => $Hook['Content']
+    'Code' => base64_decode($Hook['Content'])
   );
   $Readable=array(
     'ViewID' => $Hook['ViewID']
