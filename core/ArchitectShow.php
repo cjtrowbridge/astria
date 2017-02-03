@@ -12,7 +12,7 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <?php
-      echo '<p>Current User: ID '.$_SESSION['User']['UserID'].', Email '.$ASTRIA['Session']['User']['Email'].'.';
+      echo '<p>Current User: ID '.$ASTRIA['Session']['User']['UserID'].', Email '.$ASTRIA['Session']['User']['Email'].'.';
       echo ' Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.";
       echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries.';
       echo ' Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';
