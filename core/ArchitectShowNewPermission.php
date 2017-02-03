@@ -64,7 +64,7 @@ function ArchitectEditViewNewPermissionBodyCallback(){
         <?php
           
           $Editable=array(
-            'Group'  => '1',
+            'User Group'  => '1',
             'User'   => '1'
           );
           $Readable=array(
