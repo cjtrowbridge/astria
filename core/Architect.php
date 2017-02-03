@@ -1,5 +1,6 @@
 <?php
 
+global $ASTRIA;
 if(
   isset($ASTRIA['Session']['User']['Memberships'][2])&&
   ($ASTRIA['Session']['User']['Memberships'][2]==2)
@@ -7,7 +8,7 @@ if(
   include_once('Path.php');
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
   
-  global $ASTRIA;
+  
   $ASTRIA['nav']=array(
     'Architect' => '/architect'
   );
