@@ -25,7 +25,7 @@ function Query(
 	switch($ASTRIA['databases'][$Database]['type']){
 		case 'mysql':
 			$sqlHash   = md5($SQL);
-			$diskCache = ReadCache($sqlHash,$TTL);
+			$diskCache = false;//ReadCache($sqlHash,$TTL);
 			if($diskCache===false){
 				$result=mysqli_query($ASTRIA['databases'][$Database]['resource'], $SQL) or die(mysqli_error($ASTRIA['databases'][$Database]['resource']));
 				if(is_bool($result)){
