@@ -18,7 +18,7 @@ function showNewPermission(){
     $newUser  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['User']);
     $newGroup = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['User_Group']);
     
-    Query("INSERT INTO `Permission` (`ViewID`, `User`, `Group`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newUser."', '".$newGroup."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");");
+    Query("INSERT INTO `Permission` (`ViewID`, `UserID`, `GroupID`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newUser."', '".$newGroup."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");");
     
     header('Location: /architect/edit-view/'.$ViewID);
     exit;
