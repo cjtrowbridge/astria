@@ -1,26 +1,24 @@
 <?php
 
 global $ASTRIA;
-if(
-  isset($ASTRIA['Session'])&&
-  isset($ASTRIA['Session']['User'])&&
-  isset($ASTRIA['Session']['User']['Memberships'])&&
-  isset($ASTRIA['Session']['User']['Memberships'][2])&&
-  ($ASTRIA['Session']['User']['Memberships'][2]==2)
-){
-  include_once('Path.php');
-  Hook('User Is Logged In - Before Presentation','prepareArchitect();');
-  
-  
-  $ASTRIA['nav']=array(
-    'Architect' => '/architect'
-  );
-  
-}else{
-  include('pd.php');
-  pd($ASTRIA['Session']['User']['Memberships']);
-  exit;
+if(isset($ASTRIA['Session'])){
+  if(isset($ASTRIA['Session']['User'])){
+    if(isset($ASTRIA['Session']['User']['Memberships'])){
+      if(isset($ASTRIA['Session']['User']['Memberships'][2])){
+        if(($ASTRIA['Session']['User']['Memberships'][2]==2)){
+          include_once('Path.php');
+          Hook('User Is Logged In - Before Presentation','prepareArchitect();');
+
+          //TODO abstract this away
+          $ASTRIA['nav']=array(
+            'Architect' => '/architect'
+          );
+        }
+      }
+    }
+  }
 }
+  
 
 function prepareArchitect(){
   if(path(0)=='architect'){
