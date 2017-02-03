@@ -10,13 +10,11 @@ function VerifyAgentAndIP(){
 		exit;//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
-		echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['REMOTE_ADDR'];
+		echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.md5($_SERVER['REMOTE_ADDR']);
 		exit;//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['Expires']>time())){
 		echo 'Session expired';
-		include('pd.php');
-		pd($ASTRIA['Session']);
 		exit;//AstriaSessionDestroy();
 	}
 }
