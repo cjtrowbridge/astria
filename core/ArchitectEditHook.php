@@ -13,7 +13,7 @@ function showEditHook(){
     $Hook=$Hook[0];
     
     $NewEvent   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
-    $NewContent = mysqli_real_escape_string(base64_encode($ASTRIA['databases']['astria']['resource'],$_POST['Code']));
+    $NewContent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],base64_encode($_POST['Code']));
     
     $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
