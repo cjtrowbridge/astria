@@ -23,9 +23,6 @@ if(isset($ASTRIA['Session'])){
 function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
-       case 'new-permission':
-        showNewPermission();
-        break;
       case 'schema':
         if(path(2)=='new'){
           handleArchitectSchemaNew();
@@ -50,10 +47,16 @@ function prepareArchitect(){
         break;
      case 'edit':
       case 'edit-view':
-        if(path(3)=='new-hook'){
-          ArchitectEditViewNewHook();
-        }else{
-          ArchitectEditView();
+        switch(path(3)){
+          case 'new-hook':
+            ArchitectEditViewNewHook();
+            break;
+          case 'new-permission':
+            showNewPermission();
+            break;
+          default:
+            ArchitectEditView();
+            break;
         }
         break;
       default:
