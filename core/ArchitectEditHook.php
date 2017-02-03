@@ -18,6 +18,7 @@ function showEditHook(){
     $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
     pd($SQL);
+    exit;
     header('Location: /architect/edit-hook/'.$_POST['HookID']);
     exit;
     
