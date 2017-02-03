@@ -34,7 +34,6 @@ function prepareArchitect(){
         showEditHook();
         break;
       case 'config':
-        include('core/Setup.php');
         Setup();
         break;
       case 'view-category':
