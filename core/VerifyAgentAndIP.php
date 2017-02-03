@@ -5,16 +5,24 @@ function VerifyAgentAndIP(){
 	global $ASTRIA;
 	
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
-		echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
-		pd($ASTRIA['Session']);
-		exit;//AstriaSessionDestroy();
+		if(isset($_GET['verbose'])){
+			echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
+			exit;
+		}
+		AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
-		echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.md5($_SERVER['REMOTE_ADDR']);
-		exit;//AstriaSessionDestroy();
+		if(isset($_GET['verbose'])){
+			echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.md5($_SERVER['REMOTE_ADDR']);
+			exit;
+		}
+		AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['Expires']>time())){
-		echo 'Session expired';
-		exit;//AstriaSessionDestroy();
+		if(isset($_GET['verbose'])){
+			echo 'Session expired';
+			exit;
+		}
+		AstriaSessionDestroy();
 	}
 }
