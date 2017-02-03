@@ -13,8 +13,8 @@ if(
   );
   
 }else{
- pd(($ASTRIA['Session']['User']['Memberships']);
-    exit;
+  pd($ASTRIA['Session']['User']['Memberships']);
+  exit;
 }
 
 function prepareArchitect(){
