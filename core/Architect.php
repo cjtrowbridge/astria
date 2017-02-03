@@ -45,6 +45,9 @@ function prepareArchitect(){
       case 'new-view':
         ArchitectNewView();
         break;
+      case 'new-permission':
+        showNewPermission();
+        break;
       case 'edit':
       case 'edit-view':
         if(path(3)=='new-hook'){
