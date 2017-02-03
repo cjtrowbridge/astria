@@ -2,6 +2,9 @@
 
 global $ASTRIA;
 if(
+  isset($ASTRIA['Session'])&&
+  isset($ASTRIA['Session']['User'])&&
+  isset($ASTRIA['Session']['User']['Memberships'])&&
   isset($ASTRIA['Session']['User']['Memberships'][2])&&
   ($ASTRIA['Session']['User']['Memberships'][2]==2)
 ){
