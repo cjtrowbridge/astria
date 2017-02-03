@@ -12,6 +12,9 @@ if(
     'Architect' => '/architect'
   );
   
+}else{
+ pd(($ASTRIA['Session']['User']['Memberships']);
+    exit;
 }
 
 function prepareArchitect(){
