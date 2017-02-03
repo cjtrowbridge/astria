@@ -13,6 +13,7 @@ if(
   );
   
 }else{
+  include('pd.php');
   pd($ASTRIA['Session']['User']['Memberships']);
   exit;
 }
