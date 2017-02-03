@@ -6,7 +6,7 @@ function showArchitect(){
 }
   
 function ArchitectBodyCallback(){
-  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
+  global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE,$ASTRIA;
   ?>
 <h1>Architect <a href="/architect/config" target="_blank" style="float: right;"><i class="material-icons">settings</i></a></h1>
 <div class="row">
