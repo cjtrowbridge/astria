@@ -15,12 +15,12 @@ function showNewPermission(){
     if(!(isset($View[0]))){die('That view was not found. :[');}
     $View=$View[0];
     
-    $newEvent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
-    $newCode  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],base64_encode($_POST['Code']));
+    $newUser  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['User']);
+    $newGroup = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['User_Group']);
     
-    //Query("INSERT INTO `Hook` (`ViewID`, `Event`, `Content`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newEvent."', '".$newCode."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");");
+    Query("INSERT INTO `Permission` (`ViewID`, `User`, `Group`,`InsertedTime`,`InsertedUser`) VALUES ('".$View['ViewID']."', '".$newUser."', '".$newGroup."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");");
     
-    //header('Location: /architect/edit-view/'.$ViewID);
+    header('Location: /architect/edit-view/'.$ViewID);
     exit;
     
   }
