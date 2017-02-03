@@ -16,8 +16,8 @@ function noViewBodyCallback(){
   echo 'Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.<br>';
   echo 'Session Expires '.date('r',$ASTRIA['Session']['Auth']['Expires']).'.<br>';
   echo '<a href="/?logout">Log Out</a>.';
-  echo '<h4>Session:</h4>';
-  pd($ASTRIA['Session']); 
-  echo '<h4>User:</h4>';
-  pd($ASTRIA['Session']['User']); 
+  //echo '<h4>Session:</h4>';
+  //pd($ASTRIA['Session']); 
+  //echo '<h4>User:</h4>';
+  //pd($ASTRIA['Session']['User']); 
 }
