@@ -7,7 +7,7 @@ body {
 textarea.astriaBootstrapFormInput{
  min-height: 10em; 
 }
-.AstriaFunctionEditor{
+.AstriaHookEditor{
   display: block;
   width: calc(100% - 2rem);
   margin-left: 1rem;
