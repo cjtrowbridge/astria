@@ -11,9 +11,15 @@ textarea.astriaBootstrapFormInput{
   display: block;
   width: calc(100% - 2rem);
   margin-left: 1rem;
-  border: 1px solid #c7c7c7;
+  border: 1px solid #F0F0F0;
   padding: 1rem;
   line-height: 1rem;
   overflow-x: hidden; 
   overflow-y: auto; 
+}
+.box{
+  display: block;
+  border: 1px solid #c6c6c6;
+  padding: 1rem;
+  border-radius: .25rem;
 }
