@@ -32,6 +32,6 @@ h1,h2,h3,h4{
   right: 0px; 
 }
 #userPhoto{
-  max-height: 1rem;
-  max-width: 1rem;
+  max-height: 1.5rem;
+  max-width: 1.5rem;
 }
