@@ -83,6 +83,7 @@ function ArchitectEditViewBodyCallback(){
         <div class="row">
           <div class="col-xs-12">
             <h3>These Event-Driven Functions Are Associated With This View: <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h3>
+            <p>&lt;?php </p>
             <?php
               $Functions=Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']);
               foreach($Functions as $Function){
@@ -92,6 +93,7 @@ function ArchitectEditViewBodyCallback(){
                 AstriaFunctionEditor($Content,$FunctionName,$TextareaName);
               }
             ?>
+            <p>?&gt;</p>
           </div>
         <div class="row">
           <div class="col-xs-12">
