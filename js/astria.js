@@ -19,18 +19,15 @@ function Cardify(title,id){
 }
 
 function AstriaFunctionEditor(){
-  $('.AstriaFunctionEditor.ready').keyup(function(){
+  var x = $('.AstriaFunctionEditor.ready');
+  $(x).keyup(function(){
     $(this).removeClass('ready');
     var text = $(this).val();
     var matches = text.match(/\n/g);
     var breaks = matches ? matches.length : 0;
     var padding = 5;
-
-    //add the padding to the height
     var height = breaks + padding;
-
     $(this).css('height',height+'rem');
-    console.log(height);
-    console.log($(this).css('height'));
   });
+  $(x).keyup();
 }
