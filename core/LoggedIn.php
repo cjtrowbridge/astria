@@ -12,17 +12,13 @@ if(
 	path()=='logout'||
 	isset($_GET['logout'])  
 ){
-	LogOut();
+	AstriaSessionDestroy();
 }
 
 function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
-		include_once('pd.php');
-		pd($ASTRIA['Session']);
-		exit;
-		
-		//AstriaSessionDestroy();
+		AstriaSessionDestroy();
 	}
 	
 	if($ASTRIA['Session']['Auth']['Already Attempted']==true){
