@@ -1,6 +1,6 @@
 <?php
 
-function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = 'Current URL', $Method = 'post'){
+function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = 'Current URL', $Method = 'post',$TakeFocus = true){
   if($Action == 'Current URL'){
     $Action='/'.url();
   }
@@ -29,9 +29,11 @@ function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array()
     $Return .= "    <input type=\"hidden\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
   }
   $Return .= "  <input class=\"form-control\" type=\"submit\">\n";
-  $Return .= "  <script>\n";
-  $Return .= "    $('.astriaBootstrapFormInput:first-of-type').focus();\n";
-  $Return .= "  </script>\n";
+  if($TakeFocus){
+    $Return .= "  <script>\n";
+    $Return .= "    $('.astriaBootstrapFormInput:first-of-type').focus();\n";
+    $Return .= "  </script>\n";
+  }
   $Return .= "</form>\n\n";
   
   return $Return;
