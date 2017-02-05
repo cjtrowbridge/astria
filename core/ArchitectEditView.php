@@ -100,7 +100,7 @@ function ArchitectEditViewBodyCallback(){
             $Hidden=array(
               'ViewID'  => $View['ViewID']
             );
-            echo AstriaBootstrapAutoForm($Editable,$Readable,$Hidden);
+            echo AstriaBootstrapAutoForm($Editable,$Readable,$Hidden,'Current URL','post',false);
           ?>
       </div>
     </div>
