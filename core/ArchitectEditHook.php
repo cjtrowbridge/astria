@@ -8,7 +8,7 @@ function showEditHook(){
     if($HookID==0){echo '<p>Please Specify a HookID. For example /architect/edit-hook/1</p>';return;}
 
     //Get it from the database and make sure it exists
-    $Hook = Query('SELECT HookID FROM Hook WHERE HookID = '.$HookID);
+    $Hook = Query('SELECT HookID,ViewID FROM Hook WHERE HookID = '.$HookID);
     if(!(isset($Hook[0]))){die('That hook was not found. :[');}
     $Hook=$Hook[0];
     
@@ -16,7 +16,7 @@ function showEditHook(){
     
     $SQL="UPDATE `Hook` SET `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
-    header('Location: /architect/edit-hook/'.$_POST['HookID']);
+    header('Location: /architect/edit-view/'.$Hook['ViewID']);
     exit;
     
   }
