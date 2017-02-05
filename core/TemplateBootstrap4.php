@@ -74,7 +74,7 @@ function TemplateBootstrap4($title=''){
     <?php if(LoggedIn()){ ?>
     <ul class="nav navbar-nav float-xs-right">
       <li class="nav-item">
-        <a href="https://aboutme.google.com/" target="_blank"><img src="<?php echo $USER['Photo']; ?>"></a>
+        <a href="https://aboutme.google.com/" target="_blank"><img src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link active" href="/logout">Log Out</a>
