@@ -90,7 +90,7 @@ function ArchitectEditViewBodyCallback(){
                 $Content        = base64_decode($Function['Content']);
                 $FunctionName   = $Function['Event'];
                 $TextareaName   = $Function['HookID'];
-                AstriaFunctionEditor($Content,$FunctionName,$TextareaName);
+                AstriaHookEditor($Content,$FunctionName,$TextareaName);
               }
             ?>
             <p>?&gt;</p>
