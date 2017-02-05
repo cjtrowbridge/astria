@@ -26,3 +26,8 @@ h1,h2,h3,h4{
   padding: 1rem;
   margin-bottom: -1px;
 }
+#runtime{
+  position: fixed; 
+  bottom: 0px; 
+  right: 0px; 
+}
