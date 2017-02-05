@@ -74,10 +74,10 @@ function TemplateBootstrap4($title=''){
     <?php if(LoggedIn()){ ?>
     <ul class="nav navbar-nav float-xs-right">
       <li class="nav-item">
-        <img id="userPhoto" src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>">
+        <a class="nav-link active" href="/logout">Log Out</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="/logout">Log Out</a>
+        <img id="userPhoto" src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>">
       </li>
     </ul>
     <?php } ?>
