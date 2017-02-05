@@ -70,6 +70,7 @@ function ArchitectEditViewBodyCallback(){
             <?php AstriaHookEditor($Content,$FunctionName,$TextareaName); ?>
               <button type="submit" class="btn btn-secondary btn-sm float-xs-right">Save</button>
             </form>
+            <div class="clearer"></div>
             <?php
               
            }
