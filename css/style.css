@@ -7,3 +7,13 @@ body {
 textarea.astriaBootstrapFormInput{
  min-height: 10em; 
 }
+.AstriaFunctionEditor{
+  display: block;
+  width: calc(100% - 2rem);
+  margin-left: 1rem;
+  border: 1px solid #c7c7c7;
+  padding: 1rem;
+  line-height: 1rem;
+  overflow-x: hidden; 
+  overflow-y: auto; 
+}
