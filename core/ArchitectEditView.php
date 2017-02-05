@@ -58,7 +58,7 @@ function ArchitectEditViewBodyCallback(){
       <div class="col-xs-12">
          <h1>Edit View: <?php echo $View['Name']; ?></h1>
          <h3>These Event-Driven Functions Are Associated With This View: <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h3>
-         <p>&lt;?php </p>
+         
          <?php
            $Functions=Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']);
            foreach($Functions as $Function){
@@ -66,16 +66,18 @@ function ArchitectEditViewBodyCallback(){
              $FunctionName   = $Function['Event'];
              $TextareaName   = $Function['HookID'];
              ?>
+            <p>&lt;?php </p>   
             <form action="/architect/edit-hook/7" method="post">
             <?php AstriaHookEditor($Content,$FunctionName,$TextareaName); ?>
               <button type="submit" class="btn btn-secondary btn-sm float-xs-right">Save</button>
             </form>
+            <p>?&gt;</p>
             <div class="clearer"></div>
             <?php
               
            }
          ?>
-         <p>?&gt;</p>
+         
 
          <h3>User and Group Permissions Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h3>
          
