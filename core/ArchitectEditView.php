@@ -56,10 +56,29 @@ function ArchitectEditViewBodyCallback(){
 <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h1>Edit View: <?php echo $View['Name']; ?></h1>
-        
-        <div class="row">
-          <?php
+         <h1>Edit View: <?php echo $View['Name']; ?></h1>
+         <h3>These Event-Driven Functions Are Associated With This View: <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h3>
+         <p>&lt;?php </p>
+         <?php
+           $Functions=Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']);
+           foreach($Functions as $Function){
+             $Content        = base64_decode($Function['Content']);
+             $FunctionName   = $Function['Event'];
+             $TextareaName   = $Function['HookID'];
+             AstriaHookEditor($Content,$FunctionName,$TextareaName);
+           }
+         ?>
+         <p>?&gt;</p>
+
+         <h3>User and Group Permissions Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h3>
+         
+         <?php
+            echo ArrTabler(Query("SELECT * FROM Permission WHERE ViewID = ".$View['ViewID']));
+         ?>
+         
+         <h3>Details</h3>
+         <?php
+         
             $Editable=array(
               'View Name'        => $View['Name'],
               'View Slug'        => $View['Slug'],
@@ -74,44 +93,6 @@ function ArchitectEditViewBodyCallback(){
             );
             echo AstriaBootstrapAutoForm($Editable,$Readable,$Hidden);
           ?>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            &nbsp;
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            <h3>These Event-Driven Functions Are Associated With This View: <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-hook/', '_blank');">New Hook</button></h3>
-            <p>&lt;?php </p>
-            <?php
-              $Functions=Query("SELECT * FROM Hook WHERE ViewID = ".$View['ViewID']);
-              foreach($Functions as $Function){
-                $Content        = base64_decode($Function['Content']);
-                $FunctionName   = $Function['Event'];
-                $TextareaName   = $Function['HookID'];
-                AstriaHookEditor($Content,$FunctionName,$TextareaName);
-              }
-            ?>
-            <p>?&gt;</p>
-          </div>
-        <div class="row">
-          <div class="col-xs-12">
-            &nbsp;
-          </div>
-        </div>
-          <div class="col-xs-12">
-            <h3>User and Group Permissions Associated With This View <button type="button" class="btn btn-secondary btn-sm float-xs-right" onclick="window.open('/architect/edit-view/<?php echo path(2); ?>/new-permission/', '_blank');">New Permission</button></h3>
-            <?php
-              echo ArrTabler(Query("SELECT * FROM Permission WHERE ViewID = ".$View['ViewID']));
-            ?>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12">
-            &nbsp;
-          </div>
-        </div>
       </div>
     </div>
 </div>
