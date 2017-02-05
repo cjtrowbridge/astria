@@ -88,8 +88,16 @@ function TemplateBootstrap4($title=''){
     <?php Event('Template Body'); ?>
 
   </div><!-- /.container -->
-  <div id="runtime" title="<?php global $NUMBER_OF_QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE, $DEBUG; echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; ?>">
-    <?php echo round(microtime(true)-$DEBUG[0]['timestamp'],4); ?>
+  <?php
+    
+    $Runtime = round(microtime(true)-$DEBUG[0]['timestamp'],4);
+  
+  ?>
+  <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php global $NUMBER_OF_QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE, $DEBUG; echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; ?>">
+    <?php 
+    
+    echo  $Runtime;
+    ?>
   </div>
 
 </body>
