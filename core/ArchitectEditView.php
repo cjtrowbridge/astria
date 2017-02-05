@@ -70,6 +70,7 @@ function ArchitectEditViewBodyCallback(){
             <p>&lt;?php </p>   
             <form action="/architect/edit-hook/7" method="post">
               <?php AstriaHookEditor($Content,$FunctionName,$TextareaName); ?>
+              <input type="hidden" name="HookID" id="HookID" value="<?php echo $Function['HookID']; ?>">
               <button type="submit" class="btn btn-secondary btn-sm float-xs-right">Save</button>
             </form>
             <p>?&gt;</p>
