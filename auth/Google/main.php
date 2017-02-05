@@ -96,6 +96,7 @@ Hook('Auth Login Options','authGoogleCallback();');
 function authGoogleCallback(){
   global $ASTRIA;
   ?>
+    <h1>Welcome!</h1>
     <p><a class="login" href="<?php echo $ASTRIA['Session']['google_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" alt="Login with Google" /></a></p>
   <?php
 }
