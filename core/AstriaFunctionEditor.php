@@ -8,6 +8,6 @@ function AstriaFunctionEditor($Contents,$FunctionName,$TextareaName){
   <textarea class="AstriaFunctionEditor ready" name="<?php echo $TextareaName; ?>" id="<?php echo $TextareaName; ?>"><?php echo $Contents; ?></textarea>
   <p>}</p>
   <p>?&gt;</p>
-  
+  <script>AstriaFunctionEditor();</script>
   <?php
 }
