@@ -12,10 +12,9 @@ function showEditHook(){
     if(!(isset($Hook[0]))){die('That hook was not found. :[');}
     $Hook=$Hook[0];
     
-    $NewEvent   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['Astria_Event']);
     $NewContent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],base64_encode($_POST['Code']));
     
-    $SQL="UPDATE `Hook` SET `Event` = '".$NewEvent."', `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
+    $SQL="UPDATE `Hook` SET `Content` = '".$NewContent."', `UpdatedUser` = '".$USER['UserID']."', `UpdatedTime` = NOW() WHERE `Hook`.`HookID` = ".$Hook['HookID'].";";
     Query($SQL);
     header('Location: /architect/edit-hook/'.$_POST['HookID']);
     exit;
@@ -42,10 +41,10 @@ function EditHookBodyCallback(){
   
   //Classify each column
   $Writeable=array(
-    'Astria Event' => $Hook['Event'],
     'Code' => base64_decode($Hook['Content'])
   );
   $Readable=array(
+    'Astria Event' => $Hook['Event'],
     'ViewID' => $Hook['ViewID']
   );
   $Hidden=array(
