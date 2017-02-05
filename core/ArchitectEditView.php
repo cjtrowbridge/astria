@@ -64,7 +64,7 @@ function ArchitectEditViewBodyCallback(){
         foreach($Functions as $Function){
           $Content        = base64_decode($Function['Content']);
           $FunctionName   = $Function['Event'];
-          $TextareaName   = $Function['HookID'];
+          $TextareaName   = 'Code';
           ?>
           <div class="box">
             <p>&lt;?php </p>   
