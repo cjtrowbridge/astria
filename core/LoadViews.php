@@ -38,7 +38,7 @@ function LoadViews(){
   }
  
   $sql.="
-       Permission.GroupID = 1
+       Permission.GroupID = 0
      )
     ORDER BY View.ViewID ASC
   ";
