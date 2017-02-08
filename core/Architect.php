@@ -48,6 +48,10 @@ function prepareArchitect(){
       case 'new-view-category':
         ArchitectNewViewCategory();
         break;
+      case 'edit-view-category':
+        ArchitectNewViewCategory();
+        break;
+      
      case 'edit':
       case 'edit-view':
         switch(path(3)){
