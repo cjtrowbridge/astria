@@ -27,7 +27,7 @@ function ReturnTreeElement($Element,$Elements){
    }
   }
   
-  if(count($DirectChildren)>0){
+  if(true||count($DirectChildren)>0){
     global $TREEIDENTITYINCREMENTCOUNTER;
     $TREEIDENTITYINCREMENTCOUNTER+=1;
     $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
