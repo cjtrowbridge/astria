@@ -36,7 +36,7 @@ function ArchitectEditViewCategoryBodyCallback(){
     $ViewCategory=$ViewCategory[0];
   
   ?>
-    <form action="/architect/new-view-category" method="post">
+    <form action="/architect/edit-view-category" method="post">
       <input type="hidden" id="ViewCategoryID" name="ViewCategoryID" value="<?php echo $ViewCategory['ViewCategoryID']; ?>">
       <div class="form-group row">
         <div class="col-xs-12">
