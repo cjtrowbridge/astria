@@ -115,7 +115,7 @@ function ArchitectBodyCallback(){
     
 <div class="row">
   <div class="col-xs-12">
-    <?php ArchitectShowViewCategoryTree(); ?>
+    <?php echo ArchitectShowViewCategoryTree(); ?>
   </div>
 </div>
 
