@@ -16,6 +16,7 @@ function ArchitectShowViewCategoryTree(){
   $Output.="      <li>&nbsp;</li>\n";
   $Output.="      <li><a href=\"/architect/new-view/\">New View</a></li>\n";
   $Output.="      <li><a href=\"/architect/new-view-category/\">New Sub-Category</a></li>\n";
+  $Output.="      <li><a href=\"/architect/edit-view-category/".$ViewCategory['ViewCategoryID']."\">Edit Category</a></li>\n";
   $Output.="      <li>&nbsp;</li>\n";
   $Output.="    </ul>\n";  
   $Output.="  </div>\n";
@@ -40,10 +41,11 @@ function ArchitectShowViewCategoryTreeReturnTreeElement($Element,$Elements){
       $Output.= ArchitectShowViewCategoryTreeReturnTreeElement($DirectChild,$Elements);
     }
     $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
-    $Output.="  <li>&nbsp;</li>\n";
-    $Output.="  <li><a href=\"/architect/new-view/?category=".$Element['ViewCategoryID']."\">New View</a></li>\n";
-    $Output.="  <li><a href=\"/architect/new-view-category/?parent=".$Element['ViewCategoryID']."\">New Sub-Category</a></li>\n";
-    $Output.="  <li>&nbsp;</li>\n";
+    $Output.="          <li>&nbsp;</li>\n";
+    $Output.="          <li><a href=\"/architect/new-view/?category=".$Element['ViewCategoryID']."\">New View</a></li>\n";
+    $Output.="          <li><a href=\"/architect/new-view-category/?parent=".$Element['ViewCategoryID']."\">New Sub-Category</a></li>\n";
+    $Output.="          <li><a href=\"/architect/edit-view-category/".$Element['ViewCategoryID']."\">Edit Category</a></li>\n";
+    $Output.="          <li>&nbsp;</li>\n";
     $Output.="        </ul>\n";
   }else{
     $Output.="          <li><a href=\"./\">".$Element['Name']."</a></li>\n";
