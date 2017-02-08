@@ -26,7 +26,7 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="session">
     <?php
       global $ASTRIA;
-      echo ArrTabler($ASTRIA['Session']);
+      pd($ASTRIA['Session']);
     ?>
   </div>
   <div class="hidden" id="groups">
