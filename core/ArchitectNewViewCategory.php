@@ -43,6 +43,7 @@ function ArchitectNewViewCategoryBodyCallback(){
       <div class="form-group row">
         <div class="col-xs-12">
           <select class="form-control" placeholder="Category" name="newViewCategoryParent" id="newViewCategoryParent">
+            <option value="">Root Category (No Parent)</option>
             <?php
               MakeSureDBConnected();
               $ViewCategories=Query("SELECT * FROM ViewCategory");
