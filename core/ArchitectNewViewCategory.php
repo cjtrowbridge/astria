@@ -7,10 +7,10 @@ function ArchitectNewViewCategory(){
     
     $newViewCategoryName   = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewCategoryName']);
     $newViewDescription    = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewCategoryDescription']);
-    $newViewCategoryParent = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewCategoryParent']);
+    $newViewCategoryParent = intval($_POST['newViewCategoryParent']);
+    if($newViewCategoryParent==0){$newViewCategoryParent='null';}
     
-    
-    $sql="INSERT INTO `ViewCategory` (`ParentID`, `Name`, `Description`,`InsertedTime`,`InsertedUser`) VALUES ('".$newViewCategoryParent."', '".$newViewName."', '".$newViewDescription."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");";
+    $sql="INSERT INTO `ViewCategory` (`ParentID`, `Name`, `Description`,`InsertedTime`,`InsertedUser`) VALUES (".$newViewCategoryParent.", '".$newViewName."', '".$newViewDescription."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");";
     Query($sql);
     
     $ViewCategoryID=mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
