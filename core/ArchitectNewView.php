@@ -70,6 +70,9 @@ function ArchitectNewViewBodyCallback(){
       </div>
     </form>
   </div>
+  <script>
+    $('#newViewName').focus();
+  </script>
 </div>
 <?php
 }
