@@ -10,6 +10,7 @@ function ArchitectEditViewCategory(){
     $ViewDescription    = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['ViewCategoryDescription']);
     $ViewCategoryParent = intval($_POST['ViewCategoryParent']);
     if($ViewCategoryParent==0){$ViewCategoryParent='null';}
+    if($ViewCategoryParent==$ViewCategoryID){die('A category can not be its own parent!');}
     
     $sql="UPDATE `ViewCategory` SET `ParentID` = ".$ViewCategoryParent.", `Name` = '$ViewCategoryName', `Description` = '".$ViewDescription."', `UpdatedUser` = '".intval($ASTRIA['Session']['User']['UserID'])."', `UpdatedTime` = NOW() WHERE `ViewCategory`.`ViewCategoryID` = ".$ViewCategoryID.";";
     Query($sql);
