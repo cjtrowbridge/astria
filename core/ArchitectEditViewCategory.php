@@ -32,7 +32,7 @@ function ArchitectEditViewCategoryBodyCallback(){
   <div class="col-xs-12">
   <?php
     $ViewCategory=Query('SELECT * FROM ViewCategory WHERE ViewCategoryID = '.intval(path(2)));
-    if(!(isset($ViewCategory[0])){die('Invalid View Category');}
+    if(!(isset($ViewCategory[0]))){die('Invalid View Category');}
     $ViewCategory=$ViewCategory[0];
   
   ?>
