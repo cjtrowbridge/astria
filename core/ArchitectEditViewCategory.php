@@ -41,12 +41,12 @@ function ArchitectEditViewCategoryBodyCallback(){
       <div class="form-group row">
         <div class="col-xs-12">
           Name:<br>
-          <input type="text" class="form-control" placeholder="View Category Name" name="ViewCategoryName" id="ViewCategoryName" value="<?php echo $ViewCategory['ViewCategoryName']; ?>">
+          <input type="text" class="form-control" placeholder="View Category Name" name="ViewCategoryName" id="ViewCategoryName" value="<?php echo $ViewCategory['Name']; ?>">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="Description" name="ViewCategoryDescription" id="ViewCategoryDescription" value="<?php echo $ViewCategory['ViewCategoryDescription']; ?>">
+          <input type="text" class="form-control" placeholder="Description" name="ViewCategoryDescription" id="ViewCategoryDescription" value="<?php echo $ViewCategory['Description']; ?>">
         </div>
       </div>
       
@@ -57,13 +57,13 @@ function ArchitectEditViewCategoryBodyCallback(){
             <?php
               MakeSureDBConnected();
               $ViewCategories=Query("SELECT * FROM ViewCategory");
-              foreach($ViewCategories as $ViewCategory){
+              foreach($ViewCategories as $ViewCategoryOptions){
             ?>
             <option <?php
-                if(isset($_GET['parent'])&&$_GET['parent']==$ViewCategory['ViewCategoryID']){
+                if(isset($_GET['parent'])&&$_GET['parent']==$ViewCategoryOptions['ViewCategoryID']){
                   echo ' selected="selected"';
                 }
-            ?>value="<?php echo $ViewCategory['ViewCategoryID']; ?>"><?php echo $ViewCategory['Name']; ?></option>
+            ?>value="<?php echo $ViewCategoryOptions['ViewCategoryID']; ?>"><?php echo $ViewCategoryOptions['Name']; ?></option>
             <?php 
               }
             ?>
