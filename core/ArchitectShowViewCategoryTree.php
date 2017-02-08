@@ -30,7 +30,7 @@ function ReturnTreeElement($Element,$Elements){
   if(true||count($DirectChildren)>0){
     global $TREEIDENTITYINCREMENTCOUNTER;
     $TREEIDENTITYINCREMENTCOUNTER+=1;
-    $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
+    $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label><a href=\"".$Element['ViewCategoryID']."\"><i class=\"material-icons\">mode_edit</i></a>\n";
     $Output.="        <ul>\n";    
     foreach($DirectChildren as $DirectChild){
       $Output.= ReturnTreeElement($DirectChild,$Elements);
