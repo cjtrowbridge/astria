@@ -51,7 +51,7 @@ function ArchitectShowViewCategoryTreeReturnTreeViews($ViewCategoryID){
   }
   $Ret='';
   foreach($Views as $View){
-     $Ret.="  <li><a href=\"".$View['slug']."\">".$View['Name']."</a> (<a href=\"/architect/edit-view/".$View['ViewID']."\">edit</a>)</li>\n";
+     $Ret.="  <li><a href=\"".$View['Slug']."\">".$View['Name']."</a> (<a href=\"/architect/edit-view/".$View['ViewID']."\">edit</a>)</li>\n";
   }
   return $Ret;
 }
