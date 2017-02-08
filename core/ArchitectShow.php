@@ -11,17 +11,6 @@ function ArchitectBodyCallback(){
 <h1>Architect <a href="/architect/config" target="_blank" style="float: right;"><i class="material-icons">settings</i></a></h1>
 <div class="row">
   <div class="col-xs-12">
-    <?php
-      echo '<p>Current User: ID '.$ASTRIA['Session']['User']['UserID'].', Email '.$ASTRIA['Session']['User']['Email'].'.';
-      echo ' Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.";
-      echo ' Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries.';
-      echo ' Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';
-      echo ' Session Expires '.date('r',$ASTRIA['Session']['Auth']['Expires']).'.</p>';
-    ?>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
     <form class="form-inline">
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
       <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-warning">Events</button>
