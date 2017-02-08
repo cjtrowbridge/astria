@@ -30,7 +30,7 @@ function ArchitectShowViewCategoryTreeReturnTreeElement($Element,$Elements){
   if(true||count($DirectChildren)>0){
     global $TREEIDENTITYINCREMENTCOUNTER;
     $TREEIDENTITYINCREMENTCOUNTER+=1;
-    $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
+    $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
     $Output.="        <ul>\n";    
     $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
     foreach($DirectChildren as $DirectChild){
