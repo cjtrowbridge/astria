@@ -24,7 +24,7 @@ function ReturnTreeElement($Element,$Elements){
    }
   }
   
-  if(count($DirectChildren>0)){
+  if(count($DirectChildren)>0){
     $Output.="      <li><label><input type=\"checkbox\" checked=\"checked\" />".$Element['Name']."</label>\n";
     $Output.="        <ul>\n";    
     foreach($DirectChildren as $DirectChild){
