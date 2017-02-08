@@ -115,11 +115,18 @@ function ArchitectBodyCallback(){
     
 <div class="row">
   <div class="col-xs-12">
+    <?php ArchitectShowViewCategoryTree(); ?>
+  </div>
+</div>
+
+    
+<div class="row">
+  <div class="col-xs-12">
     
     
     
     
-<link rel="stylesheet" href="/css/treeview.css">
+
 <div class="css-treeview">
     <ul>
         <li><input type="checkbox" id="item-0" /><label for="item-0">This Folder is Closed By Default</label>
