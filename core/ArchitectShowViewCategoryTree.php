@@ -36,8 +36,10 @@ function ArchitectShowViewCategoryTreeReturnTreeElement($Element,$Elements){
       $Output.= ArchitectShowViewCategoryTreeReturnTreeElement($DirectChild,$Elements);
     }
     $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
+    $Output.="  <li>&nbsp;</li>\n";
     $Output.="  <li><a href=\"\">New View</a></li>\n";
-    $Output.="  <li><a href=\"\">New Category</a><br></li>\n";
+    $Output.="  <li><a href=\"\">New Category</a></li>\n";
+    $Output.="  <li>&nbsp;</li>\n";
     $Output.="        </ul>\n";
   }else{
     $Output.="          <li><a href=\"./\">".$Element['Name']."</a></li>\n";
