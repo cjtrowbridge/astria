@@ -49,7 +49,7 @@ function prepareArchitect(){
         ArchitectNewViewCategory();
         break;
       case 'edit-view-category':
-        ArchitectNewViewCategory();
+        ArchitectEditViewCategory();
         break;
       
      case 'edit':
