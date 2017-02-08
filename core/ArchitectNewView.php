@@ -9,8 +9,10 @@ function ArchitectNewView(){
     $newViewName         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewName']);
     $newViewDescription  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewDescription']);
     $newViewSlug         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_POST['newViewSlug']);
+    $newViewCategory     = intval($_POST['newViewCategory']);
+    if($newViewCategory==0){$newViewCategory='null';}
 
-    $sql="INSERT INTO `View` (`Slug`, `Name`, `Description`,`InsertedTime`,`InsertedUser`) VALUES ('".$newViewSlug."', '".$newViewName."', '".$newViewDescription."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");";
+    $sql="INSERT INTO `View` (`Slug`, `Name`,`ViewCategoryID`, `Description`,`InsertedTime`,`InsertedUser`) VALUES ('".$newViewSlug."', '".$newViewName."','".$newViewCategory."', '".$newViewDescription."',NOW(),".intval($ASTRIA['Session']['User']['UserID']).");";
     Query($sql);
     $ViewID=mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
     
