@@ -14,8 +14,6 @@ function ArchitectEditViewCategory(){
     $sql="UPDATE `ViewCategory` SET `ParentID` = ".$ViewCategoryParent.", `Name` = '$ViewCategoryName', `Description` = '".$ViewDescription."', `UpdatedUser` = '".intval($ASTRIA['Session']['User']['UserID'])."', `UpdatedTime` = NOW() WHERE `ViewCategory`.`ViewCategoryID` = ".$ViewCategoryID.";";
     Query($sql);
     
-    $ViewCategoryID=mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
-    
     header('Location: /architect/edit-view-category/'.$ViewCategoryID);
     exit;
     
