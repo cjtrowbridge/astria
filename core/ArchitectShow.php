@@ -108,11 +108,13 @@ function ArchitectBodyCallback(){
         </div>
       </div>
     </form>
+  </div>
+</div>
     
     
     
-    
-    
+<div class="row">
+  <div class="col-xs-12">
     
     
     
@@ -224,8 +226,8 @@ function ArchitectBodyCallback(){
     </ul>
 </div>
     
-    
   </div>
 </div>
+    
 <?php
 }
