@@ -60,7 +60,7 @@ function ArchitectEditViewCategoryBodyCallback(){
               foreach($ViewCategories as $ViewCategoryOptions){
             ?>
             <option <?php
-                if(isset($_GET['parent'])&&$_GET['parent']==$ViewCategoryOptions['ViewCategoryID']){
+                if($ViewCategory['ParentID']==$ViewCategoryOptions['ViewCategoryID']){
                   echo ' selected="selected"';
                 }
             ?>value="<?php echo $ViewCategoryOptions['ViewCategoryID']; ?>"><?php echo $ViewCategoryOptions['Name']; ?></option>
