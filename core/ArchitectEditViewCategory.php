@@ -59,6 +59,7 @@ function ArchitectEditViewCategoryBodyCallback(){
               MakeSureDBConnected();
               $ViewCategories=Query("SELECT * FROM ViewCategory");
               foreach($ViewCategories as $ViewCategoryOptions){
+                if(!($ViewCategory['ViewCategoryID']==$ViewCategoryOptions['ViewCategoryID'])){
             ?>
             <option <?php
                 if($ViewCategory['ParentID']==$ViewCategoryOptions['ViewCategoryID']){
@@ -66,6 +67,7 @@ function ArchitectEditViewCategoryBodyCallback(){
                 }
             ?>value="<?php echo $ViewCategoryOptions['ViewCategoryID']; ?>"><?php echo $ViewCategoryOptions['Name']; ?></option>
             <?php 
+                }
               }
             ?>
           </select>
