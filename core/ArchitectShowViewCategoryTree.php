@@ -7,7 +7,7 @@ function ArchitectShowViewCategoryTree(){
   $Output.="    <ul>\n";
   foreach($ViewCategories as $ViewCategory){
     if($ViewCategory['ParentID'] == ''){
-      $Output.=ArchitectShowViewCategoryTreeRootElement($ViewCategory,$ViewCategories);
+      $Output.=ReturnTreeElement($ViewCategory,$ViewCategories);
     }
   }
   $Output.="    </ul>\n";
