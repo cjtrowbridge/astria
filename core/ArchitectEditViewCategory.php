@@ -41,12 +41,12 @@ function ArchitectEditViewCategoryBodyCallback(){
       <div class="form-group row">
         <div class="col-xs-12">
           Name:<br>
-          <input type="text" class="form-control" placeholder="View Category Name" name="ViewCategoryName" id="ViewCategoryName">
+          <input type="text" class="form-control" placeholder="View Category Name" name="ViewCategoryName" id="ViewCategoryName" value="<?php echo $ViewCategory['ViewCategoryName']; ?>">
         </div>
       </div>
       <div class="form-group row">
         <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="Description" name="ViewCategoryDescription" id="ViewCategoryDescription">
+          <input type="text" class="form-control" placeholder="Description" name="ViewCategoryDescription" id="ViewCategoryDescription" value="<?php echo $ViewCategory['ViewCategoryDescription']; ?>">
         </div>
       </div>
       
