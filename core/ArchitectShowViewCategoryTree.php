@@ -1,5 +1,8 @@
 <?php
 
+global $TREEIDENTITYINCREMENTCOUNTER;
+$TREEIDENTITYINCREMENTCOUNTER=1;
+
 function ArchitectShowViewCategoryTree(){
   MakeSureDBConnected();
   $ViewCategories = Query('SELECT * FROM `ViewCategory`');
@@ -25,7 +28,9 @@ function ReturnTreeElement($Element,$Elements){
   }
   
   if(count($DirectChildren)>0){
-    $Output.="      <li><label><input type=\"checkbox\" checked=\"checked\" />".$Element['Name']."</label>\n";
+    global $TREEIDENTITYINCREMENTCOUNTER;
+    $TREEIDENTITYINCREMENTCOUNTER+=1;
+    $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
     $Output.="        <ul>\n";    
     foreach($DirectChildren as $DirectChild){
       $Output.= ReturnTreeElement($DirectChild,$Elements);
