@@ -45,14 +45,17 @@ function ArchitectNewViewBodyCallback(){
       </div>
       <div class="form-group row">
         <div class="col-xs-12">
-          Category:<br>
           <select class="form-control" placeholder="Category" name="newViewCategory" id="newViewCategory">
             <?php
               MakeSureDBConnected();
               $ViewCategories=Query("SELECT * FROM ViewCategory");
               foreach($ViewCategories as $ViewCategory){
             ?>
-            <option value="<?php echo $ViewCategory['ViewCategoryID']; ?>"><?php echo $ViewCategory['Name']; ?></option>
+            <option <?php
+                if(isset($_GET['category'])&&$_GET['category']==$ViewCategory['ViewCategoryID']){
+                  echo ' selected="selected"';
+                }
+            ?>value="<?php echo $ViewCategory['ViewCategoryID']; ?>"><?php echo $ViewCategory['Name']; ?></option>
             <?php 
               }
             ?>
