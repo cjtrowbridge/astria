@@ -10,7 +10,7 @@ function ArchitectShowViewCategoryTree(){
   $Output.="    <ul>\n";
   foreach($ViewCategories as $ViewCategory){
     if($ViewCategory['ParentID'] == ''){
-      $Output.=ReturnTreeElement($ViewCategory,$ViewCategories);
+      $Output.=ArchitectShowViewCategoryTreeReturnTreeElement($ViewCategory,$ViewCategories);
     }
   }
   $Output.="    </ul>\n";
@@ -18,7 +18,7 @@ function ArchitectShowViewCategoryTree(){
   return $Output;
 }
 
-function ReturnTreeElement($Element,$Elements){
+function ArchitectShowViewCategoryTreeReturnTreeElement($Element,$Elements){
   $Output ="";
   $DirectChildren = array();
   foreach($Elements as $Child){
@@ -33,8 +33,9 @@ function ReturnTreeElement($Element,$Elements){
     $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
     $Output.="        <ul>\n";    
     foreach($DirectChildren as $DirectChild){
-      $Output.= ReturnTreeElement($DirectChild,$Elements);
+      $Output.= ArchitectShowViewCategoryTreeReturnTreeElement($DirectChild,$Elements);
     }
+    $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
     $Output.="        </ul>\n";
   }else{
     $Output.="          <li><a href=\"./\">".$Element['Name']."</a></li>\n";
@@ -42,3 +43,15 @@ function ReturnTreeElement($Element,$Elements){
   $Output.="      </li>\n";
   return $Output;
 };
+
+function ArchitectShowViewCategoryTreeReturnTreeViews($ViewCategoryID){
+  $Views = Query('SELECT * FROM `View` WHERE ViewCategoryID = '.intval($ViewCategoryID));
+  if(count($Views)==0){
+    return "<li>No Views Found</li>\n";
+  }
+  $Ret='';
+  foreach($Views as $View){
+     $Ret.="  <li><a href=\"".$View['ViewID']."\">".$View['Name']."</a></li>\n";
+  }
+  
+}
