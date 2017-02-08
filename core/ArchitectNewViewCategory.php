@@ -25,7 +25,7 @@ function ArchitectNewViewCategory(){
 }
   
 function ArchitectNewViewCategoryBodyCallback(){
-?><h1>New View</h1>
+?><h1>New View Category</h1>
 <div class="row">
   <div class="col-xs-12">
     <form action="/architect/new-view-category" method="post">
