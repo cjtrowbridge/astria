@@ -13,14 +13,11 @@ function ArchitectBodyCallback(){
   <div class="col-xs-12">
     <form class="form-inline">
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
-      <button onclick="Cardify('Events','debugSummary');" type="button" class="btn btn-outline-warning">Events</button>
-      <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-warning">Hooks</button>
-      <button onclick="document.location='/architect/disk-cache'" type="button" class="btn btn-outline-warning">Cache</button>
-      <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-warning">Queries</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
+      <button onclick="Cardify('New View Category','newViewCategory');" type="button" class="btn btn-info" >New View Category</button>
     </form>
   </div>
 </div><br>
@@ -78,6 +75,25 @@ function ArchitectBodyCallback(){
       <div class="form-group row">
         <div class="col-xs-12">
           <button type="submit" class="btn btn-success">Create View</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="hidden" id="newViewCategory">
+    <form action="/architect/new-view-category" method="post">
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <input type="text" class="form-control" placeholder="View Category Name" name="newViewCategoryName" id="newViewCategoryName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-12">
+          Parent:
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success">Create View Category</button>
         </div>
       </div>
     </form>
