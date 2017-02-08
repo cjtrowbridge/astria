@@ -28,10 +28,8 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Hooks','hooks');" type="button" class="btn btn-outline-warning">Hooks</button>
       <button onclick="document.location='/architect/disk-cache'" type="button" class="btn btn-outline-warning">Cache</button>
       <button onclick="Cardify('Queries','queriesRun');" type="button" class="btn btn-outline-warning">Queries</button>
-      <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
-      <button onclick="Cardify('Views','views');" type="button" class="btn btn-outline-warning">Views</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
     </form>
@@ -41,13 +39,6 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="groups">
     <?php
       echo ArrTabler(Query("SELECT * FROM `Group`"));
-    ?>
-  </div>
-  <div class="hidden" id="views">
-    <?php
-      echo ArrTabler(Query("
-        SELECT * FROM `View`
-      "));
     ?>
   </div>
   <div class="hidden" id="users">
@@ -66,13 +57,6 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="queriesRun">
     <?php 
       pd(htmlentities($QUERIES_RUN));
-    ?>
-  </div>
-  <div class="hidden" id="session">
-    <?php 
-      $temp=$ASTRIA['Session'];
-      unset($temp['google_oauth2']);
-      pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
   <div class="hidden" id="databases">
