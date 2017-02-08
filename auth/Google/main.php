@@ -77,7 +77,7 @@ function AttemptGoogleAuth(){
         UPDATE `User` 
         SET 
           `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->picture)."', 
-          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astri']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->givenName)."', 
+          `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->givenName)."', 
           `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->familyName)."' 
         WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email)."';
       ";
