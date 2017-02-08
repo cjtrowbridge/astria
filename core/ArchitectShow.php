@@ -17,8 +17,6 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
-      <button onclick="Cardify('New View','newView');" type="button" class="btn btn-info" >New View</button>
-      <button onclick="Cardify('New View Category','newViewCategory');" type="button" class="btn btn-info" >New View Category</button>
     </form>
   </div>
 </div><br>
@@ -61,49 +59,6 @@ function ArchitectBodyCallback(){
       }
       pd(htmlentities(var_export($temp,true)));
     ?>
-  </div>
-  <div class="hidden" id="newView">
-    <form action="/architect/new-view" method="post">
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="View Name" name="newViewName" id="newViewName">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="Description" name="newViewDescription" id="newViewDescription">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="Slug" name="newViewSlug" id="newViewSlug">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Create View</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="hidden" id="newViewCategory">
-    <form action="/architect/new-view-category" method="post">
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <input type="text" class="form-control" placeholder="View Category Name" name="newViewCategoryName" id="newViewCategoryName">
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-12">
-          Parent:
-        </div>
-      </div>
-      <div class="form-group row">
-        <div class="col-xs-12">
-          <button type="submit" class="btn btn-success">Create View Category</button>
-        </div>
-      </div>
-    </form>
   </div>
 </div>
     
