@@ -32,10 +32,10 @@ function ArchitectShowViewCategoryTreeReturnTreeElement($Element,$Elements){
     $TREEIDENTITYINCREMENTCOUNTER+=1;
     $Output.="      <li><input type=\"checkbox\" id=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\" checked=\"checked\" /><label for=\"item-".$TREEIDENTITYINCREMENTCOUNTER."\">".$Element['Name']."</label>\n";
     $Output.="        <ul>\n";    
+    $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
     foreach($DirectChildren as $DirectChild){
       $Output.= ArchitectShowViewCategoryTreeReturnTreeElement($DirectChild,$Elements);
     }
-    $Output.= ArchitectShowViewCategoryTreeReturnTreeViews($Element['ViewCategoryID']);
     $Output.="        </ul>\n";
   }else{
     $Output.="          <li><a href=\"./\">".$Element['Name']."</a></li>\n";
