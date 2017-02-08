@@ -73,16 +73,14 @@ function AttemptGoogleAuth(){
     
       //Update User Data From Google
       //TODO make this check if its necessary before updating, in order to save time and resources
-      $SQL="
+      Query("
         UPDATE `User` 
         SET 
           `Photo`     = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->picture)."', 
           `FirstName` = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->givenName)."', 
           `LastName`  = '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->familyName)."' 
         WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email)."';
-      ";
-      Query($SQL);
-      die($SQL);
+      ");
     
       AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
     
