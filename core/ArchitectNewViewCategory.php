@@ -15,7 +15,7 @@ function ArchitectNewViewCategory(){
     
     $ViewCategoryID=mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
     
-    header('Location: /architect/edit-view-category/'.$ViewID);
+    header('Location: /architect/edit-view-category/'.$ViewCategoryID);
     exit;
     
   }
