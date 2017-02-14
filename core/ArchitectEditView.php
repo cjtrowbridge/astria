@@ -1,5 +1,5 @@
 <?php
-
+/*
 function ArchitectEditView(){
    if(isset($_POST['ViewID'])){
     global $USER,$ASTRIA;
@@ -112,3 +112,4 @@ function ArchitectEditViewBodyCallback(){
 <?php
   
 }
+*/
