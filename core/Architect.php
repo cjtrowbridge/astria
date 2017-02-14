@@ -62,7 +62,8 @@ function prepareArchitect(){
             showNewPermission();
             break;
           default:
-            ArchitectEditView();
+            //ArchitectEditView();
+            //moved this to db
             break;
         }
         break;
