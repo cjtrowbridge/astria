@@ -13,9 +13,9 @@ include('core/Session.php');
 include('core/Loader.php');
 
 Loader('core');
-
 Loader('architect');
 Loader('auth/Google');
+Loader('DefaultViews');
 
 RequireSSL();
 
