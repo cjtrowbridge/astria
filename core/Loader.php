@@ -4,6 +4,7 @@ include_once('core/Event.php');
 include_once('core/Hook.php');
 
 function Loader($dir = 'core'){
+  Event('Before Loading Directory: '.$dir);
   if($dir=='core'){
   
     if($handle = opendir('core')){
@@ -43,4 +44,5 @@ function Loader($dir = 'core'){
     }
     
   }
+  Event('After Loading Directory: '.$dir);
 }
