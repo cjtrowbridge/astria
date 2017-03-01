@@ -9,7 +9,7 @@ function VerifyAgentAndIP(){
 			echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
 			exit;
 		}
-		//AstriaSessionDestroy();
+		AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
 		if(isset($_GET['verbose'])){
