@@ -1,5 +1,7 @@
 <?php
 
+AstriaSessionSetUp();
+
 function AstriaSessionSetUp(){
   include_once('Query.php');
   include_once('MakeSureDBConnected.php');
