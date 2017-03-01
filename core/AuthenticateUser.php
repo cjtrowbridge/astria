@@ -18,7 +18,7 @@ function AuthenticateUser($email=null){
   $UserIDClean         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$User['UserID']);
   Query("UPDATE `Session` SET `UserID` = '".$UserIDClean."' WHERE `Session`.`SessionHash` LIKE '".$ASTRIA['Session']['SessionHash']."';");
   
-  Query("UPDATE `User` SET `LastLogin` = NOW() WHERE `UserID` LIKE '".$UserIDClean."';");
+  Query("UPDATE `User` SET `LastLogin` = NOW() WHERE `UserID` = ".$UserIDClean.";");
   
   //Cache the entire session
   AstriaSessionSave();
