@@ -3,7 +3,7 @@
 global $ASTRIA;
 if(isset($ASTRIA['Session'])){
   if(isset($ASTRIA['Session']['User'])){
-    if(isset($ASTRIA['Session']['User']['Memberships'])){
+    if(isset($ASTRIA['Session']['User']['Memberships'])){ //TODO abstract this better
       if(isset($ASTRIA['Session']['User']['Memberships'][2])){
         if(($ASTRIA['Session']['User']['Memberships'][2]==2)){
           include_once('Path.php');
@@ -23,47 +23,24 @@ if(isset($ASTRIA['Session'])){
 function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
-      case 'schema':
-        if(path(2)=='new'){
-          handleArchitectSchemaNew();
-        }else{
-          showArchitectSchema();
+      case 'user':
+        switch(path(2)){
+          case 'edit': //TODO
+          case 'new': //TODO
         }
         break;
-      case 'edit-hook':
-        showEditHook();
+      case 'schema':
+        switch(path(2)){
+          case 'edit': //TODO
+          case 'new': //TODO
+        }
         break;
       case 'config':
         Setup();
         break;
-      case 'view-category':
-        showArchitectViewCategory();
-        break;
-      case 'disk-cache':
-        showArchitectDiskCache();
-        break;
-      case 'new-view':
-        ArchitectNewView();
-        break;
-      case 'new-view-category':
-        ArchitectNewViewCategory();
-        break;
-      case 'edit-view-category':
-        ArchitectEditViewCategory();
-        break;
-      
-     case 'edit':
-      case 'edit-view':
-        switch(path(3)){
-          case 'new-hook':
-            ArchitectEditViewNewHook();
-            break;
-          case 'new-permission':
-            showNewPermission();
-            break;
-          default:
-            ArchitectEditView();
-            break;
+      case 'cache':
+        switch(path(2)){
+          case 'manage': //TODO
         }
         break;
       default:
