@@ -1,5 +1,7 @@
 <?php
 
+include_once('Show.php');
+
 global $ASTRIA;
 if(isset($ASTRIA['Session'])){
   if(isset($ASTRIA['Session']['User'])){
