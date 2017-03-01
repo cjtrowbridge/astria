@@ -51,6 +51,6 @@ function AuthenticateUser($email=null){
   //Cache the entire session
   AstriaSessionSave();
   
-  header('Location: /');
-  
+  //header('Location: /');
+  exit;
 }
