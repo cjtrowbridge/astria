@@ -32,7 +32,7 @@ if(LoggedIn()){
   //This should not typically be necessary but it will display a 404 page if no template or other interrupts have occured.
   Event('User Is Logged In - No Presentation');
   
-  global $EVENTS;pd($EVENTS);die('This is not good.');
+  die('This is not good.');
 }else{
   
   Event('User Is Not Logged In');
