@@ -3,7 +3,7 @@
 Hook('User Is Logged In - No Presentation','DefaultViewNoView();');
 
 function DefaultViewNoView(){
-  Hook('Template Body','noViewBodyCallback();');
+  Hook('Template Body','DefaultViewNoViewBodyCallback();');
   TemplateBootstrap4('404');
 }
 function DefaultViewNoViewBodyCallback(){
