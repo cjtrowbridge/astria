@@ -6,7 +6,7 @@ if(isset($ASTRIA['Session'])){
     if(isset($ASTRIA['Session']['User']['Memberships'])){
       if(isset($ASTRIA['Session']['User']['Memberships'][2])){
         if(($ASTRIA['Session']['User']['Memberships'][2]==2)){
-          include_once('../Path.php');
+          include_once('Path.php');
           Hook('User Is Logged In - Before Presentation','prepareArchitect();');
 
           //TODO abstract this away
