@@ -16,16 +16,11 @@ function AuthenticateUser($email=null){
   
   //Insert user into database session
   $UserIDClean         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$User['UserID']);
-  
-  $SQL="
-    UPDATE `Session` SET `UserID` = '".$UserIDClean."' WHERE `Session`.`SessionHash` LIKE '".$ASTRIA['Session']['SessionHash']."';
-  ";
-  pd($SQL);
-  Query($SQL);
+  Query("UPDATE `Session` SET `UserID` = '".$UserIDClean."' WHERE `Session`.`SessionHash` LIKE '".$ASTRIA['Session']['SessionHash']."';");
   
   //Cache the entire session
   AstriaSessionSave();
   
-  //header('Location: /');
+  header('Location: /');
   exit;
 }
