@@ -18,7 +18,7 @@ if(
 function LoggedIn(){
 	global $ASTRIA;
     	if(!(isset($ASTRIA['Session']['Auth']['Already Attempted']))){
-		AstriaSessionDestroy();
+		//AstriaSessionDestroy();
 	}
 	
 	if($ASTRIA['Session']['Auth']['Already Attempted']==true){
