@@ -20,4 +20,5 @@ function DefaultViewNoViewBodyCallback(){
   //pd($ASTRIA['Session']); 
   //echo '<h4>User:</h4>';
   //pd($ASTRIA['Session']['User']); 
+  pd(path(0));
 }
