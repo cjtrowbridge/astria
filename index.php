@@ -13,6 +13,7 @@ include('core/Session.php');
 include('core/Loader.php');
 
 Loader('core');
+Loader('core/architect');
 Loader('auth/Google');
 Loader('defaultViews');
 
