@@ -15,7 +15,7 @@ include('core/Loader.php');
 Loader('core');
 Loader('architect');
 Loader('auth/Google');
-Loader('DefaultViews');
+Loader('defaultViews');
 
 RequireSSL();
 
