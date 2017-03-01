@@ -1,5 +1,6 @@
 <?php 
 
+include_once('core/Session.php');
 include_once('core/Event.php');
 include_once('core/Hook.php');
 
