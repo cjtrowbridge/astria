@@ -62,6 +62,10 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   $value=BlowfishDecrypt($value);
   
   $return=unserialize($value);
+  
+  global $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
+  $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
+  
   return $return;
 }
 
