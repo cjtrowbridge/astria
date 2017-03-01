@@ -87,7 +87,7 @@ function AttemptGoogleAuth(){
   }else{
     $authUrl = $client->createAuthUrl();
     $ASTRIA['Session']['google_oauth2']=array('auth_url'=>$authUrl);
-    
+    AstriaSessionSave();
   }
   
 }
