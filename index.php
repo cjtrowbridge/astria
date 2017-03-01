@@ -10,14 +10,14 @@ if(!file_exists('config.php')){
 
 include('config.php');
 include('core/Session.php');
-AstriaSessionSetUp();
 include('core/Loader.php');
 
 Loader('core');
-Loader('auth/Google');
-RequireSSL();
 
-if(isset($_GET['verbose'])&&($_GET['verbose']=='beforelogin')){die('we made it!');}
+Loader('architect');
+Loader('auth/Google');
+
+RequireSSL();
 
 if(LoggedIn()){
   
