@@ -1,6 +1,7 @@
 <?php
 
 function CacheDatabaseDelete($Hash){
+  global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
@@ -16,8 +17,9 @@ function CacheDatabaseDelete($Hash){
   return true;
 }
   
-//TODO make the default cache database name a constant based on a config flag
+//TODO make the default cache database name a constant based on a config flag, also update the database cleanup function to know about this
 function CacheDatabaseWrite($Hash,$Value,$Database = 'astria'){
+  global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
@@ -50,6 +52,7 @@ function CacheDatabaseWrite($Hash,$Value,$Database = 'astria'){
 }
 
 function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL){
+  global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
@@ -74,7 +77,6 @@ function CacheDatabaseExists($Hash){
 
 function CacheDatabaseCleanup(){
   Query(
-    "DELETE FROM `Cache` WHERE Expires < NOW()",
-    $Database
+    "DELETE FROM `Cache` WHERE Expires < NOW()"
   );
 }
