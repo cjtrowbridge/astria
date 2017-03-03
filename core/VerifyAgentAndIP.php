@@ -4,10 +4,14 @@ function VerifyAgentAndIP(){
 	//Make sure that the user agent and ip have not changed and that the sessions is not expired
 	global $ASTRIA;
 	
+	if($ASTRIA['Session']==null){
+		die('Session was null');	
+	}
+	
+	
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
 		if(isset($_GET['verbose'])){
 			echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
-			include('pd.php');pd($ASTRIA['Session']);
 			exit;
 		}
 		AstriaSessionDestroy();
