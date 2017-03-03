@@ -23,6 +23,8 @@ function CacheDatabaseWrite($Hash,$Content,$Database = 'astria'){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
+  $Hash=serialize($Hash);
+  
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   $Content = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Content);
   
@@ -65,7 +67,7 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL){
   if(count($Result)==0){
     return false;
   }else{
-    return $Result[0]['Content'];
+    return unserialize($Result[0]['Content']);
   }
 }
 
