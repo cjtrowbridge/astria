@@ -1,97 +1,64 @@
 <?php
 
-
-define('DISK_CACHE_FILE_PREFIX','<?php /* ');
-define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
-define('DISKCACHETTL',60*60*24*7);
-
-function deleteDiskCache($hash){
+function CacheDatabaseDelete($hash){
   include_once('core/isValidMd5.php');
-  if(!(isValidMd5($hash))){
-    return false;
-  }
-  $path='cache/'.$hash.'.php';
-  
-  if(!(file_exists($path))){
-    return false;
-  }
-  unlink($path);
+  if(!(isValidMd5($hash))){return false;}
+  die('not implemented');
   return true;
 }
   
-function writeDiskCache($hash,$value){
+//TODO make the default cache database name a constant based on a config flag
+function CacheDatabaseWrite($Hash,$Value,$Database = 'astria'){
   include_once('core/isValidMd5.php');
-  include_once('core/Blowfish.php');
-  if(!(isValidMd5($hash))){
-    return false;
-  }
+  if(!(isValidMd5($hash))){return false;}
   
-  $value=serialize($value);
+  $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
+  $Content = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Content);
   
-  $value=BlowfishEncrypt($value);
-  $value=DISK_CACHE_FILE_PREFIX.$value.DISK_CACHE_FILE_SUFFIX;
-  
-  return file_put_contents('cache/'.$hash.'.php',$value);
+  return Query(
+    "
+      INSERT INTO `Cache`(
+        `Hash`, 
+        `Content`, 
+        `Created`, 
+        `Expires`
+      ) VALUES (
+        '".$Hash."', 
+        '".$Content."', 
+        NOW(), 
+        date_add(now(), INTERVAL 1 week)
+      )
+      ON DUPLICATE KEY UPDATE    
+        `Hash`    = '".$Hash."', 
+        `Content` = '".$Content."', 
+        `Created` = NOW(), 
+        `Expires` = date_add(now(), INTERVAL 1 week)
+      ;
+    ",
+    $Database
+  );
 
 }
 
-function readDiskCache($hash,$ttl = DISKCACHETTL){
+function CacheDatabaseRead($hash,$ttl = DISKCACHETTL){
   include_once('core/isValidMd5.php');
-  include_once('core/Blowfish.php');
-  if(!(isValidMd5($hash))){
-    return false;
-  }
+  if(!(isValidMd5($hash))){return false;}
   
-  $path='cache/'.$hash.'.php';
+  $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   
-  if(!(file_exists($path))){
-    return false;
-  }
+  return Query(
+    "SELECT * FROM Cache WHERE Hash LIKE '".$Hash."'",
+    $Database
+  );
   
-  if((filemtime($path)+$ttl)<time()){
-    unlink($path);
-    return false;
-  }
-  
-  $value=file_get_contents($path);
-  if($value==false){
-    return false; 
-  }
-  $value=ltrim($value,DISK_CACHE_FILE_PREFIX);
-  $value=rtrim($value,DISK_CACHE_FILE_SUFFIX);
-  
-  $value=BlowfishDecrypt($value);
-  
-  $return=unserialize($value);
-  
-  global $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE;
-  $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE+=1;
-  
-  return $return;
 }
 
-function DiskCacheCleanup(){
-  global $ASTRIA;
-  $path = 'cache/';
-  if ($handle = opendir($path)) {
-    while (false !== ($file = readdir($handle))) {
-      if ((time()-filectime($path.$file)) > DISKCACHETTL){  
-        if(!(strpos($file, '.php')===false)){
-          unlink($path.$file);
-        }
-      }
-    }
-  }
-}
-
-function DiskCacheExists($hash){
- if(!(isValidMd5($hash))){
-    return false;
-  }
-  $path='cache/'.$hash.'.php';
-  
-  if(!(file_exists($path))){
-    return false;
-  }
+function CacheDatabaseExists($hash){
+ if(!(isValidMd5($hash))){return false;}
+  die('not implemented');
   return true;
+}
+
+function CacheDatabaseCleanup(){
+  die('not implemented');
 }
