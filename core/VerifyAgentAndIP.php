@@ -7,7 +7,7 @@ function VerifyAgentAndIP(){
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
 		if(isset($_GET['verbose'])){
 			echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
-			pd($ASTRIA['Session']);
+			include('pd.php');pd($ASTRIA['Session']);
 			exit;
 		}
 		AstriaSessionDestroy();
