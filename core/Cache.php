@@ -10,20 +10,20 @@ function ReadCache($Hash,$TTL){
   //include_once('DiskCache.php');
   //return readDiskCache($Hash,$TTL);
   include_once('CacheDatabase.php');
-  CacheDatabaseRead($Hash,$TTL);
+  return CacheDatabaseRead($Hash,$TTL);
 }
 
 function WriteCache($Hash,$Value){
   //include_once('DiskCache.php');
   //return writeDiskCache($Hash,$Value);
   include_once('CacheDatabase.php');
-  CacheDatabaseWrite($Hash,$Value);
+  return CacheDatabaseWrite($Hash,$Value);
 }
 
 function DeleteCache($Hash){
   //include_once('DiskCache.php');
   //return deleteDiskCache($Hash);
   include_once('CacheDatabase.php');
-  CacheDatabaseDelete($Hash);
+  return CacheDatabaseDelete($Hash);
 }
 
