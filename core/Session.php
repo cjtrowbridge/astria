@@ -50,8 +50,8 @@ function AstriaSessionSetUp(){
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
     include_once('pd.php');
-    pd($_COOKIE[$CookieName]);
     $ASTRIA['Session']=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
+    pd($ASTRIA['Session']);exit;
     VerifyAgentAndIP();
     
   }
