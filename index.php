@@ -1,6 +1,5 @@
 <?php
 
-$_GET['verbose']='verbose';
 //TODO review and standardize nomenclature for cache types and primitives
 //TODO make each database have a separate count of queries run
 //TODO implement query v3
