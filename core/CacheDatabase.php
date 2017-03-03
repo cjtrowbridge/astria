@@ -61,7 +61,7 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL){
     "SELECT Content FROM Cache WHERE Hash LIKE '".$Hash."' AND Created > '".date("Y-m-d H:i:s",(time()-$TTL))."' AND Expires > NOW()",
     $Database
   );
-  ifcount($Result)==0){
+  if(count($Result)==0){
     return false;
   }else{
     return $Result[0]['Content'];
