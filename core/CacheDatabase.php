@@ -67,6 +67,9 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL,$Database = 'astria')
   if(count($Result)==0){
     return false;
   }else{
+    include_once('pd.php');
+    pd($Result[0]['Content']);
+    pd(unserialize($Result[0]['Content']));
     return unserialize($Result[0]['Content']);
   }
 }
