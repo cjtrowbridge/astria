@@ -3,7 +3,18 @@
 function CacheDatabaseDelete($hash){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($hash))){return false;}
-  die('not implemented');
+  include_once('core/isValidMd5.php');
+  if(!(isValidMd5($Hash))){return false;}
+  
+  $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
+  
+  return Query(
+    "DELETE FROM `Cache` WHERE `Hash` LIKE '".$Hash."'",
+    $Database
+  );
+  
+  CacheDatabaseCleanup();
+  
   return true;
 }
   
@@ -40,17 +51,21 @@ function CacheDatabaseWrite($Hash,$Value,$Database = 'astria'){
 
 }
 
-function CacheDatabaseRead($hash,$ttl = DISKCACHETTL){
+function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL){
   include_once('core/isValidMd5.php');
-  if(!(isValidMd5($hash))){return false;}
+  if(!(isValidMd5($Hash))){return false;}
   
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   
-  return Query(
-    "SELECT * FROM Cache WHERE Hash LIKE '".$Hash."'",
+  $Result=Query(
+    "SELECT Content FROM Cache WHERE Hash LIKE '".$Hash."' AND Created > '".date("Y-m-d H:i:s",(time()-$TTL))."' AND Expires > NOW()",
     $Database
   );
-  
+  ifcount($Result)==0){
+    return false;
+  }else{
+    return $Result[0]['Content'];
+  }
 }
 
 function CacheDatabaseExists($hash){
@@ -60,5 +75,8 @@ function CacheDatabaseExists($hash){
 }
 
 function CacheDatabaseCleanup(){
-  die('not implemented');
+  Query(
+    "DELETE FROM `Cache` WHERE Expires < NOW()",
+    $Database
+  );
 }
