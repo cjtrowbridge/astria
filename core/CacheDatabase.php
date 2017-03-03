@@ -62,9 +62,11 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL,$Database = 'astria')
   pd($Hash);
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   pd($Hash);
+  $SQL="SELECT Content FROM Cache WHERE Hash LIKE '".$Hash."' AND Created > '".date("Y-m-d H:i:s",(time()-$TTL))."' AND Expires > NOW()";
+  pd($SQL);
   
   $Result=Query(
-    "SELECT Content FROM Cache WHERE Hash LIKE '".$Hash."' AND Created > '".date("Y-m-d H:i:s",(time()-$TTL))."' AND Expires > NOW()",
+    $SQL,
     $Database
   );
   if(count($Result)==0){
