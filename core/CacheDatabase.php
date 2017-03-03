@@ -23,7 +23,7 @@ function CacheDatabaseWrite($Hash,$Content,$Database = 'astria'){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
-  $Hash=serialize($Hash);
+  $Content=serialize($Content);
   
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   $Content = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Content);
