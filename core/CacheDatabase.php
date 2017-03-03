@@ -1,8 +1,6 @@
 <?php
 
-function CacheDatabaseDelete($hash){
-  include_once('core/isValidMd5.php');
-  if(!(isValidMd5($hash))){return false;}
+function CacheDatabaseDelete($Hash){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
@@ -21,7 +19,7 @@ function CacheDatabaseDelete($hash){
 //TODO make the default cache database name a constant based on a config flag
 function CacheDatabaseWrite($Hash,$Value,$Database = 'astria'){
   include_once('core/isValidMd5.php');
-  if(!(isValidMd5($hash))){return false;}
+  if(!(isValidMd5($Hash))){return false;}
   
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   $Content = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Content);
@@ -68,8 +66,8 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL){
   }
 }
 
-function CacheDatabaseExists($hash){
- if(!(isValidMd5($hash))){return false;}
+function CacheDatabaseExists($Hash){
+ if(!(isValidMd5($Hash))){return false;}
   die('not implemented');
   return true;
 }
