@@ -4,7 +4,7 @@ function CacheDatabaseDelete($Hash){
   global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
-  
+  MakeSureDBConnected();
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   
   return Query(
@@ -24,7 +24,7 @@ function CacheDatabaseWrite($Hash,$Content,$Database = 'astria'){
   if(!(isValidMd5($Hash))){return false;}
   
   $Content=serialize($Content);
-  
+  MakeSureDBConnected();
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
   $Content = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Content);
   
@@ -57,7 +57,7 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL,$Database = 'astria')
   global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
-  
+  MakeSureDBConnected();
   include_once('pd.php');
   pd($Hash);
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
