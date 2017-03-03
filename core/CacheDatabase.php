@@ -58,7 +58,10 @@ function CacheDatabaseRead($Hash,$TTL = CACHE_DATABASE_TTL,$Database = 'astria')
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
   
+  include_once('pd.php');
+  pd($Hash);
   $Hash    = mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Hash);
+  pd($Hash);
   
   $Result=Query(
     "SELECT Content FROM Cache WHERE Hash LIKE '".$Hash."' AND Created > '".date("Y-m-d H:i:s",(time()-$TTL))."' AND Expires > NOW()",
