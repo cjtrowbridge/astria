@@ -1,9 +1,5 @@
 <?php
 
-define('DISK_CACHE_FILE_PREFIX','<?php /* ');
-define('DISK_CACHE_FILE_SUFFIX',' */ header("HTTP/1.1 301 Moved Permanently");header("Location: /");');
-define('DISKCACHETTL',60*60*24*7);
-
 function deleteDiskCache($hash){
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($hash))){
@@ -28,13 +24,13 @@ function writeDiskCache($hash,$value){
   $value=serialize($value);
   
   $value=BlowfishEncrypt($value);
-  $value=DISK_CACHE_FILE_PREFIX.$value.DISK_CACHE_FILE_SUFFIX;
+  $value=CACHE_FILE_PREFIX.$value.CACHE_FILE_SUFFIX;
   
   return file_put_contents('cache/'.$hash.'.php',$value);
 
 }
 
-function readDiskCache($hash,$ttl = DISKCACHETTL){
+function readDiskCache($hash,$ttl = CACHE_FILE_TTL){
   include_once('core/isValidMd5.php');
   include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
@@ -56,8 +52,8 @@ function readDiskCache($hash,$ttl = DISKCACHETTL){
   if($value==false){
     return false; 
   }
-  $value=ltrim($value,DISK_CACHE_FILE_PREFIX);
-  $value=rtrim($value,DISK_CACHE_FILE_SUFFIX);
+  $value=ltrim($value,CACHE_FILE_PREFIX);
+  $value=rtrim($value,CACHE_FILE_SUFFIX);
   
   $value=BlowfishDecrypt($value);
   
@@ -74,7 +70,7 @@ function DiskCacheCleanup(){
   $path = 'cache/';
   if ($handle = opendir($path)) {
     while (false !== ($file = readdir($handle))) {
-      if ((time()-filectime($path.$file)) > DISKCACHETTL){  
+      if ((time()-filectime($path.$file)) > CACHE_FILE_TTL){  
         if(!(strpos($file, '.php')===false)){
           unlink($path.$file);
         }
