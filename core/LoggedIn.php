@@ -4,10 +4,6 @@
 include_once('Path.php');
 include_once('Session.php');
 
-//TODO make this happen on a cron
-include_once('DiskCache.php');
-DiskCacheCleanup();
-
 if(
 	path()=='logout'||
 	isset($_GET['logout'])  
