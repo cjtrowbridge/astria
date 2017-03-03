@@ -17,13 +17,13 @@ function WriteCache($Hash,$Value){
   //include_once('DiskCache.php');
   //return writeDiskCache($Hash,$Value);
   include_once('CacheDatabase.php');
-  CacheDatabaseWrite($Hash,$TTL);
+  CacheDatabaseWrite($Hash,$Value);
 }
 
 function DeleteCache($Hash){
   //include_once('DiskCache.php');
   //return deleteDiskCache($Hash);
   include_once('CacheDatabase.php');
-  CacheDatabaseDelete($Hash,$TTL);
+  CacheDatabaseDelete($Hash);
 }
 
