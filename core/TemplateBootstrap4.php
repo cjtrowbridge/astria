@@ -68,9 +68,6 @@ function TemplateBootstrap4($title=''){
           }
         }
       ?>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/cjtrowbridge/astria" target="_blank">GitHub</a>
-      </li>
       
     </ul>
     <?php if(LoggedIn()){ ?>
