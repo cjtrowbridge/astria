@@ -28,8 +28,8 @@ function prepareArchitect(){
           case 'new': //TODO
         }
         break;
-      case 'config':
-        SetupAstria();
+      case 'configuration':
+        AstriaConfiguration();
         break;
       case 'cache':
         switch(path(2)){
