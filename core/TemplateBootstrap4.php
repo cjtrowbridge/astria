@@ -1,6 +1,6 @@
 <?php
 
-function TemplateBootstrap4($title=''){
+function TemplateBootstrap4($title='',$BodyCallback = ''){
   global $HAMBURGER, $ASTRIA, $USER;
   $HAMBURGER=array('Home'=>'/');
 
@@ -84,7 +84,15 @@ function TemplateBootstrap4($title=''){
 
   <div class="container" id="bodyContainer">
 
-    <?php Event('Template Body'); ?>
+    <?php 
+  
+    if(trim($BodyCallback)==''){  
+      Event('Template Body'); 
+    }else{
+      eval($BodyCallback);
+    }
+    
+    ?>
 
   </div><!-- /.container -->
   <?php
