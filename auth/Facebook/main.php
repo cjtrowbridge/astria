@@ -10,7 +10,7 @@ Hook('Attempt Auth','AttemptFacebookAuth();');
 function AttemptFacebookAuth(){
   include_once('core/Session.php');
   include_once('auth/Facebook/src/Facebook/autoload.php');
-  global $ASTRIA;
+  global $ASTRIA,$fb;
   
   //$client->setRedirectUri($ASTRIA['app']['appURL']);
   
