@@ -2,7 +2,7 @@
 
 
 
-function SetupAstria(){
+function AstriaConfiguration(){
   require_once('core/TemplateBootstrap4.php');
   require_once('core/MakeRandomString.php');
   require_once('core/RequireSSL.php');
@@ -11,10 +11,10 @@ function SetupAstria(){
   if(isset($_POST['appName'])){
     setupHandler();
   }
-  TemplateBootstrap4('Astria Setup','setupBodyCallback();');
+  TemplateBootstrap4('Configuration','AstriaConfigurationBodyCallback();');
 }
 
-function setupBodyCallback(){
+function AstriaConfigurationBodyCallback(){
   global $ASTRIA;
   //TODO make timezone a dropdown
   //TODO link to documentation with best practices and examples for setting up databases and mail servers
