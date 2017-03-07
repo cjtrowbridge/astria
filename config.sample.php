@@ -59,6 +59,12 @@ $ASTRIA = array(
       'GoogleOAuth2ClientID'     => '',
       'GoogleOAuth2ClientSecret' => ''
       
+    ),
+    'Facebook' => array(
+    
+      'FacebookOAuth2AppID'     => '',
+      'FacebookOAuth2AppSecret' => ''
+      
     )
     
   ),
