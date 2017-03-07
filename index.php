@@ -16,7 +16,7 @@ include('config.php');
 include('core/Loader.php');
 
 Loader('core');
-//Loader('core/architect');
+Loader('core/architect');
 Loader('auth/Google');
 Loader('defaultViews');
 
