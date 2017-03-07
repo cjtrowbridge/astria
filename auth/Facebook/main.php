@@ -115,7 +115,7 @@ function AttemptFacebookAuth(){
   $permissions = ['email']; // Optional permissions
   $loginUrl = $helper->getLoginUrl('https://astria.io/?facebookAuth', $permissions);
 
-  $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl)'
+  $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
   
 
 /*
