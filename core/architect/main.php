@@ -12,7 +12,7 @@ if(isset($ASTRIA['Session'])){
           Hook('User Is Logged In - Before Presentation','prepareArchitect();');
 
           //TODO abstract this away
-          $ASTRIA['nav']=array(
+          $ASTRIA['nav']['main']=array(
             'Architect' => '/architect'
           );
         }
