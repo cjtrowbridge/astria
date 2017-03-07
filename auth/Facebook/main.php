@@ -182,6 +182,6 @@ Hook('Auth Login Options','authFacebookCallback();');
 function authFacebookCallback(){
   global $ASTRIA;
   ?>
-    <p><a class="login" href="<?php echo $ASTRIA['Session']['facebook_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" alt="Login with Facebook" /></a></p>
+    <p><a class="login" href="<?php echo $ASTRIA['Session']['facebook_oauth2']['auth_url']; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
   <?php
 }
