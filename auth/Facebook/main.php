@@ -7,7 +7,7 @@
 */
 
 Hook('Attempt Auth','AttemptFacebookAuth();');
-function AttemptFacebookAuth(){
+function AttemptFacebookAuth(){die('wat');
   include_once('core/Session.php');
   include_once('auth/Facebook/src/Facebook/autoload.php');
   global $ASTRIA,$fb;
