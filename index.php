@@ -8,8 +8,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 if(!file_exists('config.php')){
-  include('core/Setup.php');
-  SetupAstria();
+  include('core/AstriaConfiguration.php');
+  AstriaConfiguration();
 }
 
 include('config.php');
