@@ -2,7 +2,7 @@
 
 
 
-function Setup(){
+function SetupAstria(){
   require_once('core/TemplateBootstrap4.php');
   require_once('core/MakeRandomString.php');
   require_once('core/RequireSSL.php');
