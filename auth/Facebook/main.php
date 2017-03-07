@@ -7,7 +7,7 @@
 */
 
 Hook('Attempt Auth','AttemptFacebookAuth();');
-function AttemptFacebookAuth(){die('wat');
+function AttemptFacebookAuth(){
   include_once('core/Session.php');
   include_once('auth/Facebook/src/Facebook/autoload.php');
   global $ASTRIA,$fb;
@@ -116,7 +116,7 @@ function AttemptFacebookAuth(){die('wat');
   $loginUrl = $helper->getLoginUrl('https://astria.io/facebookAuth', $permissions);
 
   $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
-  
+  pd($ASTRIA['Session']);exit;
 
 /*
   
