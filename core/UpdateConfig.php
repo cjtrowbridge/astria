@@ -22,6 +22,8 @@ function UpdateConfig(
   $dbName,
   $GoogleOAuth2ClientID,
   $GoogleOAuth2ClientSecret,
+  $FacebookOAuth2AppID,
+  $FacebookOAuth2AppSecret,
   $timezone
 ){
   //TODO add a null default to each argument, and then fill any nulls in with current values, then sort the arguments in order of how frequently they may ned to be updated
@@ -46,6 +48,9 @@ function UpdateConfig(
   $dbName                    = str_replace("'","\'",$dbName);
   $GoogleOAuth2ClientID      = str_replace("'","\'",$GoogleOAuth2ClientID);
   $GoogleOAuth2ClientSecret  = str_replace("'","\'",$GoogleOAuth2ClientSecret);
+  $FacebookOAuth2AppID       = str_replace("'","\'",$FacebookOAuth2AppID);
+  $FacebookOAuth2AppSecret   = str_replace("'","\'",$FacebookOAuth2AppSecret);
+  
   $timezone                  = str_replace("'","\'",$timezone);
 
   
@@ -111,7 +116,14 @@ function UpdateConfig(
         'GoogleOAuth2ClientID'     => '".$GoogleOAuth2ClientID."',
         'GoogleOAuth2ClientSecret' => '".$GoogleOAuth2ClientSecret."'
 
+      ),
+      'Facebook' => array(
+
+        'FacebookOAuth2AppID'     => '".$FacebookOAuth2AppID."',
+        'FacebookOAuth2AppSecret' => '".$FacebookOAuth2AppSecret."'
+
       )
+      
 
     ),
     'locale'=>array(
