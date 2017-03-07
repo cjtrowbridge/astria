@@ -38,9 +38,11 @@ if(LoggedIn()){
   Event('User Is Logged In - No Presentation');
   
   die('This is not good.');
+  
 }else{
   
   Event('User Is Not Logged In');
-  PromptForLogin();
+  
+  die('This is not good!');
   
 }
