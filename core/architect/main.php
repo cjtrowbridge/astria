@@ -29,6 +29,7 @@ function prepareArchitect(){
         }
         break;
       case 'configuration':
+        echo 'WHY';
         AstriaConfiguration();
         break;
       case 'cache':
