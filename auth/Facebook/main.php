@@ -19,7 +19,7 @@ function AttemptFacebookAuth(){
     'app_secret' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'],
     'default_graph_version' => 'v2.2',
   ]);
-  
+  echo 'wat ';
   if(path(0)=='facebookAuth'){
     /*
     $helper = $fb->getRedirectLoginHelper();
