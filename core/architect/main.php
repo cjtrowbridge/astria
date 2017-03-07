@@ -24,6 +24,9 @@ if(isset($ASTRIA['Session'])){
 function prepareArchitect(){
   if(path(0)=='architect'){
     switch(path(1)){
+      case 'setup':
+        Setup();
+        break;
       case 'user':
         switch(path(2)){
           case 'edit': //TODO
