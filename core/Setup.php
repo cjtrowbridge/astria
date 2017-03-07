@@ -215,6 +215,8 @@ function setupHandler(){
     $_POST['dbName'],
     $_POST['GoogleOAuth2ClientID'],
     $_POST['GoogleOAuth2ClientSecret'],
+    $_POST['FacebookOAuth2AppID'],
+    $_POST['FacebookOAuth2AppSecret'],
     $_POST['timezone']
   );
 
