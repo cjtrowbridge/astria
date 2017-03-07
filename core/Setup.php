@@ -154,6 +154,21 @@ function setupBodyCallback(){
               <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret'];}else{echo '';} ?>">
             </div>
           </div>
+          
+          <h2>Facebook OAuth</h2>
+          <p><a href="https://developers.facebook.com/apps" target="_blank">Click Here</a> to go to the Facebook Apps console and create an OAuth credential set for your app. Then enter the keys here.</p>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">AppID:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="FacebookOAuth2AppID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'];}else{echo '';} ?>">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">App Secret:</label>
+            <div class="col-xs-10">
+              <input class="form-control" type="text" name="FacebookOAuth2AppSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'];}else{echo '';} ?>">
+            </div>
+          </div>
   
           <h2>Locale</h2>
           <div class="form-group row">
