@@ -51,8 +51,12 @@ function TemplateBootstrap4($title=''){
     <ul class="nav navbar-nav">
       <?php
         if(LoggedIn()){
-          if(isset($ASTRIA['nav'])){
-            foreach($ASTRIA['nav'] as $link => $path){
+          if(
+            isset($ASTRIA['nav'])&&
+            isset($ASTRIA['nav']['main'])
+          ){
+            foreach($ASTRIA['nav']['main'] as $link => $path){
+              //TODO check if $path is an array, and then do a dropdown instead
               ?>
           
       <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
