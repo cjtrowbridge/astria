@@ -61,7 +61,7 @@ function AttemptFacebookAuth(){
   var_dump($tokenMetadata);
 
   // Validation (these will throw FacebookSDKException's when they fail)
-  $tokenMetadata->validateAppId({app-id}); // Replace {app-id} with your app id
+  $tokenMetadata->validateAppId($ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID']); // Replace {app-id} with your app id
   // If you know the user ID this access token belongs to, you can validate it here
   //$tokenMetadata->validateUserId('123');
   $tokenMetadata->validateExpiration();
