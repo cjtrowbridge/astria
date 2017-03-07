@@ -14,7 +14,7 @@ if(HasMembership(2)){
 
 function prepareArchitect(){
   if(path(0)=='architect'){
-    include_once('Show.php');
+    include_once('ArchitectShow.php');
     switch(path(1)){
       case 'user':
         switch(path(2)){
