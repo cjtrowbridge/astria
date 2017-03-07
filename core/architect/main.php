@@ -29,7 +29,7 @@ function prepareArchitect(){
         }
         break;
       case 'config':
-        Setup();
+        SetupAstria();
         break;
       case 'cache':
         switch(path(2)){
