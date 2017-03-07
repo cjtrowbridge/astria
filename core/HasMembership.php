@@ -1,7 +1,12 @@
 <?php
 
-function HasMembership($UserID,$Group){
+function HasMembership($Group,$UserID=''){
 
+  if($UserID==''){
+    global $USER;
+    $UserID = $USER['UserID'];
+  }
+  
   //TODO add something to look up the id if a group name is passed
   $GroupID=intval($Group);
   
