@@ -21,7 +21,7 @@ function AttemptFacebookAuth(){
   ]);
   
   if(path(0)=='facebookAuth'){
-
+    /*
     $helper = $fb->getRedirectLoginHelper();
 
     try {
@@ -106,7 +106,7 @@ function AttemptFacebookAuth(){
   pd($me);
   
   exit;
-  
+  */
   }
   
   //make a login link
