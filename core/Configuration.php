@@ -1,7 +1,5 @@
 <?php
 
-
-
 function AstriaConfiguration(){
   require_once('core/TemplateBootstrap4.php');
   require_once('core/MakeRandomString.php');
@@ -28,7 +26,7 @@ function AstriaConfigurationBodyCallback(){
         <h1>Welcome To Astria Setup</h1>
         <p>We need some details in order to get started...</p>
         
-        <form action="/" method="post">
+        <form action="/architect/configuration" method="post">
           
           <h2>Your App</h2>
           <div class="form-group row">
