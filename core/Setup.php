@@ -11,7 +11,7 @@ function Setup(){
   if(isset($_POST['appName'])){
     setupHandler();
   }
-  Template4('Astria Setup','setupBodyCallback();');
+  TemplateBootstrap4('Astria Setup','setupBodyCallback();');
 }
 
 function setupBodyCallback(){
