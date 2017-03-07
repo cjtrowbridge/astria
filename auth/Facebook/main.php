@@ -20,7 +20,7 @@ function AttemptFacebookAuth(){
     'default_graph_version' => 'v2.2',
   ]);
   
-  if(isset($_GET['facebookAuth'])){
+  if(path(0)=='facebookAuth'){
 
     $helper = $fb->getRedirectLoginHelper();
 
@@ -113,7 +113,7 @@ function AttemptFacebookAuth(){
   $helper = $fb->getRedirectLoginHelper();
 
   $permissions = ['email']; // Optional permissions
-  $loginUrl = $helper->getLoginUrl('https://astria.io/?facebookAuth', $permissions);
+  $loginUrl = $helper->getLoginUrl('https://astria.io/facebookAuth', $permissions);
 
   $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
   
