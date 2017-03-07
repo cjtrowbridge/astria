@@ -181,7 +181,17 @@ function AttemptFacebookAuth(){
 Hook('Auth Login Options','authFacebookCallback();');
 function authFacebookCallback(){
   global $ASTRIA;
+  
+  $authURL ='';
+  
+  if(isset($ASTRIA['Session'])){
+    if(isset($ASTRIA['Session']['facebook_oauth2'])){
+      if(isset($ASTRIA['Session']['facebook_oauth2']['auth_url'])){
+        $authURL = $ASTRIA['Session']['facebook_oauth2']['auth_url'];
+      }
+    }
+  }
   ?>
-    <p><a class="loginButton" href="<?php echo $ASTRIA['Session']['facebook_oauth2']['auth_url']; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
+    <p><a class="loginButton" href="<?php echo $authURL; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
   <?php
 }
