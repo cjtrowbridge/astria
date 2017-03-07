@@ -1,7 +1,8 @@
 <?php
 
 function HasMembership($Group,$UserID=''){
-
+  global $ASTRIA;
+  
   if($UserID==''){
     global $USER;
     $UserID = $USER['UserID'];
