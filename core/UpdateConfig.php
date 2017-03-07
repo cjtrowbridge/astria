@@ -139,9 +139,7 @@ function UpdateConfig(
    die("Could not write config file. Please give write permission or copy the following into a new config.php file;\n\n".$newConfig); 
   }
   
-  pd($newConfig);
-  
-  //header('Location: /');
+  header('Location: /');
   exit;
   
 }
