@@ -189,7 +189,7 @@ function AstriaConfigurationBodyCallback(){
 }
 
 function setupHandler(){
-  require('core/UpdateConfig.php');
+  require_once('core/UpdateConfig.php');
 
   UpdateConfig(
     $_POST['defaultSessionLength'],
