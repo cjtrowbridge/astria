@@ -18,6 +18,7 @@ include('core/Loader.php');
 Loader('core');
 Loader('core/architect');
 Loader('auth/Google');
+Loader('auth/Facebook');
 Loader('defaultViews');
 
 RequireSSL();
