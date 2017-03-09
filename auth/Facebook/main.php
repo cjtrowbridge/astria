@@ -33,16 +33,12 @@ function AttemptFacebookAuth(){
   include_once('auth/Facebook/src/Facebook/autoload.php');
   global $ASTRIA,$fb;
   
-  //$client->setRedirectUri($ASTRIA['app']['appURL']);
   
   $Parameters=array(
     'app_id' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'],
     'app_secret' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'],
     'default_graph_version' => 'v2.2'
   );
-  if(isset($_GET['code'])){
-    //$Parameters['default_access_token'] = $_GET['code'];
-  }
   
   $fb = new Facebook\Facebook($Parameters);
   
@@ -50,15 +46,12 @@ function AttemptFacebookAuth(){
     Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
     
     try {
-      Event('Before Creating Helper');
       $helper = $fb->getRedirectLoginHelper();
-      Event('Before Getting Access Token');
-      var_dump($helper->getPersistentDataHandler());
+      //var_dump($helper->getPersistentDataHandler());
       pd($_SESSION);
       pd($_GET);
 
       $accessToken = $helper->getAccessToken();
-      Event('After Getting Access Token');
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
       // When Graph returns an error
       echo 'Graph returned an error: ' . $e->getMessage();
