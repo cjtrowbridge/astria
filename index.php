@@ -6,7 +6,6 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
-$_GET['verbose']='verbose';
 
 if(!file_exists('config.php')){
   include('core/Configuration.php');
