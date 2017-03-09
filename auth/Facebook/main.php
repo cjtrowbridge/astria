@@ -12,10 +12,12 @@ function BeforeAuthFacebook(){
   session_start();
   global $ASTRIA;
   if(isset($ASTRIA['Session']['FBRLH_state'])){
-    pd($_SESSION);
-    $_SESSION['FBRLH_state']=$ASTRIA['Session']['FBRLH_state'];
-    pd($_SESSION);
+    ResetFBRLHState();
   }
+}
+function ResetFBRLHState(){
+  global $ASTRIA;
+  $_SESSION['FBRLH_state']=$ASTRIA['Session']['FBRLH_state'];
 }
 Hook('After Auth','AfterAuthFacebook();');
 function AfterAuthFacebook(){
@@ -137,16 +139,13 @@ function AttemptFacebookAuth(){
       AuthenticateUser($ASTRIA['Session']['facebook_oauth2']['user_object']->email);
     */
   }else{
-    pd($_SESSION);
     Event('Facebook Auth Check: User is not attempting to log in. Create a login link.');
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
-    echo 'taw';
-    pd($_SESSION);
     $permissions = ['email']; // Optional permissions
+    ResetFBRLHState()
     $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'/authFacebook/', $permissions);
-    echo 'wat';
-    pd($_SESSION);
+    ResetFBRLHState();
     $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     AstriaSessionSave();
   }
