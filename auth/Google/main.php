@@ -17,7 +17,7 @@ function AttemptGoogleAuth(){
   $client = new Google_Client();
   $client->setClientId($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']);
   $client->setClientSecret($ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret']);
-  $client->setRedirectUri($ASTRIA['app']['appURL'].'/authGoogle');
+  $client->setRedirectUri($ASTRIA['app']['appURL'].'/authGoogle/');
   $client->addScope("email");
   $client->addScope("profile");
   
@@ -35,7 +35,7 @@ function AttemptGoogleAuth(){
   function. We store the resultant access token
   bundle in the session, and redirect to ourself. */
   if(
-    (path(0)=='authGoogle')&&
+    (path(0)=='authgoogle')&&
     isset($_GET['code'])
   ){
     Event('Google Auth Check: User is attempting to log in. Check with google and refresh.');
