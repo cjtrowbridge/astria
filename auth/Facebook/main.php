@@ -27,7 +27,9 @@ function AttemptFacebookAuth(){
     'default_graph_version' => 'v2.2',
   ]);
   
-  //if(path(0)=='facebookAuth'){
+  if(path(0)=='facebookAuth'){
+    
+    
     /*
     $helper = $fb->getRedirectLoginHelper();
 
@@ -124,9 +126,6 @@ function AttemptFacebookAuth(){
 
   $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
   
-  pd($ASTRIA['Session']);
-  exit;
-
 /*
   
   if(isset($_GET['code'])){
