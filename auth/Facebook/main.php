@@ -8,6 +8,9 @@
 
 Hook('Attempt Auth','AttemptFacebookAuth();');
 function AttemptFacebookAuth(){
+  if(isset($_GET['verbose'])){
+    echo '<p>Beginning Facebook Auth Check</p>';
+  }
   include_once('core/Session.php');
   include_once('auth/Facebook/src/Facebook/autoload.php');
   global $ASTRIA,$fb;
@@ -175,6 +178,9 @@ function AttemptFacebookAuth(){
     AstriaSessionSave();
   }
   */
+  if(isset($_GET['verbose'])){
+    echo '<p>Finished Facebook Auth Check</p>';
+  }
 }
 Hook('Auth Login Options','authFacebookCallback();');
 function authFacebookCallback(){
