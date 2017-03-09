@@ -29,8 +29,6 @@ function AttemptFacebookAuth(){
   
   if(path(0)=='facebookAuth'){
     
-    
-    /*
     $helper = $fb->getRedirectLoginHelper();
 
     try {
@@ -89,48 +87,32 @@ function AttemptFacebookAuth(){
 
     echo '<h3>Long-lived</h3>';
     var_dump($accessToken->getValue());
-      
-  }
-  
-  $_SESSION['fb_access_token'] = (string) $accessToken;
-  
-  //Try getting the user's info
-  
-  try {
-    // Get the Facebook\GraphNodes\GraphUser object for the current user.
-    // If you provided a 'default_access_token', the '{access-token}' is optional.
-    $response = $fb->get('/me', $accessToken);
-  } catch(Facebook\Exceptions\FacebookResponseException $e) {
-    // When Graph returns an error
-    echo 'Graph returned an error: ' . $e->getMessage();
-    exit;
-  } catch(Facebook\Exceptions\FacebookSDKException $e) {
-    // When validation fails or other local issues
-    echo 'Facebook SDK returned an error: ' . $e->getMessage();
-    exit;
-  }
 
-  $me = $response->getGraphUser();
-  echo 'Logged in as ' . $me->getName();
-  pd($me);
-  
-  exit;
-  */
-  //}
-  
-  
-  
-/*
-  
-  if(isset($_GET['code'])){
-    $client->authenticate($_GET['code']);
-    $ASTRIA['Session']['facebook_oauth2']=array('access_token' => $client->getAccessToken());
-    AstriaSessionSave();
-    header('Location: /');
+      
+    //Try getting the user's info
+    try {
+      // Get the Facebook\GraphNodes\GraphUser object for the current user.
+      // If you provided a 'default_access_token', the '{access-token}' is optional.
+      $response = $fb->get('/me', $accessToken);
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+      // When Graph returns an error
+      echo 'Graph returned an error: ' . $e->getMessage();
+      exit;
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+      // When validation fails or other local issues
+      echo 'Facebook SDK returned an error: ' . $e->getMessage();
+      exit;
+    }
+
+    $me = $response->getGraphUser();
+    echo 'Logged in as ' . $me->getName();
+    pd($me);
+
     exit;
   }
+ 
   
-  
+  /*
   if(isset($ASTRIA['Session']['facebook_oauth2']) && isset($ASTRIA['Session']['facebook_oauth2']['access_token']) && $ASTRIA['Session']['facebook_oauth2']['access_token']){
     $client->setAccessToken($ASTRIA['Session']['facebook_oauth2']['access_token']);
     $ASTRIA['Session']['facebook_oauth2']['user_object']=$service->userinfo->get();
