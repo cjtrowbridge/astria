@@ -40,6 +40,8 @@ function AttemptFacebookAuth(){
       $helper = $fb->getRedirectLoginHelper();
       Event('Before Getting Access Token');
       var_dump($helper->getPersistentDataHandler());
+      pd($_SESSION);
+      pd($_GET);
 
       $accessToken = $helper->getAccessToken();
       Event('After Getting Access Token');
