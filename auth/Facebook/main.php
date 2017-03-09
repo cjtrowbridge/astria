@@ -31,8 +31,8 @@ function AttemptFacebookAuth(){
   $fb = new Facebook\Facebook($Parameters);
   
   if(path(0)=='authfacebook'){
-    Event('Facebook Auth CheckL User is attempting to log in. Validate with facebook and refresh.');
-    $helper = $fb->getRedirectLoginHelper();
+    Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
+    //$helper = $fb->getRedirectLoginHelper();
 
     try {
       $accessToken = $helper->getAccessToken();
