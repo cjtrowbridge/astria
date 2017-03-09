@@ -3,12 +3,26 @@
 /*
   Astria Facebook OAuth Integration
   
-  
+  Astria does not use PHP sessions because they are less scalable and fault-tolerant than Astria's hybrid cached sessions, but Facebook's SDK needs them. 
+  These first two functions allow Facebook's session data to propagate across scaled infrastructure so that it works with load balancers.
 */
 
-//Astria does not use PHP sessions because they are less scalable and fault-tolerant than Astria's hybrid cached sessions, but Facebook's SDK needs them.
-session_start();
-
+Hook('Before Auth','BeforeAuthFacebook();');
+function BeforeAuthFacebook(){
+  session_start();
+  global $ASTRIA;
+  if(isset($ASTRIA['Session']['FBRLH_state'])){
+    $_SESSION['FBRLH_state']=$ASTRIA['Session']['FBRLH_state'];
+  }
+}
+Hook('After Auth','AfterAuthFacebook();');
+function AfterAuthFacebook(){
+  global $ASTRIA;
+  if(isset($_SESSION['FBRLH_state'])){
+    $ASTRIA['Session']['FBRLH_state']=$_SESSION['FBRLH_state'];
+    AstriaSessionSave();
+  }
+}
 
 Hook('Attempt Auth','AttemptFacebookAuth();');
 function AttemptFacebookAuth(){
