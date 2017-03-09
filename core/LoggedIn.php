@@ -37,7 +37,9 @@ function LoggedIn(){
 	}else{
 	  
     //we need to attempt to authorize the user. one of the called hooks should change the 'Logged In' to true if it was able to authorize the user.
+    Event('Before Auth');
     Event('Attempt Auth');
+    Event('After Auth');
     $ASTRIA['Session']['Auth']['Already Attempted']=true;
 	  
     //check whether we were sucesful in authorizing the user
