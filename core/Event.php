@@ -80,8 +80,8 @@ function Event($EventDescription){
           $EventException=$e;
           
           Event('Event Exception');
-          if(isset($_GET['verbose'])){
-            echo '<p><b>EVENT EXCEPTION!</b></p>';
+          if(true||isset($_GET['verbose'])){
+            echo '<p><b>EVENT THREW EXCEPTION!</b></p>';
             pd($EventException);
           }
           
