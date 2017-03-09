@@ -6,7 +6,7 @@ function AttemptGoogleAuth(){
   include_once('core/Session.php');
   include_once('auth/Google/autoload.php');
   global $ASTRIA;
-  
+  Event('Starting Google Auth Check');
   /************************************************
   Make an API request on behalf of a user. In
   this case we need to have a valid OAuth 2.0
@@ -38,6 +38,7 @@ function AttemptGoogleAuth(){
     (path(0)=='authGoogle')&&
     isset($_GET['code'])
   ){
+    Event('Google Auth Check: User is attempting to log in. Check with google and refresh.');
     $client->authenticate($_GET['code']);
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
     AstriaSessionSave();
@@ -50,6 +51,7 @@ function AttemptGoogleAuth(){
   requests, else we generate an authentication URL.
   ************************************************/
   if(isset($ASTRIA['Session']['google_oauth2']) && isset($ASTRIA['Session']['google_oauth2']['access_token']) && $ASTRIA['Session']['google_oauth2']['access_token']){
+    Event('Google Auth Check: User just authenticated with google, now lets load all their stuff into the session.');
     $client->setAccessToken($ASTRIA['Session']['google_oauth2']['access_token']);
     $ASTRIA['Session']['google_oauth2']['user_object']=$service->userinfo->get();
     
@@ -88,11 +90,12 @@ function AttemptGoogleAuth(){
       AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
     
   }else{
+    Event('Google Auth Check: User is not attempting to log in. Creating login key.');
     $authUrl = $client->createAuthUrl();
     $ASTRIA['Session']['google_oauth2']=array('auth_url'=>$authUrl);
     AstriaSessionSave();
   }
-  
+  Event('Finished Google Auth Check');
 }
 
 Hook('Auth Login Options','authGoogleCallback();');
