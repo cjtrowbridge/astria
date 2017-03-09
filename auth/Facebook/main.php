@@ -173,7 +173,7 @@ function AttemptFacebookAuth(){
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email']; // Optional permissions
-    $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'facebookAuth', $permissions);
+    $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'/facebookAuth', $permissions);
     $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     AstriaSessionSave();
   }
