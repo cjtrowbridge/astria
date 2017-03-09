@@ -141,9 +141,11 @@ function AttemptFacebookAuth(){
     Event('Facebook Auth Check: User is not attempting to log in. Create a login link.');
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
+    echo 'taw';
     pd($_SESSION);
     $permissions = ['email']; // Optional permissions
     $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'/authFacebook/', $permissions);
+    echo 'wat';
     pd($_SESSION);
     $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     AstriaSessionSave();
