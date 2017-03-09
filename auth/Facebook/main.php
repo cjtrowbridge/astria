@@ -25,13 +25,42 @@ function AttemptFacebookAuth(){
     'default_graph_version' => 'v2.2'
   );
   if(isset($_GET['code'])){
-    $Parameters['default_access_token'] = $_GET['code'];
+    //$Parameters['default_access_token'] = $_GET['code'];
   }
   
   $fb = new Facebook\Facebook($Parameters);
   
   if(path(0)=='authfacebook'){
     Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
+    
+    
+    $helper = $fb->getRedirectLoginHelper();
+    try {
+      $accessToken = $helper->getAccessToken();
+    } catch(Facebook\Exceptions\FacebookResponseException $e) {
+      // When Graph returns an error
+      echo 'Graph returned an error: ' . $e->getMessage();
+      exit;
+    } catch(Facebook\Exceptions\FacebookSDKException $e) {
+      // When validation fails or other local issues
+      echo 'Facebook SDK returned an error: ' . $e->getMessage();
+      exit;
+    }
+
+    if (isset($accessToken)) {
+      // Logged in!
+      $_SESSION['facebook_access_token'] = (string) $accessToken;
+
+      // Now you can redirect to another page and use the
+      // access token from $_SESSION['facebook_access_token']
+      pd($accessToken);
+      exit;
+    }
+
+    
+    
+    
+    
     try {
       // Get the Facebook\GraphNodes\GraphUser object for the current user.
       // If you provided a 'default_access_token', the '{access-token}' is optional.
