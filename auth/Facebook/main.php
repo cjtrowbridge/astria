@@ -12,7 +12,9 @@ function BeforeAuthFacebook(){
   session_start();
   global $ASTRIA;
   if(isset($ASTRIA['Session']['FBRLH_state'])){
+    pd($_SESSION);
     $_SESSION['FBRLH_state']=$ASTRIA['Session']['FBRLH_state'];
+    pd($_SESSION);
   }
 }
 Hook('After Auth','AfterAuthFacebook();');
