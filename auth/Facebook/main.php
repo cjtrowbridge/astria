@@ -32,7 +32,8 @@ function AttemptFacebookAuth(){
   
   if(path(0)=='authfacebook'){
     Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
-    //$helper = $fb->getRedirectLoginHelper();
+    /*
+    $helper = $fb->getRedirectLoginHelper();
 
     try {
       $accessToken = $helper->getAccessToken();
@@ -45,7 +46,7 @@ function AttemptFacebookAuth(){
       echo 'Facebook SDK returned an error: ' . $e->getMessage();
       exit;
     }
-
+    
     if (! isset($accessToken)) {
       if ($helper->getError()) {
         header('HTTP/1.0 401 Unauthorized');
@@ -59,7 +60,7 @@ function AttemptFacebookAuth(){
       }
       exit;
     }
-
+    
     // Logged in
     echo '<h3>Access Token</h3>';
     var_dump($accessToken->getValue());
@@ -90,7 +91,7 @@ function AttemptFacebookAuth(){
     }
     echo '<h3>Long-lived</h3>';
     var_dump($accessToken->getValue());
-
+    */
       
     //Try getting the user's info
     try {
