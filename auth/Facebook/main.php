@@ -7,9 +7,7 @@
 */
 
 //Astria does not use PHP sessions because they are less scalable and fault-tolerant than Astria's hybrid cached sessions, but Facebook's SDK needs them.
-if(!session_id()) {
-    session_start();
-}
+session_start();
 
 
 Hook('Attempt Auth','AttemptFacebookAuth();');
@@ -157,4 +155,5 @@ function authFacebookCallback(){
   ?>
     <p><a class="loginButton" href="<?php echo $authURL; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
   <?php
+  pd($_SESSION);
 }
