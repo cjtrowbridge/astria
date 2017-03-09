@@ -88,8 +88,8 @@ function AttemptFacebookAuth(){
       } catch (Facebook\Exceptions\FacebookSDKException $e) {
         echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
         exit;
+      }
     }
-
     echo '<h3>Long-lived</h3>';
     var_dump($accessToken->getValue());
 
