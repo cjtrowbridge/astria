@@ -21,7 +21,7 @@ function AttemptFacebookAuth(){
   
   //$client->setRedirectUri($ASTRIA['app']['appURL']);
   
-  $Paramteres=array(
+  $Parameters=array(
     'app_id' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'],
     'app_secret' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'],
     'default_graph_version' => 'v2.2'
