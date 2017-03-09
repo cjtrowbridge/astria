@@ -118,13 +118,7 @@ function AttemptFacebookAuth(){
   */
   //}
   
-  //make a login link
-  $helper = $fb->getRedirectLoginHelper();
-
-  $permissions = ['email']; // Optional permissions
-  $loginUrl = $helper->getLoginUrl('https://astria.io/facebookAuth', $permissions);
-
-  $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
+  
   
 /*
   
@@ -174,13 +168,17 @@ function AttemptFacebookAuth(){
       ");
     
       AuthenticateUser($ASTRIA['Session']['facebook_oauth2']['user_object']->email);
-    
+    */
   }else{
-    $authUrl = $client->createAuthUrl();
+    //make a login link for facebook
+    $helper = $fb->getRedirectLoginHelper();
+    $permissions = ['email']; // Optional permissions
+    $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'facebookAuth', $permissions);
+    //$ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     $ASTRIA['Session']['facebook_oauth2']=array('auth_url'=>$authUrl);
     AstriaSessionSave();
   }
-  */
+  
   if(isset($_GET['verbose'])){
     echo '<p>Finished Facebook Auth Check</p>';
   }
