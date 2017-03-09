@@ -44,7 +44,7 @@ function AttemptFacebookAuth(){
   
   if(path(0)=='authfacebook'){
     Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
-    
+    pd($_SESSION);
     try {
       $helper = $fb->getRedirectLoginHelper();
       //var_dump($helper->getPersistentDataHandler());
@@ -137,11 +137,14 @@ function AttemptFacebookAuth(){
       AuthenticateUser($ASTRIA['Session']['facebook_oauth2']['user_object']->email);
     */
   }else{
+    pd($_SESSION);
     Event('Facebook Auth Check: User is not attempting to log in. Create a login link.');
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
+    pd($_SESSION);
     $permissions = ['email']; // Optional permissions
     $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'/authFacebook/', $permissions);
+    pd($_SESSION);
     $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     AstriaSessionSave();
   }
@@ -161,6 +164,7 @@ function authFacebookCallback(){
       }
     }
   }
+  
   ?>
     <p><a class="loginButton" href="<?php echo $authURL; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
   <?php
