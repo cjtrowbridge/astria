@@ -21,11 +21,16 @@ function AttemptFacebookAuth(){
   
   //$client->setRedirectUri($ASTRIA['app']['appURL']);
   
-  $fb = new Facebook\Facebook([
+  $Paramteres=array(
     'app_id' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'],
     'app_secret' => $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'],
-    'default_graph_version' => 'v2.2',
-  ]);
+    'default_graph_version' => 'v2.2'
+  );
+  if(isset($_GET['code'])){
+    $Parameters['default_access_token'] = $_GET['code'];
+  }
+  
+  $fb = new Facebook\Facebook($Parameters);
   
   if(path(0)=='facebookAuth'){
     
