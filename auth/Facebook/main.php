@@ -31,7 +31,7 @@ function AttemptFacebookAuth(){
   $fb = new Facebook\Facebook($Parameters);
   
   if(path(0)=='authFacebook'){
-    
+    Event('Facebook Auth CheckL User is attempting to log in. Validate with facebook and refresh.');
     $helper = $fb->getRedirectLoginHelper();
 
     try {
@@ -155,6 +155,7 @@ function AttemptFacebookAuth(){
       AuthenticateUser($ASTRIA['Session']['facebook_oauth2']['user_object']->email);
     */
   }else{
+    Event('Facebook Auth Check: User is not attempting to log in. Create a login link.');
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email']; // Optional permissions
