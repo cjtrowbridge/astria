@@ -39,6 +39,7 @@ function AttemptFacebookAuth(){
       Event('Before Creating Helper');
       $helper = $fb->getRedirectLoginHelper();
       Event('Before Getting Access Token');
+      var_dump($helper->getError());
       $accessToken = $helper->getAccessToken();
       Event('After Getting Access Token');
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
