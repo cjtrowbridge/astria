@@ -17,7 +17,7 @@ function AttemptGoogleAuth(){
   $client = new Google_Client();
   $client->setClientId($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']);
   $client->setClientSecret($ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret']);
-  $client->setRedirectUri($ASTRIA['app']['appURL']);
+  $client->setRedirectUri($ASTRIA['app']['appURL'].'/authGoogle');
   $client->addScope("email");
   $client->addScope("profile");
   
@@ -34,7 +34,10 @@ function AttemptGoogleAuth(){
   we need to exchange that with the authenticate()
   function. We store the resultant access token
   bundle in the session, and redirect to ourself. */
-  if(isset($_GET['code'])){
+  if(
+    (path(0)=='authGoogle')&&
+    isset($_GET['code'])
+  ){
     $client->authenticate($_GET['code']);
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
     AstriaSessionSave();
