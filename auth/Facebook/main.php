@@ -156,6 +156,7 @@ function AttemptFacebookAuth(){
     */
   }else{
     Event('Facebook Auth Check: User is not attempting to log in. Create a login link.');
+    pd(path(0));
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email']; // Optional permissions
