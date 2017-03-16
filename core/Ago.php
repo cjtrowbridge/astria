@@ -1,6 +1,10 @@
 <?php 
 
 function ago($time){
+  /*
+    Ago accepts any date or time and returns a string explaining how long ago that was.
+    For example, "6 days ago" or "8 seconds ago"
+  */
   $time=strtotime($time);
   if(($time==0)||(empty($time))){
     return 'Never';
