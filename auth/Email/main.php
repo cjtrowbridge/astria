@@ -56,6 +56,18 @@ function authEmailCallback(){
           </form>
         </div>
       </div>
+      
+      <?php
+        global $EVENTS;
+        if(count($EVENTS['Attempt Auth'])>1){
+      ?>
+      
+      <div class="col-xs-12">
+        <h4>Or...</h4>
+      </div>
+      
+      <?php } ?>
+      
     </div>
     
   <?php
