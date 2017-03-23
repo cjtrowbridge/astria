@@ -104,7 +104,7 @@ function authGoogleCallback(){
   ?>
 
   <div class="row">
-    <div class="col-xs-12 text-center">
+    <div class="col-xs-12">
       <a class="loginButton" href="<?php echo $ASTRIA['Session']['google_oauth2']['auth_url']; ?>"><img src="/img/google-login-button.png" alt="Login with Google" /></a>
     </div>
   </div>
