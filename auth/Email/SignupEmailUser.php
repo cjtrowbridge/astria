@@ -2,7 +2,7 @@
 
 function SignupEmailUser(){
   
-  $Hash  = sha2(uniqid(true));
+  $Hash  = sha512(uniqid(true));
   $Email = $_POST['signupEmail'];
   
   $Hash  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Hash);
