@@ -27,20 +27,14 @@ function authEmailCallback(){
   global $ASTRIA;
   ?>
     <div class="row">
-      <div class="col-xs-12 col-md-6">
-        <h4>Log In By Email</h4>
+      <div class="col-xs-12">
+        <h4>Log In Or Sign Up By Email</h4>
         <div class="container">
           <form action="/authEmail" method="post">
             <div class="form-group row">
-              <label for="loginEmail" class="col-sm-2 col-form-label">Email</label>
+              <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
-                <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="loginPassword" class="col-sm-2 col-form-label">Password</label>
-              <div class="col-sm-10">
-                <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
               </div>
             </div>
             <div class="form-group row">
@@ -51,24 +45,7 @@ function authEmailCallback(){
           </form>
         </div>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <h4>Sign Up By Email</h4>
-        <div class="container">
-          <form action="/authEmail" method="post">
-            <div class="form-group row">
-              <label for="signupEmail" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
+      
       
       <?php
         global $EVENTS;
