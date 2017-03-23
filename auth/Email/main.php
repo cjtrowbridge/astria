@@ -1,9 +1,10 @@
 <?php 
 
+include_once('auth/Email/SignupEmailConfirmation.php');
+
 Hook('Attempt Auth','AttemptEmailAuth();');
 function AttemptEmailAuth(){
-  include_once('core/Session.php');
-  include_once('auth/Email/SignupEmailConfirmation.php');
+  include_once('core/Session.php');  
   global $ASTRIA;
   Event('Starting Email Auth Check');
   if(
