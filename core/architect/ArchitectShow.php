@@ -13,6 +13,7 @@ function ArchitectBodyCallback(){
   <div class="col-xs-12">
     <form class="form-inline">
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
+      <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-warning">Events</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
@@ -39,7 +40,7 @@ function ArchitectBodyCallback(){
       "));
     ?>
   </div>
-  <div class="hidden" id="hooks">
+  <div class="hidden" id="events">
     <?php pd($EVENTS); ?>
   </div>
   <div class="hidden" id="debugSummary">
