@@ -9,17 +9,41 @@ function AttemptEmailAuth(){
   Event('Starting Email Auth Check');
   if(
     (path(0)=='authEmail')&&
-    isset($_POST['loginEmail'])
+    isset($_POST['email'])
   ){
-    include_once('auth/Email/ConfirmEmailUser.php');
-    ConfirmEmailUser();
+    $Hash  = sha512(uniqid(true));
+    $Email = $_POST['email'];
+
+    $Hash  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Hash);
+    $Email = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Email);
+
+    $Existing = Query("SELECT UserID FROM `User` WHERE Email LIKE '".$Email."'");
+
+    if(count($Existing)==0){
+
+      //New User
+      Query("
+        INSERT INTO `User` 
+          (`Email`, `PasswordExpires`, `LoginHash`) 
+        VALUES 
+          ('".$Email."', NOW(), '".$Hash."')
+      ");
+      //TODO send email with confirmation link
+
+    }else{
+      //TODO check if user has an email password and if not, send link to create one
+      //TODO prompt for email password and then handle login
+
+    }
+  }elseif(
+    (path(0)=='authEmail')&&
+    isset($_GET['confirmationLink'])
+  ){
     
-  }elseif(isset($_POST['signupEmail'])){
-    include_once('auth/Email/SignupEmailUser.php');
-    SignupEmailUser($_POST['signupEmail']);
-    header('Location: /signupemailconfirmation');
-    exit;
+    //TODO handle confimration link
+    
   }
+  
 }
 
 Hook('Auth Login Options','authEmailCallback();');
