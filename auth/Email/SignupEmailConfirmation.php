@@ -1,4 +1,4 @@
-<?php
+wat<?php
 
 Hook('User Is Logged In - Before Presentation','SignupEmailConfirmation();');
 function SignupEmailConfirmation(){
