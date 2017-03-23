@@ -27,7 +27,7 @@ function authEmailCallback(){
   global $ASTRIA;
   ?>
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 col-md-6">
         <h4>Log In Or Sign Up By Email</h4>
         <div class="container">
           <form action="/authEmail" method="post">
