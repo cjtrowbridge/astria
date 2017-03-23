@@ -2,7 +2,7 @@
 
 Hook('User Is Logged In - Before Presentation','SignupEmailConfirmation();');
 function SignupEmailConfirmation(){
-  if(path(0)==='signupemailconfirmation'){
+  if(path(0)=='signupemailconfirmation'){
     Hook('Template Body','SignupEmailConfirmationBodyCallback();');
     TemplateBootstrap4('Thanks For Signing Up!');
   }
