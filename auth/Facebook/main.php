@@ -168,7 +168,13 @@ function authFacebookCallback(){
   }
   
   ?>
-    <p><a class="loginButton" href="<?php echo $authURL; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a></p>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <a class="loginButton" href="<?php echo $authURL; ?>"><img src="/img/facebook-login-button.png" alt="Login with Facebook" /></a>
+    </div>
+  </div>
+
   <?php
   pd($_SESSION);
 }
