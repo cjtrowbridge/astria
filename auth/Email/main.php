@@ -63,7 +63,7 @@ function authEmailCallback(){
       ?>
       
       <div class="col-xs-12">
-        <h4>Or...</h4>
+        <h4>Or Use an OAuth 2 Vendor...</h4>
       </div>
       
       <?php } ?>
