@@ -5,7 +5,7 @@ function SignupEmailConfirmation(){
   if(path(0)=='signupemailconfirmation'){
     Hook('Template Body','SignupEmailConfirmationBodyCallback();');
     TemplateBootstrap4('Thanks For Signing Up!');
-  }else{echo 'no';}
+  }
 }
 
 function SignupEmailConfirmationBodyCallback(){
