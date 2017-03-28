@@ -62,14 +62,7 @@ function AttemptEmailAuth(){
     isset($_GET['confirmationLink'])
   ){
     
-    Query("
-      UPDATE `User` 
-        SET 
-        `LastLogin` = NOW(),
-        `EmailConfirmationHash` = null
-        WHERE Email LIKE '".$Email."'
-    ");
-    header('Location: /emailconfirmed');
+    header('Location: /emailconfirmed?hash='.urlencode($_GET['confirmationLink']));
     exit;
     
   }
