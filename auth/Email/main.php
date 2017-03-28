@@ -1,6 +1,7 @@
 <?php 
 
 include_once('auth/Email/SignupEmailConfirmation.php');
+include_once('auth/Email/EmailNotConfirmed.php');
 
 Hook('Attempt Auth','AttemptEmailAuth();');
 function AttemptEmailAuth(){
