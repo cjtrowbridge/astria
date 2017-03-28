@@ -50,8 +50,8 @@ function AttemptEmailAuth(){
         (!($Existing[0]['EmailConfirmationHash']==''))&&
         ($Existing[0]['Password']=='')
       ){
-        include_once('EmailNotConfirmed.php');
-        EmailNotConfirmed();
+        header('Location: /emailnotconfirmed');
+        exit;
       }
       //TODO check if user has an email password and if not, send link to create one
       //TODO prompt for email password and then handle login
