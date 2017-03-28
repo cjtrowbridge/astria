@@ -121,4 +121,5 @@ function SendConfirmationEmail($User){
     'Welcome to '.$ASTRIA['app']['appName'], 
     $User['Email']
   );
+  exit;
 }
