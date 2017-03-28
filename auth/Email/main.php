@@ -55,9 +55,6 @@ function AttemptEmailAuth(){
         header('Location: /emailnotconfirmed');
         exit;
       }
-      //TODO check if user has an email password and if not, send link to create one
-      //TODO prompt for email password and then handle login
-      echo 'blue rabbit';
     }
     exit;
   }elseif(
@@ -65,7 +62,15 @@ function AttemptEmailAuth(){
     isset($_GET['confirmationLink'])
   ){
     
-    //TODO handle confimration link
+    Query("
+      UPDATE `User` 
+        SET 
+        `LastLogin` = NOW(),
+        `EmailConfirmationHash` = null
+        WHERE Email LIKE '".$Email."'
+    ");
+    header('Location: /emailconfirmed');
+    exit;
     
   }
   
