@@ -62,7 +62,7 @@ function AttemptEmailAuth(){
     isset($_GET['confirmationLink'])
   ){
     
-    header('Location: /emailconfirmed?hash='.urlencode($_GET['confirmationLink']));
+    header('Location: /emailconfirm?hash='.urlencode($_GET['confirmationLink']));
     exit;
     
   }
@@ -111,7 +111,7 @@ function SendConfirmationEmail($User){
   <h1>".$ASTRIA['app']['appName']."</h1>
   <p><i>Thanks for signing up!</i></p>
   <p>Click on this link or copy and paste it into the address bar in order to complete the signup process!</p>
-  <p><a href=\"".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($User['EmailConfirmationHash'])."\">".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($User['EmailConfirmationHash'])."</a></p>
+  <p><a href=\"".$ASTRIA['app']['appURL']."/emailconfirm?hash=".urlencode($User['EmailConfirmationHash'])."\">".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($User['EmailConfirmationHash'])."</a></p>
   ";
 
   SendEmail(
