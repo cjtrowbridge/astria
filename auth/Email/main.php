@@ -18,7 +18,9 @@ function AttemptEmailAuth(){
     $Email = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Email);
 
     $Existing = Query("SELECT UserID FROM `User` WHERE Email LIKE '".$Email."'");
-
+    
+    pd($Existing);
+    
     if(count($Existing)==0){
 
       //New User
@@ -35,8 +37,9 @@ function AttemptEmailAuth(){
     }else{
       //TODO check if user has an email password and if not, send link to create one
       //TODO prompt for email password and then handle login
-
+      echo 'blue rabbit';
     }
+    exit;
   }elseif(
     (path(0)=='authEmail')&&
     isset($_GET['confirmationLink'])
