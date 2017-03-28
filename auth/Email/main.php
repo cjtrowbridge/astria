@@ -58,7 +58,7 @@ function AttemptEmailAuth(){
     }
     exit;
   }elseif(
-    (path(0)=='authEmail')&&
+    (path(0)=='authemail')&&
     isset($_GET['confirmationLink'])
   ){
     
