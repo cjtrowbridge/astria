@@ -1,18 +1,23 @@
 <?php 
 
-function Hook($EventDescription,$Callback){
+function Hook($EventDescription,$Callback,$Supremacy = false){
 
   global $EVENTS;
   /*
     Call this function with a string EventDescription and a Callback in order to hook that callback to the location of the 
     corresponding Event for that EventDescription.
+    
+    Supremacy removes any existing Hooks before adding this one. 
   */
   
   /* EventDescription must be a string */
   if(is_string($EventDescription)){
   
     /* Make sure this event descriptor exists within the global pegboard variable. */
-    if(!(isset($EVENTS[$EventDescription]))){
+    if(
+      (!(isset($EVENTS[$EventDescription])))||
+      $Supremacy
+    ){
       $EVENTS[$EventDescription]=array();
     }
     
