@@ -30,18 +30,7 @@ function AttemptEmailAuth(){
           ('".$Email."', NOW(), '".$Hash."',NOW())
       ");
       
-      $Message="<!DOCTYPE html>
-      <h1>".$ASTRIA['app']['appName']."</h1>
-      <p><i>Thanks for signing up!</i></p>
-      <p>Click on this link or copy and paste it into the address bar in order to complete the signup process!</p>
-      <p><a href=\"".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($Hash)."\"></a></p>
-      ";
-      
-      SendEmail(
-        $Message, 
-        'Welcome to '.$ASTRIA['app']['appName'], 
-        $Email
-      );
+      SendConfirmationEmail(array('Email'=>$Email));
       
       header('Location: /signupemailconfirmation');
       exit;
@@ -51,6 +40,7 @@ function AttemptEmailAuth(){
         (!($Existing[0]['EmailConfirmationHash']==''))&&
         ($Existing[0]['Password']=='')
       ){
+        SendConfirmationEmail($Existing[0]);
         header('Location: /emailnotconfirmed');
         exit;
       }
@@ -104,4 +94,20 @@ function authEmailCallback(){
     </div>
     
   <?php
+}
+
+function SendConfirmationEmail($User){
+  global $ASTRIA;
+  $Message="<!DOCTYPE html>
+  <h1>".$ASTRIA['app']['appName']."</h1>
+  <p><i>Thanks for signing up!</i></p>
+  <p>Click on this link or copy and paste it into the address bar in order to complete the signup process!</p>
+  <p><a href=\"".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($User['EmailConfirmationHash'])."\"></a></p>
+  ";
+
+  SendEmail(
+    $Message, 
+    'Welcome to '.$ASTRIA['app']['appName'], 
+    $User['Email']
+  );
 }
