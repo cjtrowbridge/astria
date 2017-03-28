@@ -4,7 +4,7 @@ Hook('User Is Not Logged In','EmailNotConfirmed();');
 function EmailNotConfirmed(){
   if(path(0)=='emailnotconfirmed'){
     Hook('Template Body','EmailNotConfirmedBodyCallback();');
-  TemplateBootstrap4('Something Went Wrong');
+  TemplateBootstrap4('Please Confirm Email Address');
   }
 }
 
