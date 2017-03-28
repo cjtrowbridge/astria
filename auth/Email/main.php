@@ -24,11 +24,23 @@ function AttemptEmailAuth(){
       //New User
       Query("
         INSERT INTO `User` 
-          (`Email`, `PasswordExpires`, `LoginHash`) 
+          (`Email`, `PasswordExpires`, `LoginHash`,`SignupDate`) 
         VALUES 
-          ('".$Email."', NOW(), '".$Hash."')
+          ('".$Email."', NOW(), '".$Hash."',NOW())
       ");
-      //TODO send email with confirmation link
+      
+      $Message="<!DOCTYPE html>
+      <h1>".$ASTRIA['app']['appName']."</h1>
+      <p><i>Thanks for signing up!</i></p>
+      <p>Click on this link or copy and paste it into the address bar in order to complete the signup process!</p>
+      <p><a href=\"".$ASTRIA['app']['appURL']."/authEmail?confirmationLink=".urlencode($Hash)."\"></a></p>
+      ";
+      
+      SendEmail(
+        $Email,
+        $Message
+      );
+      
       header('Location: /signupemailconfirmation');
       exit;
 
