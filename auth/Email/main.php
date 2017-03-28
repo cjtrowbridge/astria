@@ -37,8 +37,9 @@ function AttemptEmailAuth(){
       ";
       
       SendEmail(
-        $Email,
-        $Message
+        $Message, 
+        'Welcome to '.$ASTRIA['app']['appName'], 
+        $Email
       );
       
       header('Location: /signupemailconfirmation');
