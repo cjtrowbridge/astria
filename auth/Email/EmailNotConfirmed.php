@@ -1,7 +1,7 @@
 <?php
 
 function EmailNotConfirmed(){
-  Hook('Template Body','EmailNotConfirmedBodyCallback();');
+  Hook('Template Body','EmailNotConfirmedBodyCallback();',true);
   TemplateBootstrap4('Something Went Wrong');
 }
 function EmailNotConfirmedBodyCallback(){
