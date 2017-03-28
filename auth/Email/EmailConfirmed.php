@@ -1,8 +1,8 @@
 <?php
 
-Hook('User Is Not Logged In','EmailConfirmed();');
-function EmailConfirmed(){
-  if(path(0)=='emailconfirmed'){
+Hook('User Is Not Logged In','EmailConfirm();');
+function EmailConfirm(){
+  if(path(0)=='emailconfirm'){
     if(isset($_POST['hash'])){
       
       //TODO these could be more elegant
@@ -43,7 +43,7 @@ function EmailConfirmedBodyCallback(){
   <div class="container">
     <div class="row">
       <form action="/emailconfirmed" method="post" class="form">
-        <input type="hidden" "name="hash" value="<?php echo $_GET['hash']; ?>">
+        <input type="hidden" name="hash" value="<?php echo $_GET['hash']; ?>">
         <div class="form-group col-xs-12">
           <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter A Password">
         </div>
