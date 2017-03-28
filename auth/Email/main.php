@@ -54,7 +54,7 @@ function authEmailCallback(){
       <div class="col-xs-12 col-md-6">
         <h4>Log In Or Sign Up By Email</h4>
         <div class="container">
-          <form action="/authEmail" method="post">
+          <form action="/authEmail" method="post" class="form-inline">
             <div class="form-group">
               <label for="email" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
