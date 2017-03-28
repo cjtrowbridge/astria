@@ -56,15 +56,11 @@ function authEmailCallback(){
         <div class="container">
           <form action="/authEmail" method="post" class="form-inline">
             <div class="form-group">
-              <label for="email" class="col-sm-2 col-form-label">Email</label>
-              <div class="col-sm-10">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-              </div>
+              <label for="email" class="col-form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Email">
             </div>
             <div class="form-group">
-              <div class="offset-sm-2 col-sm-10">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
             </div>
           </form>
         </div>
