@@ -8,7 +8,7 @@ function AttemptEmailAuth(){
   global $ASTRIA;
   Event('Starting Email Auth Check');
   if(
-    (path(0)=='authEmail')&&
+    (path(0)=='authemail')&&
     isset($_POST['email'])
   ){
     $Hash  = sha512(uniqid(true));
@@ -18,8 +18,6 @@ function AttemptEmailAuth(){
     $Email = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Email);
 
     $Existing = Query("SELECT UserID FROM `User` WHERE Email LIKE '".$Email."'");
-    
-    pd($Existing);
     
     if(count($Existing)==0){
 
