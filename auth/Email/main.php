@@ -17,7 +17,7 @@ function AttemptEmailAuth(){
     $Hash  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Hash);
     $Email = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Email);
 
-    $Existing = Query("SELECT UserID FROM `User` WHERE Email LIKE '".$Email."'");
+    $Existing = Query("SELECT * FROM `User` WHERE Email LIKE '".$Email."'");
     
     if(count($Existing)==0){
 
