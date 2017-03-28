@@ -24,7 +24,7 @@ function AttemptEmailAuth(){
       //New User
       Query("
         INSERT INTO `User` 
-          (`Email`, `PasswordExpires`, `LoginHash`,`SignupDate`) 
+          (`Email`, `PasswordExpires`, `EmailConfirmationHash`,`SignupDate`) 
         VALUES 
           ('".$Email."', NOW(), '".$Hash."',NOW())
       ");
@@ -46,6 +46,13 @@ function AttemptEmailAuth(){
       exit;
 
     }else{
+      if(
+        (!($Existing[0]['EmailConfirmationHash']==''))&&
+        ($Existing[0]['Password']=='')
+      ){
+        include('EmailNotConfirmed.php');
+        EmailNotConfirmed();
+      }
       //TODO check if user has an email password and if not, send link to create one
       //TODO prompt for email password and then handle login
       echo 'blue rabbit';
