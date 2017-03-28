@@ -32,7 +32,7 @@ function SendEmail($message, $subject = DEFAULT_EMAIL_SUBJECT, $to, $from = DEFA
      echo "Mailer Error: " . $mail->ErrorInfo;
     }
   }else{
-    //echo "Message sent!";
+    echo "Message sent!";
   }
   
 }
