@@ -44,6 +44,8 @@ if(LoggedIn()){
   
   Event('User Is Not Logged In');
   
+  PromptForLogin();
+  
   die('This is not good!');
   
 }
