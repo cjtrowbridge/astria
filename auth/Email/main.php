@@ -36,10 +36,21 @@ function AttemptEmailAuth(){
       exit;
 
     }else{
-      if(
-        (!($Existing[0]['EmailConfirmationHash']==''))&&
-        ($Existing[0]['Password']=='')
-      ){
+      if($Existing[0]['Password']==''){
+        $Hash  = sha512(uniqid(true));
+        $Email = $_POST['email'];
+
+        $Hash  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Hash);
+        $Email = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Email);
+        Query("
+          UPDATE `User` 
+            SET 
+            `PasswordExpires` = NOW(),
+            `EmailConfirmationHash` = '".$Hash."'
+            WHERE Email LIKE '".$Email."'
+        ");
+      }
+      if(!($Existing[0]['EmailConfirmationHash']=='')){
         SendConfirmationEmail($Existing[0]);
         header('Location: /emailnotconfirmed');
         exit;
