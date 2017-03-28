@@ -29,6 +29,8 @@ function AttemptEmailAuth(){
           ('".$Email."', NOW(), '".$Hash."')
       ");
       //TODO send email with confirmation link
+      header('Location: /signupemailconfirmation');
+      exit;
 
     }else{
       //TODO check if user has an email password and if not, send link to create one
