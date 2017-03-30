@@ -49,11 +49,11 @@ function AttemptFacebookAuth(){
     Event('Facebook Auth Check: User is attempting to log in. Validate with facebook and refresh.');
     pd($_SESSION);
     try {
-      //ResetFBRLHState();
+      ResetFBRLHState();
       $helper = $fb->getRedirectLoginHelper();
       //pd($_SESSION);
       //pd($_GET);
-      //ResetFBRLHState();
+      ResetFBRLHState();
       $accessToken = $helper->getAccessToken();
     } catch(Facebook\Exceptions\FacebookResponseException $e) {
       // When Graph returns an error
@@ -144,9 +144,9 @@ function AttemptFacebookAuth(){
     //make a login link for facebook
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email']; // Optional permissions
-    //ResetFBRLHState();
+    ResetFBRLHState();
     $loginUrl = $helper->getLoginUrl($ASTRIA['app']['appURL'].'/authFacebook/', $permissions);
-    //ResetFBRLHState();
+    ResetFBRLHState();
     $ASTRIA['Session']['facebook_oauth2']['auth_url']=htmlspecialchars($loginUrl);
     AstriaSessionSave();
   }
