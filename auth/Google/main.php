@@ -1,7 +1,18 @@
 <?php 
 
+global $ASTRIA;
+if(
+  isset($ASTRIA['oauth'])&&
+  isset($ASTRIA['oauth']['Google'])&&
+  isset($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'])&&
+  (!($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']==''))&&
+){
+  Hook('Attempt Auth','AttemptGoogleAuth();');
+  Hook('Auth Login Options','authGoogleCallback();');
+}else{
+  //TODO notify admin about this(?)
+}
 
-Hook('Attempt Auth','AttemptGoogleAuth();');
 function AttemptGoogleAuth(){
   include_once('core/Session.php');
   include_once('auth/Google/autoload.php');
@@ -98,7 +109,7 @@ function AttemptGoogleAuth(){
   Event('Finished Google Auth Check');
 }
 
-Hook('Auth Login Options','authGoogleCallback();');
+
 function authGoogleCallback(){
   global $ASTRIA;
   ?>
