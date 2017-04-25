@@ -1,10 +1,23 @@
 <?php 
 
-include_once('auth/Email/SignupEmailConfirmation.php');
-include_once('auth/Email/EmailNotConfirmed.php');
-include_once('auth/Email/EmailConfirm.php');
+global $ASTRIA;
+if(
+  isset($ASTRIA['smtp'])&&
+  isset($ASTRIA['smtp']['host'])&&
+  (!($ASTRIA['smtp']['host']==''))
+){
+  include_once('auth/Email/SignupEmailConfirmation.php');
+  include_once('auth/Email/EmailNotConfirmed.php');
+  include_once('auth/Email/EmailConfirm.php');
 
-Hook('Attempt Auth','AttemptEmailAuth();');
+  Hook('Attempt Auth','AttemptEmailAuth();');
+  Hook('Auth Login Options','authEmailCallback();');
+
+}else{
+  //TODO notify admin about this(?)
+}
+
+
 function AttemptEmailAuth(){
   include_once('core/Session.php');  
   global $ASTRIA;
@@ -70,7 +83,7 @@ function AttemptEmailAuth(){
   
 }
 
-Hook('Auth Login Options','authEmailCallback();');
+
 function authEmailCallback(){
   global $ASTRIA;
   ?>
