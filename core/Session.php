@@ -22,7 +22,7 @@ function AstriaSessionSetUp(){
     $Expires             = date('Y-m-d H:i:s',$ExpiresTime);
     
     if (!setcookie($CookieName, $SessionHash, $ExpiresTime, '/', NULL, true,true)){
-      die('Could not set cookie.');
+      die('Could not set cookie: "'.$CookieName.'".');
     }
     
     //Insert session into database
