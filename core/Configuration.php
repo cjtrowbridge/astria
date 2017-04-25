@@ -137,6 +137,16 @@ function AstriaConfigurationBodyCallback(){
               <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['database'];}else{echo 'astria';} ?>">
             </div>
           </div>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Initial Set Up:</label>
+            <div class="col-xs-10">
+              <label class="custom-control custom-checkbox">
+                <input type="checkbox" name="initialDatabaseSetUp" id="initialDatabaseSetUp" class="custom-control-input"<?php if(isset($ASTRIA['app'])){}else{echo ' checked="checked"';} ?>>
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Set Up Database Now</span>
+              </label>
+            </div>
+          </div>
           
           <h2>Google OAuth</h2>
           <p><a href="https://console.developers.google.com/apis/credentials" target="_blank">Click Here</a> to go to the Google API console and create an OAuth credential set for your app. Then enter the keys here.</p>
