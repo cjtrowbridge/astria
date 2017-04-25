@@ -1,7 +1,7 @@
 <?php
 
 function AstriaConfiguration(){
-  require_once('core/TemplateBootstrap4.php');
+  require_once('core/TemplateBootstrap4Dumb.php');
   require_once('core/MakeRandomString.php');
   require_once('core/RequireSSL.php');
   RequireSSL();
@@ -9,7 +9,7 @@ function AstriaConfiguration(){
   if(isset($_POST['appName'])){
     setupHandler();
   }
-  TemplateBootstrap4('Configuration','AstriaConfigurationBodyCallback();');
+  TemplateBootstrap4Dumb('Configuration','AstriaConfigurationBodyCallback();');
 }
 
 function AstriaConfigurationBodyCallback(){
