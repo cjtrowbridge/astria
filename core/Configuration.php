@@ -230,6 +230,7 @@ function setupHandler(){
   );
   
   if($_POST['initialDatabaseSetUp']=='yes'){
+    include('core/DatabaseSetUp.php');
     DatabaseSetUp();
   }
   
