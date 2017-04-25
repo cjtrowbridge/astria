@@ -141,7 +141,7 @@ function AstriaConfigurationBodyCallback(){
             <label class="col-xs-2 col-form-label">Initial Set Up:</label>
             <div class="col-xs-10">
               <label class="custom-control custom-checkbox">
-                <input type="checkbox" name="initialDatabaseSetUp" id="initialDatabaseSetUp" class="custom-control-input"<?php if(isset($ASTRIA['app'])){}else{echo ' checked="checked"';} ?>>
+                <input type="checkbox" value="yes" name="initialDatabaseSetUp" id="initialDatabaseSetUp" class="custom-control-input"<?php if(isset($ASTRIA['app'])){}else{echo ' checked="checked"';} ?>>
                 <span class="custom-control-indicator"></span>
                 <span class="custom-control-description">Set Up Database Now</span>
               </label>
@@ -225,9 +225,14 @@ function setupHandler(){
     $_POST['GoogleOAuth2ClientSecret'],
     $_POST['FacebookOAuth2AppID'],
     $_POST['FacebookOAuth2AppSecret'],
-    $_POST['timezone']
+    $_POST['timezone'],
+    false
   );
-
+  
+  if($_POST['initialDatabaseSetUp']=='yes'){
+    DatabaseSetUp();
+  }
+  
   header('Location: /');
   exit;
   
