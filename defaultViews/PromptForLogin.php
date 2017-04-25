@@ -3,7 +3,7 @@
 //Hook('User Is Not Logged In','PromptForLogin();');
 
 function PromptForLogin(){
-	TemplateBootstrap4('Please Log In','PromptForLoginBodyCallback();');
+	TemplateBootstrap4('','PromptForLoginBodyCallback();');
 }
 
 function PromptForLoginBodyCallback(){
