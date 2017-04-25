@@ -9,6 +9,7 @@ ini_set('display_errors', '1');
 
 if(!file_exists('config.php')){
   include('core/Configuration.php');
+  include('core/Event.php');
   AstriaConfiguration();
 }
 
