@@ -24,7 +24,8 @@ function UpdateConfig(
   $GoogleOAuth2ClientSecret,
   $FacebookOAuth2AppID,
   $FacebookOAuth2AppSecret,
-  $timezone
+  $timezone,
+  $Exit = true
 ){
   //TODO add a null default to each argument, and then fill any nulls in with current values, then sort the arguments in order of how frequently they may ned to be updated
   
@@ -139,7 +140,9 @@ function UpdateConfig(
    die("Could not write config file. Please give write permission or copy the following into a new config.php file;\n\n".$newConfig); 
   }
   
-  header('Location: /');
-  exit;
+  if($Exit){
+    header('Location: /');
+    exit;
+  }
   
 }
