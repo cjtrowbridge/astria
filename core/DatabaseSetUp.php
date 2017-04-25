@@ -3,8 +3,10 @@
 function DatabaseSetUp(){
   global $ASTRIA;
   if(!(isset($ASTRIA['app']))){
-    include('config.php');
+    include_once('config.php');
   }
+  include_once('core/MakeSureDBConnected.php');
+  MakeSureDBConnected('astria');
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
@@ -75,7 +77,7 @@ function DatabaseSetUp(){
     ALTER TABLE `User` MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
     ALTER TABLE `UserMembership` MODIFY `UserMembershipID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   ";
-  MakeSureDBConnected('astria');
+  
   //TODO make Query support multiquery or make this work for multiple database types
   global $ASTRIA;
   mysqli_multi_query($ASTRIA['databases']['astria']['resource'],$SQL);
