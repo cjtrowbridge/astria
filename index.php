@@ -7,14 +7,14 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-include('core/Loader.php');
-Loader('core');
-
 if(!file_exists('config.php')){
+  include('core/Configuration.php');
   AstriaConfiguration();
 }
 
 include('config.php');
+include('core/Loader.php');
+Loader('core');
 Loader('core/architect');
 Loader('auth/Email');
 //Loader('auth/Facebook');
