@@ -1,8 +1,12 @@
 <?php
 
 function DatabaseSetUp(){
+  global $ASTRIA;
+  if(!(isset($ASTRIA['app']))){
+    include('config.php');
+  }
   $SQL="
-    SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+    SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
