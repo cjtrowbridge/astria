@@ -5,7 +5,7 @@ if(
   isset($ASTRIA['oauth'])&&
   isset($ASTRIA['oauth']['Google'])&&
   isset($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'])&&
-  (!($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']==''))&&
+  (!($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']==''))
 ){
   Hook('Attempt Auth','AttemptGoogleAuth();');
   Hook('Auth Login Options','authGoogleCallback();');
