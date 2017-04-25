@@ -46,7 +46,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
 
 <body>
 
-  <nav class="navbar navbar-fixed-top navbar-dark bg-primary container">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary container" id="topNav">
     <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
@@ -107,6 +107,18 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     echo  $Runtime;
     ?>
   </div>
+  <script>
+    FixTopPadding();
+    $(window).resize(function(){
+      FixTopPadding();
+    });
+    function FixTopPadding(){
+      $('body').css(
+        'padding-top',
+        $('#topNav').outerHeight()
+      );
+    }
+  </script>
 
 </body>
 </html>
