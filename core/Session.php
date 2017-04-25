@@ -8,7 +8,7 @@ function AstriaSessionSetUp(){
   
   global $ASTRIA;
   //If there is not already a cookie and session, create one.
-  $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
+  $CookieName=str_replace(' ','_',strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']));
   if(!(isset($_COOKIE[$CookieName]))){
     
     MakeSureDBConnected();
