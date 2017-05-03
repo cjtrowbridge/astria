@@ -111,7 +111,16 @@ function AttemptGoogleAuth(){
 
 
 function authGoogleCallback(){
-  global $ASTRIA;
+  global $ASTRIA, $EVENTS;
+  if(count($EVENTS['Attempt Auth'])==1){
+  ?>
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>Please Sign In</h2>
+    </div>
+  </div>
+  <?php
+  }
   ?>
 
   <div class="row">
