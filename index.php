@@ -16,7 +16,7 @@ include('config.php');
 include('core/Loader.php');
 Loader('core');
 Loader('core/architect');
-Loader('auth/Email');
+//Loader('auth/Email');
 //Loader('auth/Facebook');
 Loader('auth/Google');
 Loader('defaultViews');
