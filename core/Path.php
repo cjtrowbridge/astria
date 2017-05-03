@@ -14,7 +14,9 @@ function path($index = 0){
 }
 
 function paths(){
-  $pathSegments = explode('/', url());
+  $theURL=url();
+  if(!(substr($theURL, -1)=='/')){$theURL.='/';}
+  $pathSegments = explode('/', $theURL);
   $output = array();
   foreach($pathSegments as $pathSegment){
     if(!(trim($pathSegment)=='')){
