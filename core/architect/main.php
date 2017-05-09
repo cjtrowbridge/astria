@@ -8,7 +8,7 @@ if(HasMembership(2)){
   //$ASTRIA['nav']['main']=array(
     //'Architect' => '/architect'
   //);
-  Nav('Main','Text','Architect','/architect');
+  Nav('Main','Link','Architect','/architect');
   
 }
   
