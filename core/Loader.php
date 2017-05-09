@@ -4,7 +4,7 @@ include_once('core/Session.php');
 include_once('core/Event.php');
 include_once('core/Hook.php');
 
-function Loader($dir = 'core'){
+function Loader($dir = 'core',$DieOnFail = true){
   Event('Before Loading Directory: '.$dir);
   if($dir=='core'){
   
@@ -22,14 +22,15 @@ function Loader($dir = 'core'){
   
   }else{
     
-    if(!(file_exists($dir))){
+    if(
+      (!(file_exists($dir)))&&
+      $DieOnFail
+    ){
       die('Loader could not find dir: '.$dir);
     }
     
     if($handle = opendir($dir)){
-      while (false !== ($extension = readdir($handle))) {
-        
-        
+      while (false !== ($extension = readdir($handle))){
         $include_path=$dir.'/main.php';
         if($extension != "." && $extension != ".." && file_exists($include_path)){
           Event('Before Loading: '.$include_path);
