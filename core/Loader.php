@@ -29,7 +29,7 @@ function Loader($dir = 'core',$DieOnFail = true){
       die('Loader could not find dir: '.$dir);
     }
     
-    if(file_exists($include_path=$dir.'/main.php'){
+    if(file_exists($include_path=$dir.'/main.php')){
       Event('Before Loading: '.$include_path);
       include_once($include_path);
       Event('After Loading: '.$include_path);
