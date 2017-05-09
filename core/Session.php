@@ -69,7 +69,7 @@ function AstriaSessionSave(){
 
 function AstriaSessionDestroy(){
   global $ASTRIA;
-  $CookieName=strtolower($ASTRIA['app']['appName']).'_'.md5($ASTRIA['app']['appURL']);
+  $CookieName=strtolower(md5($ASTRIA['app']['appURL']));
   unset($_COOKIE[$CookieName]);
   setcookie($CookieName, null, -1, '/');
   include_once('Cache.php');
