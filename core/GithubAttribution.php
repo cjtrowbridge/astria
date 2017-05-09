@@ -10,6 +10,7 @@
 Hook('User Is Logged In - Before Presentation','AstriaGithubAttribution();');
 
 function AstriaGithubAttribution(){
-  global $ASTRIA;
-  $ASTRIA['nav']['main']['Github']='https://github.com/cjtrowbridge/astria';
+  //global $ASTRIA;
+  //$ASTRIA['nav']['main']['Github']='https://github.com/cjtrowbridge/astria';
+  Nav('Main','Text','Github','https://github.com/cjtrowbridge/astria');
 }
