@@ -19,7 +19,7 @@ Loader('core/architect');
 //Loader('auth/Email');
 //Loader('auth/Facebook');
 Loader('auth/Google');
-Loader('defaultViews');
+Loader('plugins');
 
 RequireSSL();
 
