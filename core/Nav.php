@@ -18,6 +18,9 @@ function Nav($Which,$Type,$Text,$Link){
 
 function ShowNav($Which){
   global $ASTRIA;
+  echo "\n<!--\n";
+  pd($ASTRIA['nav'][strtolower($Which)]);
+  echo "\n-->\n";
   if(
    isset($ASTRIA['nav'])&&
    isset($ASTRIA['nav'][strtolower($Which)])
