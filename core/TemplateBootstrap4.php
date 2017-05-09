@@ -57,9 +57,15 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
+        
+        ShowNav('main');
+        
         if(LoggedIn()){
-         ShowNav('main');
+          ShowNav('main-logged-in');
+        }else{
+          ShowNav('main-not-logged-in');
         }
+        
       ?>
       
     </ul>
