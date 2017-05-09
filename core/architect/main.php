@@ -4,10 +4,11 @@ if(HasMembership(2)){
   
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
   
-  global $ASTRIA;
-  $ASTRIA['nav']['main']=array(
-    'Architect' => '/architect'
-  );
+  //global $ASTRIA;
+  //$ASTRIA['nav']['main']=array(
+    //'Architect' => '/architect'
+  //);
+  Nav('Main','Text','Architect','/architect');
   
 }
   
