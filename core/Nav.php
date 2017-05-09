@@ -6,8 +6,8 @@ function Nav($Which,$Type,$Text,$Link){
     $ASTRIA['nav'][$Which]=array();
   }
     
-  $ASTRIA['nav'][$Which][]=array(
-    'type'=> $Type,
+  $ASTRIA['nav'][strtolower($Which)][]=array(
+    'type'=> strtolower($Type),
     'text'=> $Text,
     'link'=> $Link
   );
