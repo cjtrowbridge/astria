@@ -5,7 +5,7 @@ include_once('Path.php');
 include_once('Session.php');
 
 if(
-	path()=='logout'||
+	path(0)=='logout'||
 	isset($_GET['logout'])  
 ){
 	AstriaSessionDestroy();
