@@ -37,6 +37,7 @@ function Loader($dir = 'core',$DieOnFail = true){
     
     if($handle = opendir($dir)){
       while (false !== ($extension = readdir($handle))){
+        $Path=$dir.'/'.$extension;
         //$include_path=$dir.'/main.php';
         //if($extension != "." && $extension != ".." && file_exists($include_path)){
           //Event('Before Loading: '.$include_path);
@@ -45,8 +46,10 @@ function Loader($dir = 'core',$DieOnFail = true){
         //}else{
           if($extension != "." && $extension != ".." && is_dir($extension)){
             Event('Before Recursively Loading Subdirectory: '.$extension);
-            Loader($dir.'/'.$extension);
+            Loader($Path);
             Event('After Recursively Loading Subdirectory: '.$extension);
+          }else{
+            Event('Skipping : '.$Path);
           }
         //}
       }
