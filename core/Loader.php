@@ -33,6 +33,8 @@ function Loader($dir = 'core',$DieOnFail = true){
       Event('Before Loading: '.$include_path);
       include_once($include_path);
       Event('After Loading: '.$include_path);
+    }else{
+      Event('Could not find: '.$include_path);
     }
     
     if($handle = opendir($dir)){
