@@ -1,6 +1,6 @@
 <?php
 
-function ArrTabler($arr, $table_id = null, $table_class = 'table tablesorter tablesorter-default'){
+function ArrTabler($arr, $table_id = null, $table_class = 'table tablesorter tablesorter-default tablesorter-bootstrap'){
   $return='';
   if($table_id==null){
     $table_id=md5(uniqid(true));
