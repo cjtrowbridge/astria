@@ -17,20 +17,21 @@ function Nav($Which,$Type,$Text,$Link){
 }
 
 function ShowNav($Which){
- if(
-  isset($ASTRIA['nav'])&&
-  isset($ASTRIA['nav'][strtolower($Which)])
-){
-  foreach($ASTRIA['nav'][strtolower($Which)] as $Nav){
-    if(strtolower($Nav['type'])=='link'){
-    ?>
-          
-      <li class="nav-item<?php if(path()==ltrim($Nav['link'],"/")){ echo ' active';} ?>">
-        <a class="nav-link" href="<?php echo $Nav['link']; ?>"><?php echo $Nav['text']; ?></a>
-      </li>
-
-      <?php
-      }
-    }
-  }
-}
+  global $ASTRIA;
+  if(
+   isset($ASTRIA['nav'])&&
+   isset($ASTRIA['nav'][strtolower($Which)])
+ ){
+   foreach($ASTRIA['nav'][strtolower($Which)] as $Nav){
+     if(strtolower($Nav['type'])=='link'){
+     ?>
+           
+       <li class="nav-item<?php if(path()==ltrim($Nav['link'],"/")){ echo ' active';} ?>">
+         <a class="nav-link" href="<?php echo $Nav['link']; ?>"><?php echo $Nav['text']; ?></a>
+       </li>
+ 
+       <?php
+       }
+     }
+   }
+ }
