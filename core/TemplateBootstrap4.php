@@ -58,22 +58,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     <ul class="nav navbar-nav">
       <?php
         if(LoggedIn()){
-          if(
-            isset($ASTRIA['nav'])&&
-            isset($ASTRIA['nav']['main'])
-          ){
-            foreach($ASTRIA['nav']['main'] as $Nav){
-              if(strtolower($Nav['type'])=='link'){
-              ?>
-          
-      <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
-        <a class="nav-link" href="<?php echo $path; ?>"><?php echo $link; ?></a>
-      </li>
-          
-              <?php
-              }
-            }
-          }
+         ShowNav('main');
         }
       ?>
       
