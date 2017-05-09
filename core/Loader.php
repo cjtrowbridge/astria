@@ -29,22 +29,26 @@ function Loader($dir = 'core',$DieOnFail = true){
       die('Loader could not find dir: '.$dir);
     }
     
+    if(file_exists($include_path=$dir.'/main.php'){
+      Event('Before Loading: '.$include_path);
+      include_once($include_path);
+      Event('After Loading: '.$include_path);
+    }
+    
     if($handle = opendir($dir)){
       while (false !== ($extension = readdir($handle))){
-        $include_path=$dir.'/main.php';
-        if($extension != "." && $extension != ".." && file_exists($include_path)){
-          Event('Before Loading: '.$include_path);
-          include_once($include_path);
-          Event('After Loading: '.$include_path);
-        }else{
-          if($extension != "." && $extension != ".." && is_dir($include_path)){
-            Event('Before Recursively Loading Subdirectory: '.$include_path);
-            Loader($include_path);
-            Event('After Recursively Loading Subdirectory: '.$include_path);
-          }else{
-            Event('Not sure how I got here: '.$include_path);
+        //$include_path=$dir.'/main.php';
+        //if($extension != "." && $extension != ".." && file_exists($include_path)){
+          //Event('Before Loading: '.$include_path);
+          //include_once($include_path);
+          //Event('After Loading: '.$include_path);
+        //}else{
+          if($extension != "." && $extension != ".." && is_dir($extension)){
+            Event('Before Recursively Loading Subdirectory: '.$extension);
+            Loader($dir.'/'.$extension);
+            Event('After Recursively Loading Subdirectory: '.$extension);
           }
-        }
+        //}
       }
       closedir($handle);
     }
