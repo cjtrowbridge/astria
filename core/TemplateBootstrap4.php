@@ -62,8 +62,8 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
             isset($ASTRIA['nav'])&&
             isset($ASTRIA['nav']['main'])
           ){
-            foreach($ASTRIA['nav']['main'] as $link => $path){
-              //TODO check if $path is an array, and then do a dropdown instead
+            foreach($ASTRIA['nav']['main'] as $Nav){
+              if(strtolower($Nav['type'])=='link'){
               ?>
           
       <li class="nav-item<?php if(path()==ltrim($path,"/")){ echo ' active';} ?>">
@@ -71,6 +71,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
       </li>
           
               <?php
+              }
             }
           }
         }
