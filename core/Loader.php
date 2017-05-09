@@ -46,7 +46,7 @@ function Loader($dir = 'core',$DieOnFail = true){
           //include_once($include_path);
           //Event('After Loading: '.$include_path);
         //}else{
-          if($extension != "." && $extension != ".." && is_dir($extension)){
+          if($extension != "." && $extension != ".." && is_dir($Path)){
             Event('Before Recursively Loading Subdirectory: '.$extension);
             Loader($Path);
             Event('After Recursively Loading Subdirectory: '.$extension);
