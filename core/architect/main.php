@@ -1,32 +1,35 @@
 <?php
 
-global $ASTRIA;
-if(
-  isset($ASTRIA['Session'])&&
-  isset($ASTRIA['Session']['User'])
-){
-  $UserID = $ASTRIA['Session']['User']['UserID'];
-}else{
-  $UserID=null;
+Hook('User Is Logged In - Before Presentation','PrepareArchitect();');
+
+function PrepareArchitect(){
+  global $ASTRIA;
+  if(
+    isset($ASTRIA['Session'])&&
+    isset($ASTRIA['Session']['User'])
+  ){
+    $UserID = $ASTRIA['Session']['User']['UserID'];
+  }else{
+    $UserID=null;
+  }
+
+  if(
+    HasMembership(2)||
+    $UserID==1
+  ){
+
+    SetupArchitect();
+
+    //global $ASTRIA;
+    //$ASTRIA['nav']['main']=array(
+      //'Architect' => '/architect'
+    //);
+    Nav('Main','Link','Architect','/architect');
+
+  }
 }
 
-if(
-  HasMembership(2)||
-  $UserID==1
-){
-  
-  Hook('User Is Logged In - Before Presentation','prepareArchitect();');
-  
-  //global $ASTRIA;
-  //$ASTRIA['nav']['main']=array(
-    //'Architect' => '/architect'
-  //);
-  Nav('Main','Link','Architect','/architect');
-  
-}
-  
-
-function prepareArchitect(){
+function SetupArchitect(){
   if(path(0)=='architect'){
     include_once('ArchitectShow.php');
     switch(path(1)){
