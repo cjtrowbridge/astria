@@ -1,6 +1,19 @@
 <?php
 
-if(HasMembership(2)){
+global $ASTRIA;
+if(
+  isset($ASTRIA['Session'])&&
+  isset($ASTRIA['Session']['User'])
+){
+  $UserID = $ASTRIA['Session']['User']['UserID'];
+}else{
+  $UserID=null;
+}
+
+if(
+  HasMembership(2)||
+  $UserID==1
+){
   
   Hook('User Is Logged In - Before Presentation','prepareArchitect();');
   
