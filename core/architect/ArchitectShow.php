@@ -18,13 +18,20 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
+      <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Session</button>
+      
     </form>
   </div>
 </div><br>
 <div class="row">
+  <div class="hidden" id="PullMainlineWebhook">
+    <textarea><?php
+     echo $ASTRIA['app']['appURL'].'/';
+     echo encrypt('Pull Mainline From Github');
+    ?></textarea>
+  </div>
   <div class="hidden" id="session">
     <?php
-      global $ASTRIA;
       pd($ASTRIA['Session']);
     ?>
   </div>
