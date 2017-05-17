@@ -31,8 +31,12 @@ function PrepareArchitect(){
 
 function SetupArchitect(){
   if(path(0)=='architect'){
+    
     include_once('ArchitectShow.php');
     switch(path(1)){
+      case 'create-webhook-pull-subrepository':
+        include_once('GetSubrepositoryPullWebhook.php');
+        GetSubrepositoryPullWebhook();
       case 'user':
         switch(path(2)){
           case 'edit': //TODO
