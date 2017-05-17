@@ -24,7 +24,6 @@ h1,h2,h3,h4{
   overflow-y: auto; 
 }
 .box{
-  display: block;
   border: 1px solid #c6c6c6;
   padding: 1rem;
   margin-bottom: -1px;
