@@ -50,8 +50,6 @@ function ArchitectBodyCallback(){
         });
       }
     </script>
-    
-    <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
   </div>
   <div class="hidden" id="session">
     <?php
