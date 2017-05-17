@@ -36,10 +36,7 @@ function ArchitectBodyCallback(){
     <form onsubmit="return false;" class="form">
       <div class="form-group">
         <label for="subrepository">Email address</label>
-        <input type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
-      </div>
-      <div class="form-group">
-        <button onclick="GetSubrepositoryPullWebhook();" type="button" class="btn btn-block btn-outline-success">Get Subrepository Pull Webhook</button>
+        <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
       </div>
       <br><br>
       <div id="GetSubrepositoryPullWebhookResult"></div>
