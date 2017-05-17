@@ -8,10 +8,13 @@ $MagicWord=BlowfishEncrypt('Pull Mainline From Github');
     isset($_GET[$MagicWord])
   ){
     $Path=dirname(__FILE__);
-    $Path=str_replace('/core/Webhook.php','',$Path);
+    $Path=str_replace('/core','',$Path);
     
     $Command = 'cd '.$Path.' && git reset --hard && git pull';
     
-    pd($Command);exit;
+    echo 'Pulling Mainline Repo...<br>';
+    echo shell_exec($Command);
+    
+    exit;
   }
 }
