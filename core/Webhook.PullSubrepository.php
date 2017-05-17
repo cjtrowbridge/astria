@@ -10,7 +10,7 @@ function WebhookPullSubrepository(){
     $Path=dirname(__FILE__);
     $Path=str_replace('/core','',$Path);
     $Subrepository=BlowfishDecrypt($_GET[$MagicWord]);;
-    $Path.=$Subrepository;
+    $Path.=trim($Subrepository);
     
     echo 'Pulling Subrepository: '.$Path.'<br>';
     
