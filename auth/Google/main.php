@@ -73,7 +73,7 @@ function AttemptGoogleAuth(){
       if(count($results)==0){
         
         //SIGNING UP!
-        Query("INSERT INTO `User`(`Email`)VALUES('".$cleanEmail."');");
+        Query("INSERT INTO `User`(`Email`,`SignupDate`)VALUES('".$cleanEmail."',NOW());");
         //Add this new user to the default group 
         CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria']['resource']),1);
         
