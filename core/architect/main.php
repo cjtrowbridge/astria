@@ -58,7 +58,7 @@ function SetupArchitect(){
         }
         break;
       default:
-        Hook('User Is Logged In - Presentation','showArchitect();');
+        showArchitect();
         break;
     }
   }
