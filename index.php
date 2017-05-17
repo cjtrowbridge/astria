@@ -19,11 +19,15 @@ Loader('core/architect');
 //Loader('auth/Email');
 //Loader('auth/Facebook');
 Loader('auth/Google');
-Loader('plugins');
 
 RequireSSL();
 
 Event('Webhook');
+
+//Loading plugins should happen after the webhooks so that if there is an integration error, it will not break the webhooks.
+Loader('plugins');
+
+Event('Before Login');
 
 if(LoggedIn()){
   
