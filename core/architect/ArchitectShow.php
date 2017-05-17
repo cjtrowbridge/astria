@@ -22,7 +22,7 @@ function ArchitectBodyCallback(){
       
       <h4>Webhooks:</h4>
       <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
-      <button onclick="Cardify('Webhook: Pull Subrepository','GetSubrepositoryPullWebhook');" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
+      <button onclick="$('.GetSubrepositoryPullWebhook').slideDown();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
       
     </div>
   </div>
@@ -35,10 +35,11 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="GetSubrepositoryPullWebhook">
     <form onsubmit="return false;" class="form">
       <div class="form-group">
-        <label for="subrepository">Email address</label>
-        <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
+        <div class="input-group">
+          <label for="subrepository">Email address</label>
+          <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
+        </div>
       </div>
-      <br><br>
       <div id="GetSubrepositoryPullWebhookResult"></div>
     </form>
     <script>
