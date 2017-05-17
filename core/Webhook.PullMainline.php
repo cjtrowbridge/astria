@@ -3,7 +3,10 @@
 Hook('Webhook','RepoPull();');
 
 function RepoPull(){
-$MagicWord=BlowfishEncrypt('Pull Mainline From Github');
+  
+  //TODO figure out some kind of automated integration test to put in here
+  
+  $MagicWord=BlowfishEncrypt('Pull Mainline From Github');
   if(
     isset($_GET[$MagicWord])
   ){
