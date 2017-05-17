@@ -1,6 +1,6 @@
 <?php
 
-Hook('Webhook','WebhookPullSubrepository');
+Hook('Webhook','WebhookPullSubrepository();');
 
 function WebhookPullSubrepository(){
   $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
