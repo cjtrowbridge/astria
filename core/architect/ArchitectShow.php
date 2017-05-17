@@ -1,8 +1,7 @@
 <?php
 
 function showArchitect(){
-  Hook('Template Body','ArchitectBodyCallback();');
-  TemplateBootstrap4('Architect'); 
+  TemplateBootstrap4('Architect','ArchitectBodyCallback();'); 
 }
   
 function ArchitectBodyCallback(){
