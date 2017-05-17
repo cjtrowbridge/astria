@@ -15,14 +15,13 @@ function GetSubrepositoryPullWebhook(){
   }
   
   
+  $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
+  $MagicPath=BlowfishEncrypt($_GET['path']);
   
-  die($Path);
-  
-  
-  $Subrepository=BlowfishEncrypt();;
-  $Path.=$Subrepository;
+  global $ASTRIA;
+  $URL=$ASTRIA['app']['appURL'].'/?'.urlencode($MagicWord).'='.urlencode($MagicPath);
 
-  echo $Path;
-  exit;
-
+  
+  die($URL);
+  
 }
