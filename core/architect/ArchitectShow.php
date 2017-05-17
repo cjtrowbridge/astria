@@ -39,17 +39,22 @@ function ArchitectBodyCallback(){
       <div class="form-group">
         <div class="input-group">
           <div>
+            <p>Here are some potential repositories I found in the plugins directory...</p>
+            <ul>
             <?php
               $dir = "plugins";
               if(is_dir($dir)){
                 if($dh = opendir($dir)){
-                  while(($file = readdir($dh)) !== false){
-                    echo "filename:" . $file . "<br>";
+                  while(($File = readdir($dh)) !== false){
+                    if($File!=='.'&&$File!=='..'&&$File!=='defaultViews'){
+                      echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\''.$File.'\');">'.$File.'</a></li>';
+                    }
                   }
                   closedir($dh);
                 }
               }
             ?>
+            </ul>
           </div>
           <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
         </div>
