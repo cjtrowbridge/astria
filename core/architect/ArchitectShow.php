@@ -39,14 +39,16 @@ function ArchitectBodyCallback(){
         <input type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
       </div>
       <div class="form-group">
-        <button onclick="" type="button" class="btn btn-block btn-outline-success">Get Subrepository Pull Webhook</button>
+        <button onclick="GetSubrepositoryPullWebhook();" type="button" class="btn btn-block btn-outline-success">Get Subrepository Pull Webhook</button>
       </div>
       <br><br>
       <div id="GetSubrepositoryPullWebhookResult"></div>
     </form>
     <script>
       function GetSubrepositoryPullWebhook(){
-        $.get("/architect/create-webhook-pull-subrepository/?path="+$('#subrepositoryPath').val(), function(data){
+        var theURL="/architect/create-webhook-pull-subrepository/?path="+$('#subrepositoryPath').val();
+        console.log('Fetching: '+theURL);
+        $.get(theURL, function(data){
           $("#GetSubrepositoryPullWebhookResult").html('<a target="_blank" href="'+data+'">'+data+'</a>');
         });
       }
