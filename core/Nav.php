@@ -5,7 +5,7 @@ $ASTRIA['nav']=array();
 
 function Nav($Which,$Type,$Text,$Link){
   global $ASTRIA;
-  if(isset($ASTRIA['nav'][strtolower($Which)])){
+  if(!isset($ASTRIA['nav'][strtolower($Which)])){
     $ASTRIA['nav'][strtolower($Which)]=array();
   }
     
