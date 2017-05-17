@@ -48,6 +48,9 @@ if(LoggedIn()){
 }else{
   
   Event('User Is Not Logged In');
+  Event('User Is Not Logged In - Before Presentation');
+  Event('User Is Not Logged In - Presentation');
+  Event('User Is Not Logged In - No Presentation');
   
   PromptForLogin();
   
