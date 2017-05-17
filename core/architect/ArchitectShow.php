@@ -47,7 +47,7 @@ function ArchitectBodyCallback(){
                 if($dh = opendir($dir)){
                   while(($File = readdir($dh)) !== false){
                     if($File!=='.'&&$File!=='..'&&$File!=='defaultViews'){
-                      echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\''.$File.'\');">'.$File.'</a></li>';
+                      echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');">'.$File.'</a></li>';
                     }
                   }
                   closedir($dh);
