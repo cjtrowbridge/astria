@@ -14,7 +14,7 @@ function WebhookPullSubrepository(){
     
     echo 'Pulling Subrepository: '.$Path.'<br>';
     
-    if(is_dir($Path)){
+    if(!is_dir($Path)){
       die('Path not found: '.$Path);
     }
     
