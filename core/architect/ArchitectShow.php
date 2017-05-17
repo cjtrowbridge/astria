@@ -31,7 +31,7 @@ function ArchitectBodyCallback(){
 </div><br>
 <div class="row">
   <div class="hidden" id="PullMainlineWebhook">
-    <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
+    <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
   </div>
   <div class="hidden" id="session">
     <?php
