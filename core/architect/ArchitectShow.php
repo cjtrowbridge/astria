@@ -12,25 +12,46 @@ function ArchitectBodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <div class="form-inline">
+      <h4>Architect Tools:</h4>
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
       <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-warning">Events</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
-    </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <div class="form-inline">
-      Webhooks: <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
+      
+      <h4>Webhooks:</h4>
+      <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
+      <button onclick="Cardify('Webhook: Pull Subrepository','GetSubrepositoryPullWebhook');" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
       
     </div>
   </div>
 </div><br>
 <div class="row">
   <div class="hidden" id="PullMainlineWebhook">
+    <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
+  </div>
+  
+  <div class="hidden" id="GetSubrepositoryPullWebhook">
+    <form onsubmit="return false;" class="form">
+      <div class="form-group">
+        <label for="subrepository">Email address</label>
+        <input type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
+      </div>
+      <div class="form-group">
+        <button onclick="" type="button" class="btn btn-block btn-outline-success">Get Subrepository Pull Webhook</button>
+      </div>
+      <br><br>
+      <div id="GetSubrepositoryPullWebhookResult"></div>
+    </form>
+    <script>
+      function GetSubrepositoryPullWebhook(){
+        $.get("./?GetSubrepositoryPullWebhook="+$('#subrepositoryPath').val(), function(data){
+          $("#GetSubrepositoryPullWebhookResult").html('<a target="_blank" href="'+data+'">'+data+'</a>');
+        });
+      }
+    </script>
+    
     <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
   </div>
   <div class="hidden" id="session">
