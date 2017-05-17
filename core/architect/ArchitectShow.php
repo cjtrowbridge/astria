@@ -22,7 +22,7 @@ function ArchitectBodyCallback(){
       
       <h4>Webhooks:</h4>
       <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
-      <button onclick="$('.GetSubrepositoryPullWebhook').slideDown();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
+      <button onclick="$('#GetSubrepositoryPullWebhook').slideDown();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
       
     </div>
   </div>
