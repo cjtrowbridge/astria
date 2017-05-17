@@ -23,6 +23,8 @@ Loader('plugins');
 
 RequireSSL();
 
+Event('Webhook');
+
 if(LoggedIn()){
   
   //This is the first event after a user is logged in. Views will be hooked here, as well as anything that should happen at that point.
