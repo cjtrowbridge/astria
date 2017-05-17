@@ -38,7 +38,19 @@ function ArchitectBodyCallback(){
     <form onsubmit="return false;" class="form">
       <div class="form-group">
         <div class="input-group">
-          <label for="subrepository">Email address</label>
+          <div>
+            <?php
+              $dir = "plugins";
+              if(is_dir($dir)){
+                if($dh = opendir($dir)){
+                  while(($file = readdir($dh)) !== false){
+                    echo "filename:" . $file . "<br>";
+                  }
+                  closedir($dh);
+                }
+              }
+            ?>
+          </div>
           <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
         </div>
       </div>
