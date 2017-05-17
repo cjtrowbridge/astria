@@ -21,18 +21,20 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
       
       <h4>Webhooks:</h4>
-      <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
-      <button onclick="$('#GetSubrepositoryPullWebhook').slideDown();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
+      <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
+      <button onclick="$('#GetSubrepositoryPullWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
       
     </div>
   </div>
 </div><br>
 <div class="row">
-  <div class="hidden" id="PullMainlineWebhook">
+  <div class="hidden box" id="PullMainlineWebhook">
+    <h2>Webhook: Pull Mainline from Github</h2>
     <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
   </div>
   
-  <div class="hidden" id="GetSubrepositoryPullWebhook">
+  <div class="hidden box" id="GetSubrepositoryPullWebhook">
+    <h2>Webhook: Pull Subrepository</h2>
     <form onsubmit="return false;" class="form">
       <div class="form-group">
         <div class="input-group">
@@ -52,6 +54,7 @@ function ArchitectBodyCallback(){
       }
     </script>
   </div>
+  
   <div class="hidden" id="session">
     <?php
       pd($ASTRIA['Session']);
