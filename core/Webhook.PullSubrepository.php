@@ -12,14 +12,14 @@ function WebhookPullSubrepository(){
     $Subrepository=BlowfishDecrypt($_GET[$MagicWord]);;
     $Path.=trim($Subrepository);
     
-    echo 'Pulling Subrepository: '.$Path.'<br>';
+    echo '<p>Pulling Subrepository: '.$Path.'</p>';
     
     if(!is_dir($Path)){
       die('Path not found: '.$Path);
     }
     
     $Command = 'cd '.$Path.' && git reset --hard && git pull';
-    echo $Command;
+    echo '<p>'.$Command.'</p>';
     echo shell_exec($Command);
     
     exit;
