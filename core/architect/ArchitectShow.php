@@ -46,7 +46,7 @@ function ArchitectBodyCallback(){
     </form>
     <script>
       function GetSubrepositoryPullWebhook(){
-        $.get("./?GetSubrepositoryPullWebhook="+$('#subrepositoryPath').val(), function(data){
+        $.get("/architect/create-webhook-pull-subrepository/?path="+$('#subrepositoryPath').val(), function(data){
           $("#GetSubrepositoryPullWebhookResult").html('<a target="_blank" href="'+data+'">'+data+'</a>');
         });
       }
