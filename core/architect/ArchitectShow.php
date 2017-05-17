@@ -19,6 +19,10 @@ function ArchitectBodyCallback(){
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
     <div class="form-inline">
       Webhooks: <button onclick="Cardify('Webhook: Pull Mainline','PullMainlineWebhook');" type="button" class="btn btn-outline-danger">Pull Mainline</button>
       
