@@ -101,10 +101,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
   
   ?>
   <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; ?>">
-    <?php 
-    
-    echo  $Runtime;
-    ?>
+    <a href="https://github.com/cjtrowbridge/astria">Astria</a> Loaded in <?php echo  $Runtime; ?> Seconds
   </div>
   <script>
     FixTopPadding();
