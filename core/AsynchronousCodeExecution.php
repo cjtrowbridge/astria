@@ -3,6 +3,7 @@
 Hook('Webhook','MaybeHandleAce();');
 
 function ace($Code,$Class = '',$ID = ''){
+  global $ASTRIA;
   //The purpose of this tool is to allow any code to be executed asynchronously and loaded into an object later. 
   
   //Create a unique high-entropy hash and store it along with the code into the key-value store
@@ -31,6 +32,7 @@ function MaybeHandleAce(){
 }
 
 function handleAce($Hash){
+  global $ASTRIA;
 
   $Hash = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Hash);
   
