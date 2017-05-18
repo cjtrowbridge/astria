@@ -63,7 +63,15 @@ function DatabaseSetUp(){
       `UserID` int(11) NOT NULL,
       `GroupID` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16 ROW_FORMAT=COMPACT;
+    
+    CREATE TABLE `ACE` (
+      `ACEID` int(11) NOT NULL,
+      `Hash` varchar(255) NOT NULL,
+      `Code` text NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
+    ALTER TABLE `ACE` ADD PRIMARY KEY (`ACEID`), ADD KEY `Hash` (`Hash`(191));
+    ALTER TABLE `ACE` MODIFY `ACEID` int(11) NOT NULL AUTO_INCREMENT;
     ALTER TABLE `Cache` ADD PRIMARY KEY (`CacheID`), ADD UNIQUE KEY `Hash` (`Hash`) USING BTREE;
     ALTER TABLE `Group` ADD PRIMARY KEY (`GroupID`), ADD KEY `ParentID` (`ParentID`);
     ALTER TABLE `Permission` ADD PRIMARY KEY (`PermissionID`), ADD KEY `UserID` (`UserID`,`GroupID`,`ViewID`) USING BTREE;
