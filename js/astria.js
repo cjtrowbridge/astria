@@ -18,8 +18,8 @@ function Cardify(title,id){
   );
 }
 
-function AstriaHookEditor(){
-  var x = $('.AstriaHookEditor.ready');
+function AstriaEditor(){
+  var x = $('.AstriaEditor.ready');
   $(x).keyup(function(){
     $(this).removeClass('ready');
     var text = $(this).val();
