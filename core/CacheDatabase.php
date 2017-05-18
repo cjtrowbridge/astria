@@ -1,6 +1,6 @@
 <?php
 
-function CacheDatabaseDelete($Hash){
+function CacheDatabaseDelete($Hash,$Database = 'astria'){
   global $ASTRIA;
   include_once('core/isValidMd5.php');
   if(!(isValidMd5($Hash))){return false;}
