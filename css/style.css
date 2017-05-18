@@ -15,8 +15,8 @@ h1,h2,h3,h4{
 }
 .AstriaEditor{
   display: block;
-  width: calc(100% - 2rem);
-  margin-left: 1rem;
+  //width: calc(100% - 2rem);
+  //margin-left: 1rem;
   border: 1px solid #F0F0F0;
   padding: 1rem;
   line-height: 1rem;
