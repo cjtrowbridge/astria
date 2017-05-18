@@ -81,7 +81,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     <?php } ?>
   </nav>
 
-  <div class="container" id="bodyContainer">
+  <div class="container no-gutters" id="bodyContainer">
 
     <?php 
   
