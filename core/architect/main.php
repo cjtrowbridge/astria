@@ -29,7 +29,9 @@ function PrepareArchitect(){
   }
 }
 
-function SetupArchitect(){
+Hook('User Is Logged In - Presentation','PresentArchitect();');
+
+function PresentArchitect(){
   if(path(0)=='architect'){
     
     include_once('ArchitectShow.php');
