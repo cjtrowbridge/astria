@@ -18,7 +18,7 @@ function PrepareArchitect(){
     $UserID==1
   ){
 
-    SetupArchitect();
+    //SetupArchitect();
 
     //global $ASTRIA;
     //$ASTRIA['nav']['main']=array(
