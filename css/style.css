@@ -13,7 +13,7 @@ h1,h2,h3,h4{
 .loginButton img{
   width: 160px;
 }
-.AstriaHookEditor{
+.AstriaEditor{
   display: block;
   width: calc(100% - 2rem);
   margin-left: 1rem;
