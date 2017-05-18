@@ -14,14 +14,13 @@ function ace($Code,$Class = '',$ID = ''){
   
   Query("INSERT INTO `ACE` (`Hash`, `Code`) VALUES ('".$Hash."', '".$Code."');");
   
-  //Create object to be returned
-  
+  //Output loading presentation
   $ACE='<div class="ace_'.$Hash.' '.$Class.'"';
   if(!($ID=='')){
     $ACE.=' id="'.$ID.'"';
   }
   $ACE.='><img src="/img/ajax-loader.gif"></div><script>$.get("/ace/'.$Hash.'",function(data){$(".ace_'.$Hash.'").html(data);});</script>';
-  return $ACE;
+  echo $ACE;
 }
 
 function MaybeHandleAce(){
