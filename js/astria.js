@@ -21,6 +21,9 @@ function Cardify(title,id){
 function AstriaEditor(){
   var x = $('.AstriaEditor.ready');
   $(x).keyup(function(){
+    $(this).mouseup(function() {
+      $(this).css('border-color','red');
+    })
     $(this).removeClass('ready');
     var text = $(this).val();
     var matches = text.match(/\n/g);
