@@ -113,7 +113,10 @@ function ArchitectBodyCallback(){
     
 <div class="row">
   <div class="col-xs-12">
-    maybe show the schemas?
+    <?php
+      //TODO maybe show the schemas?
+      Event('Architect Homepage');
+    ?>
   </div>
 </div>
     
