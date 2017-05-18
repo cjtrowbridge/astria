@@ -19,7 +19,7 @@ function ace($Code,$Class = '',$ID = '',$LoadingMessage = ''){
   if(!($ID=='')){
     $ACE.=' id="'.$ID.'"';
   }
-  $ACE.='>'.$LoadingMessage.' <img src="/img/ajax-loader.gif"></div><script>$.get("/ace/'.$Hash.'",function(data){$(".ace_'.$Hash.'").html(data);});</script>';
+  $ACE.='><img src="/img/ajax-loader.gif"> '.$LoadingMessage.'</div><script>$.get("/ace/'.$Hash.'",function(data){$(".ace_'.$Hash.'").html(data);});</script>';
   echo $ACE;
 }
 
