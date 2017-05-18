@@ -15,7 +15,7 @@ function ace($Code,$Class = '',$ID = ''){
   
   //Create object to be returned
   
-  $ACE='<div class="ace_'.$Hash.' '.$Class.'";
+  $ACE='<div class="ace_'.$Hash.' '.$Class.'"';
   if(!($ID=='')){
     $ACE.=' id="'.$ID.'"';
   }
