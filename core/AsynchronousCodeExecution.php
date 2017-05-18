@@ -2,7 +2,7 @@
 
 Hook('Webhook','MaybeHandleAce();');
 
-funciton ace($Code,$Class = '',$ID = ''){
+function ace($Code,$Class = '',$ID = ''){
   //The purpose of this tool is to allow any code to be executed asynchronously and loaded into an object later. 
   
   //Create a unique high-entropy hash and store it along with the code into the key-value store
