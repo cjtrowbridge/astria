@@ -2,7 +2,7 @@
 
 Hook('Webhook','MaybeHandleAce();');
 
-function ace($Code,$Class = '',$ID = ''){
+function ace($Code,$Class = '',$ID = '',$LoadingMessage = ''){
   global $ASTRIA;
   //The purpose of this tool is to allow any code to be executed asynchronously and loaded into an object later. 
   
@@ -19,7 +19,7 @@ function ace($Code,$Class = '',$ID = ''){
   if(!($ID=='')){
     $ACE.=' id="'.$ID.'"';
   }
-  $ACE.='><img src="/img/ajax-loader.gif"></div><script>$.get("/ace/'.$Hash.'",function(data){$(".ace_'.$Hash.'").html(data);});</script>';
+  $ACE.='>'.$LoadingMessage.' <img src="/img/ajax-loader.gif"></div><script>$.get("/ace/'.$Hash.'",function(data){$(".ace_'.$Hash.'").html(data);});</script>';
   echo $ACE;
 }
 
