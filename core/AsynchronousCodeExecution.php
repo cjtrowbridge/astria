@@ -42,7 +42,8 @@ function handleAce($Hash){
   Query("DELETE FROM `ACE` WHERE Hash LIKE '".$Hash."';");
   
   if(isset($Code[0]['Code'])){
-    eval($Code[0]['Code']);
+    $Code=base64_decode($Code[0]['Code']);
+    eval($Code);
     exit;
   }
   die('Invalid ACE Hash.');
