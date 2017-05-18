@@ -1,6 +1,6 @@
 <?php
 
-Hook('Webhook','MaybeHandleAce();');
+Hook('Before Login','MaybeHandleAce();');
 
 function ace($Code,$Class = '',$ID = '',$LoadingMessage = ''){
   global $ASTRIA;
