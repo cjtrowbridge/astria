@@ -1,6 +1,6 @@
 <?php
 
-function TemplateBootstrap4($title='',$BodyCallback = ''){
+function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   global $HAMBURGER, $ASTRIA, $USER;
   $HAMBURGER=array('Home'=>'/');
 
@@ -53,7 +53,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
 
 <body>
 
-  <nav class="navbar navbar-fixed-top navbar-dark bg-primary container" id="topNav">
+  <nav class="navbar navbar-fixed-top navbar-dark bg-primary container<?php if($Fluid){echo '-fluid';} ?>" id="topNav">
     <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><?php echo $ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
@@ -81,7 +81,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     <?php } ?>
   </nav>
 
-  <div class="container no-gutters" id="bodyContainer">
+  <div class="container<?php if($Fluid){echo '-fluid';} ?> no-gutters" id="bodyContainer">
 
     <?php 
   
@@ -94,13 +94,7 @@ function TemplateBootstrap4($title='',$BodyCallback = ''){
     ?>
 
   </div><!-- /.container -->
-  <?php
-    
-    global $NUMBER_OF_QUERIES_RUN,$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE, $DEBUG;
-    $Runtime = round(microtime(true)-$DEBUG[0]['timestamp'],4);
-  
-  ?>
-  <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds. Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.'; ?>">
+  <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds.'; /*Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';*/ ?>">
     <a href="https://github.com/cjtrowbridge/astria" target="_blank">Astria</a> Loaded in <?php echo  $Runtime; ?> Seconds
   </div>
   <script>
