@@ -63,9 +63,11 @@ function FeedSyncFetch($Feed){
   $URL      = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Feed['URL']);
   $Content  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$Content);
 
+  $Expires=date('Y-m-d H:i:s',(time()+$Feed['TTL']));
+  
   Query("
     INSERT INTO `FeedSyncFetch` (
-      `FeedID`, `URL`, `Arguments`, `FetchTime`, `Duration`, `Content`, `ContentLength`
+      `FeedID`, `URL`, `Arguments`, `FetchTime`, `Duration`, `Content`, `ContentLength`, `Expires`
     ) VALUES (
       '".$Feed['FeedID']."', 
       '".$URL."', 
@@ -73,7 +75,8 @@ function FeedSyncFetch($Feed){
       NOW(), 
       '".$Duration."', 
       '".$Content."',
-      '".strlen($Content)."'
+      '".strlen($Content)."',
+      '".$Expires."'
     );
   ");
   
