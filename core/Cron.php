@@ -14,11 +14,13 @@ function Cron(){
   $Read = CacheDatabaseRead(md5('Last Hourly Cron'));
   pd($Read);
   $LastHourlyCron = intval($Read);
+  pd($LastHourlyCron);
   if($LastHourlyCron < (time()-60*60)){
     CacheDatabaseWrite(md5('Last Hourly Cron'),time());
     echo '<p>Hourly Cron Last Ran '.ago($LastHourlyCron).'. Running Now...</p>';
     Event('Hourly Cron');
   }else{
+    pd($LastHourlyCron);
     echo '<p>Skipping Hourly Cron Because It Last Ran '.ago($LastHourlyCron).'.</p>';
   }
   
