@@ -40,7 +40,9 @@ function Cron(){
     echo '<p>Skipping Weekly Cron Because It Last Ran '.ago($LastWeeklyCron).'.</p>';
   }
   
-  $CronEnd = microtime(true);
+  $CronEnd  = microtime(true);
+  $Duration = $CronEnd-$CronStart;
+  $Duration = round($Duration,4);
   
-  die('<p>Cron Finished In '.($CronEnd-$CronStart).' Seconds.</p>');
+  die('<p>Cron Finished In '.$Duration.' Seconds.</p>');
 }
