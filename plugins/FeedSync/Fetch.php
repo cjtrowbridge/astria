@@ -17,8 +17,7 @@
 
 function FeedSyncFetchService(){
   
-  //Try creating the tables in case the do not exist.
-  Query("
+  /*
     CREATE TABLE IF NOT EXISTS `FeedSyncFeed` (
       `FeedID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
       `URL` varchar(255) NOT NULL,
@@ -36,7 +35,7 @@ function FeedSyncFetchService(){
       `Content` text,
       `ContentLength` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-  ");
+  */
   
   //Get list of feeds
   //TODO make this work better with extremely large lists. It may need to batch the work automatically in order to work at enormous scale. This is not immediately necessary.
