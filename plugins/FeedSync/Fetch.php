@@ -53,6 +53,7 @@ function FeedSyncFetchService(){
 }
 
 function FeedSyncFetch($Feed){
+  global $ASTRIA;
   
   $Start    = microtime(true);
   $Content  = FetchURL($URL);
