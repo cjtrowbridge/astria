@@ -11,7 +11,6 @@ function FeedSyncFetchServiceCron(){
   include('Fetch.php');
   
   //Call each service in the appropriate order
-  echo '<p>FeedSyncFetchService...</p>';
   FeedSyncFetchService();
   
 }
