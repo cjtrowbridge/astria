@@ -10,6 +10,13 @@ function DatabaseSetUp(){
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
+    CREATE TABLE `FeedSyncFeed` (
+      `FeedID` int(11) NOT NULL PRIMARY KEY Auto_INCREMENT,
+      `URL` varchar(255) NOT NULL,
+      `MinimumInterval` int(11) NOT NULL DEFAULT '0',
+      `LastQueried` datetime DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
