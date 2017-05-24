@@ -1,5 +1,7 @@
 <?php
 
+define('CRONTIMESTAMPMARGIN',60); //This is to allow for the time it takes to call the cron job, otherwise it would always jump ahead by one hour.
+
 Hook('Before Login','Cron();');
 
 function Cron(){
@@ -11,10 +13,11 @@ function Cron(){
     return;
   }
  
-  $CronStart = microtime(true);
+  $CronStart     = microtime(true);
+  $CronTimestamp = time();
   
   $LastHourlyCron = intval(CacheDatabaseRead(md5('Last Hourly Cron')));
-  if($LastHourlyCron < (time()-60*60)){
+  if($LastHourlyCron < ($CronTimestamp-60*60-CRONTIMESTAMPMARGIN)){
     CacheDatabaseWrite(md5('Last Hourly Cron'),time());
     echo '<p>Hourly cron last ran '.ago($LastHourlyCron).'. Running now...</p>';
     Event('Hourly Cron');
@@ -23,7 +26,7 @@ function Cron(){
   }
   
   $LastDailyCron = intval(CacheDatabaseRead(md5('Last Daily Cron')));
-  if($LastDailyCron < (time()-60*60*24)){
+  if($LastDailyCron < ($CronTimestamp-60*60*24-CRONTIMESTAMPMARGIN)){
     CacheDatabaseWrite(md5('Last Daily Cron'),time());
     echo '<p>Daily cron last ran '.ago($LastDailyCron).'. Running now...</p>';
     Event('Daily Cron');
@@ -32,7 +35,7 @@ function Cron(){
   }
   
   $LastWeeklyCron = intval(CacheDatabaseRead(md5('Last Weekly Cron')));
-  if($LastWeeklyCron < (time()-60*60*24*7)){
+  if($LastWeeklyCron < ($CronTimestamp-60*60*24*7-CRONTIMESTAMPMARGIN)){
     CacheDatabaseWrite(md5('Last Weekly Cron'),time());
     echo '<p>Weekly cron last ran '.ago($LastWeeklyCron).'. Running now...</p>';
     Event('Weekly Cron');
