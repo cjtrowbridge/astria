@@ -1,14 +1,16 @@
 <?php
 
-if(
-  isset($_GET['cron'])||
-  path(0)=='cron'
-){
-  Hook('Before Login','Cron();');
-}
+Hook('Before Login','Cron();');
 
 function Cron(){
-  
+
+  if(!(
+    isset($_GET['cron'])||
+    path(0)=='cron'
+  )){
+    return;
+  }
+ 
   $LastHourlyCron = intval(ReadCache(md5('Last Hourly Cron')));
   if($LastHourlyCron < (time()-60*60)){
     WriteCache(md5('Last Hourly Cron'),time());
