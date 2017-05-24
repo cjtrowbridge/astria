@@ -11,6 +11,8 @@ function Cron(){
     return;
   }
  
+  $CronStart = microtime(true);
+  
   $LastHourlyCron = intval(CacheDatabaseRead(md5('Last Hourly Cron')));
   if($LastHourlyCron < (time()-60*60)){
     CacheDatabaseWrite(md5('Last Hourly Cron'),time());
@@ -38,5 +40,7 @@ function Cron(){
     echo '<p>Skipping Weekly Cron Because It Last Ran '.ago($LastWeeklyCron).'.</p>';
   }
   
-  die('Cron Finished');
+  $CronEnd = microtime(true);
+  
+  die('<p>Cron Finished In '.($CronEnd-$CronStart).' Seconds.</p>');
 }
