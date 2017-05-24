@@ -43,7 +43,7 @@ function FeedSyncFetchService(){
     SELECT * FROM FeedSyncFeed
   ");
   foreach($Feeds as $Feed){
-    $Next = $Feed['MinimumInterval']+strtotime($Feed['LastQueried']);
+    $Next = $Feed['MinimumInterval']+strtotime($Feed['LastFetched']);
     if(time()>$Next){
       Query('UPDATE FeedSyncFeed SET LastFetch = NOW() WHERE FeedID = '.$Feed['FeedID']);
       FeedSyncFetch($Feed);
@@ -56,7 +56,7 @@ function FeedSyncFetch($Feed){
   global $ASTRIA;
   
   $Start    = microtime(true);
-  $Content  = FetchURL($URL);
+  $Content  = FetchURL($Feed['URL']);
   $End      = microtime(true);
   
   $Duration = $End - $Start;
