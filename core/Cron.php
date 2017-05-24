@@ -11,7 +11,7 @@ function Cron(){
     return;
   }
  
-  $Read = CacheDatabaseRead(md5('Last Hourly Cron'))
+  $Read = CacheDatabaseRead(md5('Last Hourly Cron'));
   pd($Read);
   $LastHourlyCron = intval($Read);
   if($LastHourlyCron < (time()-60*60)){
