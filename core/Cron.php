@@ -29,4 +29,6 @@ function Cron(){
     Event('Weekly Cron');
   }
   
+  
+  die('Cron Finished');
 }
