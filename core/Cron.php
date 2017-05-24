@@ -19,7 +19,7 @@ function Cron(){
     echo '<p>Hourly cron last ran '.ago($LastHourlyCron).'. Running now...</p>';
     Event('Hourly Cron');
   }else{
-    echo '<p>Skipping hourly cron because it last ran '.ago($LastHourlyCron).'.</p>';
+    echo '<p>Skipping hourly cron because it last ran <span title="'.$LastHourlyCron.'">'.ago($LastHourlyCron).'</span>.</p>';
   }
   
   $LastDailyCron = intval(CacheDatabaseRead(md5('Last Daily Cron')));
