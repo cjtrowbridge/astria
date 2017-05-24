@@ -21,7 +21,7 @@ function DatabaseSetUp(){
       `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
       `FeedID` int(11) NOT NULL,
       `URL` varchar(255) NOT NULL,
-      `Arguments` text NOT NULL,
+      `Arguments` text NULL,
       `FetchTime` datetime NOT NULL,
       `Duration` decimal(10,4) NOT NULL,
       `Content` text,
