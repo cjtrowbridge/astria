@@ -16,6 +16,17 @@ function DatabaseSetUp(){
       `MinimumInterval` int(11) NOT NULL DEFAULT '0',
       `LastQueried` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    
+    CREATE TABLE IF NOT EXISTS `FeedSyncFetch` (
+      `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      `FeedID` int(11) NOT NULL,
+      `URL` varchar(255) NOT NULL,
+      `Arguments` text NOT NULL,
+      `FetchTime` datetime NOT NULL,
+      `Duration` decimal(10,4) NOT NULL,
+      `Content` text,
+      `ContentLength` int(11) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
