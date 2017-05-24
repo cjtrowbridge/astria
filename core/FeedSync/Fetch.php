@@ -15,8 +15,6 @@
   
 */
 
-Hook('Hourly Cron','FeedSyncFetchService();');
-
 function FeedSyncFetchService(){
   
   //Try creating the tables in case the do not exist.
