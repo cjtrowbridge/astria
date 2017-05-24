@@ -43,7 +43,7 @@ function FeedSyncFetchService(){
     SELECT * FROM FeedSyncFeed
   ");
   foreach($Feeds as $Feed){
-    $Next = $Feed['MinimumInterval']+strtotime($Feed['LastFetched']);
+    $Next = $Feed['MinimumInterval']+strtotime($Feed['LastFetch']);
     if(time()>$Next){
       Query('UPDATE FeedSyncFeed SET LastFetch = NOW() WHERE FeedID = '.$Feed['FeedID']);
       FeedSyncFetch($Feed);
