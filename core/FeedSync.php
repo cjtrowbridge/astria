@@ -10,5 +10,6 @@ function FeedSyncFetchServiceCron(){
   
   //Call each service in the appropriate order
   FeedSyncFetchService();
+  Event('FeedSync Fetch Service Done');
   
 }
