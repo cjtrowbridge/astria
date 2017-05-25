@@ -18,8 +18,8 @@ function DatabaseSetUp(){
       `URL` varchar(255) NOT NULL,
       `FeedName` varchar(255) DEFAULT NULL,
       `FeedDescription` text,
-      `FeedLogoURL` varchar(255) DEFAULT NULL
-      `MinimumInterval` int(11) NOT NULL DEFAULT '0'
+      `FeedLogoURL` varchar(255) DEFAULT NULL,
+      `MinimumInterval` int(11) NOT NULL DEFAULT '0',
       `TTL` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
@@ -31,7 +31,8 @@ function DatabaseSetUp(){
       `FetchTime` datetime NOT NULL,
       `Duration` decimal(10,4) NOT NULL,
       `Content` text,
-      `ContentLength` int(11) NOT NULL
+      `ContentLength` int(11) NOT NULL,
+      `Expires` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
     
     CREATE TABLE IF NOT EXISTS `FeedCategory` (
