@@ -10,12 +10,16 @@ function DatabaseSetUp(){
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
-    CREATE TABLE `Feed` (
-      `FeedID` int(11) NOT NULL PRIMARY KEY Auto_INCREMENT,
-      `URL` varchar(255) NOT NULL,
-      `MinimumInterval` int(11) NOT NULL DEFAULT '0',
-      `LastFetch` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    CREATE TABLE IF NOT EXISTS `Feed` (
+      `FeedID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      `FeedSourceID` int(11) NOT NULL,
+      `FeedCategoryID` int(11) NOT NULL,
+      `FeedParserID` int(11) DEFAULT NULL,
+      `FeedURL` varchar(255) NOT NULL,
+      `FeedName` varchar(255) DEFAULT NULL,
+      `FeedDescription` text,
+      `FeedLogoURL` varchar(255) DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     CREATE TABLE IF NOT EXISTS `FeedFetch` (
       `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -27,7 +31,16 @@ function DatabaseSetUp(){
       `Content` text,
       `ContentLength` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    
+    CREATE TABLE IF NOT EXISTS `FeedCategory` (
+      `FeedCategoryID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+      `Name` varchar(255) NOT NULL,
+      `Description` text NOT NULL,
+      `Path` varchar(255) NOT NULL,
+      `ParentID` int(11) DEFAULT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
 
+    
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
