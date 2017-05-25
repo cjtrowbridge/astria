@@ -1,6 +1,7 @@
 <?php
 
 Hook('Hourly Cron','FeedSyncFetchServiceCron();');
+
 function FeedSyncFetchServiceCron(){
   
   //This might take a while, and thats fine.
