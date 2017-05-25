@@ -17,35 +17,15 @@
 
 function FeedSyncFetchService(){
   
-  /*
-    CREATE TABLE IF NOT EXISTS `FeedSyncFeed` (
-      `FeedID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      `URL` varchar(255) NOT NULL,
-      `MinimumInterval` int(11) NOT NULL DEFAULT '0',
-      `LastFetch` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-    
-    CREATE TABLE IF NOT EXISTS `FeedSyncFetch` (
-      `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      `FeedID` int(11) NOT NULL,
-      `URL` varchar(255) NOT NULL,
-      `Arguments` text NULL,
-      `FetchTime` datetime NOT NULL,
-      `Duration` decimal(10,4) NOT NULL,
-      `Content` text,
-      `ContentLength` int(11) NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-  */
-  
   //Get list of feeds
   //TODO make this work better with extremely large lists. It may need to batch the work automatically in order to work at enormous scale. This is not immediately necessary.
   $Feeds=Query("
-    SELECT * FROM FeedSyncFeed
+    SELECT * FROM Feed
   ");
   foreach($Feeds as $Feed){
     $Next = $Feed['MinimumInterval']+strtotime($Feed['LastFetch']);
     if(time()>$Next){
-      Query('UPDATE FeedSyncFeed SET LastFetch = NOW() WHERE FeedID = '.$Feed['FeedID']);
+      Query('UPDATE Feed SET LastFetch = NOW() WHERE FeedID = '.$Feed['FeedID']);
       FeedSyncFetch($Feed);
     }
   }
@@ -66,7 +46,7 @@ function FeedSyncFetch($Feed){
   $Expires=date('Y-m-d H:i:s',(time()+$Feed['TTL']));
   
   Query("
-    INSERT INTO `FeedSyncFetch` (
+    INSERT INTO `FeedFetch` (
       `FeedID`, `URL`, `Arguments`, `FetchTime`, `Duration`, `Content`, `ContentLength`, `Expires`
     ) VALUES (
       '".$Feed['FeedID']."', 
