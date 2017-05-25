@@ -19,6 +19,7 @@ function DatabaseSetUp(){
       `FeedName` varchar(255) DEFAULT NULL,
       `FeedDescription` text,
       `FeedLogoURL` varchar(255) DEFAULT NULL
+      `MinimumInterval` int(11) NOT NULL DEFAULT '0'
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     CREATE TABLE IF NOT EXISTS `FeedFetch` (
