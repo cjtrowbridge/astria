@@ -15,7 +15,7 @@ function DatabaseSetUp(){
       `FeedSourceID` int(11) NOT NULL,
       `FeedCategoryID` int(11) NOT NULL,
       `FeedParserID` int(11) DEFAULT NULL,
-      `FeedURL` varchar(255) NOT NULL,
+      `URL` varchar(255) NOT NULL,
       `FeedName` varchar(255) DEFAULT NULL,
       `FeedDescription` text,
       `FeedLogoURL` varchar(255) DEFAULT NULL
