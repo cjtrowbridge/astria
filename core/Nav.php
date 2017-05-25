@@ -48,7 +48,7 @@ function ShowNav($Which){
           <div class="dropdown-menu">
             
             <?php
-            foreach($Nav['Children'] as $Child){
+            foreach($Nav['children'] as $Child){
             ?>
             <a class="dropdown-item" href="<?php echo $Child['link']; ?>"><?php echo $Child['text']; ?></a>
             <?php
