@@ -43,21 +43,20 @@ function ShowNav($Which){
       if(strtolower($Nav['type'])=='dropdown'){
       ?>
       
-      <div class="dropdown show">
-        <a class="btn btn-secondary dropdown-toggle" href="<?php echo $Nav['link']; ?>" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <?php echo $Nav['text']; ?>
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <?php
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<?php echo $Nav['link']; ?>" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $Nav['text']; ?></a>
+          <div class="dropdown-menu">
+            
+            <?php
             foreach($Nav['Children'] as $Child){
-          ?>
-          <a class="dropdown-item" href="<?php echo $Child['link']; ?>"><?php echo $Child['text']; ?></a>
-          <?php
-          }
-          ?>
-        </div>
-      </div>
+            ?>
+            <a class="dropdown-item" href="<?php echo $Child['link']; ?>"><?php echo $Child['text']; ?></a>
+            <?php
+            } //<div class="dropdown-divider"></div>
+            ?>
+            
+          </div>
+        </li>
       
       <?php
       }
