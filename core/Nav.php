@@ -40,7 +40,7 @@ function ShowNav($Which){
  
       <?php
       }
-      if(strtolower($Nav['type'])=='dropdown){
+      if(strtolower($Nav['type'])=='dropdown'){
       ?>
       
       <div class="dropdown show">
