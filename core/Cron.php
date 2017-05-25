@@ -17,8 +17,8 @@ function Cron(){
   $CronTimestamp = time();
   
   $LastHourlyCron = intval(CacheDatabaseRead(md5('Last Hourly Cron')));
-  if($LastHourlyCron < ($CronTimestamp-60*60-CRONTIMESTAMPMARGIN)){
-    CacheDatabaseWrite(md5('Last Hourly Cron'),time());
+  if(!(date("Y-m-d H",$LastHourlyCron) == date('Y-m-d H',$CronTimestamp))){
+    CacheDatabaseWrite(md5('Last Hourly Cron'),$CronTimestamp);
     echo '<p>Hourly cron last ran '.ago($LastHourlyCron).'. Running now...</p>';
     Event('Hourly Cron');
   }else{
@@ -26,8 +26,8 @@ function Cron(){
   }
   
   $LastDailyCron = intval(CacheDatabaseRead(md5('Last Daily Cron')));
-  if($LastDailyCron < ($CronTimestamp-60*60*24-CRONTIMESTAMPMARGIN)){
-    CacheDatabaseWrite(md5('Last Daily Cron'),time());
+  if(!(date('Y-m-d',$LastDailyCron) == date('Y-m-d',$CronTimestamp))){
+    CacheDatabaseWrite(md5('Last Daily Cron'),$CronTimestamp);
     echo '<p>Daily cron last ran '.ago($LastDailyCron).'. Running now...</p>';
     Event('Daily Cron');
   }else{
@@ -35,8 +35,8 @@ function Cron(){
   }
   
   $LastWeeklyCron = intval(CacheDatabaseRead(md5('Last Weekly Cron')));
-  if($LastWeeklyCron < ($CronTimestamp-60*60*24*7-CRONTIMESTAMPMARGIN)){
-    CacheDatabaseWrite(md5('Last Weekly Cron'),time());
+  if(!(date('Y W',$LastWeeklyCron) == date('Y W',$CronTimestamp))){
+    CacheDatabaseWrite(md5('Last Weekly Cron'),$CronTimestamp);
     echo '<p>Weekly cron last ran '.ago($LastWeeklyCron).'. Running now...</p>';
     Event('Weekly Cron');
   }else{
