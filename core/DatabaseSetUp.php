@@ -10,14 +10,14 @@ function DatabaseSetUp(){
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
-    CREATE TABLE `FeedSyncFeed` (
+    CREATE TABLE `Feed` (
       `FeedID` int(11) NOT NULL PRIMARY KEY Auto_INCREMENT,
       `URL` varchar(255) NOT NULL,
       `MinimumInterval` int(11) NOT NULL DEFAULT '0',
       `LastFetch` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
     
-    CREATE TABLE IF NOT EXISTS `FeedSyncFetch` (
+    CREATE TABLE IF NOT EXISTS `FeedFetch` (
       `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
       `FeedID` int(11) NOT NULL,
       `URL` varchar(255) NOT NULL,
