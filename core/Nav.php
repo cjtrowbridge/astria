@@ -49,11 +49,21 @@ function ShowNav($Which){
             
             <?php
             foreach($Nav['children'] as $Child){
-            ?>
-            <a class="dropdown-item" href="<?php echo $Child['link']; ?>"><?php echo $Child['text']; ?></a>
-            <?php
-            } //<div class="dropdown-divider"></div>
-            ?>
+              if($Child['text']=='divider'){
+              ?>
+            
+              <div class="dropdown-divider"></div>
+            
+              <?php
+              }else{
+              ?>
+            
+              <a class="dropdown-item" href="<?php echo $Child['link']; ?>"><?php echo $Child['text']; ?></a>
+            
+              <?php
+                }
+              } 
+              ?>
             
           </div>
         </li>
