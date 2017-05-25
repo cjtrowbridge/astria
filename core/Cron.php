@@ -1,7 +1,5 @@
 <?php
 
-define('CRONTIMESTAMPMARGIN',60); //This is to allow for the time it takes to call the cron job, otherwise it would always jump ahead by one hour.
-
 Hook('Before Login','Cron();');
 
 function Cron(){
