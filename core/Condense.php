@@ -1,6 +1,20 @@
 <?php
 
 function PickBest($Array,$NumberOfSentences = 1){
+  $Text = '';
+  foreach($Array as $RawSentence){
+    $Text.= ' '.$RawSentence;
+  }
+  
+  //Clean Up The Text
+  $CleanText = CondenseCleanUp($Text);
+
+  //Score Words
+  $Scores = CondenseGetWordScores($CleanText);
+
+  //Score Words
+  CondenseSortByScore($Scores, 'Score');
+  
   $Sentences = array();
   foreach($Array as $RawSentence){
     $CleanSentence = CondenseCleanUp($RawSentence);
