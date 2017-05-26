@@ -1,6 +1,7 @@
 <?php
 
 function PickBest($Array,$NumberOfSentences = 1){
+  //TODO add array for words to ignore
   $Text = '';
   foreach($Array as $RawSentence){
     $Text.= ' '.$RawSentence;
