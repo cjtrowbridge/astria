@@ -127,6 +127,7 @@ function CondenseGetWordScores($Text){
       );
     }
   }
+  CondenseSortByScore($Scores, 'Score');
   return $Scores;
 }
 
