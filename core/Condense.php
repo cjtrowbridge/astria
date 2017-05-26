@@ -35,6 +35,8 @@ function PickBest($Array,$NumberOfSentences = 1){
 
   CondenseSortByScore($Sentences);
 
+  return $Sentences;
+  
   $Output=array();
   $NumberOfSentences-=1;
   for($i = 0; $i <= $NumberOfSentences; $i++){
