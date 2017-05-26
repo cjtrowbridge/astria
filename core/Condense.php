@@ -16,6 +16,7 @@ function PickBest($Array,$NumberOfSentences = 1){
   CondenseSortByScore($Scores, 'Score');
   
   $Sentences = array();
+  $Already=array();
   foreach($Array as $RawSentence){
     $CleanSentence = CondenseCleanUp($RawSentence);
 
@@ -25,12 +26,14 @@ function PickBest($Array,$NumberOfSentences = 1){
     foreach($SentenceScores as $SentenceScore){
       $ThisSentenceScore += $SentenceScore['Score'] * CondenseFindScore($SentenceScore['Word'],$Scores);
     }
-
-    $Sentences[$CleanSentence] = array(
-      'Raw'   => $RawSentence,
-      'Clean' => $CleanSentence,
-      'Score' => $ThisSentenceScore
-    );
+    if(!(isset($Already[md5($RawSentence)]))){
+      $Already[md5($RawSentence)]=md5($RawSentence);
+      $Sentences[] = array(
+        'Raw'   => $RawSentence,
+        'Clean' => $CleanSentence,
+        'Score' => $ThisSentenceScore
+      );
+    }
   }
 
   CondenseSortByScore($Sentences);
