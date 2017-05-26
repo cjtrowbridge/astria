@@ -26,7 +26,7 @@ function PickBest($Array,$NumberOfSentences = 1){
       $ThisSentenceScore += $SentenceScore['Score'] * CondenseFindScore($SentenceScore['Word'],$Scores);
     }
 
-    $Sentences[] = array(
+    $Sentences[$CleanSentence] = array(
       'Raw'   => $RawSentence,
       'Clean' => $CleanSentence,
       'Score' => $ThisSentenceScore
@@ -34,8 +34,6 @@ function PickBest($Array,$NumberOfSentences = 1){
   }
 
   CondenseSortByScore($Sentences);
-
-  return $Sentences;
   
   $Output=array();
   $NumberOfSentences-=1;
