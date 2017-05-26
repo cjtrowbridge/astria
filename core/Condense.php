@@ -1,7 +1,7 @@
 <?php
 
 function PickBest($Array,$NumberOfSentences = 1){
-  //TODO add array for words to ignore
+  //TODO remove from list of headlines each word which was a previous top word. ie. "trump" is most popular word in first headline, so remove any headlines with that word before calculating second headline.
   $Text = '';
   foreach($Array as $RawSentence){
     $Text.= ' '.$RawSentence;
