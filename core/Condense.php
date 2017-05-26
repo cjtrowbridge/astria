@@ -35,10 +35,10 @@ function PickBest($Array,$NumberOfSentences = 1){
 
   CondenseSortByScore($Sentences);
 
-  $Output='';
+  $Output=array();
   $NumberOfSentences-=1;
   for($i = 0; $i <= $NumberOfSentences; $i++){
-   $Output = trim($Output).' '.$Sentences[$i]['Raw'];
+   $Output[] = $Sentences[$i]['Raw'];
   }
 
   return $Output;
