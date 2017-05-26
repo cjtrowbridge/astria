@@ -1,5 +1,35 @@
 <?php
 
+function PickBest($Array,$NumberOfSentences = 1){
+  $Sentences = array();
+  foreach($Array as $RawSentence){
+    $CleanSentence = CondenseCleanUp($RawSentence);
+
+    $ThisSentenceScore = 0;
+
+    $SentenceScores = CondenseGetWordScores($CleanSentence);
+    foreach($SentenceScores as $SentenceScore){
+      $ThisSentenceScore += $SentenceScore['Score'] * CondenseFindScore($SentenceScore['Word'],$Scores);
+    }
+
+    $Sentences[] = array(
+      'Raw'   => $RawSentence,
+      'Clean' => $CleanSentence,
+      'Score' => $ThisSentenceScore
+    );
+  }
+
+  CondenseSortByScore($Sentences);
+
+  $Output='';
+  $NumberOfSentences-=1;
+  for($i = 0; $i <= $NumberOfSentences; $i++){
+   $Output = trim($Output).' '.$Sentences[$i]['Raw'];
+  }
+
+  return $Output;
+}
+
 function Condense($Text,$NumberOfSentences = 1){
   //Clean Up The Text
   $CleanText = CondenseCleanUp($Text);
