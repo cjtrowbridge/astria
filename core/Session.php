@@ -73,6 +73,7 @@ function AstriaSessionDestroy(){
   unset($_COOKIE[$CookieName]);
   setcookie($CookieName, null, -1, '/');
   include_once('Cache.php');
+  Query("DELETE FROM Session WHERE SessionHash LIKE '".$ASTRIA['Session']['SessionHash']."'");
   DeleteCache($ASTRIA['Session']['SessionHash']);
   header('Location: /');	
   exit;
