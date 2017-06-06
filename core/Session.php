@@ -13,6 +13,10 @@ function AstriaSessionSetUp(){
     
     MakeSureDBConnected();
     
+    if(!(isset($_SERVER['HTTP_USER_AGENT'])){
+      $_SERVER['HTTP_USER_AGENT']='None';
+    }
+    
     $SessionHash         = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5(uniqid(true)));
     $UserAgentHashClean  = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],md5($_SERVER['HTTP_USER_AGENT']));
     $UserAgentClean      = mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$_SERVER['HTTP_USER_AGENT']);
