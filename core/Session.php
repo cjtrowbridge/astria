@@ -13,7 +13,7 @@ function AstriaSessionSetUp(){
     
     MakeSureDBConnected();
     
-    if(!(isset($_SERVER['HTTP_USER_AGENT'])){
+    if(!(isset($_SERVER['HTTP_USER_AGENT']))){
       $_SERVER['HTTP_USER_AGENT']='None';
     }
     
