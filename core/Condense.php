@@ -42,7 +42,7 @@ function PickBest($Array,$NumberOfSentences = 1){
   $Output=array();
   $NumberOfSentences-=1;
   for($i = 0; $i <= $NumberOfSentences; $i++){
-    if(isset($Sentences[$i]){
+    if(isset($Sentences[$i])){
      $Output[] = $Sentences[$i]['Raw'];
     }
   }
