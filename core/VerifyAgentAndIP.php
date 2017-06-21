@@ -5,7 +5,7 @@ function VerifyAgentAndIP(){
 	global $ASTRIA;
 	
 	if($ASTRIA['Session']==null){
-		die('Session was null');	
+		//die('Session was null');	
 	}
 	
 	
