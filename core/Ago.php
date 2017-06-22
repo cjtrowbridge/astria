@@ -5,11 +5,12 @@ function ago($time){
     Ago accepts any date or time and returns a string explaining how long ago that was.
     For example, "6 days ago" or "8 seconds ago"
   */
+  $Original = $time;
   if(intval($time)==0){
     $time=strtotime($time);
   }
   if(($time==0)||(empty($time))){
-    return 'Never';
+    return '<span title="'.$Original.'/'.$time.'">Never</span>';
   }
   $periods = array("second", "minute", "hour", "day", "week", "month", "year", "decade");
   $lengths = array("60","60","24","7","4.35","12","10");
