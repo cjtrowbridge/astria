@@ -6,9 +6,8 @@ function ago($time){
     For example, "6 days ago" or "8 seconds ago"
   */
   $Original = $time;
-  if(intval($time)==0){
+  if(is_int($time)===false){
     $time=strtotime($time);
-    echo 'wat';
   }
   if(($time==0)||(empty($time))){
     return 'Never';
