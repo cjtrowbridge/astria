@@ -5,6 +5,7 @@ function ago($time){
     Ago accepts any date or time and returns a string explaining how long ago that was.
     For example, "6 days ago" or "8 seconds ago"
   */
+  $Original = $time;
   if(intval($time)==0){
     $time=strtotime($time);
   }
