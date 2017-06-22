@@ -8,6 +8,7 @@ function ago($time){
   $Original = $time;
   if(intval($time)==0){
     $time=strtotime($time);
+    echo 'wat';
   }
   if(($time==0)||(empty($time))){
     return 'Never';
