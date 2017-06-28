@@ -42,32 +42,17 @@ function PickBest2($Array,$NumberOfSentences = 1){
 function ElementsContaining($Array,$String){
   $String = strtolower($String);
   $Output = array();
-  echo '<p>finding elements containing '.$String.' in ';
-  pd($Array);
-  echo '</p>';
-  
   foreach($Array as $Element){
     $Test = strtolower($Element);
-    echo '<p>checking '.$Test.'</p>';
     if(strpos($Test,$String) !== false){
-      echo '<p>match found.</p>';
       $Output[] = $Element;
-    }else{
-      echo '<p>no match found.</p>';
     }
+    
   }
-  pd($Output);
   return $Output;
 }
 
 function FindMostImportantWords($Array,$Ignore = array()){
-  if(isset($_GET['verbose'])){
-    echo '<p>Finding most important words in: ';
-    pd($Array);
-    echo ' while ignoring ';
-    pd($Ignore);
-    echo '</p>';
-  }
   $Text = '';
   
   foreach($Array as $RawSentence){
