@@ -1,7 +1,6 @@
 <?php
 
 function PickBest2($Array,$NumberOfSentences = 1){
-  pd($Array);
   $Output = array();
   $RemainingElements = $Array;
   $UsedWords = array();
@@ -27,6 +26,8 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $UsedWords[] = $This['keyword'];
     
     //Pick Best from those stories
+    echo '<p>diving from keyword '.$This['keyword'].' into subset:</p>';
+    pd($SubsetStories);
     $This['element'] = PickBest($SubsetStories);
     
     $Output[] = $This;
