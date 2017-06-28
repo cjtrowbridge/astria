@@ -53,7 +53,7 @@ function ElementsContaining($Array,$String){
 function FindMostImportantWords($Array,$Ignore = array()){
   if(isset($_GET['verbose'])){
     echo '<p>Finding most important words in: ';
-    pd($Array)
+    pd($Array);
     echo ' while ignoring ';
     pd($Ignore);
     echo '</p>';
