@@ -17,7 +17,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     //Get most important word
     $Words = FindMostImportantWords($RemainingElements,$UsedWords);
-    $This['keyword'] = $Words[0]['Word'];
+    $UsedWords[$Words[0]['Word']] = $Words[0]['Word'];
     
     //Get stories with that word
     $SubsetStories = ElementsContaining($RemainingElements,$This['keyword']);
@@ -28,8 +28,8 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $This['keywords'] = $Words[0]['Word'].','.$Words[1]['Word'];
     
     //Ignore both words from now on
-    $UsedWords[$This['keyword']] = $Words[0]['Word'];
-    $UsedWords[$This['keyword']] = $Words[1]['Word'];
+    $UsedWords[$Words[0]['Word']] = $Words[0]['Word'];
+    $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
     
     //Get stories with both of those words
     $SubsetStories = ElementsContaining($RemainingElements,$Words[0]['Word']);
