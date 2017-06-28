@@ -1,7 +1,7 @@
 <?php
 
 function PickBest2($Array,$NumberOfSentences = 1){
-  
+  pd($Array);
   $Output = array();
   $RemainingElements = $Array;
   $UsedWords = array();
