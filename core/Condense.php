@@ -31,7 +31,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $UsedWords[$This['keyword']] = $This['keyword'];
     
     //Pick Best from those stories
-    echo '<p>diving from keyword '.$This['keyword'].' into subset:</p>';
+    echo '<p>diving from keyword "'.$This['keyword'].'" into subset:</p>';
     pd($SubsetStories);
     $This['element'] = PickBest($SubsetStories);
     
@@ -202,9 +202,12 @@ function CondenseFindScore($Word,$Scores){
 function CondenseGetWordScores($Text){
   $WordScores = array_count_values(str_word_count($Text, 1));
 
-  $Scores  = array();
-  $Ignore=array('over','new','a','the','s','and','he','she','said','his','hers','with','in','is','of','that','have','not','on','to','be','it','like','only','was','from','more','many','so','who','also','would','an','at','doesn','t','i','for','think','be','function','var','com','if','in','has','been','or','are','you');
-
+  $Scores = array();
+  //$Ignore = array('over','new','as','after','says','a','the','s','and','he','she','said','his','hers','with','in','is','of','that','have','not','on','to','be','it','like','only','was','from','more','many','so','who','also','would','an','at','doesn','t','i','for','think','be','function','var','com','if','in','has','been','or','are','you');
+  
+  $Ignore = file_get_contents('core/UnimportantWords.txt');
+  $Ignore = explode(PHP_EOL,$Ignore);
+  
   foreach($WordScores as $Word => $Score){
     if(!(
       in_array($Word,$Ignore)||
