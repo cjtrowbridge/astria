@@ -37,6 +37,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     //Pick Best from those stories
     $This['element'] = PickBest($SubsetStories);
+    $This['summary'] = PickBest($SubsetStories,100);
     
     $Output[] = $This;
     
