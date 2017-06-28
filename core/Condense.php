@@ -47,7 +47,7 @@ function ElementsContaining($Array,$String){
       $Output[] = $Element;
     }
   }
-  
+  pd($Output);
   return $Output;
 }
 
