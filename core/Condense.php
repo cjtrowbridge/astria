@@ -33,6 +33,7 @@ function ElementsContaining($Array,$String){
   $Output = array();
   
   foreach($Array as $Element){
+    pd($String);
     if(strpos($Element,$String) !== false){
       $Output[] = $Element;
     }
