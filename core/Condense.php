@@ -13,6 +13,11 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     //Get most important word
     $Words = FindMostImportantWords($RemainingElements,$UsedWords);
+    if(!(isset($Words[0]))){
+      echo "<p>ERROR: Can't find a top rated word.</p>";
+      pd($Words);
+      exit;
+    }
     $This['keyword'] = $Words[0]['Word'];
     
     //Get stories with that word
