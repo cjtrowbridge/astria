@@ -49,7 +49,7 @@ function FindMostImportantWords($Array,$Ignore = array()){
   
   //Remove any ignored words
   foreach($Ignore as $Bad){
-    $Text = str_replace($Bad,'',$Text;
+    $Text = str_replace($Bad,'',$Text);
   }
   
   //Clean Up The Text
