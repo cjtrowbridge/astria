@@ -1,8 +1,13 @@
 <?php
 
 function PickBest2($Array,$NumberOfSentences = 1){
+  
+  foreach($Array as $Element){
+    //This prevents syndication duplicates from having extra weight.
+    $RemainingElements[$Element] = $Element;
+  }
+  
   $Output = array();
-  $RemainingElements = $Array;
   $UsedWords = array();
   
   for($i = 1; $i <= $NumberOfSentences; $i++){
@@ -23,10 +28,9 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $SubsetStories = ElementsContaining($RemainingElements,$This['keyword']);
     
     //Ignore that word from now on
-    $UsedWords[] = $This['keyword'];
+    $UsedWords[$This['keyword']] = $This['keyword'];
     
     //Pick Best from those stories
-    pd($UsedWords);
     echo '<p>diving from keyword '.$This['keyword'].' into subset:</p>';
     pd($SubsetStories);
     $This['element'] = PickBest($SubsetStories);
