@@ -47,7 +47,7 @@ function ElementsContaining($Array,$String){
   
   foreach($Array as $Element){
     if(strpos($Element,$String) !== false){
-      echo '<p>adding '$Element.'</p>';
+      echo '<p>adding '.$Element.'</p>';
       $Output[] = $Element;
     }
   }
