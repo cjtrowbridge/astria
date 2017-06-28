@@ -43,7 +43,7 @@ function ElementsContaining($Array,$String){
   $Output = array();
   echo '<p>finding elements containing '.$String.' in ';
   pd($Array);
-  echo '</p>'
+  echo '</p>';
   
   foreach($Array as $Element){
     if(strpos($Element,$String) !== false){
