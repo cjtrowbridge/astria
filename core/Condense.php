@@ -41,6 +41,9 @@ function PickBest2($Array,$NumberOfSentences = 1){
 
 function ElementsContaining($Array,$String){
   $Output = array();
+  echo '<p>finding elements with '.$String.' in ';
+  pd($Array);
+  echo '</p>';
   
   foreach($Array as $Element){
     if(strpos($Element,$String) !== false){
