@@ -40,15 +40,20 @@ function PickBest2($Array,$NumberOfSentences = 1){
 }
 
 function ElementsContaining($Array,$String){
+  $String = strtolower($String);
   $Output = array();
   echo '<p>finding elements containing '.$String.' in ';
   pd($Array);
   echo '</p>';
   
   foreach($Array as $Element){
-    if(strpos($Element,$String) !== false){
-      echo '<p>adding '.$Element.'</p>';
+    $Test = strtolower($Element);
+    echo '<p>checking '.$Test.'</p>';
+    if(strpos($Test,$String) !== false){
+      echo '<p>match found.</p>';
       $Output[] = $Element;
+    }else{
+      echo '<p>no match found.</p>';
     }
   }
   pd($Output);
