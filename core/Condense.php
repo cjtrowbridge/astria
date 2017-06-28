@@ -64,8 +64,12 @@ function FindMostImportantWords($Array,$Ignore = array()){
     $Text.= ' '.$RawSentence;
   }
   
+  //Make this case insensitive.
+  $Text = strtolower($Text);
+  
   //Remove any ignored words
   foreach($Ignore as $Bad){
+    $Bad=strtolower($Bad);
     $Text = str_replace($Bad,'',$Text);
   }
   
