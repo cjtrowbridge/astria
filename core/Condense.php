@@ -7,6 +7,8 @@ function PickBest2($Array,$NumberOfSentences = 1){
   $UsedWords = array();
   
   for($i = 1; $i <= $NumberOfSentences; $i++){
+    Event('Looking for best element '.$i);
+    
     $This = array();
     
     //Get most important word
@@ -24,6 +26,8 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     $Output[] = $This;
     
+    Event('Done looking for best element '.$i);
+    
   }
   
   return $Output;
@@ -33,7 +37,6 @@ function ElementsContaining($Array,$String){
   $Output = array();
   
   foreach($Array as $Element){
-    pd($String);
     if(strpos($Element,$String) !== false){
       $Output[] = $Element;
     }
