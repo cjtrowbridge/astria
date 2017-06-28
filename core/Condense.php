@@ -17,18 +17,23 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     //Get most important word
     $Words = FindMostImportantWords($RemainingElements,$UsedWords);
-    if(!(isset($Words[0]))){
-      echo "<p>ERROR: Can't find a top rated word.</p>";
-      pd($Words);
-      exit;
-    }
     $This['keyword'] = $Words[0]['Word'];
     
     //Get stories with that word
     $SubsetStories = ElementsContaining($RemainingElements,$This['keyword']);
     
-    //Ignore that word from now on
-    $UsedWords[$This['keyword']] = $This['keyword'];
+    //Get most important two words within this subset
+    $Words = FindMostImportantWords($SubsetStories,$UsedWords);
+    
+    $This['keywords'] = $Words[0]['Word'].','.$Words[1]['Word'];
+    
+    //Ignore both words from now on
+    $UsedWords[$This['keyword']] = $Words[0]['Word'];
+    $UsedWords[$This['keyword']] = $Words[1]['Word'];
+    
+    //Get stories with both of those words
+    $SubsetStories = ElementsContaining($RemainingElements,$Words[0]['Word']);
+    $SubsetStories = ElementsContaining($RemainingElements,$Words[1]['Word']);
     
     //Pick Best from those stories
     $This['element'] = PickBest($SubsetStories);
@@ -51,6 +56,24 @@ function ElementsContaining($Array,$String){
       $Output[] = $Element;
     }
     
+  }
+  return $Output;
+}
+
+function ElementsContainingArray($Elements,$Containing){
+  $String = strtolower($String);
+  $Output = array();
+  foreach($Elements as $Element){
+    $Test = strtolower($Element);
+    $Keep = true;
+    foreach($Containing as $Word){
+      if(strpos($Test,$Word) == false){
+        $Keep = false;
+      }
+    }
+    if($Keep){
+      $Output[] = $Element;
+    }
   }
   return $Output;
 }
@@ -81,7 +104,7 @@ function FindMostImportantWords($Array,$Ignore = array()){
   CondenseSortByScore($Scores, 'Score');
   
   //TODO run an edit distance on these and consolidate similar words
-                        
+
   return $Scores;
 }
 
