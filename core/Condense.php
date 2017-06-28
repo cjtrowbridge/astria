@@ -38,6 +38,8 @@ function PickBest2($Array,$NumberOfSentences = 1){
     //Pick Best from those stories
     $This['element'] = PickBest($SubsetStories);
     $This['summary'] = PickBest($SubsetStories,100);
+    $This['links']   = GetStories($This['summary']);
+    $This['summary'] = implode(' ',$This['summary']);
     
     $Output[] = $This;
     
@@ -46,6 +48,12 @@ function PickBest2($Array,$NumberOfSentences = 1){
   }
   
   return $Output;
+}
+
+function GetStories($Headlines){
+  //find the original stories matching each headline, and include the entire row from the database into an array which is returned.
+  
+  return array('Coming Soon.');
 }
 
 function ElementsContaining($Array,$String){
