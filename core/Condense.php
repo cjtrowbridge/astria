@@ -1,5 +1,71 @@
 <?php
 
+function PickBest2($Array,$NumberOfSentences = 1){
+  
+  $Output = array();
+  $RemainingElements = $Array;
+  $UsedWords = array();
+  
+  for($i = 1; $i <= $NumberOfSentences; $i++){
+    $This = array();
+    
+    //Get most important word
+    $Words = FindMostImportantWords($RemainingElements,$UsedWords);
+    $This['keyword'] = $Words[0];
+    
+    //Get stories with that word
+    $SubsetStories = ElementsContaining($RemainingElements,$This['keyword']);
+    
+    //Ignore that word from now on
+    $UsedWords[] = $This['keyword'];
+    
+    //Pick Best from those stories
+    $This['element'] = PickBest($SubsetStories);
+    
+    $Output[] = $This;
+    
+  }
+  
+  return $Output;
+}
+
+function ElementsContaining($Array,$String){
+  $Output = array();
+  
+  foreach($Array as $Element){
+    if(strpos($a, 'are') !== false){
+      $Output[] = $Element;
+    }
+  }
+  
+  return $Output;
+}
+
+function FindMostImportantWords($Array,$Ignore = array()){
+  $Text = '';
+  foreach($Array as $RawSentence){
+    $Text.= ' '.$RawSentence;
+  }
+  
+  //Remove any ignored words
+  foreach($Ignore as $Bad){
+    $Text = str_replace($Bad,'',$Text;
+  }
+  
+  //Clean Up The Text
+  $CleanText = CondenseCleanUp($Text);
+
+  //Score Words
+  $Scores = CondenseGetWordScores($CleanText);
+
+  //Sort Words by Score
+  CondenseSortByScore($Scores, 'Score');
+  
+  //TODO run an edit distance on these and consolidate similar words
+                        
+  return $Scores;
+}
+
 function PickBest($Array,$NumberOfSentences = 1){
   //TODO remove from list of headlines each word which was a previous top word. ie. "trump" is most popular word in first headline, so remove any headlines with that word before calculating second headline.
   $Text = '';
@@ -140,4 +206,35 @@ function CondenseSortByScore(&$arr, $col = 'Score', $dir = SORT_DESC) {
     }
 
     array_multisort($sort_col, $dir, $arr);
+}
+
+
+
+
+function Condensr($LongformText,$NumberOfSentences=1){
+   $URL='https://api.condensr.io/v1';
+  
+  $Arguments=array(
+    'LongformText'      => $LongformText,
+    'NumberOfSentences' => $NumberOfSentences
+  );
+  
+  //Set up cURL  
+  $cURL = curl_init();
+  curl_setopt($cURL,CURLOPT_URL, $URL);
+  curl_setopt($cURL,CURLOPT_POST, count($Arguments));
+  $URLArguments = http_build_query($Arguments);
+  curl_setopt($cURL,CURLOPT_POSTFIELDS, $URLArguments);
+  curl_setopt($cURL,CURLOPT_RETURNTRANSFER, true);
+  
+  //Run cURL and close it
+  $Data = curl_exec($cURL);
+  if(curl_exec($cURL) === false){
+    echo 'Curl error: ' . curl_error($cURL);
+  }
+  curl_close($cURL);
+  
+  $Data=json_decode($Data,true);
+  
+  return $Data;
 }
