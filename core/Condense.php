@@ -36,7 +36,12 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $SubsetStories = ElementsContaining($RemainingElements,$Words[1]['Word']);
     
     //Pick Best from those stories
-    $This['element'] = PickBest($SubsetStories)[0];
+    $Best = PickBest($SubsetStories);
+    if(!(isset($Best[0]))){
+      continue;
+    }
+    
+    $This['element'] = $Best[0];
     $This['summary'] = PickBest($SubsetStories,100);
     $This['links']   = GetStories($This['summary']);
     $This['summary'] = implode(' ',$This['summary']);
