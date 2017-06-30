@@ -298,7 +298,6 @@ function CondenseGetWordScores($Text){
         ){
           $Word['Score'] += $Word2['Score'];
           unset($Word[$Index2]);
-          echo '<p>combined "'.$Word2['Word'].'" into "'.$Word['Word'].'"</p>';
         }
       }
     }
