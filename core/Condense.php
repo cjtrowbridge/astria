@@ -299,8 +299,10 @@ function CondenseGetWordScores($Text){
         */
         if(
           $Levenshtein==1 &&
-          $Word['Score'] == $Word2['Score'].'s'||
-          $Word['Score'].'s' == $Word2['Score']
+          (
+            $Word['Score'] == $Word2['Score'].'s'||
+            $Word['Score'].'s' == $Word2['Score']
+          )
         ){
           $Word['Score'] += $Word2['Score'];
           unset($Word[$Index2]);
