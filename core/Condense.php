@@ -141,6 +141,7 @@ function FindMostImportantWords($Array,$Ignore = array()){
   
   echo '<p>chicken dinner: ';
   var_dump($Scores[0]);
+  var_dump($Scores[1]);
   echo '</p>';
   
   //TODO run an edit distance on these and consolidate similar words
