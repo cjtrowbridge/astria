@@ -95,10 +95,12 @@ function FindMostImportantWords($Array,$Ignore = array()){
   $Text = '';
   
   foreach($Array as $RawSentence){
-    //Remove any ignored words
+    
+    //skip any sentences containing ignored words
     $Keep = true;
+    
     foreach($Ignore as $Bad){
-      if(strpos($RawSentence,$Bad) !== false){
+      if(!(strpos($RawSentence,$Bad) === false)){
         $Keep = false;
       }
     }
