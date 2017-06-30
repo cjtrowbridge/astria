@@ -29,6 +29,11 @@ function PickBest2($Array,$NumberOfSentences = 1){
     //Get most important two words within this subset
     $Words = FindMostImportantWords($SubsetStories,$UsedWords);
     
+    
+    if($Words[0]['Word']==''){
+      continue;
+    }
+    
     $This['keywords'] = $Words[0]['Word'].','.$Words[1]['Word'];
     
     //Ignore both words from now on
@@ -36,9 +41,6 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
     
     //Get stories with both of those words
-    if($Words[0]['Word']==''){
-      continue;
-    }
     $SubsetStories = ElementsContaining($RemainingElements,$Words[0]['Word']);
     if(!($Words[1]['Word']=='')){
       $SubsetStories = ElementsContaining($RemainingElements,$Words[1]['Word']);
@@ -288,12 +290,18 @@ function CondenseGetWordScores($Text){
     foreach($Scores as $Index2 => &$Word2){
       if(!($Word['Word']==$Word2['Word'])){
         $Levenshtein = levenshtein($Word['Word'],$Word2['Word']);
+        /*
         $ThisLevenshtein[]=array(
           'Word 1'      => $Word['Word'],
           'Word 2'      => $Word2['Word'],
           'Levenshtein' => $Levenshtein
         );
-        if($Levenshtein==1){
+        */
+        if(
+          $Levenshtein==1 &&
+          $Word['Score'] == $Word2['Score'].'s'||
+          $Word['Score'].'s' == $Word2['Score']
+        ){
           $Word['Score'] += $Word2['Score'];
           unset($Word[$Index2]);
           echo '<p>combined "'.$Word2['Word'].'" into "'.$Word['Word'].'"</p>';
