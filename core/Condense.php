@@ -95,17 +95,22 @@ function FindMostImportantWords($Array,$Ignore = array()){
   $Text = '';
   
   foreach($Array as $RawSentence){
-    $Text.= ' '.$RawSentence;
+    //Remove any ignored words
+    $Keep = true;
+    foreach($Ignore as $Bad){
+      if($pos !== false){
+        $Keep = false;
+      }
+    }
+
+    if($Keep){
+      $Text.= ' '.$RawSentence;
+    }
+    
   }
   
   //Make this case insensitive.
   $Text = strtolower($Text);
-  
-  //Remove any ignored words
-  foreach($Ignore as $Bad){
-    $Bad=strtolower($Bad);
-    $Text = str_replace($Bad,'',$Text);
-  }
   
   //Clean Up The Text
   $CleanText = CondenseCleanUp($Text);
