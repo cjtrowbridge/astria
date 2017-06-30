@@ -66,3 +66,8 @@ st
 man
 woman
 ap
+by
+but
+into
+cup
+assignment
