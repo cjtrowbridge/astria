@@ -2,6 +2,10 @@
 
 function PickBest2($Array,$NumberOfSentences = 1){
   
+  global $levenshtein;
+  $levenshtein=array();
+    
+  
   foreach($Array as $Element){
     //This prevents syndication duplicates from having extra weight.
     $RemainingElements[$Element] = $Element;
@@ -53,6 +57,11 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $Output[] = $This;
     Event('Done looking for best element '.$i);
     
+  }
+  
+  if(isset($_GET['levenshtein'])){
+    echo ArrTabler($levenshtein);
+    exit;
   }
   
   return $Output;
@@ -126,7 +135,9 @@ function FindMostImportantWords($Array,$Ignore = array()){
 
   //Score Words
   $Scores = CondenseGetWordScores($CleanText);
-
+  
+  
+  
   //Sort Words by Score
   CondenseSortByScore($Scores, 'Score');
   
@@ -251,7 +262,6 @@ function CondenseGetWordScores($Text){
   $WordScores = array_count_values(str_word_count($Text, 1));
 
   $Scores = array();
-  //$Ignore = array('over','new','as','after','says','a','the','s','and','he','she','said','his','hers','with','in','is','of','that','have','not','on','to','be','it','like','only','was','from','more','many','so','who','also','would','an','at','doesn','t','i','for','think','be','function','var','com','if','in','has','been','or','are','you');
   
   $Ignore = file_get_contents('core/UnimportantWords.txt');
   $Ignore = explode(PHP_EOL,$Ignore);
@@ -267,6 +277,18 @@ function CondenseGetWordScores($Text){
       );
     }
   }
+  
+  //Combine words with close edit-distances
+  foreach($Scores as $Index => $Word){
+    foreach($Scores2 as $Index2 => $Word2){
+      $levenshtein[]=array(
+        $Word['Word'] as 'Word 1',
+        $Word2['Word'] as 'Word 2',
+        levenshtein($Word['Word'],$Word2['Word']) as 'Levenshtein'
+      );
+    }
+  }
+  
   CondenseSortByScore($Scores, 'Score');
   return $Scores;
 }
