@@ -43,8 +43,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     
     $This['element'] = $Best[0];
     $This['summary'] = PickBest($SubsetStories,100);
-    $This['links']   = GetStories($This['summary']);
-    $This['summary'] = implode(' ',$This['summary']);
+    $This['summary'] = implode('. ',$This['summary']);
     
     $Output[] = $This;
     
