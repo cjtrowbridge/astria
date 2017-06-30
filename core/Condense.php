@@ -125,7 +125,15 @@ function FindMostImportantWords($Array,$Ignore = array()){
     
   }
   
+  $Scores = ScoreWords($Text);
+  return $Scores;
+}
+
+
+function ScoreWords($Text){
   
+  //Make it all lower case
+  $Text = strtolower($Text);
   
   //Clean Up The Text
   $CleanText = CondenseCleanUp($Text);
@@ -133,13 +141,9 @@ function FindMostImportantWords($Array,$Ignore = array()){
   //Score Words
   $Scores = CondenseGetWordScores($CleanText);
   
-  
-  
   //Sort Words by Score
   CondenseSortByScore($Scores, 'Score');
   
-  //TODO run an edit distance on these and consolidate similar words
-
   return $Scores;
 }
 
