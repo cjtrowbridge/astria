@@ -63,3 +63,5 @@ could
 yes
 no
 st
+man
+woman
