@@ -60,7 +60,10 @@ function PickBest2($Array,$NumberOfSentences = 1){
   }
   
   if(isset($_GET['levenshtein'])){
-    echo ArrTabler($levenshtein);
+    
+    foreach($levenshtein as $t){
+      echo ArrTabler($t);
+    }
     exit;
   }
   
@@ -279,16 +282,18 @@ function CondenseGetWordScores($Text){
   }
   
   //Combine words with close edit-distances
-  global $levenshtein;
+  $ThislLevenshtein = array();
   foreach($Scores as $Index => $Word){
     foreach($Scores as $Index2 => $Word2){
-      $levenshtein[]=array(
+      $ThisLevenshtein[]=array(
         'Word 1'      => $Word['Word'],
         'Word 2'      => $Word2['Word'],
         'Levenshtein' => levenshtein($Word['Word'],$Word2['Word'])
       );
     }
   }
+  global $levenshtein;
+  $levenshtein[]=$ThisLevenshtein;
   
   CondenseSortByScore($Scores, 'Score');
   return $Scores;
