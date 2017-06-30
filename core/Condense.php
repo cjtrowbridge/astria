@@ -99,6 +99,9 @@ function FindMostImportantWords($Array,$Ignore = array()){
   
   foreach($Array as $RawSentence){
     
+    //Make this case insensitive.
+    $RawSentence = strtolower($RawSentence);
+    
     //skip any sentences containing ignored words
     $Keep = true;
     
@@ -120,8 +123,7 @@ function FindMostImportantWords($Array,$Ignore = array()){
     
   }
   
-  //Make this case insensitive.
-  $Text = strtolower($Text);
+  
   
   //Clean Up The Text
   $CleanText = CondenseCleanUp($Text);
