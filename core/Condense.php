@@ -51,7 +51,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $This['summary'] = implode('. ',$This['summary']);
     
     $Output[] = $This;
-    
+    pd($This);
     Event('Done looking for best element '.$i);
     
   }
