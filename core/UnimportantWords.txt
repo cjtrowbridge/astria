@@ -73,3 +73,5 @@ cup
 assignment
 now
 game
+effect
+family
