@@ -283,9 +283,9 @@ function CondenseGetWordScores($Text){
   foreach($Scores as $Index => $Word){
     foreach($Scores as $Index2 => $Word2){
       $levenshtein[]=array(
-        $Word['Word']                             => 'Word 1',
-        $Word2['Word']                            => 'Word 2',
-        levenshtein($Word['Word'],$Word2['Word']) => 'Levenshtein'
+        'Word 1'      => $Word['Word'],
+        'Word 2'      => $Word2['Word'],
+        'Levenshtein' => levenshtein($Word['Word'],$Word2['Word'])
       );
     }
   }
