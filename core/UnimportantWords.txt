@@ -150,3 +150,5 @@ week
 -week
 day
 -day
+accord
+according
