@@ -32,7 +32,7 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
     
     //Get stories with both of those words
-    if(!($Words[0]['Word']=='')){
+    if($Words[0]['Word']==''){
       continue;
     }
     $SubsetStories = ElementsContaining($RemainingElements,$Words[0]['Word']);
@@ -51,7 +51,6 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $This['summary'] = implode('. ',$This['summary']);
     
     $Output[] = $This;
-    pd($This);
     Event('Done looking for best element '.$i);
     
   }
