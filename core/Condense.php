@@ -280,7 +280,7 @@ function CondenseGetWordScores($Text){
   
   //Combine words with close edit-distances
   foreach($Scores as $Index => $Word){
-    foreach($Scores2 as $Index2 => $Word2){
+    foreach($Scores as $Index2 => $Word2){
       $levenshtein[]=array(
         $Word['Word']                             => 'Word 1',
         $Word2['Word']                            => 'Word 2',
