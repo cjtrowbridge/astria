@@ -92,6 +92,9 @@ function ElementsContainingArray($Elements,$Containing){
 }
 
 function FindMostImportantWords($Array,$Ignore = array()){
+  echo '<hr>';
+  echo '<p>finding word scores. skipping:</p>';
+  pd($Ignore);
   $Text = '';
   
   foreach($Array as $RawSentence){
