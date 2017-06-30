@@ -97,9 +97,6 @@ function ElementsContainingArray($Elements,$Containing){
 }
 
 function FindMostImportantWords($Array,$Ignore = array()){
-  echo '<hr>';
-  echo '<p>finding word scores. skipping:</p>';
-  pd($Ignore);
   $Text = '';
   
   foreach($Array as $RawSentence){
@@ -110,10 +107,8 @@ function FindMostImportantWords($Array,$Ignore = array()){
     //skip any sentences containing ignored words
     $Keep = true;
     
-    echo '<p>checking: '.$RawSentence.'</p>';
     
     foreach($Ignore as $Bad){
-      echo '<p>for '.$Bad.'</p>';
       if(!(strpos($RawSentence,$Bad) === false)){
         $Keep = false;
       }
@@ -121,9 +116,6 @@ function FindMostImportantWords($Array,$Ignore = array()){
 
     if($Keep){
       $Text.= ' '.$RawSentence;
-      echo '<p>looks good</p>';
-    }else{
-      echo '<p>skip it</p>';
     }
     
   }
@@ -138,11 +130,6 @@ function FindMostImportantWords($Array,$Ignore = array()){
 
   //Sort Words by Score
   CondenseSortByScore($Scores, 'Score');
-  
-  echo '<p>chicken dinner: ';
-  var_dump($Scores[0]);
-  var_dump($Scores[1]);
-  echo '</p>';
   
   //TODO run an edit distance on these and consolidate similar words
 
