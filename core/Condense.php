@@ -285,11 +285,13 @@ function CondenseGetWordScores($Text){
   $ThislLevenshtein = array();
   foreach($Scores as $Index => $Word){
     foreach($Scores as $Index2 => $Word2){
-      $ThisLevenshtein[]=array(
-        'Word 1'      => $Word['Word'],
-        'Word 2'      => $Word2['Word'],
-        'Levenshtein' => levenshtein($Word['Word'],$Word2['Word'])
-      );
+      if(!($Word['Word']==$Word2['Word'])){
+        $ThisLevenshtein[]=array(
+          'Word 1'      => $Word['Word'],
+          'Word 2'      => $Word2['Word'],
+          'Levenshtein' => levenshtein($Word['Word'],$Word2['Word'])
+        );
+      }
     }
   }
   global $levenshtein;
