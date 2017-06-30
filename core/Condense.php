@@ -2,8 +2,8 @@
 
 function PickBest2($Array,$NumberOfSentences = 1){
   
-  global $levenshtein;
-  $levenshtein=array();
+  //global $levenshtein;
+  //$levenshtein=array();
     
   
   foreach($Array as $Element){
@@ -59,14 +59,6 @@ function PickBest2($Array,$NumberOfSentences = 1){
     $Output[] = $This;
     Event('Done looking for best element '.$i);
     
-  }
-  
-  if(isset($_GET['levenshtein'])){
-    
-    foreach($levenshtein as $t){
-      echo ArrTabler($t);
-    }
-    exit;
   }
   
   return $Output;
@@ -289,7 +281,7 @@ function CondenseGetWordScores($Text){
   foreach($Scores as $Index => &$Word){
     foreach($Scores as $Index2 => &$Word2){
       if(!($Word['Word']==$Word2['Word'])){
-        $Levenshtein = levenshtein($Word['Word'],$Word2['Word']);
+        //$Levenshtein = levenshtein($Word['Word'],$Word2['Word']);
         /*
         $ThisLevenshtein[]=array(
           'Word 1'      => $Word['Word'],
@@ -298,7 +290,7 @@ function CondenseGetWordScores($Text){
         );
         */
         if(
-          $Levenshtein==1 &&
+          //$Levenshtein==1 &&
           (
             $Word['Score'] == $Word2['Score'].'s'||
             $Word['Score'].'s' == $Word2['Score']
@@ -312,8 +304,8 @@ function CondenseGetWordScores($Text){
     }
   }
   
-  global $levenshtein;
-  $levenshtein[]=$ThisLevenshtein;
+  //global $levenshtein;
+  //$levenshtein[]=$ThisLevenshtein;
   
   CondenseSortByScore($Scores, 'Score');
   return $Scores;
