@@ -294,7 +294,7 @@ function CondenseGetWordScores($Text){
         );
         if($Levenshtein==1){
           $Word['Score'] += $Word2['Score'];
-          unset($Word[$Index2];
+          unset($Word[$Index2]);
           echo '<p>combined "'.$Word2['Word'].'" into "'.$Word['Word'].'"</p>';
         }
       }
