@@ -132,3 +132,11 @@ gets
 entertainment
 aim
 away
+deal
+files
+challenge
+about
+beneath
+against
+news
+rumors
