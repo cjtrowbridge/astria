@@ -652,3 +652,15 @@ car
 capitol
 capital
 near
+bill
+lawmakers
+video
+tweet
+tweets
+cnn
+aside
+egos
+governor
+party
+note
+face
