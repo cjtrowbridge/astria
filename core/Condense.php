@@ -60,6 +60,12 @@ function PickBest3($Array,$NumberOfSentences = 1){
     //$This['summary'] = implode('. ',$This['summary']);
     
     $Output[] = $This;
+    
+    //Free up resources
+    unset($SubsetStories);
+    unset($Words);
+    unset($This);
+    
     Event('Done looking for best element '.$i);
     
   }
