@@ -1,5 +1,72 @@
 <?php
 
+function PickBest3($Array,$NumberOfSentences = 1){
+  
+  foreach($Array as $Element){
+    //This prevents syndication duplicates from having extra weight.
+    $RemainingElements[$Element] = $Element;
+  }
+  
+  $Output = array();
+  $UsedWords = array();
+  
+  for($i = 1; $i <= $NumberOfSentences; $i++){
+    Event('Looking for best element '.$i);
+    
+    $This = array();
+    
+    //Get most important word
+    $Words = FindMostImportantWords($RemainingElements,$UsedWords);
+    //Get stories with that word
+    $SubsetStories = ElementsContaining($RemainingElements,$Words[0]['Word']);
+    
+    
+    //Get most important words within this subset
+    $Words = FindMostImportantWords($SubsetStories,$UsedWords);
+    //if there isnt a second word, skip this topic
+    if($Words[1]['Word']==''){continue;}
+    //take out any stories that dont have the second most important word
+    $SubsetStories = ElementsContaining($RemainingElements,$Words[1]['Word']);
+    
+    
+    //find most important words within this subset
+    $Words = FindMostImportantWords($SubsetStories,$UsedWords);
+    //if there isnt a third word, skip this topic
+    if($Words[2]['Word']==''){continue;}
+    //take out any stories that dont have the third most important word
+    $SubsetStories = ElementsContaining($RemainingElements,$Words[2]['Word']);
+    
+    
+    //make list of keywords
+    $This['keywords'] = $Words[0]['Word'].','.$Words[1]['Word'].','.$Words[2]['Word'];
+    
+    
+    
+    //Ignore these words from now on
+    $UsedWords[$Words[0]['Word']] = $Words[0]['Word'];
+    $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
+    $UsedWords[$Words[3]['Word']] = $Words[3]['Word'];
+        
+    //Pick Best from those stories
+    $Best = PickBest($SubsetStories);
+    if(!(isset($Best[0]))){
+      continue;
+    }
+    
+    $This['element'] = $Best[0];
+    
+    //TODO this is terrible. Make it better.
+    //$This['summary'] = PickBest($SubsetStories,100);
+    //$This['summary'] = implode('. ',$This['summary']);
+    
+    $Output[] = $This;
+    Event('Done looking for best element '.$i);
+    
+  }
+  
+  return $Output;
+}
+
 function PickBest2($Array,$NumberOfSentences = 1){
   
   //global $levenshtein;
