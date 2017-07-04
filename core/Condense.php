@@ -26,7 +26,7 @@ function PickBest3($Array,$NumberOfSentences = 1){
     //if there isnt a second word, skip this topic
     if($Words[1]['Word']==''){continue;}
     //take out any stories that dont have the second most important word
-    $SubsetStories = ElementsContaining($RemainingElements,$Words[1]['Word']);
+    $SubsetStories = ElementsContaining($SubsetStories,$Words[1]['Word']);
     
     
     //find most important words within this subset
@@ -34,7 +34,7 @@ function PickBest3($Array,$NumberOfSentences = 1){
     //if there isnt a third word, skip this topic
     if($Words[2]['Word']==''){continue;}
     //take out any stories that dont have the third most important word
-    $SubsetStories = ElementsContaining($RemainingElements,$Words[2]['Word']);
+    $SubsetStories = ElementsContaining($SubsetStories,$Words[2]['Word']);
     
     
     //make list of keywords
