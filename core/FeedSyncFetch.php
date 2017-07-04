@@ -17,6 +17,9 @@
 
 function FeedSyncFetchService(){
   
+  //delete old data
+  Query('DELETE FROM FeedFetch WHERE Expires < now()');
+  
   //Get list of feeds
   //TODO make this work better with extremely large lists. It may need to batch the work automatically in order to work at enormous scale. This is not immediately necessary.
   $Feeds=Query("
