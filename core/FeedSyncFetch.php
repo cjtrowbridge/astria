@@ -22,6 +22,8 @@ function FeedSyncFetchService(){
   
   //Get list of feeds
   //TODO make this work better with extremely large lists. It may need to batch the work automatically in order to work at enormous scale. This is not immediately necessary.
+  
+  $FeedSyncFetchService = microtime(true);
   $Feeds=Query("
     SELECT * FROM Feed
   ");
@@ -32,6 +34,9 @@ function FeedSyncFetchService(){
       FeedSyncFetch($Feed);
     }
   }
+  
+  global $FeedSyncFetchServiceDuration;
+  $FeedSyncFetchServiceDuration = microtime(true) - $FeedSyncFetchService;
   
 }
 
