@@ -35,7 +35,7 @@ function Query(
 				while($Row=mysqli_fetch_assoc($result)){
 					$Output[]=$Row;
 				}
-				WriteCache($sqlHash,$Output);
+				//WriteCache($sqlHash,$Output);
 				
 				$NUMBER_OF_QUERIES_RUN+=1;
 			}else{
