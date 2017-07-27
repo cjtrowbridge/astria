@@ -43,10 +43,16 @@ function PickBest3($Array,$NumberOfSentences = 1){
     
     
     //Ignore these words from now on
-    $UsedWords[$Words[0]['Word']] = $Words[0]['Word'];
-    $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
-    $UsedWords[$Words[3]['Word']] = $Words[3]['Word'];
-        
+    if(isset($Words[0])){
+      $UsedWords[$Words[0]['Word']] = $Words[0]['Word'];
+    }
+    if(isset($Words[1])){
+      $UsedWords[$Words[1]['Word']] = $Words[1]['Word'];
+    }
+    if(isset($Words[2])){
+      $UsedWords[$Words[2]['Word']] = $Words[2]['Word'];
+    }
+    
     //Pick Best from those stories
     $Best = PickBest($SubsetStories);
     if(!(isset($Best[0]))){
