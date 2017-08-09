@@ -52,9 +52,11 @@ function PresentArchitect(){
             include_once('core/architect/Files/ArchitectFileDelete.php');
             ArchitectFileDelete();
             break;
-            
-          case 'new': //TODO
-          case 'create-directory': //TODO
+          case 'create-directory':
+          include_once('core/architect/Files/ArchitectDirectoryCreate.php');
+            ArchitectDirectoryCreate();
+            break;
+          
           case 'upload': //TODO  
           default:
             include_once('core/architect/Files/ArchitectFileExplorer.php');
