@@ -15,7 +15,10 @@ function gitLocalHash(){
 function gitGlobalHash(){
   $Hash = gitHash('https://api.github.com/repos/cjtrowbridge/astria/git/refs/heads/master');
   $Hash = json_decode($Hash,true);
-  return $Hash;
+  if($Hash==false){return false;}
+  if(!(isset($Hash['object']))){return false;}
+  if(!(isset($Hash['object']['sha']))){return false;}
+  return $Hash['object']['sha'];
 }
   
 function gitHash($Path){
