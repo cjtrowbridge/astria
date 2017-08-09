@@ -40,13 +40,17 @@ function PresentArchitect(){
         GetSubrepositoryPullWebhook();
       case 'files':
         switch(path(2)){
+          case 'create-file':
+            include_once('core/architect/Files/ArchitectFileCreate.php');
+            ArchitectFileCreate();
+            break;
           case 'edit':
             include_once('core/architect/Files/ArchitectFileEditor.php');
             ArchitectFileEditor();
             break;
           case 'new': //TODO
           case 'delete': //TODO
-          case 'create-file': //TODO
+          
           case 'create-directory': //TODO
           case 'upload': //TODO  
             
