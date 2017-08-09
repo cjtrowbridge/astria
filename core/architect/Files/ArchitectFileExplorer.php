@@ -47,7 +47,7 @@ function ArchitectFileExplorerFile(){
     case 'htm':
     case 'shtm':
     case 'sql':
-      echo '<pre class="pre">'.file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']).'</pre>';
+      echo '<pre><code>'.file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']).'</code></pre>';
       break;
     case 'jpg':
     case 'jpeg':
