@@ -10,7 +10,7 @@ function GitMasterHash(){
 
 function gitHash($Path = 'local'){
   if($Path=='local'){
-    $Path='../.git/refs/heads/master';
+    $Path=$_SERVER['DOCUMENT_ROOT'].'.git/refs/heads/master';
   }else{
     if(!(substr($Path, -1)=='/')){
       $Path=$Path.'/';
