@@ -25,7 +25,9 @@ function ArchitectFileEditorBodyCallback(){
   }else{
     if(is_dir(dirname($_SERVER['DOCUMENT_ROOT'].$_GET['path']))){
       //New File
+      ArchitectFileEdit($_GET['path']);
     }else{
+      //File does not exist, and parent directory does not exist
       echo '<p>Invalid Path: '.$_SERVER['DOCUMENT_ROOT'].$_GET['path'].'</p>';
     }
   }
