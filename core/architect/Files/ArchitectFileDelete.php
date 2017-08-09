@@ -3,11 +3,10 @@
 function ArchitectFileDelete(){
   if(isset($_GET['yesimsure'])){
     $Parent=dirname($_GET['path']);
-    echo $Parent;
-    //if(unlink($_GET['path'])==false){
-      //die('<p>Unable to delete: '.$_GET['path'].'</p>');
-    //}
-    //header('Location: /architect/files/?path='.$Parent);
+    if(unlink($_GET['path'])==false){
+      die('<p>Unable to delete: '.$_GET['path'].'</p>');
+    }
+    header('Location: /architect/files/?path='.$Parent);
     exit;
   }
   TemplateBootstrap4('File Delete - Architect','ArchitectFileDeleteBodyCallback();'); 
