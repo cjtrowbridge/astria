@@ -8,8 +8,16 @@ function GitMasterHash(){
   }
 }
 
-function gitHash(){
-  if($Hash = file_get_contents('../.git/refs/heads/master')){
+function gitHash($Path = 'local'){
+  if($Path=='local'){
+    $Path='../.git/refs/heads/master';
+  }else{
+    if(!(substr($Path, -1)=='/')){
+      $Path=$Path.'/';
+    }
+    $Path.='?gitHash';
+  }
+  if($Hash = file_get_contents($Path)){
     return $Hash;
   }else{
     return 'unknown';
