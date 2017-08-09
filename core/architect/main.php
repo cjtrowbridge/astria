@@ -44,7 +44,7 @@ function PresentArchitect(){
           case 'new': //TODO
           case 'raw':
           default:
-            include_once('core/architect/ArchitectFileExplorer.php');
+            include_once('core/architect/Files/ArchitectFileExplorer.php');
             ArchitectFileExplorer();
         }
         break;
