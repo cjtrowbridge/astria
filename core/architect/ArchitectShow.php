@@ -134,7 +134,7 @@ if(!($Local==$Global)){
         <h2>Updates are Available!</h2>
         <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>">Pull Mainline From Github</a>
         <p>Local Master Head is at: <?php echo $Local; ?></p>
-        <p>Global Master Head is at: <?php pd($Global); ?></p>
+        <p>Global Master Head is at: <?php echo $Global; ?></p>
       </div>
     </div>
   <?php
