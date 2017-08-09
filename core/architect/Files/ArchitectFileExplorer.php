@@ -52,7 +52,7 @@ function ArchitectFileExplorerDirectory(){
       <a href="/architect/files/create-directory/?path=<?php echo $path; ?>" class="btn btn-outline-success">Create Directory</a>
     </p>
     <p>
-      <a href="" class="btn btn-outline-success">Upload File</a>
+      <a href="" class="btn btn-outline-warning">Upload File</a>
     </p>
   <?php
   
