@@ -38,6 +38,11 @@ function ArchitectFileEdit($Path){
     (!(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])))
   ){
     echo '<h2>Creating New File</h2>';
+    $Contents     = '';
+    $TextareaName = 'newContents'; 
+  }else{
+    $Contents     = file_get_contents($_SERVER['DOCUMENT_ROOT'].$Path);
+    $TextareaName = 'newContents'; 
   }
   
 ?>
@@ -46,8 +51,7 @@ function ArchitectFileEdit($Path){
     <input hidden name="path" value="<?php echo $Path; ?>">
     
   <?php
-  $Contents     = file_get_contents($_SERVER['DOCUMENT_ROOT'].$Path);
-  $TextareaName = 'newContents'; 
+  
   
   AstriaEditor($Contents,$TextareaName);
   
