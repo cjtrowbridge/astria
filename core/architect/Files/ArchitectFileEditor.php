@@ -42,7 +42,7 @@ function ArchitectFileEdit($Path){
   AstriaEditor($Contents,$TextareaName);
   
   ?>
-    <br><br>
+    <br>
     <input type="submit" class="btn btn-success" value="save changes">
   </form>
   
