@@ -23,14 +23,24 @@ function ArchitectFileEditorBodyCallback(){
   if(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])){
     ArchitectFileEdit($_GET['path']);
   }else{
-    echo '<p>Invalid Path: '.$_SERVER['DOCUMENT_ROOT'].$_GET['path'].'</p>';
-    
+    if(is_dir(dirname($_SERVER['DOCUMENT_ROOT'].$_GET['path']))){
+      //New File
+    }else{
+      echo '<p>Invalid Path: '.$_SERVER['DOCUMENT_ROOT'].$_GET['path'].'</p>';
+    }
   }
   
 }
           
 function ArchitectFileEdit($Path){
-  ?>
+  if(
+    (is_dir(dirname($_SERVER['DOCUMENT_ROOT'].$_GET['path'])))&&
+    (!(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])))
+  ){
+    echo '<h2>Creating New File</h2>';
+  }
+  
+?>
 
   <form action="/architect/files/edit" method="post" class="form">
     <input hidden name="path" value="<?php echo $Path; ?>">
