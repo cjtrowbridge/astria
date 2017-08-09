@@ -14,6 +14,23 @@ function ArchitectFileExplorerBodyCallback(){
   
   //TODO check for escape attempts
   
+  echo '<h1>Astria:'.$_GET['path'].'</h1>'.PHP_EOL;
+  
+  if(is_dir($_GET['path'])){
+    ArchitectFileExplorerDirectory();
+  }elseif(is_file($_GET['path']){
+    ArchitectFileExplorerFile();
+  }else{
+    echo '<p>Invalid Path.</p>';
+  }
+  
+}
+          
+function ArchitectFileExplorerFile(){
+  echo '<p>This is a file!</p>';
+}
+
+function ArchitectFileExplorerDirectory(){
   $directories=array();
   $files=array();
   if($handle = opendir($path)){
@@ -34,8 +51,6 @@ function ArchitectFileExplorerBodyCallback(){
   if(!(substr($_GET['path'], -1)=='/')){
     $_GET['path']=$_GET['path'].'/';
   }
-  
-  echo '<h1>Astria:'.$_GET['path'].'</h1>'.PHP_EOL;
   
   $Parent=realpath($_GET['path'].'..');
   echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]">..</a><p>'.PHP_EOL;  
