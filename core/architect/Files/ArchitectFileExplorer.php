@@ -1,12 +1,17 @@
 <?php
 
 function ArchitectFileExplorer(){
+  if(!(isset($_GET['path'])){
+    header('Location: /architect/files/?path=/');
+  }
   TemplateBootstrap4('File Explorer - Architect','ArchitectFileExplorerBodyCallback();'); 
 
 }
 
 function ArchitectFileExplorerBodyCallback(){
-  $path=$_SERVER['DOCUMENT_ROOT'];
+  $path=$_SERVER['DOCUMENT_ROOT'].$_GET['path'];
+  
+  //TODO check for escape attempts
   
   $directories=array();
   $files=array();
@@ -24,6 +29,9 @@ function ArchitectFileExplorerBodyCallback(){
   }
   asort($directories);
   asort($files);
+  
+  echo '<h1>Files: '.$_GET['path'].'</h1>';
+  
   foreach($directories as $name => $directory){
     echo '<p><a href="'.$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>';
   }
