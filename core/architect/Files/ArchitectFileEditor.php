@@ -25,7 +25,7 @@ function ArchitectFileEditorBodyCallback(){
           
 function ArchitectFileEdit($Path){
   
-  $Contents     = file_get_contents($Path);
+  $Contents     = file_get_contents($_SERVER['DOCUMENT_ROOT'].$Path);
   $TextareaName = 'newContents'; 
   
   AstriaEditor($Contents,$TextareaName);
