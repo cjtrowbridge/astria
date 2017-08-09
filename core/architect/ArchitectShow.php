@@ -13,12 +13,13 @@ function ArchitectBodyCallback(){
   <div class="col-xs-12">
     <div class="form-inline">
       <h4>Architect Tools:</h4>
-      <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-warning">Schema</button>
-      <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-warning">Events</button>
-      <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-warning">Databases</button>
-      <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-warning">Users</button>
-      <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-warning">Groups</button>
-      <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-warning">Session</button>
+      <a href="/architect/files" class="btn btn-outline-success-outline">File Manager</button>
+      <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success-outline">Schema</button>
+      <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success-outline">Events</button>
+      <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-success-outline">Databases</button>
+      <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success-outline">Users</button>
+      <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success-outline">Groups</button>
+      <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success-outline">Session</button>
       
       <h4>Webhooks:</h4>
       <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
