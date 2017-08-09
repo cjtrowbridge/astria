@@ -43,6 +43,9 @@ function ArchitectFileExplorerFile(){
     case 'js':
     case 'css':
     case 'txt':
+    case 'html':
+    case 'htm':
+    case 'shtm':
     case 'sql':
       pd(file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']));
       break;
