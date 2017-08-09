@@ -9,7 +9,7 @@ function ArchitectFileCreateBodyCallback(){
   <h1>Create File</h1>
   <form action="/architect/files/edit/" method="get" class="form">
     <input type="text" class="form-control" name="path" id="path" value="<?php echo $_GET['path']; ?>"><br>
-    <a hreaf="javascript:void(0); class="btn btn-block btn-success" onclick="CreateFile();">Create File</a>
+    <a hreaf="javascript:void(0);" class="btn btn-block btn-success" onclick="CreateFile();">Create File</a>
     <script>
       function CreateFile(){
         var Path = $('#path').val();
