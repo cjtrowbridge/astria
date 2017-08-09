@@ -11,6 +11,7 @@ function ArchitectFileCreateBodyCallback(){
     <input type="text" class="form-control" name="path" id="path" value="<?php echo $_GET['path']; ?>"><br>
     <a hreaf="javascript:void(0);" class="btn btn-block btn-success" onclick="CreateFile();">Create File</a>
     <script>
+      $('form').submit(function(){CreateFile();});
       function CreateFile(){
         var Path = $('#path').val();
         window.location='/architect/files/edit/?path='+Path;
