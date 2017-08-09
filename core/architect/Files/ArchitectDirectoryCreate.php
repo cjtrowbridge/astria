@@ -1,17 +1,19 @@
 <?php
 function ArchitectDirectoryCreate(){
-  if(
-    (!(isset($_GET['path'])))||
-    ($_GET['path']=='')
-  ){
-    header('Location: /architect/files/?path=/');
-    exit;
-  }
+  
   if(isset($_POST['newDirectory'])){
     if(mkdir($_SERVER['DOCUMENT_ROOT'].$_POST['newDirectory'],775)==false){
       die('<p>Unable to create: '.$_GET['path'].'</p>');
     }
     header('Location: /architect/files/?path='.$_POST['newDirectory']);
+    exit;
+  }
+  
+  if(
+    (!(isset($_GET['path'])))||
+    ($_GET['path']=='')
+  ){
+    header('Location: /architect/files/?path=/');
     exit;
   }
   TemplateBootstrap4('Create Directory - Architect','ArchitectDirectoryCreateBodyCallback();'); 
