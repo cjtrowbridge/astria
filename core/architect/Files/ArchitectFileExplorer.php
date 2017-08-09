@@ -36,6 +36,28 @@ function ArchitectFileExplorerFile(){
   </p>
   
   <?php
+  
+  $path_parts = pathinfo($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
+  switch(strtolower($path_parts['extension'])){
+    case 'php':
+    case 'js':
+    case 'css':
+    case 'txt':
+    case 'sql':
+      pd(file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']));
+      break;
+    case 'jpg':
+    case 'jpeg':
+    case 'png':
+    case 'gif':
+    case 'bmp':
+    case 'ico':
+      echo '<img src="'.$_GET['path'].'" style="max-width: 100%; max-height: 100%;>';
+      break;
+    default:
+      echo 'No default preview method is set for this extension type.';
+      break;
+  }
 }
 
 function ArchitectFileExplorerDirectory(){
