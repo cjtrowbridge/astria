@@ -23,6 +23,7 @@ h1,h2,h3,h4{
   line-height: 1rem;
   overflow-x: hidden; 
   overflow-y: auto; 
+  line-height: 1.5em;
 }
 .box{
   border: 1px solid #c6c6c6;
