@@ -1,7 +1,7 @@
 <?php
 function ArchitectFileEditor(){
   if(isset($_POST['newContents'])){
-    $Result = file_put_contents($_POST['path'],$_POST['newContents']);
+    $Result = file_put_contents($_SERVER['DOCUMENT_ROOT'].$_POST['path'],$_POST['newContents']);
     pd($Result);
     exit;
   }
