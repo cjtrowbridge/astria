@@ -37,7 +37,7 @@ function ArchitectFileExplorerBodyCallback(){
   
   echo '<h1>Astria:'.$_GET['path'].'</h1>'.PHP_EOL;
   
-  $Parent=realpath($_GET['path'].$name.'/..')
+  $Parent=realpath($_GET['path'].$name.'/..');
   echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]">..</a><p>'.PHP_EOL;  
   
   foreach($directories as $name => $directory){
