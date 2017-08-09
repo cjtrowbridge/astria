@@ -48,9 +48,9 @@ function ArchitectFileExplorerDirectory(){
   
   ?>
     <p>
-      <a href="/architect/files/create-file/?path=<?php echo $path; ?>" class="btn btn-sm btn-outline-success">Create File</a>
-      <a href="/architect/files/create-directory/?path=<?php echo $path; ?>" class="btn btn-sm btn-outline-success">Create Directory</a>
-      <a href="" class="btn btn-sm btn-outline-warning">Upload File</a>
+      <a href="/architect/files/create-file/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-success">Create File</a>
+      <a href="/architect/files/create-directory/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-success">Create Directory</a>
+      <a href="/architect/files/upload/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-warning">Upload File</a>
     </p>
   <?php
   
