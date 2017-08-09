@@ -54,7 +54,7 @@ function ArchitectFileExplorerDirectory(){
   
   
   $Parent=realpath($_GET['path'].'..');
-  echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]">..</a><p>'.PHP_EOL;  
+  echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
   
   foreach($directories as $name => $directory){
     echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
