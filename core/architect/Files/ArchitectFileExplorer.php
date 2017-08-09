@@ -45,6 +45,15 @@ function ArchitectFileExplorerDirectory(){
     $_GET['path']=$_GET['path'].'/';
   }
   $path=$_SERVER['DOCUMENT_ROOT'].$_GET['path'];
+  ?>
+    <p>
+      <a href="/architect/files/create-file/?path=<?php echo $path; ?>" class="btn btn-outline-success">Create File</a>
+      <a href="/architect/files/create-directory/?path=<?php echo $path; ?>" class="btn btn-outline-success">Create Directory</a>
+    </p>
+    <p>
+      <a href="" class="btn btn-outline-success">Upload File</a>
+    </p>
+  <?
   if($handle = opendir($path)){
     while(false !== ($entry = readdir($handle))){
       if(is_dir($path.DIRECTORY_SEPARATOR.$entry)){
