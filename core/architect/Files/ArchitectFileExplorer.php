@@ -1,8 +1,9 @@
 <?php
 
 function ArchitectFileExplorer(){
-  if(!(isset($_GET['path'])){
+  if(!(isset($_GET['path']))){
     header('Location: /architect/files/?path=/');
+    exit;
   }
   TemplateBootstrap4('File Explorer - Architect','ArchitectFileExplorerBodyCallback();'); 
 
