@@ -1,7 +1,10 @@
 <?php
 
 function ArchitectFileExplorer(){
-  if(!(isset($_GET['path']))){
+  if(
+    (!(isset($_GET['path'])))||
+    ($_GET['path']=='')
+  ){
     header('Location: /architect/files/?path=/');
     exit;
   }
@@ -10,10 +13,6 @@ function ArchitectFileExplorer(){
 }
 
 function ArchitectFileExplorerBodyCallback(){
-  if(!(substr($_GET['path'], -1)=='/')){
-    $_GET['path']=$_GET['path'].'/';
-  }
-  
   //TODO check for escape attempts
   
   echo '<h1>Astria:'.$_GET['path'].'</h1>'.PHP_EOL;
@@ -35,6 +34,9 @@ function ArchitectFileExplorerFile(){
 function ArchitectFileExplorerDirectory(){
   $directories=array();
   $files=array();
+  if(!(substr($_GET['path'], -1)=='/')){
+    $_GET['path']=$_GET['path'].'/';
+  }
   $path=$_SERVER['DOCUMENT_ROOT'].$_GET['path'];
   if($handle = opendir($path)){
     while(false !== ($entry = readdir($handle))){
