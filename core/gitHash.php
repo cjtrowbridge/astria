@@ -17,7 +17,8 @@ function gitGlobalHash(){
 }
   
 function gitHash($Path){
-  if($Hash = file_get_contents($Path)){
+  //if($Hash = file_get_contents($Path)){
+  if($Hash = FetchURL($Path)){
     return $Hash;
   }else{
     return 'unknown';
