@@ -1,5 +1,10 @@
 <?php
 function ArchitectFileEditor(){
+  if(isset($_POST['newContents'])){
+    pd($_POST);
+    exit;
+  }
+  
   if(
     (!(isset($_GET['path'])))||
     ($_GET['path']=='')
@@ -7,6 +12,7 @@ function ArchitectFileEditor(){
     header('Location: /architect/files/edit?path=/');
     exit;
   }
+  
   TemplateBootstrap4('File Editor - Architect','ArchitectFileEditorBodyCallback();'); 
 }
 function ArchitectFileEditorBodyCallback(){
@@ -24,10 +30,21 @@ function ArchitectFileEditorBodyCallback(){
 }
           
 function ArchitectFileEdit($Path){
-  
+  ?>
+
+  <form action="/architect/files/edit" method="post" class="form">
+    <input hidden name="path" value="<?php echo $Path; ?>">
+    
+  <?
   $Contents     = file_get_contents($_SERVER['DOCUMENT_ROOT'].$Path);
   $TextareaName = 'newContents'; 
   
   AstriaEditor($Contents,$TextareaName);
   
+  ?>
+  
+    <input type="submit" class="btn btn-success">
+  </form>
+  
+  <?php
 }
