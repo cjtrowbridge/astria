@@ -10,7 +10,7 @@ function PrepareArchitect(){
   ){
     $UserID = $ASTRIA['Session']['User']['UserID'];
   }else{
-    $UserID=null;
+    $UserID = null;
   }
 
   if(
@@ -24,12 +24,11 @@ function PrepareArchitect(){
     //$ASTRIA['nav']['main']=array(
       //'Architect' => '/architect'
     //);
+    
     Nav('Main','Link','Architect','/architect');
-
+    Hook('User Is Logged In - Presentation','PresentArchitect();');
   }
 }
-
-Hook('User Is Logged In - Presentation','PresentArchitect();');
 
 function PresentArchitect(){
   if(path(0)=='architect'){
@@ -39,6 +38,15 @@ function PresentArchitect(){
       case 'create-webhook-pull-subrepository':
         include_once('GetSubrepositoryPullWebhook.php');
         GetSubrepositoryPullWebhook();
+      case 'files':
+        switch(path(2)){
+          case 'edit': //TODO
+          case 'new': //TODO
+          case 'raw':
+          default:
+            ArchitectFileExplorer();
+        }
+        break;
       case 'user':
         switch(path(2)){
           case 'edit': //TODO
