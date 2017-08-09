@@ -18,12 +18,12 @@ function gitGlobalHash(){
   if($Hash==false){return false;}
   if(!(isset($Hash['object']))){return false;}
   if(!(isset($Hash['object']['sha']))){return false;}
-  return $Hash['object']['sha'];
+  return trim($Hash['object']['sha']);
 }
   
 function gitHash($Path){
   if($Hash = file_get_contents($Path)){
-    return $Hash;
+    return trim($Hash);
   }else{
     return 'unknown';
   }
