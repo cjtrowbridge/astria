@@ -3,7 +3,7 @@
 function ArchitectFileDelete(){
   if(isset($_GET['yesimsure'])){
     $Parent=dirname($_GET['path']);
-    if(unlink($_GET['path'])==false){
+    if(unlink($_SERVER['DOCUMENT_ROOT'].$_GET['path'])==false){
       die('<p>Unable to delete: '.$_GET['path'].'</p>');
     }
     header('Location: /architect/files/?path='.$Parent);
