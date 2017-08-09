@@ -2,7 +2,15 @@
 function ArchitectFileEditor(){
   if(isset($_POST['newContents'])){
     $Result = file_put_contents($_SERVER['DOCUMENT_ROOT'].$_POST['path'],$_POST['newContents']);
-    pd($Result);
+      //TODO make this prettier and suggest fixes
+      echo '<h1>Failed To Save Changes</h1>';
+      if($Result == false){
+      pd($Result);
+      pd($_POST);
+      exit;
+    }
+    
+    header('Location: /architect/files/?path=$_POST['path']);
     exit;
   }
   
