@@ -123,10 +123,8 @@ function ArchitectBodyCallback(){
 
 
 <?php
-  $LocalHash  = gitHash($Path = 'local');
-  $AstriaHash = gitHash('https://astria.io');
-
-if(!($LocalHash==$AstriaHash)){
+  
+if(!(gitLocalHash()==gitGlobalHash())){
   ?>
     <div class="row">
       <div class="col-xs-12">
