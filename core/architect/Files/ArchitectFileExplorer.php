@@ -31,12 +31,16 @@ function ArchitectFileExplorerBodyCallback(){
   asort($directories);
   asort($files);
   
+  if(!(substr($_GET['path'], -1)=='/')){
+    $_GET['path']=$_GET['path'].'/';
+  }
+  
   echo '<h1>Files: '.$_GET['path'].'</h1>'.PHP_EOL;
   
   foreach($directories as $name => $directory){
-    echo '<p><a href="/architect/files/?path=/'.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
   }
   foreach($files as $name => $file){
-    echo '<p><a href="/architect/files/?path=/'.$_GET['path'].$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
   }
 }
