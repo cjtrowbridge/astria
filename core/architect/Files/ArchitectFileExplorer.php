@@ -29,9 +29,11 @@ function ArchitectFileExplorerBodyCallback(){
           
 function ArchitectFileExplorerFile(){
   ?>
-  <p><a href="<?php echo $_GET['path']; ?>" target="_blank">Launch This File</a></p>
-  <p><a href="/architect/files/edit/?path=<?php echo $_GET['path']; ?>">Edit This File</a></p>
-  <p><a href="/architect/files/delete/?path=<?php echo $_GET['path']; ?>">Delete This File</a></p>
+  <p>
+    <a href="<?php echo $_GET['path']; ?>" target="_blank" class="btn btn-primary">Launch This File</a>
+    <a href="/architect/files/edit/?path=<?php echo $_GET['path']; ?>" class="btn btn-primary">Edit This File</a>
+    <a href="/architect/files/delete/?path=<?php echo $_GET['path']; ?>" class="btn btn-danger">Delete This File</a>
+  </p>
   
   <?php
 }
