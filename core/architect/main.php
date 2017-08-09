@@ -41,11 +41,17 @@ function PresentArchitect(){
       case 'files':
         switch(path(2)){
           case 'edit': //TODO
+            include_once('core/architect/Files/ArchitectFileEditor.php');
+            ArchitectFileEditor();
+            break;
           case 'new': //TODO
+            
+            
           case 'raw':
           default:
             include_once('core/architect/Files/ArchitectFileExplorer.php');
             ArchitectFileExplorer();
+            break;
         }
         break;
       case 'user':
