@@ -18,12 +18,12 @@ function ArchitectFileExplorerBodyCallback(){
   
   echo '<h1>Astria:'.$_GET['path'].'</h1>'.PHP_EOL;
   
-  if(is_dir($_GET['path'])){
+  if(is_dir($_SERVER['DOCUMENT_ROOT'].$_GET['path'])){
     ArchitectFileExplorerDirectory();
-  }elseif(is_file($_GET['path'])){
+  }elseif(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])){
     ArchitectFileExplorerFile();
   }else{
-    echo '<p>Invalid Path.</p>';
+    echo '<p>Invalid Path: '.$_SERVER['DOCUMENT_ROOT'].$_GET['path'].'</p>';
   }
   
 }
