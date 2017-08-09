@@ -8,6 +8,7 @@ function ArchitectBodyCallback(){
   global $EVENTS, $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE,$ASTRIA;
   ?>
 <h1>Architect <a href="/architect/configuration" target="_blank" style="float: right;"><i class="material-icons">settings</i></a></h1>
+
 <div class="row">
   <div class="col-xs-12">
     <div class="form-inline">
@@ -119,6 +120,24 @@ function ArchitectBodyCallback(){
     ?>
   </div>
 </div>
+
+
+<?php
+  $LocalHash  = gitHash($Path = 'local');
+  $AstriaHash = gitHash('https://astria.io');
+
+if(!($LocalHash==$AstriaHash)){
+  ?>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Updates are Available!</h2>
+        <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>">Pull Mainline From Github</a>
+      </div>
+    </div>
+  <?php
+}
+  
+?>
     
 <?php
 }
