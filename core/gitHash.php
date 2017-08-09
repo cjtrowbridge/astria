@@ -13,7 +13,7 @@ function gitLocalHash(){
   return gitHash($Path);
 }
 function gitGlobalHash(){
-  $Hash = gitHash('https://api.github.com/repos/cjtrowbridge/astria/git/refs/heads/master');
+  $Hash = FetchURL('https://api.github.com/repos/cjtrowbridge/astria/git/refs/heads/master');
   $Hash = json_decode($Hash,true);
   if($Hash==false){return false;}
   if(!(isset($Hash['object']))){return false;}
@@ -22,8 +22,7 @@ function gitGlobalHash(){
 }
   
 function gitHash($Path){
-  //if($Hash = file_get_contents($Path)){
-  if($Hash = FetchURL($Path)){
+  if($Hash = file_get_contents($Path)){
     return $Hash;
   }else{
     return 'unknown';
