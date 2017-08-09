@@ -35,7 +35,7 @@ function ArchitectFileEdit($Path){
   <form action="/architect/files/edit" method="post" class="form">
     <input hidden name="path" value="<?php echo $Path; ?>">
     
-  <?
+  <?php
   $Contents     = file_get_contents($_SERVER['DOCUMENT_ROOT'].$Path);
   $TextareaName = 'newContents'; 
   
