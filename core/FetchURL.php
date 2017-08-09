@@ -1,6 +1,6 @@
 <?php
 
-function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = false){
+function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = false,$UserAgent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13'){
   
   if($URL==''){
     return false;
@@ -37,6 +37,8 @@ function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = fal
   }else{
     curl_setopt($cURL,CURLOPT_RETURNTRANSFER, true);
   }
+  
+  curl_setopt($cURL,CURLOPT_USERAGENT,$UserAgent);
   
   
   //Run cURL and close it
