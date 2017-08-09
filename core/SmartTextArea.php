@@ -1,11 +1,11 @@
 <?php
 
-function SmartTextArea($Contents,$FunctionName,$TextareaName){
+function AstriaEditor($Contents,$FunctionName,$TextareaName){
   ?>
     
-  <textarea class="AstriaSmartEditor ready" name="<?php echo $TextareaName; ?>" id="<?php echo $TextareaName; ?>"><?php echo $Contents; ?></textarea>
+  <textarea class="AstriaEditor ready" name="<?php echo $TextareaName; ?>" id="<?php echo $TextareaName; ?>"><?php echo $Contents; ?></textarea>
   
-  <script>AstriaSmartEditor();</script>
+  <script>AstriaEditor();</script>
 
   <?php
 }
