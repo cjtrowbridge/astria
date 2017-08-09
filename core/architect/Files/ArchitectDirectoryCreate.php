@@ -1,6 +1,6 @@
 <?php
 function ArchitectDirectoryCreate(){
-  if(isset($_POST)){
+  if(isset($_POST['path'])){
     pd($_POST);
     exit;
   }
