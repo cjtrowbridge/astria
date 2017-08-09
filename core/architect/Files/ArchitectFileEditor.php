@@ -10,7 +10,7 @@ function ArchitectFileEditor(){
       exit;
     }
     
-    header('Location: /architect/files/?path=$_POST['path']);
+    header('Location: /architect/files/?path='.$_POST['path']);
     exit;
   }
   
