@@ -59,10 +59,10 @@ function ArchitectFileExplorerDirectory(){
   asort($files);
   
   
-  
-  $Parent=realpath($_GET['path'].'..');
-  echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
-  
+  if(!($_GET['path']=='/')){
+    $Parent=realpath($_GET['path'].'..');
+    echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
+  }
   foreach($directories as $name => $directory){
     echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
   }
