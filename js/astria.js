@@ -31,7 +31,8 @@ function AstriaEditor(){
     var padding = 5;
     var height = breaks + padding;
     $(this).css('height',height+'rem');
-    $(this).focus();
+    
   });
   $(x).keyup();
+  $(this).focus();
 }
