@@ -6,9 +6,7 @@ function ArchitectFileExplorer(){
 }
 
 function ArchitectFileExplorerBodyCallback(){
-  pd($_SERVER);
-  return;
-  $path='/var/www';
+  $path=$_SERVER['DOCUMENT_ROOT'];
   
   $directories=array();
   $files=array();
@@ -27,9 +25,9 @@ function ArchitectFileExplorerBodyCallback(){
   asort($directories);
   asort($files);
   foreach($directories as $name => $directory){
-    echo '<div><a href="'.$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><br></div>';
+    echo '<p><a href="'.$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>';
   }
   foreach($files as $name => $file){
-    echo '<div><a href="'.$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><br></div>';
+    echo '<p><a href="'.$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>';
   }
 }
