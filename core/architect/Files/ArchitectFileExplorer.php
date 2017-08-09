@@ -10,7 +10,9 @@ function ArchitectFileExplorer(){
 }
 
 function ArchitectFileExplorerBodyCallback(){
-  $path=$_SERVER['DOCUMENT_ROOT'].$_GET['path'];
+  if(!(substr($_GET['path'], -1)=='/')){
+    $_GET['path']=$_GET['path'].'/';
+  }
   
   //TODO check for escape attempts
   
@@ -33,6 +35,7 @@ function ArchitectFileExplorerFile(){
 function ArchitectFileExplorerDirectory(){
   $directories=array();
   $files=array();
+  $path=$_SERVER['DOCUMENT_ROOT'].$_GET['path'];
   if($handle = opendir($path)){
     while(false !== ($entry = readdir($handle))){
       if(is_dir($path.DIRECTORY_SEPARATOR.$entry)){
@@ -48,9 +51,7 @@ function ArchitectFileExplorerDirectory(){
   asort($directories);
   asort($files);
   
-  if(!(substr($_GET['path'], -1)=='/')){
-    $_GET['path']=$_GET['path'].'/';
-  }
+  
   
   $Parent=realpath($_GET['path'].'..');
   echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]">..</a><p>'.PHP_EOL;  
