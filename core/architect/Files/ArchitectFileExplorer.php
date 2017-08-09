@@ -18,7 +18,7 @@ function ArchitectFileExplorerBodyCallback(){
   
   if(is_dir($_GET['path'])){
     ArchitectFileExplorerDirectory();
-  }elseif(is_file($_GET['path']){
+  }elseif(is_file($_GET['path'])){
     ArchitectFileExplorerFile();
   }else{
     echo '<p>Invalid Path.</p>';
