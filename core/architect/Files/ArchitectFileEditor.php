@@ -27,7 +27,7 @@ function ArchitectFileEditor(){
 function ArchitectFileEditorBodyCallback(){
   //TODO check for escape attempts
   
-  echo '<h1>Editing: <a href="/architect/files/?path=/">Astria</a>:'.$_GET['path'].'</h1>'.PHP_EOL;
+  echo '<h4 style="padding:0;line-height: 1.25em;>Editing: <a href="/architect/files/?path=/">Astria</a>:'.$_GET['path'].'</h4>'.PHP_EOL;
   
   if(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])){
     ArchitectFileEdit($_GET['path']);
@@ -44,11 +44,11 @@ function ArchitectFileEditorBodyCallback(){
 }
           
 function ArchitectFileEdit($Path){
+  
   if(
     (is_dir(dirname($_SERVER['DOCUMENT_ROOT'].$_GET['path'])))&&
     (!(is_file($_SERVER['DOCUMENT_ROOT'].$_GET['path'])))
   ){
-    echo '<h4 style="padding:0;line-height: 1.25em;>Creating New File</h4>';
     $Contents     = '';
     $TextareaName = 'newContents'; 
   }else{
