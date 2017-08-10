@@ -15,5 +15,8 @@ function CreateUser($Email){
   $message = '<h1>'.$ASTRIA['app']['appName'].': New User Signup!</h1><p>'.htmlentities($cleanEmail).'</p>';
   $subject = $ASTRIA['app']['appName'].': New Signup';
   $to      = $ASTRIA['smtp']['adminEmail'];
+  if($to==''){
+    $to='root@localhost';
+  }
   SendEmail($message, $subject, $to);
 }
