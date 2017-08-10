@@ -32,7 +32,7 @@ function AstriaEditor(){
     //var height = breaks + padding;
     //$(this).css('height',height+'rem');
     $(this).css('height','800px');
-    $(this).css('max-height','100%');
+    $(this).css('max-height','calc(100% - 2em)');
     
   });
   $(x).keyup();
