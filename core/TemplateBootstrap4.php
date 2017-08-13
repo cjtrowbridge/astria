@@ -104,6 +104,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
     <a href="https://github.com/cjtrowbridge/astria" target="_blank">Astria</a> Loaded in <?php echo  $Runtime; ?> Seconds
   </div>
   <script>
+    /*
     FixTopPadding();
     $(window).resize(function(){
       FixTopPadding();
@@ -114,6 +115,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
         $('#topNav').outerHeight()
       );
     }
+    */
   </script>
 
 </body>
