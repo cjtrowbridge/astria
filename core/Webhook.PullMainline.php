@@ -26,6 +26,16 @@ function RepoPull(){
     echo 'Pulling Mainline Repo...<br>';
     echo shell_exec($Command);
     
+    ?>
+<p>Redirecting to architect in five seconds...</p>
+<script>
+  window.setTimeout(function(){
+    window.location.href = "/architect";
+  }, 5000);
+</script>
+
+    <?php
+    
     exit;
   }
 }
