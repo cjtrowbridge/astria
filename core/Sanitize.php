@@ -12,6 +12,6 @@ function Sanitize($Input, $Database = 'astria', $Type = 'string'){
     case 'string':
     default:
       MakeSureDBConnected($Database);
-      return mysqli_real_escape_string($ASTRIA['databases'][Database]['resource'],$Input);
+      return mysqli_real_escape_string($ASTRIA['databases'][$Database]['resource'],$Input);
   }
 }
