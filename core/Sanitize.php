@@ -1,6 +1,7 @@
 <?php
 
 function Sanitize($Input, $Database = 'astria', $Type = 'string'){
+  global $ASTRIA;
   
   $Type = strtolower($Type);
   
