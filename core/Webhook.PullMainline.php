@@ -10,6 +10,14 @@ function RepoPull(){
   if(
     isset($_GET[$MagicWord])
   ){
+    
+    $AstriaMainlineIntegrationTest = file_get_contents('https://astria.io/test/integration');
+    if(!($AstriaMainlineIntegrationTest=='ok')){
+      if(!(isset($_GET['force']))){
+        die('Astria mainline integration test failed. If you want to pull anyway, use flag "force" in addition to webhook.');
+      }
+    }
+    
     $Path=dirname(__FILE__);
     $Path=str_replace('/core','',$Path);
     
