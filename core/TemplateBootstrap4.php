@@ -81,7 +81,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
     <?php } ?>
   </nav>
 
-  <div class="container<?php if($Fluid){echo '-fluid';} ?> no-gutters" id="bodyContainer">
+  <div class="container<?php if($Fluid){echo '-fluid';} ?>" id="bodyContainer">
 
     <?php 
   
