@@ -7,7 +7,7 @@ function Sanitize($Input, $Database = 'astria', $Type = 'string'){
   switch($Type){
     case 'int':
     case 'integer':
-      return intval($Input)
+      return intval($Input);
     case 'string':
     default:
       MakeSureDBConnected($Database);
