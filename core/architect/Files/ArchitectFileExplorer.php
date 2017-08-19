@@ -13,7 +13,7 @@ function ArchitectFileExplorer(){
 }
 
 function ArchitectFileExplorerBodyCallback(){
-  //TODO check for escape attempts
+  //Note: If you have access to this tool as a user, you have complete control of the filesystem. Preventing escape attempts from the root directory of the application seems like a moot point, but it might make sense to add this later.
   
   $LinkPaths = explode(DIRECTORY_SEPARATOR,$_GET['path']);
   pd($LinkPaths);
@@ -109,7 +109,7 @@ function ArchitectFileExplorerDirectory(){
   if($handle = opendir($path)){
     while(false !== ($entry = readdir($handle))){
       if(is_dir($path.DIRECTORY_SEPARATOR.$entry)){
-        if(($entry !== '.')&& ($entry!=='..')){
+        if(($entry !== '.') && ($entry!=='..')){
           $directories[$entry]=$path.DIRECTORY_SEPARATOR.$entry;
         }
       }else{
@@ -122,10 +122,9 @@ function ArchitectFileExplorerDirectory(){
   asort($files);
   
   
-  if(!($_GET['path']=='/')){
-    $Parent=realpath($_GET['path'].'..');
-    echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
-  }
+  $Parent=realpath($_GET['path'].'..');
+  echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
+  
   foreach($directories as $name => $directory){
     echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
   }
