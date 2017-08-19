@@ -16,7 +16,6 @@ function ArchitectFileExplorerBodyCallback(){
   //Note: If you have access to this tool as a user, you have complete control of the filesystem. Preventing escape attempts from the root directory of the application seems like a moot point, but it might make sense to add this later.
   
   $LinkPaths = explode(DIRECTORY_SEPARATOR,$_GET['path']);
-  pd($LinkPaths);
   $CompleteLinkPath = '';
   $Pwd = '';
   foreach($LinkPaths as $LinkPath){
