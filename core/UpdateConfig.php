@@ -25,6 +25,7 @@ function UpdateConfig(
   $FacebookOAuth2AppID,
   $FacebookOAuth2AppSecret,
   $timezone,
+  $googleAnalytics = '',
   $Exit = true
 ){
   //TODO add a null default to each argument, and then fill any nulls in with current values, then sort the arguments in order of how frequently they may ned to be updated
@@ -51,6 +52,7 @@ function UpdateConfig(
   $GoogleOAuth2ClientSecret  = str_replace("'","\'",$GoogleOAuth2ClientSecret);
   $FacebookOAuth2AppID       = str_replace("'","\'",$FacebookOAuth2AppID);
   $FacebookOAuth2AppSecret   = str_replace("'","\'",$FacebookOAuth2AppSecret);
+  $googleAnalytics           = str_replace("'","\'",$googleAnalytics);
   
   $timezone                  = str_replace("'","\'",$timezone);
 
@@ -129,6 +131,9 @@ function UpdateConfig(
     ),
     'locale'=>array(
       'timezone' => '".$timezone."'
+    ),
+    'analytics' =>array(
+      'Google' => '".$googleAnalytics."'
     )
 
   );
