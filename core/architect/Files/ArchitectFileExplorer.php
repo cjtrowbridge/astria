@@ -123,7 +123,7 @@ function ArchitectFileExplorerDirectory(){
   
   $Parent=realpath($_GET['path'].'..');
   if($_GET['path']=='/'){
-    $Parent = '/..'
+    $Parent = '/..';
   }
   echo '<p><a href="/architect/files/?path='.$Parent.'"><img src="/icons/folder.gif" alt="[DIR]"> ..</a><p>'.PHP_EOL;  
   
