@@ -32,7 +32,7 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App Name:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="appName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appName'];}else{echo 'Astria';} ?>" id="appName">
+              <input class="form-control" type="text" name="appName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appName'];} ?>" id="appName">
               <small class="form-text text-muted">This will go in the titles.</small>
             </div>
           </div>
@@ -42,13 +42,13 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App URL:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="appURL" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appURL'];}else{echo 'https://astria.io';} ?>">
+              <input class="form-control" type="text" name="appURL" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appURL'];}} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Favicon URL:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="favicon" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['favicon'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="favicon" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['favicon'];} ?>">
             </div>
           </div>
           <div class="form-group row">
@@ -80,25 +80,25 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Username:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['username'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="smtpUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['username'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">SMTP Password:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['password'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="smtpPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['password'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Admin Email:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpAdminEmail" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['adminEmail'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="smtpAdminEmail" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['adminEmail'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Default From:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="smtpDefaultFrom" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['defaultEmailFrom'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="smtpDefaultFrom" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['smtp']['defaultEmailFrom'];} ?>">
             </div>
           </div>
           
@@ -122,13 +122,13 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Username:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['username'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="dbUsername" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['username'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Password:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['password'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="dbPassword" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['password'];} ?>">
             </div>
           </div>
           <div class="form-group row">
@@ -153,13 +153,13 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">ClientID:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Client Secret:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="GoogleOAuth2ClientSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret'];} ?>">
             </div>
           </div>
           
@@ -168,13 +168,13 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">AppID:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="FacebookOAuth2AppID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="FacebookOAuth2AppID" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppID'];} ?>">
             </div>
           </div>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App Secret:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="FacebookOAuth2AppSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'];}else{echo '';} ?>">
+              <input class="form-control" type="text" name="FacebookOAuth2AppSecret" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['oauth']['Facebook']['FacebookOAuth2AppSecret'];} ?>">
             </div>
           </div>
   
@@ -183,6 +183,14 @@ function AstriaConfigurationBodyCallback(){
             <label class="col-xs-2 col-form-label">Timezone:</label>
             <div class="col-xs-10">
               <input class="form-control" type="text" name="timezone" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['locale']['timezone'];}else{echo 'America/Los Angeles';} ?>">
+            </div>
+          </div>
+          
+          <h2>Google Analytics</h2>
+          <div class="form-group row">
+            <label class="col-xs-2 col-form-label">Snippet:</label>
+            <div class="col-xs-10">
+              <textarea class="form-control" name="googleAnalytics"></textarea>
             </div>
           </div>
           
@@ -226,6 +234,7 @@ function setupHandler(){
     $_POST['FacebookOAuth2AppID'],
     $_POST['FacebookOAuth2AppSecret'],
     $_POST['timezone'],
+    $_POST['googleAnalytics'],
     false
   );
   
