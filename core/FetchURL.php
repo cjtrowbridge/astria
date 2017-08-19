@@ -1,6 +1,6 @@
 <?php
 
-function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = false,$UserAgent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13'){
+function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = false,$UserAgent = 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13',$OtherHeaders = false){
   
   if($URL==''){
     return false;
@@ -30,6 +30,10 @@ function FetchURL($URL, $Method = 'GET', $Arguments = false,$Authorization = fal
     curl_setopt($cURL,CURLOPT_HTTPHEADER, array(
       'Authorization: Bearer '.$Token
     ));
+  }
+  
+  if($OtherHeaders){
+    curl_setopt($cURL,CURLOPT_HTTPHEADER, $OtherHeaders);
   }
   
   if($Method=='PUT'){
