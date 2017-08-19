@@ -30,6 +30,7 @@ function ArchitectFileExplorerBodyCallback(){
     $Pwd .= $LinkPath;
     if(is_dir($Pwd)){
       $Pwd.= DIRECTORY_SEPARATOR;
+      $LinkPath.= DIRECTORY_SEPARATOR;
     }
     
     $CompleteLinkPath .= '<a href="/architect/files/?path=/'.$Pwd.'">'.$LinkPath.'</a>';
