@@ -42,7 +42,7 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">App URL:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="appURL" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appURL'];}} ?>">
+              <input class="form-control" type="text" name="appURL" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['app']['appURL'];} ?>">
             </div>
           </div>
           <div class="form-group row">
