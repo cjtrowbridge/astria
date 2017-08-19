@@ -20,11 +20,20 @@ function ArchitectFileExplorerBodyCallback(){
   $CompleteLinkPath = '';
   $Pwd = '';
   foreach($LinkPaths as $LinkPath){
+    
+    //If its blank, skip it
+    if($LinkPath == ''){
+      continue;
+    }
+    
+    //Don't put slashes after files
     $Pwd .= $LinkPath;
-    if(!(is_file($Pwd))){
+    if(is_dir($Pwd)){
       $Pwd.= DIRECTORY_SEPARATOR;
     }
+    
     $CompleteLinkPath .= '<a href="/architect/files/?path=/'.$Pwd.'">'.$LinkPath.'</a>';
+    
   }
   
   echo '<h1><a href="/architect/files/?path=/">Astria</a>:'.$CompleteLinkPath.'</h1>'.PHP_EOL;
