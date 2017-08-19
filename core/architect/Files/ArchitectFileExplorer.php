@@ -15,7 +15,11 @@ function ArchitectFileExplorer(){
 function ArchitectFileExplorerBodyCallback(){
   //TODO check for escape attempts
   
-  echo '<h1><a href="/architect/files/?path=/">Astria</a>:'.$_GET['path'].'</h1>'.PHP_EOL;
+  $LinkPath = explode(DIRECTORY_SEPARATOR,$_GET['path']);
+  
+  pd($LinkPath);
+  
+  echo '<h1><a href="/architect/files/?path=/">Astria</a>:'.$LinkPath.'</h1>'.PHP_EOL;
   
   if(is_dir($_SERVER['DOCUMENT_ROOT'].$_GET['path'])){
     ArchitectFileExplorerDirectory();
