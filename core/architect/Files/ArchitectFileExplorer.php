@@ -16,11 +16,15 @@ function ArchitectFileExplorerBodyCallback(){
   //TODO check for escape attempts
   
   $LinkPaths = explode(DIRECTORY_SEPARATOR,$_GET['path']);
+  pd($LinkPaths);
   $CompleteLinkPath = '';
   $Pwd = '';
   foreach($LinkPaths as $LinkPath){
-    $Pwd.=$LinkPath.DIRECTORY_SEPARATOR;
-    $CompleteLinkPath .= '<a href="/architect/files/?path=/'.$Pwd.'">'.$LinkPath.'</a>'.DIRECTORY_SEPARATOR;
+    $Pwd .= $LinkPath;
+    if(!(is_file($Pwd))){
+      $Pwd.= DIRECTORY_SEPARATOR;
+    }
+    $CompleteLinkPath .= '<a href="/architect/files/?path=/'.$Pwd.'">'.$LinkPath.'</a>';
   }
   
   echo '<h1><a href="/architect/files/?path=/">Astria</a>:'.$CompleteLinkPath.'</h1>'.PHP_EOL;
