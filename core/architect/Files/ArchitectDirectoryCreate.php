@@ -2,7 +2,7 @@
 function ArchitectDirectoryCreate(){
   
   if(isset($_POST['newDirectory'])){
-    if(mkdir($_SERVER['DOCUMENT_ROOT'].$_POST['newDirectory'],775)==false){
+    if(mkdir($_SERVER['DOCUMENT_ROOT'].$_POST['newDirectory'],0775)==false){
       die('<p>Unable to create: '.$_GET['path'].'</p>');
     }
     header('Location: /architect/files/?path='.$_POST['newDirectory']);
