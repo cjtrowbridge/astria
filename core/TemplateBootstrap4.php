@@ -69,6 +69,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
     </ul>
     <?php if(LoggedIn()){ ?>
     <ul class="nav navbar-nav float-xs-right">
+      <?php ShowNav('main-right-logged-in'); ?>
       <li class="nav-item">
         <a class="nav-link active" href="/logout">Log Out</a>
       </li>
