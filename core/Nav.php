@@ -35,7 +35,7 @@ function ShowNav($Which){
       ?>
            
         <li class="nav-item">
-          <form action="<?php ehco $Nav['link']; ?>" method="post">
+          <form action="<?php echo $Nav['link']; ?>" method="post">
             <input class="form-control" type="text" name="<?php echo $Nav['text']">
           </form>
         </li>
@@ -46,7 +46,7 @@ function ShowNav($Which){
       ?>
            
         <li class="nav-item">
-          <form action="<?php ehco $Nav['link']; ?>" method="get">
+          <form action="<?php echo $Nav['link']; ?>" method="get">
             <input class="form-control" type="text" name="<?php echo $Nav['text']">
           </form>
         </li>
