@@ -31,6 +31,28 @@ function ShowNav($Which){
     isset($ASTRIA['nav'][strtolower($Which)])
   ){
     foreach($ASTRIA['nav'][strtolower($Which)] as $Nav){
+      if(strtolower($Nav['type'])=='post-query'){
+      ?>
+           
+        <li class="nav-item">
+          <form action="<?php ehco $Nav['link']; ?>" method="post">
+            <input class="form-control" type="text" name="<?php echo $Nav['text']">
+          </form>
+        </li>
+ 
+      <?php
+      }
+      if(strtolower($Nav['type'])=='get-query'){
+      ?>
+           
+        <li class="nav-item">
+          <form action="<?php ehco $Nav['link']; ?>" method="get">
+            <input class="form-control" type="text" name="<?php echo $Nav['text']">
+          </form>
+        </li>
+ 
+      <?php
+      }
       if(strtolower($Nav['type'])=='link'){
       ?>
            
