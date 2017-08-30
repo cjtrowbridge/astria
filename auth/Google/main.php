@@ -50,7 +50,7 @@ function GoogleChallengeSession(){
     $client->refreshToken($Token);
     pd($client);
     echo '<hr>';
-    $client->setAccessToken($ASTRIA['Session']['google_oauth2']['access_token']);
+    $service = new Google_Service_Oauth2($client);
     $UserInfo = $service->userinfo->get();
     pd($UserInfo);
     //$ASTRIA['Session']['google_oauth2']['user_object']=$UserInfo;
