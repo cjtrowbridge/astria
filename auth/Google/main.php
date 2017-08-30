@@ -10,7 +10,19 @@ if(
   Hook('Attempt Auth','AttemptGoogleAuth();');
   Hook('Auth Login Options','authGoogleCallback();');
 }else{
-  //TODO notify admin about this(?)
+  //notify admin about this
+  Hook('Architect Homepage','MissingGoogleOAuthCredentials();');
+}
+
+function MissingGoogleOAuthCredentials(){
+   ?>
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Missing Google OAuth Configuration</h4>
+        <p class="card-text"><a href="/architect/configuration" class="card-link">Click Here</a> to update missing configuration data.</p>
+      </div>
+    </div>
+  <?php
 }
 
 function AttemptGoogleAuth(){
