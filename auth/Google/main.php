@@ -37,7 +37,6 @@ function GoogleChallengeSession(){
     $Token = $ASTRIA['Session']['google_oauth2']['access_token'];
     $Token = json_decode($Token,true);
     $Token = $Token['access_token'];
-    echo '<hr>';
     
     $client = new Google_Client();
     $client->setClientId($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']);
@@ -48,14 +47,14 @@ function GoogleChallengeSession(){
     $client->setAccessType('offline');
     //$client->setDeveloperKey('');
     $client->refreshToken($Token);
-    pd($client);
-    echo '<hr>';
+    
     $service = new Google_Service_Oauth2($client);
     $UserInfo = $service->userinfo->get();
-    pd($UserInfo);
-    //$ASTRIA['Session']['google_oauth2']['user_object']=$UserInfo;
-    
-    exit;
+    if($UserInfo['email'] == $ASTRIA['Session']['User']['Email']){
+      die('looks legit');
+    }else{
+      die('looks fucked.')
+    }
   }
 }
 
