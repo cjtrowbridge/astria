@@ -2,6 +2,11 @@
 
 AstriaSessionSetUp();
 
+function AstriaChallengeSession(){
+  //If for some reason we are skeptical of the user's session, challenge it.
+  Event('Challenge Session');
+}
+
 function AstriaSessionSetUp(){
   include_once('Query.php');
   include_once('MakeSureDBConnected.php');
