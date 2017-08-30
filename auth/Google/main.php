@@ -29,6 +29,8 @@ Hook('Challenge Session', 'GoogleChallengeSession();');
 function GoogleChallengeSession(){
   include_once('auth/Google/autoload.php');
   global $ASTRIA;
+  
+  //Check if google was how we authenticated this session
   if(
     isset($ASTRIA['Session'])&&
     isset($ASTRIA['Session']['google_oauth2'])&&
@@ -50,10 +52,10 @@ function GoogleChallengeSession(){
     
     $service = new Google_Service_Oauth2($client);
     $UserInfo = $service->userinfo->get();
-    if($UserInfo['email'] == $ASTRIA['Session']['User']['Email']){
-      die('looks legit');
-    }else{
-      die('looks fucked.');
+    if(!($UserInfo['email'] == $ASTRIA['Session']['User']['Email'])){
+      //Google says this is not the user. Destroy the session.
+      AstriaSessionDestroy();
+      exit;
     }
     
   }
