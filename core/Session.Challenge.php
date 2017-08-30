@@ -1,7 +1,5 @@
 <?php
 
-//TODO add hooks to this from the verify ip and agent script
-
 include_once('core/Hook.php');
 Hook('User Is Logged In','MaybeChallengeSession();');
 
