@@ -53,8 +53,9 @@ function GoogleChallengeSession(){
     if($UserInfo['email'] == $ASTRIA['Session']['User']['Email']){
       die('looks legit');
     }else{
-      die('looks fucked.')
+      die('looks fucked.');
     }
+    
   }
 }
 
