@@ -11,10 +11,10 @@ if(
   Hook('Auth Login Options','authGoogleCallback();');
 }else{
   //notify admin about this
-  Hook('Architect Homepage','MissingGoogleOAuthCredentials();');
+  Hook('Architect Homepage','AlertAdminMissingGoogleOAuthCredentials();');
 }
 
-function MissingGoogleOAuthCredentials(){
+function AlertAdminMissingGoogleOAuthCredentials(){
    ?>
     <div class="card">
       <div class="card-block">
