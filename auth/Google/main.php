@@ -34,8 +34,7 @@ function GoogleChallengeSession(){
     isset($ASTRIA['Session']['google_oauth2'])&&
     isset($ASTRIA['Session']['google_oauth2']['access_token'])
   ){
-    $Token = $ASTRIA['Session']['google_oauth2']['access_token'];
-    //$Token = json_decode($Token,true);
+    $Token = $ASTRIA['Session']['google_oauth2']['access_token']['access_token'];
     pd($Token);
     echo '<hr>';
     
