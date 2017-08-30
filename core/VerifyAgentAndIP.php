@@ -1,5 +1,7 @@
 <?php
 
+//TODO convert destruction to session challenges
+
 function VerifyAgentAndIP(){
 	//Make sure that the user agent and ip have not changed and that the sessions is not expired
 	global $ASTRIA;
