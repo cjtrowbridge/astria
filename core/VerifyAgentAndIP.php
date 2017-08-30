@@ -1,6 +1,7 @@
 <?php
 
 function VerifyAgentAndIP(){
+	include_once('core/Sessions.Challenge.php');
 	//Make sure that the user agent and ip have not changed and that the sessions is not expired
 	global $ASTRIA;
 	
