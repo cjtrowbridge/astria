@@ -52,10 +52,12 @@ function GoogleChallengeSession(){
     
     $service = new Google_Service_Oauth2($client);
     $UserInfo = $service->userinfo->get();
-    if(!($UserInfo['email'] == $ASTRIA['Session']['User']['Email'])){
-      //Google says this is not the user. Destroy the session.
-      AstriaSessionDestroy();
-      exit;
+    if($UserInfo['email'] == $ASTRIA['Session']['User']['Email']){
+      //Google says this is the same user. Inform the validator that we do not need to destroy the session.
+      
+      global $AstriaChallengeSession;
+      $AstriaChallengeSession = true;
+      
     }
     
   }
