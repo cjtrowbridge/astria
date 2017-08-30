@@ -2,6 +2,13 @@
 
 AstriaSessionSetUp();
 
+Hook('User Is Logged In');
+function MaybeChallengeSession(){
+  if(isset($_GET['challengeSession'])){
+    AstriaChallengeSession();
+  }
+}
+
 function AstriaChallengeSession(){
   //If for some reason we are skeptical of the user's session, challenge it.
   Event('Challenge Session');
