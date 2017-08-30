@@ -190,7 +190,7 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Snippet:</label>
             <div class="col-xs-10">
-              <textarea class="form-control" name="googleAnalytics"></textarea>
+              <textarea class="form-control" name="googleAnalytics"><?php if(isset($ASTRIA['analytics'])){echo $ASTRIA['analytics']['Google'];} ?></textarea>
             </div>
           </div>
           
