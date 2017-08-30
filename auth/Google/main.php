@@ -27,6 +27,7 @@ function AlertAdminMissingGoogleOAuthCredentials(){
 
 Hook('Challenge Session', 'GoogleChallengeSession();');  
 function GoogleChallengeSession(){
+  include_once('auth/Google/autoload.php');
   global $ASTRIA;
   if(
     isset($ASTRIA['Session'])&&
