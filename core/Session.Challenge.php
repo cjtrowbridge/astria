@@ -11,6 +11,16 @@ function MaybeChallengeSession(){
 }
 
 function AstriaChallengeSession(){
-  //If for some reason we are skeptical of the user's session, challenge it.
+  
+  //We are skeptical of the user's session, challenge it.
+  global $AstriaChallengeSession;
+  
+  $AstriaChallengeSession = false;
+  
   Event('Challenge Session');
+  
+  if($AstriaChallengeSession==false){
+    AstriaSessionDestroy();
+  }
+  
 }
