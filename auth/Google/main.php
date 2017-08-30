@@ -25,6 +25,29 @@ function AlertAdminMissingGoogleOAuthCredentials(){
   <?php
 }
 
+Hook('Challenge Session', 'GoogleChallengeSession();');  
+function GoogleChallengeSession(){
+  global $ASTRIA;
+  if(
+    isset($ASTRIA['Session'])&&
+    isset($ASTRIA['Session']['google_oauth2'])&&
+    isset($ASTRIA['Session']['google_oauth2']['access_token'])
+  ){
+    $Token = $ASTRIA['Session']['google_oauth2']['access_token'];
+    $client = new Google_Client();
+    $client->setApplicationName('');
+    $client->setScopes(array());
+    $client->setClientId('');
+    $client->setClientSecret('');
+    $client->setRedirectUri('');
+    $client->setAccessType('offline');
+    $client->setDeveloperKey('');
+    $client->refreshToken($Token);
+    pd($client);
+    exit;
+  }
+}
+
 function AttemptGoogleAuth(){
   include_once('core/Session.php');
   include_once('auth/Google/autoload.php');
