@@ -34,15 +34,21 @@ function GoogleChallengeSession(){
     isset($ASTRIA['Session']['google_oauth2'])&&
     isset($ASTRIA['Session']['google_oauth2']['access_token'])
   ){
-    $Token = $ASTRIA['Session']['google_oauth2']['access_token'];
+    $Token        = $ASTRIA['Session']['google_oauth2']['access_token'];
+    $ClientID     = ['oauth']['Google']['GoogleOAuth2ClientID'];
+    $ClientSecret = ['oauth']['Google']['GoogleOAuth2ClientSecret'];
+
+   
+    
+    
     $client = new Google_Client();
-    $client->setApplicationName('');
-    $client->setScopes(array());
-    $client->setClientId('');
-    $client->setClientSecret('');
-    $client->setRedirectUri('');
+    $client->setClientId($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']);
+    $client->setClientSecret($ASTRIA['oauth']['Google']['GoogleOAuth2ClientSecret']);
+    $client->setRedirectUri($ASTRIA['app']['appURL'].'/authGoogle/');
+    $client->addScope("email");
+    $client->addScope("profile");
     $client->setAccessType('offline');
-    $client->setDeveloperKey('');
+    //$client->setDeveloperKey('');
     $client->refreshToken($Token);
     pd($client);
     exit;
