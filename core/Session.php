@@ -7,6 +7,7 @@ Hook('User Is Logged In','MaybeChallengeSession();');
 function MaybeChallengeSession(){
   if(isset($_GET['challengeSession'])){
     AstriaChallengeSession();
+    exit;
   }
 }
 
