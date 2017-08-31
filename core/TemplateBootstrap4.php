@@ -71,7 +71,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
     <ul class="nav navbar-nav float-xs-right">
       <?php ShowNav('main-right-logged-in'); ?>
       <li class="nav-item">
-        <a class="nav-link active" href="/logout">Log Out</a>
+        <a class="nav-link active" href="/logout"><i title="Log Out" class="material-icons">&#xE879;</i></a>
       </li>
       <li class="nav-item">
         <img id="userPhoto" src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>">
