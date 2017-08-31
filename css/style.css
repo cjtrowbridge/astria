@@ -50,4 +50,5 @@ li{
 
 #userPhoto{
   max-height: 2.5rem;
+  border-radius: 50%;
 }
