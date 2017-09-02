@@ -23,7 +23,7 @@ function FeedSyncCategoryPageBodyCallback(){
       $Category = $Category[0];
       FeedSyncCategoryEdit($Category);
     }
-  
+  }
   
 }
 
