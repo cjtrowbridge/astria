@@ -29,7 +29,7 @@ function FeedSyncCategoryPageBodyCallback(){
 
 function FeedSyncCategoryEdit($Category){
   ?>
-  <h1><a href="/architect/feedsync">FeedSync</a> - Category></h1>
+  <h1><a href="/architect/feedsync">FeedSync</a> - Category Editor</h1>
   <?php
   
   pd($Category);
