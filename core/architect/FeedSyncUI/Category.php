@@ -33,7 +33,7 @@ function FeedSyncCategoryEdit($Category){
   <?php
   
   pd($Category);
-  AstriaBootstrapAutoForm(
+  echo AstriaBootstrapAutoForm(
     $Category
     //$Readable = array(),
     //$Hidden = array()
