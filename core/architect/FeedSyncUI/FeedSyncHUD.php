@@ -18,7 +18,7 @@ function FeedSyncUIBodyCallback(){
   ?><h1>Your Feeds</h1>
   <ul>
   <?php
-      $Feeds = Query('SELECT * FROM `Feed` LEFT JOIN FeedCategory ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID');
+      $Feeds = Query('SELECT * FROM `Feed` LEFT JOIN FeedCategory ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID ORDER BY Name DESC');
       $LastCategory = '';
       foreach($Feeds as $Feed){
         if(!($Feed['Name'] == $LastCategory)){
