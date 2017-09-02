@@ -32,7 +32,6 @@ function FeedSyncCategoryEdit($Category){
   <h1><a href="/architect/feedsync">FeedSync</a> - Category Editor</h1>
   <?php
   
-  pd($Category);
   $Editable = array(
     'Name'        => $Category['Name'],
     'Description' => $Category['Description'],
@@ -52,7 +51,18 @@ function FeedSyncCategoryEdit($Category){
 }
 
 function FeedSyncCategoryNew($Category){
-  pd($Category);
+  ?>
+  <h1><a href="/architect/feedsync">FeedSync</a> - Category Editor - New</h1>
+  <?php
   
-  //AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array());
+  $Editable = array(
+    'Name'        => '',
+    'Description' => '',
+    'Path'        => '',
+    'ParentID'    => ''
+  );
+  
+  echo AstriaBootstrapAutoForm(
+    $Editable
+  );
 }
