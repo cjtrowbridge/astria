@@ -92,4 +92,7 @@ function SetupFeedSync(){
   Query("
     ALTER TABLE `FeedSource` MODIFY `FeedSourceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
   ");
+  
+  header('Location: /architect/feedsync');
+  exit;
 }
