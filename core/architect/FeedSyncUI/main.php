@@ -36,8 +36,8 @@ function SetupFeedSync(){
       `LastFetch` datetime DEFAULT NULL,
       `TTL` int(11) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-
+  ");
+  Query("
     CREATE TABLE `FeedCategory` (
       `FeedCategoryID` int(11) NOT NULL,
       `Name` varchar(255) NOT NULL,
@@ -45,8 +45,8 @@ function SetupFeedSync(){
       `Path` varchar(255) NOT NULL,
       `ParentID` int(11) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
-
+  ");
+  Query("
     CREATE TABLE `FeedFetch` (
       `FetchID` int(11) NOT NULL,
       `FeedID` int(11) NOT NULL,
@@ -59,22 +59,37 @@ function SetupFeedSync(){
       `Expires` datetime DEFAULT NULL,
       `ItemCount` int(11) DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-
+  ");
+  Query("
     CREATE TABLE `FeedSource` (
       `FeedSourceID` int(11) NOT NULL,
       `Name` varchar(255) NOT NULL,
       `Description` text NOT NULL,
       `LogoURL` varchar(255) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
+  ");
+  Query("
     ALTER TABLE `Feed` ADD PRIMARY KEY (`FeedID`), ADD KEY `SourceID` (`FeedSourceID`);
+  ");
+  Query("
     ALTER TABLE `FeedCategory` ADD PRIMARY KEY (`FeedCategoryID`);
+  ");
+  Query("
     ALTER TABLE `FeedFetch` ADD PRIMARY KEY (`FetchID`);
+  ");
+  Query("
     ALTER TABLE `FeedSource` ADD PRIMARY KEY (`FeedSourceID`);
+  ");
+  Query("
     ALTER TABLE `Feed` MODIFY `FeedID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  ");
+  Query("
     ALTER TABLE `FeedCategory` MODIFY `FeedCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  ");
+  Query("
     ALTER TABLE `FeedFetch` MODIFY `FetchID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=242995;
+  ");
+  Query("
     ALTER TABLE `FeedSource` MODIFY `FeedSourceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
-    COMMIT;
   ");
 }
