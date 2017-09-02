@@ -10,7 +10,10 @@ function FeedSyncCategoryPage(){
 
 function FeedSyncCategoryPageBodyCallback(){
   $CategoryID = Sanitize(path(3));
-  if($CategoryID == 'add'){
+  if(
+    $CategoryID == 'add'||
+    $CategoryID == false
+  ){
     FeedSyncCategoryNew();
   }else{
     $Category = Query('SELECT * FROM FeedCategory WHERE FeedCategoryID LIKE "'.$CategoryID.'" OR Name LIKE "'.$CategoryID.'"');
