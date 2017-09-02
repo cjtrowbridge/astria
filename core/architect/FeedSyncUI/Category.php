@@ -29,11 +29,15 @@ function FeedSyncCategoryPageBodyCallback(){
 
 function FeedSyncCategoryEdit($Category){
   ?>
-  <h1><a href="/architect/feedsync">FeedSync</a> - </h1>
+  <h1><a href="/architect/feedsync">FeedSync</a> - Category></h1>
   <?php
   
   pd($Category);
-  //AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array());
+  AstriaBootstrapAutoForm(
+    $Category
+    //$Readable = array(),
+    //$Hidden = array()
+  );
 }
 
 function FeedSyncCategoryNew($Category){
