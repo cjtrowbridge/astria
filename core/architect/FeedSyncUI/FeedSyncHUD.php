@@ -30,7 +30,7 @@ function FeedSyncUIBodyCallback(){
           }
           $LastCategory = $Feed['Name'];
           ?>
-      <li><h2>Category: <a href="/architect/feedsync/category/<?php echo $Feed['Path']; ?>"><?php echo $Feed['Name']; ?></a></h2>
+      <li><h2>Category: <a href="/architect/feedsync/category/<?php if($Feed['Path']==''){echo $Feed['FeedCategroryID'];}else{echo $Feed['Path'];} ?>"><?php echo $Feed['Name']; ?></a></h2>
       <ul>
           <?php
         }
