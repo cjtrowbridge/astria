@@ -33,10 +33,21 @@ function FeedSyncCategoryEdit($Category){
   <?php
   
   pd($Category);
+  $Editable = array(
+    $Category['Name'],
+    $Category['Description'],
+    $Category['Path'],
+    $Category['ParentID']
+  );
+  $Readable = array(
+    $Category['FeedCategoryID'];
+  );
+  $Hidden = $Readable;
+  
   echo AstriaBootstrapAutoForm(
-    $Category
-    //$Readable = array(),
-    //$Hidden = array()
+    $Editable,
+    $Readable,
+    $Hidden
   );
 }
 
