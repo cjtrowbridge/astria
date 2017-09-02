@@ -1,7 +1,7 @@
 <?php
 
 function FeedSyncHUD(){
-  Template4('FeedSyncUI','FeedSyncUIBodyCallback();');
+  TemplateBootstrap4('FeedSyncUI','FeedSyncUIBodyCallback();');
 }
 
 function FeedSyncUIBodyCallback(){
