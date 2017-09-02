@@ -27,11 +27,11 @@ function RepoPull(){
     echo shell_exec($Command);
     
     ?>
-<p>Redirecting to architect in five seconds...</p>
+<p>Redirecting to architect...</p>
 <script>
   window.setTimeout(function(){
     window.location.href = "/architect";
-  }, 5000);
+  }, 1000);
 </script>
 
     <?php
