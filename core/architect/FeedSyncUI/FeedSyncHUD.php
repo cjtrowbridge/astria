@@ -17,12 +17,28 @@ function FeedSyncUIBodyCallback(){
   
   ?><h1>Your Feeds</h1>
   <ul>
-    <?php
-      $Feeds = Query('SELECT * FROM Feed');
+  <?php
+      $Feeds = Query('SELECT * FROM `Feed` LEFT JOIN FeedCategory ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID');
+      $LastCategory = '';
       foreach($Feeds as $Feed){
+        if(!($Feed['Name'] == $LastCategory)){
+          if(!($LastCategory=='')){
+            ?>
+      </ul>
+    </li>
+            <?php
+          }
+          $LastCategory = $Feed['Name'];
+          ?>
+    <li><h2><?php echo $Feed['Name']; ?></h2>
+      <ul>
+          <?php
+        }
     ?>
-    <li><?php echo $Feed['URL']; ?></li>
+        <li><?php echo $Feed['URL']; ?></li>
     <?php } ?>
+      </ul>
+    </li>
   </ul>
   <?php
 }
