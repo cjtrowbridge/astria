@@ -30,12 +30,12 @@ function FeedSyncUIBodyCallback(){
           }
           $LastCategory = $Feed['Name'];
           ?>
-    <li><h2><?php echo $Feed['Name']; ?></h2>
+      <li><h2>Category: <a href="/architect/feedsync/category/<?php echo $Feed['Path']; ?>"><?php echo $Feed['Name']; ?></a></h2>
       <ul>
           <?php
         }
     ?>
-        <li><?php echo $Feed['URL']; ?></li>
+        <li><a href="/architect/feedsync/feed/<?php echo $Feed['FeedID']; ?>"><?php echo $Feed['URL']; ?></a></li>
     <?php } ?>
       </ul>
     </li>
