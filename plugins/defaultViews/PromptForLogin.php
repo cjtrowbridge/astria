@@ -1,6 +1,6 @@
 <?php 
 
-Hook('User Is Not Logged In','PromptForLogin();');
+Hook('User Is Not Logged In - No Presentation','PromptForLogin();');
 
 function PromptForLogin(){
 	TemplateBootstrap4('','PromptForLoginBodyCallback();');
