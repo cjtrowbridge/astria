@@ -17,7 +17,7 @@ function FeedSyncUIBodyCallback(){
   
   ?><h1>Your Categories and Feeds</h1>
   <ul>
-    <li><a class="btn btn-outline-success" href="/architect/feedsync/category/add"><i class="material-icons">add</i> Feed</a></li>
+    <li><a class="btn btn-outline-success" href="/architect/feedsync/category/add">New Category</a></li>
   <?php
       $Feeds = Query('SELECT * FROM `Feed` LEFT JOIN FeedCategory ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID ORDER BY Name ASC');
       $LastCategory = '';
@@ -33,7 +33,7 @@ function FeedSyncUIBodyCallback(){
           ?>
       <li><h2>Category: <a href="/architect/feedsync/category/<?php if($Feed['Path']==''){echo $Feed['FeedCategoryID'];}else{echo $Feed['Path'];} ?>"><?php echo $Feed['Name']; ?></a></h2>
       <ul>
-        <li><a class="btn btn-outline-success" href="/architect/feedsync/feed/add?FeedCategoryID=<?php echo $Feed['FeedCategoryID']; ?>"><i class="material-icons">add</i> Feed</a></li>
+        <li><a class="btn btn-outline-success" href="/architect/feedsync/feed/add?FeedCategoryID=<?php echo $Feed['FeedCategoryID']; ?>">New Feed</a></li>
           <?php
         }
     ?>
