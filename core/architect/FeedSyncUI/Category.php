@@ -14,7 +14,7 @@ function FeedSyncCategoryPageBodyCallback(){
     FeedSyncCategoryNew();
   }else{
     $Category = Query('SELECT * FROM FeedCategory WHERE FeedCateoryID LIKE "'.$CategoryID.'" OR Name LIKE "'.$CategoryID.'"');
-    if(count($Category)==0{
+    if(count($Category)==0){
       ?>
       <h1><a href="/architect/feedsync">FeedSync</a> - Category Not Found</h1>
       <?php
