@@ -34,13 +34,13 @@ function FeedSyncCategoryEdit($Category){
   
   pd($Category);
   $Editable = array(
-    $Category['Name'],
-    $Category['Description'],
-    $Category['Path'],
-    $Category['ParentID']
+    'Name'        => $Category['Name'],
+    'Description' => $Category['Description'],
+    'Path'        => $Category['Path'],
+    'ParentID'    => $Category['ParentID']
   );
   $Readable = array(
-    $Category['FeedCategoryID'];
+    'FeedCategoryID' => $Category['FeedCategoryID']
   );
   $Hidden = $Readable;
   
