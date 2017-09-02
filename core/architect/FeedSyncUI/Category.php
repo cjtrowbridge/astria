@@ -9,6 +9,7 @@ function FeedSyncCategoryPage(){
 
 
 function FeedSyncCategoryPageBodyCallback(){
+  //TODO false should probably show a list of categories instead of creating a new category
   $CategoryID = Sanitize(path(3));
   if(
     $CategoryID == 'add'||
