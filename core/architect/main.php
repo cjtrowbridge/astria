@@ -38,6 +38,11 @@ function PresentArchitect(){
       case 'create-webhook-pull-subrepository':
         include_once('GetSubrepositoryPullWebhook.php');
         GetSubrepositoryPullWebhook();
+        break;
+      case 'feedsync':
+        include_once('FeedSyncUI/main.php');
+        FeedSyncUI();
+        break;
       case 'files':
         switch(path(2)){
           case 'create-file':
