@@ -53,7 +53,7 @@ function FeedSyncCategoryEdit($Category){
   );
 }
 
-function FeedSyncCategoryNew($Category){
+function FeedSyncCategoryNew(){
   ?>
   <h1><a href="/architect/feedsync">FeedSync</a> - Category Editor - New</h1>
   <?php
