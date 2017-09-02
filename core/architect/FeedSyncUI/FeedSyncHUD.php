@@ -21,7 +21,7 @@ function FeedSyncUIBodyCallback(){
       $Feeds = Query('SELECT * FROM Feed');
       foreach($Feeds as $Feed){
     ?>
-    <li><?php echo $Feed['FeedURL']; ?></li>
+    <li><?php echo $Feed['URL']; ?></li>
     <?php } ?>
   </ul>
   <?php
