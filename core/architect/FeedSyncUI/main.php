@@ -2,8 +2,15 @@
 
 function FeedSyncUI(){
   switch(path(2)){
-    
-    
+    case 'category':
+      include('Category.php');
+      FeedSyncCategoryPage();
+      break;
+    case 'feed':
+      include('Feed.php');
+      FeedSyncFeedPage();
+      break;
+      
     case 'setup':
       SetupFeedSync();
       break;
