@@ -14,6 +14,7 @@ function ArchitectBodyCallback(){
     <div class="form-inline">
       <h4>Architect Tools:</h4>
       <a href="/architect/files" class="btn btn-outline-success">File Manager</a>
+      <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success">Schema</button>
       <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
       <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-success">Databases</button>
