@@ -1,6 +1,6 @@
 <?php
 
-function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = 'Current URL', $Method = 'post',$TakeFocus = true){
+function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array(),$Action = 'Current URL', $Method = 'post',$TakeFocus = false){
   if($Action == 'Current URL'){
     $Action='/'.url();
   }
