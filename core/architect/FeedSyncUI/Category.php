@@ -42,12 +42,13 @@ function FeedSyncCategoryPage(){
           ".$MaybeParentID."
         );
       ");
-      global $ASTRIA;
-      $NewID = mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
-      header('Location: /architect/feedsync/category/'.$NewID);
-      exit;
     }
-  
+    
+    global $ASTRIA;
+    $NewID = mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
+    header('Location: /architect/feedsync/category/'.$NewID);
+    exit;
+  }
   
   TemplateBootstrap4('Category - FeedSync','FeedSyncCategoryPageBodyCallback();');
 }
