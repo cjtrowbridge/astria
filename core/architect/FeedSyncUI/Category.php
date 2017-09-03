@@ -16,9 +16,9 @@ function FeedSyncCategoryPage(){
           `Description` = '".Sanitize($_POST['Description'])."', 
           `Path`        = '".Sanitize($_POST['Path'])."', 
           `ParentID`    = '".Sanitize($_POST['ParentID'])."' 
-        WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['ParentID'])).";
+        WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['FeedCategoryID'])).";
       ");
-      $DestinationID = intval(Sanitize($_POST['ParentID']));
+      $DestinationID = intval(Sanitize($_POST['FeedCategoryID']));
       
     }else{
       
