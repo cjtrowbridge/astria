@@ -81,7 +81,7 @@ function FeedSyncFeedEdit($Feed){
   
   pd($Feed);
   return;
-  
+  /*
   $Editable = array(
     'Name'        => $Category['Name'],
     'Description' => $Category['Description'],
@@ -98,6 +98,7 @@ function FeedSyncFeedEdit($Feed){
     $Readable,
     $Hidden
   );
+  */
 }
 function FeedSyncFeedNew(){
   ?>
