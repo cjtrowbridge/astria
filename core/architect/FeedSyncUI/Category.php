@@ -18,6 +18,7 @@ function FeedSyncCategoryPage(){
           `ParentID`    = '".Sanitize($_POST['ParentID'])."' 
         WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['ParentID'])).";
       ");
+      $DestinationID = intval(Sanitize($_POST['ParentID']));
       
     }else{
       
@@ -42,11 +43,11 @@ function FeedSyncCategoryPage(){
           ".$MaybeParentID."
         );
       ");
+      global $ASTRIA;
+      $DestinationID = mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
     }
     
-    global $ASTRIA;
-    $NewID = mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
-    header('Location: /architect/feedsync/category/'.$NewID);
+    header('Location: /architect/feedsync/category/'.$DestinationID);
     exit;
   }
   
