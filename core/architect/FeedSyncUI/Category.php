@@ -4,9 +4,15 @@ function FeedSyncCategoryPage(){
   if(
     isset($_POST['Name'])
   ){
+      if($_POST['ParentID']==''){
+        $MaybeParentID = "NULL";
+      }else{
+        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
+      }
+    
     //Something being submitted
     //But is it a new or an update?
-
+    
     if(isset($_POST['FeedCategoryID'])){
       
       //Update
@@ -15,7 +21,7 @@ function FeedSyncCategoryPage(){
           `Name`        = '".Sanitize($_POST['Name'])."', 
           `Description` = '".Sanitize($_POST['Description'])."', 
           `Path`        = '".Sanitize($_POST['Path'])."', 
-          `ParentID`    = '".Sanitize($_POST['ParentID'])."' 
+          `ParentID`    = '".$MaybeParentID."' 
         WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['FeedCategoryID'])).";
       ");
       $DestinationID = intval(Sanitize($_POST['FeedCategoryID']));
@@ -24,11 +30,7 @@ function FeedSyncCategoryPage(){
       
       //New
       
-      if($_POST['ParentID']==''){
-        $MaybeParentID = "NULL";
-      }else{
-        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
-      }
+      
       
       Query("
         INSERT INTO `FeedCategory`(
