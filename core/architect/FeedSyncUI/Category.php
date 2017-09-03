@@ -1,7 +1,52 @@
 <?php
 
 function FeedSyncCategoryPage(){
-  
+  if(
+    isset($_POST['Name'])
+  ){
+    //Something being submitted
+    //But is it a new or an update?
+
+    if(isset($_POST['FeedCategoryID']){
+      
+      //Update
+      Query("
+        UPDATE `FeedCategory` SET 
+          `Name`        = '".Sanitize($_POST['Name'])."', 
+          `Description` = '".Sanitize($_POST['Description'])."', 
+          `Path`        = '".Sanitize($_POST['Path'])."', 
+          `ParentID`    = '".Sanitize($_POST['ParentID'])."' 
+        WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['ParentID'])).";
+      ");
+      
+    }else{
+      
+      //New
+      
+      if($_POST['ParentID']==''){
+        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
+      }else{
+        $MaybeParentID = "NULL";
+      }
+      
+      Query("
+        INSERT INTO `FeedCategory`(
+          `Name`, 
+          `Description`, 
+          `Path`, 
+          `ParentID`
+        )VALUES(
+          '".Sanitize($_POST['Name'])."', 
+          '".Sanitize($_POST['Description'])."', 
+          '".Sanitize($_POST['Path'])."', 
+          ".$MaybeParentID."
+        );
+      ");
+      global $ASTRIA;
+      $NewID = mysqli_insert_id($ASTRIA['databases']['astria']['resource']);
+      header('Location: /architect/feedsync/category/'.$NewID);
+      exit;
+    }
   
   
   TemplateBootstrap4('Category - FeedSync','FeedSyncCategoryPageBodyCallback();');
