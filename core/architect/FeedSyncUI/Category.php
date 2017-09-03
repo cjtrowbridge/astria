@@ -115,4 +115,16 @@ function FeedSyncCategoryNew(){
   echo AstriaBootstrapAutoForm(
     $Editable
   );
+  ?>
+  <script>
+    $("#Name").change(function(){
+      var NewPath = $("#Name").val();
+      
+      NewPath = NewPath.toLowerCase();
+      NewPath = NewPath.replace(' ','-');
+      
+      $("#Path").val(NewPath);
+    });
+  </script>
+  <?php
 }
