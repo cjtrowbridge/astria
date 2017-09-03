@@ -7,7 +7,7 @@ function FeedSyncCategoryPage(){
     //Something being submitted
     //But is it a new or an update?
 
-    if(isset($_POST['FeedCategoryID']){
+    if(isset($_POST['FeedCategoryID'])){
       
       //Update
       Query("
