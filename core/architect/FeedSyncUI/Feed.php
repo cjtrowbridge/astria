@@ -2,7 +2,7 @@
 
 function FeedSyncFeedPage(){
   if(
-    isset($_POST['Name'])
+    isset($_POST['URL'])
   ){
       if($_POST['FeedSourceID']==''){
         $mFeedSourceID = "NULL";
