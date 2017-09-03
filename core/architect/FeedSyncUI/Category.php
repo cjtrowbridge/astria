@@ -24,9 +24,9 @@ function FeedSyncCategoryPage(){
       //New
       
       if($_POST['ParentID']==''){
-        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
-      }else{
         $MaybeParentID = "NULL";
+      }else{
+        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
       }
       
       Query("
