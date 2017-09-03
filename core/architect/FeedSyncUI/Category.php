@@ -7,7 +7,7 @@ function FeedSyncCategoryPage(){
       if($_POST['ParentID']==''){
         $MaybeParentID = "NULL";
       }else{
-        $MaybeParentID = "'".intval(Sanitize($_POST['ParentID']))."'";
+        $MaybeParentID = "'".intval($_POST['ParentID'])."'";
       }
     
     //Something being submitted
