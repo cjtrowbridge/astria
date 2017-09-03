@@ -53,6 +53,8 @@ function FeedSyncFeedPage(){
   TemplateBootstrap4('Feed - FeedSync','FeedSyncFeedPageBodyCallback();');
 }
 function FeedSyncFeedPageBodyCallback(){
+  $FeedID = intval(path(3));
+  
   //TODO false should probably show a list of feeds instead of creating a new feed
   if(
     $FeedID == 'add'||
@@ -60,7 +62,6 @@ function FeedSyncFeedPageBodyCallback(){
   ){
     FeedSyncCategoryNew();
   }else{
-    $FeedID = intval(path(3));
     $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
     if(count($Feed)==0){
       ?>
