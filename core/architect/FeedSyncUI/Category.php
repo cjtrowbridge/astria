@@ -21,7 +21,7 @@ function FeedSyncCategoryPage(){
           `Name`        = '".Sanitize($_POST['Name'])."', 
           `Description` = '".Sanitize($_POST['Description'])."', 
           `Path`        = '".Sanitize($_POST['Path'])."', 
-          `ParentID`    = '".$MaybeParentID."' 
+          `ParentID`    = ".$MaybeParentID."
         WHERE `FeedCategory`.`FeedCategoryID` = ".intval(Sanitize($_POST['FeedCategoryID'])).";
       ");
       $DestinationID = intval(Sanitize($_POST['FeedCategoryID']));
@@ -29,9 +29,6 @@ function FeedSyncCategoryPage(){
     }else{
       
       //New
-      
-      
-      
       Query("
         INSERT INTO `FeedCategory`(
           `Name`, 
