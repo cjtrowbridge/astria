@@ -81,19 +81,19 @@ function FeedSyncFeedEdit($Feed){
   <?php
   
   $Editable = array(
-    'FeedSourceID'    => $Category['FeedSourceID'],
-    'FeedCategoryID'  => $Category['FeedCategoryID'],
-    'FeedParserID'    => $Category['FeedParserID'],
-    'URL'             => $Category['URL'],
-    'FeedName'        => $Category['FeedName'],
-    'FeedDescription' => $Category['FeedDescription'],
-    'FeedLogoURL'     => $Category['FeedLogoURL'],
-    'MinimumInterval' => $Category['MinimumInterval'],
-    'LastFetch'       => $Category['LastFetch'],
-    'TTL'             => $Category['TTL']
+    'FeedSourceID'    => $Feed['FeedSourceID'],
+    'FeedCategoryID'  => $Feed['FeedCategoryID'],
+    'FeedParserID'    => $Feed['FeedParserID'],
+    'URL'             => $Feed['URL'],
+    'FeedName'        => $Feed['FeedName'],
+    'FeedDescription' => $Feed['FeedDescription'],
+    'FeedLogoURL'     => $Feed['FeedLogoURL'],
+    'MinimumInterval' => $Feed['MinimumInterval'],
+    'LastFetch'       => $Feed['LastFetch'],
+    'TTL'             => $Feed['TTL']
   );
   $Readable = array(
-    'FeedID' => $Category['FeedID']
+    'FeedID' => $Feed['FeedID']
   );
   $Hidden = $Readable;
   
