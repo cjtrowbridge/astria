@@ -80,18 +80,20 @@ function FeedSyncFeedEdit($Feed){
   <h1><a href="/architect/feedsync">FeedSync</a> - Feed Editor</h1>
   <?php
   
-  pd($Feed);
-  return;
-  
-  /*
   $Editable = array(
-    'Name'        => $Category['Name'],
-    'Description' => $Category['Description'],
-    'Path'        => $Category['Path'],
-    'ParentID'    => $Category['ParentID']
+    'FeedSourceID'    => $Category['FeedSourceID'],
+    'FeedCategoryID'  => $Category['FeedCategoryID'],
+    'FeedParserID'    => $Category['FeedParserID'],
+    'URL'             => $Category['URL'],
+    'FeedName'        => $Category['FeedName'],
+    'FeedDescription' => $Category['FeedDescription'],
+    'FeedLogoURL'     => $Category['FeedLogoURL'],
+    'MinimumInterval' => $Category['MinimumInterval'],
+    'LastFetch'       => $Category['LastFetch'],
+    'TTL'             => $Category['TTL']
   );
   $Readable = array(
-    'FeedCategoryID' => $Category['FeedCategoryID']
+    'FeedID' => $Category['FeedID']
   );
   $Hidden = $Readable;
   
@@ -100,7 +102,7 @@ function FeedSyncFeedEdit($Feed){
     $Readable,
     $Hidden
   );
-  */
+  
 }
 function FeedSyncFeedNew(){
   ?>
