@@ -61,7 +61,7 @@ function FeedSyncFeedPageBodyCallback(){
     FeedSyncCategoryNew();
   }else{
     $FeedID = intval(path(3));
-    $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID.');
+    $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
     if(count($Feed)==0){
       ?>
       <h1><a href="/architect/feedsync">FeedSync</a> - Category Not Found</h1>
@@ -81,6 +81,7 @@ function FeedSyncFeedEdit($Feed){
   
   pd($Feed);
   return;
+  
   /*
   $Editable = array(
     'Name'        => $Category['Name'],
