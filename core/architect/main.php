@@ -43,6 +43,10 @@ function PresentArchitect(){
         include_once('FeedSyncUI/main.php');
         FeedSyncUI();
         break;
+      case 'schema':
+        include_once('Schema/Routing.php');
+        ArchitectSchema();
+        break;
       case 'files':
         switch(path(2)){
           case 'create-file':
