@@ -15,14 +15,16 @@ function ArchitectSchemaHUDBodyCallback(){
     <div class="card">
       <div class="card-block">
         <h4 class="card-title">Database: "<?php echo $Alias; ?>"</h4>
-        <p><b><?php echo $Database['type'].'://'.$Database['hostname']; ?></b></p>
-        <p><?php  
-          if($Database['resource']===false){
-            echo '<p>Not Connected</p>';
-          }else{
-            echo '<p>Connected</p>';
-          }
-        ?></p>
+        <p>
+          <b><?php echo $Database['type'].'://'.$Database['hostname']; ?></b>
+          (<?php  
+            if($Database['resource']===false){
+              echo 'Not Connected';
+            }else{
+              echo 'Connected';
+            }
+          ?>)
+        </p>
       </div>
     </div>
 
