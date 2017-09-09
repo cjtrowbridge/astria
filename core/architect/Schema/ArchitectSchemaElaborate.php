@@ -12,7 +12,6 @@ function ArchitectSchemaElaborate(){
 
 function ArchitectSchemaElaborateBodyCallback(){
   global $ASTRIA;
-  $ASTRIA['databases'][path(2)]
   
   pd($ASTRIA['databases'][path(2)]);
   
