@@ -14,7 +14,7 @@ function ArchitectSchemaHUDBodyCallback(){
     
     <div class="card">
       <div class="card-block">
-        <h4 class="card-title">Database: <a href="/architect/schema/<?php echo $Alias; ?>"><?php echo $Database['database']; ?> "<?php echo $Alias; ?>"</a></h4>
+        <h4 class="card-title">Database: "<?php echo $Alias; ?>" <a href="/architect/schema/<?php echo $Alias; ?>"><?php echo $Database['database']; ?></a></h4>
         <p>
           <b><?php echo $Database['type'].'://'.$Database['hostname']; ?></b>
           (<?php  
