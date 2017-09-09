@@ -5,7 +5,7 @@ function MySQLDescribeTable($Table){
   $DBName = $ASTRIA['databases'][$Alias]['database'];
   $Tables = Query('DESCRIBE `'.Sanitize($Table).'`',$Alias);
   
-  echo '<h1>Database: "'.$Alias.'"'." '".$DBName."'.'".$Table."' </h1>';
+  echo '<h1>Database: '." '".$DBName."'.'".$Table."' </h1>";
   echo PHP_EOL."<ul>".PHP_EOL;
   foreach($Tables as $Table){
     $Table = array_shift($Table);
