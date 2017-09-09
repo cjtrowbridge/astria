@@ -6,11 +6,11 @@ function MySQLDescribeTable($Alias,$Table){
   
   
   ?>
-  <p>
+  <br><div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $DBName; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $DBName; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
     <a class="btn btn-outline-success" href="javascript:void(0);" onclick="$('#tableDescription').slideToggle();">Describe</a>  
-  </p>
+  </div><br>
   
 
   <div class="card" id="tableDescription" style="display: none;">
