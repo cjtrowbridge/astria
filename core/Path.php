@@ -27,7 +27,7 @@ function paths($Lowercase = true){
 }
 
 function url($Lowercase = true){
-  $URL rtrim(trim($_SERVER['REQUEST_URI'], '/'),'/');
+  $URL = rtrim(trim($_SERVER['REQUEST_URI'], '/'),'/');
   
   if($Lowercase){
     $URL = strtolower($URL);
