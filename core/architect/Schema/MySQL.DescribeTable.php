@@ -8,6 +8,7 @@ function MySQLDescribeTable($Alias,$Table){
   ?>
   <br><div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
+    <a class="btn btn-outline-success" href="/architect/schema/3<?php echo $Alias; ?>/?query">Query</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
     <a class="btn btn-outline-success" href="javascript:void(0);" onclick="$('#tableDescription').slideToggle();">Describe</a>  
   </div><br>
