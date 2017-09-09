@@ -2,7 +2,7 @@
 
 function MySQLDescribeDatabase($Alias){
   global $ASTRIA;
-  $Name = $ASTRIA['databases'][$Alias]['name'];
+  $Name = $ASTRIA['databases'][$Alias]['database'];
   $Type = $ASTRIA['databases'][$Alias]['type'];
   $Tables = Query('SHOW TABLES',$Alias);
   
