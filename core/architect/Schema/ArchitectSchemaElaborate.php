@@ -6,7 +6,7 @@ function ArchitectSchemaElaborate(){
     die('Invalid Database Alias');
   }
   
-  TempalteBootstrap4('SChema: '.path(2),'ArchitectSchemaElaborateBodyCallback();');
+  TemplateBootstrap4('SChema: '.path(2),'ArchitectSchemaElaborateBodyCallback();');
 }
 
 
