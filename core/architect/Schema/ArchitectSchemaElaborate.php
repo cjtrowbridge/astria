@@ -14,6 +14,7 @@ function ArchitectSchemaElaborateBodyCallback(){
   global $ASTRIA;
   $Alias = path(2);
   $This = $ASTRIA['databases'][$Alias];
+  pd($This);
   
   switch($This['type']){
     case 'mysql':
