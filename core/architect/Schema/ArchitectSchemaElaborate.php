@@ -20,13 +20,13 @@ function ArchitectSchemaElaborateBodyCallback(){
       switch(path(3)){
         case false:
           //list all tables and views
-          include('MySQL.DescribeDatabase.php');
+          include_once('MySQL.DescribeDatabase.php');
           MySQLDescribeDatabase($Alias);
           break;
           
         case 'table':
           //describe a table
-          inclue_once('MySQL.DescribeTable.php');
+          include_once('MySQL.DescribeTable.php');
           MySQLDescribeTable(path(4));
           break;
           
