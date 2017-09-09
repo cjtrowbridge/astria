@@ -13,4 +13,5 @@ function MySQLDescribeDatabase($Alias){
     echo '  <li><a href="/architect/schema/'.path(2).'/'.path(3).'/'.$Table.'">'.$Table.'</a></li>'.PHP_EOL;
   }
   echo "</ul>".PHP_EOL;
+  pd($ASTRIA['databases']['$Alias']);
 }
