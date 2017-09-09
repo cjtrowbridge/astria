@@ -20,6 +20,11 @@ function ArchitectSchemaElaborateBodyCallback(){
   
   switch($This['type']){
     case 'mysql':
+      if(isset($_GET['query'])){
+        include_once('MySQL.Query.php');
+        ArchitectSchemaMySQLQuery($Alias);
+        return;
+      }
       switch(path(3)){
         case false:
           //list all tables and views
