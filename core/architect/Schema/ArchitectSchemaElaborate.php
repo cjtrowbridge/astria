@@ -6,6 +6,9 @@ function ArchitectSchemaElaborate(){
     die('Invalid Database Alias');
   }
   
+  //TODO add listeners for csv dump flags
+  
+  
   TemplateBootstrap4('Schema: '.path(2),'ArchitectSchemaElaborateBodyCallback();',true);
 }
 
