@@ -6,7 +6,7 @@ function ArchitectSchemaElaborate(){
     die('Invalid Database Alias');
   }
   
-  TemplateBootstrap4('Schema: '.path(2),'ArchitectSchemaElaborateBodyCallback();');
+  TemplateBootstrap4('Schema: '.path(2),'ArchitectSchemaElaborateBodyCallback();',true);
 }
 
 
