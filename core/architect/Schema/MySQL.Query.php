@@ -4,8 +4,6 @@ function ArchitectSchemaMySQLQuery($Alias){
   global $ASTRIA;
   $Name = $ASTRIA['databases'][$Alias]['database'];
   
-  pd($_POST);
-  
   if(!(isset($_POST['query']))){
     $Query='SHOW TABLES';
   }else{
