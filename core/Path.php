@@ -1,7 +1,7 @@
 <?php
 
-function path($index = 0){
-  $pathSegments = paths();
+function path($index = 0,$Lowercase = true){
+  $pathSegments = paths($Lowercase);
   if(isset($pathSegments[$index])){
     if(trim($pathSegments[$index])==''){
       return false;
@@ -13,8 +13,8 @@ function path($index = 0){
   }
 }
 
-function paths(){
-  $theURL=url();
+function paths($Lowercase = true){
+  $theURL=url($Lowercase);
   if(!(substr($theURL, -1)=='/')){$theURL.='/';}
   $pathSegments = explode('/', $theURL);
   $output = array();
@@ -26,6 +26,12 @@ function paths(){
   return $output;
 }
 
-function url(){
-  return rtrim(trim(strtolower($_SERVER['REQUEST_URI']), '/'),'/');
+function url($Lowercase = true){
+  $URL rtrim(trim($_SERVER['REQUEST_URI'], '/'),'/');
+  
+  if($Lowercase){
+    $URL = strtolower($URL);
+  }
+  
+  return $URL;
 }
