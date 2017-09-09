@@ -20,8 +20,8 @@ function ArchitectSchemaElaborateBodyCallback(){
       switch(path(3)){
         case false:
           //list all tables and views
-          $Tables = Query('SHOW TABLES',$Alias);
-          echo ArrTabler($Tables);
+          include('DescribeDatabase.php');
+          DescribeDatabase($Alias);
           break;
           
         case 'table':
