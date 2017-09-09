@@ -1,6 +1,6 @@
 <?php
 
-function MySQLDescribeTable($Table){
+function MySQLDescribeTable($Alias,$Table){
   global $ASTRIA;
   $DBName = $ASTRIA['databases'][$Alias]['database'];
   $Tables = Query('DESCRIBE `'.Sanitize($Table).'`',$Alias);
