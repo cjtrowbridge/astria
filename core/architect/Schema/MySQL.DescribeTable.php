@@ -27,7 +27,7 @@ function MySQLDescribeTable($Alias,$Table){
 
   <div class="card">
     <div class="card-block">
-      <h1 class="card-title">Database: '<?php echo $DBName; ?>'.'<?php echo $Table; ?>'</h1>
+      <h1 class="card-title">'<?php echo $DBName; ?>'.'<?php echo $Table; ?>'</h1>
       <div class="card-text">
         <?php echo ArrTabler($Description); ?>
       </div>
