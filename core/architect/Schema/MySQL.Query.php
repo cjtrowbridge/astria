@@ -15,8 +15,8 @@ function ArchitectSchemaMySQLQuery($Alias){
 
   <div class="card">
     <div class="card-block">
-      <h4 class="card-title">Query Database: '<a href="/architect/schema/<?php echo $Name; ?>/"><?php echo $Name; ?></a>'</h4>
-      <form action="/architect/schema/<?php echo $Name; ?>/?query" method="post">
+      <h4 class="card-title">Query Database: '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $Name; ?></a>'</h4>
+      <form action="/architect/schema/<?php echo $Alias; ?>/?query" method="post">
         <textarea class="form-control" rows="8"><?php echo $Query; ?></textarea><br>
         <input type="submit" class="btn btn-success" value="Run">
       </form>
