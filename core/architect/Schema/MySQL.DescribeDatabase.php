@@ -6,7 +6,7 @@ function MySQLDescribeDatabase($Alias){
   $Type = $ASTRIA['databases'][$Alias]['type'];
   $Tables = Query('SHOW TABLES',$Alias);
   
-  echo '<h1>Database: '.$Type.'://'.$Name.'</h1>';
+  echo '<h1>Database: '.$Type.'://'.$Name.'/ "'.$Alias.'"</h1>';
   echo PHP_EOL."<ul>".PHP_EOL;
   foreach($Tables as $Table){
     $Table = array_shift($Table);
