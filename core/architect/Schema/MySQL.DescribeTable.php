@@ -28,7 +28,7 @@ function MySQLDescribeTable($Alias,$Table){
 
   <div class="card">
     <div class="card-block">
-      <h1 class="card-title">'<?php echo $DBName; ?>'.'<?php echo $Table; ?>'</h1>
+      <h1 class="card-title">'<a href="/architect/schema/<?php echo $DBName; ?>/"><?php echo $DBName; ?></a>'.'<?php echo $Table; ?>'</h1>
       <div class="card-text">
         <?php 
           if(isset($_GET['show-all'])){
