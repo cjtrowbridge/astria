@@ -17,7 +17,6 @@ function ArchitectBodyCallback(){
       <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
       <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success">Schema</button>
       <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
-      <button onclick="Cardify('Databases','databases');" type="button" class="btn btn-outline-success">Databases</button>
       <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
       <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
       <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
@@ -100,16 +99,6 @@ function ArchitectBodyCallback(){
   <div class="hidden" id="queriesRun">
     <?php 
       pd(htmlentities($QUERIES_RUN));
-    ?>
-  </div>
-  <div class="hidden" id="databases">
-    <?php 
-      global $ASTRIA;
-      $temp=array();
-      foreach($ASTRIA['databases'] as $name => $database){
-        $temp[$name]=$database['resource'];
-      }
-      pd(htmlentities(var_export($temp,true)));
     ?>
   </div>
 </div>
