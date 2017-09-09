@@ -36,6 +36,7 @@ function ArchitectSchemaElaborateBodyCallback(){
             echo '<p><b>Error:</b> Unsupported action: "'.path(3).'"</p>';
             break;
       }
+      break;
     default:
       echo '<p>This database type is not supported by the schema tool. :[</p><p>Go build it! :]</p>';
       break;
