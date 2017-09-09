@@ -10,7 +10,7 @@ function ArchitectSchemaMySQLQuery($Alias){
     $Query=$_POST['query'];
   }
   
-  ?>
+  ?><br>
 
 
   <div class="card">
