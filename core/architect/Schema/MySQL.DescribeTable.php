@@ -3,21 +3,24 @@
 function MySQLDescribeTable($Alias,$Table){
   global $ASTRIA;
   $DBName = $ASTRIA['databases'][$Alias]['database'];
-  $Description = Query('DESCRIBE `'.Sanitize($Table).'`',$Alias);
+  
   
   ?><br>
   <div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $DBName; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $DBName; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
-    <a class="btn btn-outline-success" href="javascript:void(0);" onclick="$('#tableDescription').slideToggle();">Show Description</a>  
+    <a class="btn btn-outline-success" href="javascript:void(0);" onclick="$('#tableDescription').slideToggle();">Describe</a>  
   </div><br>
   
 
   <div class="card" id="tableDescription" style="display: none;">
     <div class="card-block">
-      <h2 class="card-title">Description</h2>
+      <h2 class="card-title">Table Structure Description</h2>
       <div class="card-text">
-        <?php echo ArrTabler($Description); ?>
+        <?php 
+          $Description = Query('DESCRIBE `'.Sanitize($Table).'`',$Alias);
+          echo ArrTabler($Description); 
+        ?>
       </div>
     </div>
   </div>
@@ -27,7 +30,9 @@ function MySQLDescribeTable($Alias,$Table){
     <div class="card-block">
       <h1 class="card-title">'<?php echo $DBName; ?>'.'<?php echo $Table; ?>'</h1>
       <div class="card-text">
-        <?php echo ArrTabler($Description); ?>
+        <?php 
+          echo ArrTabler($Description); 
+        ?>
       </div>
     </div>
   </div>
@@ -35,6 +40,11 @@ function MySQLDescribeTable($Alias,$Table){
   <?php
   
   
-  echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC"));
+  if(isset($_GET['show-all'])){
+    echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC"));
+  }else{
+    echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100"));
+  }
+  
   
 }
