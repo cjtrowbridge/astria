@@ -2,7 +2,7 @@
 
 function MySQLDescribeDatabase($Alias){
   $Tables = Query('SHOW TABLES',$Alias);
-  foreach($Tables as $Table){
-    echo $Table[0];
+  foreach($Tables as $Key => $Value){
+    pd($Value);
   }
 }
