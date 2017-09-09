@@ -5,8 +5,6 @@ function MySQLDescribeTable($Alias,$Table){
   $DBName = $ASTRIA['databases'][$Alias]['database'];
   $Description = Query('DESCRIBE `'.Sanitize($Table).'`',$Alias);
   
-  echo '<h1>Database: '." '".$DBName."'.'".$Table."' </h1>";
-  
   ?>
   <div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $DBName; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
