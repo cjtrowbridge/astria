@@ -1,7 +1,6 @@
 <?php
 
 function ArchitectSchema(){
-  return();
   
   switch(path(2)){
     case false:
