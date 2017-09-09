@@ -31,7 +31,11 @@ function MySQLDescribeTable($Alias,$Table){
       <h1 class="card-title">'<?php echo $DBName; ?>'.'<?php echo $Table; ?>'</h1>
       <div class="card-text">
         <?php 
-          echo ArrTabler($Description); 
+          if(isset($_GET['show-all'])){
+            echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC"));
+          }else{
+            echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100"));
+          }
         ?>
       </div>
     </div>
@@ -40,11 +44,7 @@ function MySQLDescribeTable($Alias,$Table){
   <?php
   
   
-  if(isset($_GET['show-all'])){
-    echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC"));
-  }else{
-    echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100"));
-  }
+  
   
   
 }
