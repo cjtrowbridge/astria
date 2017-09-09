@@ -27,7 +27,7 @@ function ArchitectSchemaElaborateBodyCallback(){
         case 'table':
           //describe a table
           include_once('MySQL.DescribeTable.php');
-          MySQLDescribeTable($Alias,path(4));
+          MySQLDescribeTable($Alias,path(4,false));
           break;
           
         case 'view':
