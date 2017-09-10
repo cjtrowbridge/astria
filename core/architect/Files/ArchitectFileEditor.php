@@ -22,7 +22,7 @@ function ArchitectFileEditor(){
     exit;
   }
   
-  TemplateBootstrap4('File Editor - Architect','ArchitectFileEditorBodyCallback();'); 
+  TemplateBootstrap4('File Editor - Architect','ArchitectFileEditorBodyCallback();',true); 
 }
 function ArchitectFileEditorBodyCallback(){
   //TODO check for escape attempts
