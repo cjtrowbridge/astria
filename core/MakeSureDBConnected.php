@@ -15,6 +15,7 @@ function MakeSureDBConnected($Database='astria'){
         $ASTRIA['databases'][$Database]['password'],
         $ASTRIA['databases'][$Database]['database']
         ) or die(mysql_error());
+        $ASTRIA['databases'][$Database]['resource']->set_charset('utf8mb4');
        break;
     default:
       die('Unsupported database type: "'.$ASTRIA['databases'][$Database]['type'].'" for database "'.$Database.'"');
