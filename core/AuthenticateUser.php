@@ -8,7 +8,7 @@ function AuthenticateUser($email=null){
   $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email);
   
   //Get all the user's profile info for the session
-  $User=Query("SELECT UserID,Email,FirstName,LastName,Photo FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
+  $User=Query("SELECT *,NULL as Password FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
   $ASTRIA['Session']['User']=$User;
   
   //Insert group memberships into the session
