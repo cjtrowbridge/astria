@@ -68,7 +68,7 @@ function ArchitectFileEdit($Path){
   
   ?>
     <br>
-    <input type="submit" class="btn btn-sm btn-success" value="Save Changes"><br>
+    <p><input type="submit" class="btn btn-sm btn-success" value="Save Changes"></p>
   </form>
   
   <?php
