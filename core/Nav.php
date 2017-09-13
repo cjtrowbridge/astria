@@ -23,9 +23,11 @@ function Nav($Which,$Type,$Text,$Link,$Children = null){
 
 function ShowNav($Which){
   global $ASTRIA;
-  echo "\n<!--\n";
-  pd($ASTRIA['nav']);
-  echo "\n-->\n";
+  if(isset($_GET['verbose'])){
+    echo "\n<!--\n";
+    pd($ASTRIA['nav']);
+    echo "\n-->\n";
+  }
   if(
     isset($ASTRIA['nav'])&&
     isset($ASTRIA['nav'][strtolower($Which)])
