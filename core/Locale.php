@@ -8,6 +8,6 @@ if(
   isset($ASTRIA['locale']['timezone'])
 ){
 
-  date_default_timezone_set($ASTRIA['locale']['timezone']);
+  date_default_timezone_set(str_replace(' ','_',$ASTRIA['locale']['timezone']));
 
 }
