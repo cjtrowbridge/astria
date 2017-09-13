@@ -13,6 +13,7 @@ if(!file_exists('config.php')){
 }
 
 include('config.php');
+include('core/Locale.php');
 include('core/Loader.php');
 Loader('core');
 Loader('core/architect');
