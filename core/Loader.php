@@ -5,6 +5,10 @@ include_once('core/Event.php');
 include_once('core/Hook.php');
 
 function Loader($dir = 'core',$DieOnFail = true){
+  if(!(stristr($dir,'.git')===false)){
+    Event('Loader skipping repository directory: '.$dir)
+  }
+
   Event('Before Loading Directory: '.$dir);
   if($dir=='core'){
   
