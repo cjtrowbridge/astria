@@ -63,7 +63,18 @@ function ArchitectFileExplorerFile(){
   <?php
   
   $path_parts = pathinfo($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
+  $LocalPath = $_SERVER['DOCUMENT_ROOT'].$_GET['path'];
   switch(strtolower($path_parts['extension'])){
+    case 'mp4':
+    case 'mkv':
+    case 'avi':
+    case 'mov':
+    case 'flv':
+    case 'mpeg':
+      //TODO make some way of opening a relative path
+      $AbsolutePath = '';
+      echo '<div class="card"><div class="card-block"><div class="card-text"><video controls preload><source src="'.$AbsolutePath.'"></video></div></div></div>';
+      break;
     case 'php':
     case 'js':
     case 'css':
