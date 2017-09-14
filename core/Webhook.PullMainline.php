@@ -30,7 +30,7 @@ function RepoPullExecute(){
     
     echo 'Pulling Mainline Repo...<br><pre>';
     echo shell_exec($Command);
-    echo '</pre>';
+    echo '</pre><a href="/architect" class="btn btn-success">Architect</a>';
     
     /* ?>
 <p>Redirecting to architect...</p>
