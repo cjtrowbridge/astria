@@ -14,7 +14,7 @@ function RepoPull(){
     $AstriaMainlineIntegrationTest = file_get_contents('https://astria.io/test/integration');
     if(!($AstriaMainlineIntegrationTest=='ok')){
       if(!(isset($_GET['force']))){
-        die('Astria mainline integration test failed. If you want to pull anyway, use flag "force" in addition to webhook.');
+        die('Astria <a href="https://astria.io" target="_blank">mainline integration test</a> failed. If you want to pull anyway, use flag "force" in addition to webhook.');
       }
     }
     
@@ -23,8 +23,9 @@ function RepoPull(){
     
     $Command = 'cd '.$Path.' && git reset --hard && git pull';
     
-    echo 'Pulling Mainline Repo...<br>';
+    echo 'Pulling Mainline Repo...<br><pre>';
     echo shell_exec($Command);
+    echo '</pre>';
     
     ?>
 <p>Redirecting to architect...</p>
