@@ -28,10 +28,20 @@ function RepoPullExecute(){
     
     $Command = 'cd '.$Path.' && git reset --hard && git pull';
     
-    echo 'Pulling Mainline Repo...<br><br><pre style="border: 1px solid #c7c7c7;">';
-    echo shell_exec($Command);
-    echo '</pre><a href="/architect" class="btn btn-success">Architect</a>';
+    ?>
+
+<h1>Pulling Mainline Repo...</h1><br>
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <pre><?php echo shell_exec($Command); ?></pre>
+    </div>
+  </div>
+</div>
+<br>
+<a href="/architect" class="btn btn-success">Architect</a>
     
+<?php
     /* ?>
 <p>Redirecting to architect...</p>
 <script>
