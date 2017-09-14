@@ -10,7 +10,12 @@ function RepoPull(){
   if(
     isset($_GET[$MagicWord])
   ){
-    
+    TemplateBootstrap4('Mainline Pull','RepoPullExecutive();');
+  }
+}
+
+function RepoPullExecute(){
+  
     $AstriaMainlineIntegrationTest = file_get_contents('https://astria.io/test/integration');
     if(!($AstriaMainlineIntegrationTest=='ok')){
       if(!(isset($_GET['force']))){
@@ -27,7 +32,7 @@ function RepoPull(){
     echo shell_exec($Command);
     echo '</pre>';
     
-    ?>
+    /* ?>
 <p>Redirecting to architect...</p>
 <script>
   window.setTimeout(function(){
@@ -35,8 +40,6 @@ function RepoPull(){
   }, 1000);
 </script>
 
-    <?php
+    <?php */
     
-    exit;
-  }
 }
