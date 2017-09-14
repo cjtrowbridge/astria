@@ -10,7 +10,7 @@ function RepoPull(){
   if(
     isset($_GET[$MagicWord])
   ){
-    TemplateBootstrap4('Mainline Pull','RepoPullExecutive();');
+    TemplateBootstrap4('Mainline Pull','RepoPullExecute();');
   }
 }
 
