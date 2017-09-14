@@ -22,8 +22,9 @@ function WebhookPullSubrepository(){
     }
     
     $Command = 'cd '.$Path.' && git reset --hard && git pull';
-    echo '<p>'.$Command.'</p>';
+    echo '<p>'.$Command.'</p><pre>';
     echo shell_exec($Command);
+    echo '</pre>';
     
     exit;
   }
