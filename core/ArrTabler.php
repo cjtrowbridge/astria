@@ -1,6 +1,6 @@
 <?php
 
-function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice tablesorter-bootstrap', $table_id = null){
+function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice tablesorter-bootstrap', $table_id = null,$Sort = true){
   $return='';
   if($table_id==null){
     $table_id=md5(uniqid(true));
@@ -30,7 +30,11 @@ function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice table
     $return.= "		</tbody>\n";
     $return.= "	</table>\n";
     $return.= "</div>\n";
-    $return.= "<script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
+    if($Sort){
+      $return.= "<script>$('#".$table_id."').tablesorter({widgets: ['zebra', 'filter']});</script>\n";
+    }else{
+      $return.= "<script>$('#".$table_id."').tablesorter({widgets: ['zebra']});</script>\n";
+    }
   }else{
     $return.="No Results Found.";
   }
