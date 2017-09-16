@@ -3,6 +3,8 @@
 //TODO review and standardize nomenclature for cache types and primitives
 //TODO make each database have a separate count of queries run
 //TODO implement query v3
+//TODO implement complete schema editor ui
+//TODO implement getlastid
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
