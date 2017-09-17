@@ -49,6 +49,10 @@ function PresentArchitect(){
         break;
       case 'files':
         switch(path(2)){
+          case 'copy-remote':
+            include_once('core/architect/Files/ArchitectFileCopyRemote.php');
+            ArchitectFileCopyRemote();
+            break;
           case 'create-file':
             include_once('core/architect/Files/ArchitectFileCreate.php');
             ArchitectFileCreate();
