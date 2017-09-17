@@ -1,10 +1,6 @@
 <?php
 
 function ArchitectFileCopyRemote(){
-  TemplateBootstrap4('Copy Remote File - Architect','ArchitectFileCopyRemoteBodyCallback();'); 
-}
-
-function ArchitectFileCopyRemoteBodyCallback(){
   if(isset($_POST['url'])){
     
     $Source = $_POST['url'];
@@ -32,11 +28,18 @@ function ArchitectFileCopyRemoteBodyCallback(){
     }
     $Result = copy($Source,$Destination);
     if($Result){
-      return;
+      $Directory = basename(str_replace($_SERVER['DOCUMENT_ROOT'],'',$Desination));
+      header('Location: /architect/files/?path=/'.$Directory);
+      exit;
     }else{
       die('<h1>Error</h1>'); 
     }
   }
+  TemplateBootstrap4('Copy Remote File - Architect','ArchitectFileCopyRemoteBodyCallback();'); 
+}
+
+function ArchitectFileCopyRemoteBodyCallback(){
+  
   ?>
   
   <h1>Copy Remote File</h1>
