@@ -4,7 +4,7 @@
   From https://secure.php.net/manual/en/function.filesize.php#120250
 */
 
-function hFileSize($File,$Precision = 2){
+function hFileSize($File,$Precision = 0){
   $bytes = filesize($File);
   
   $factor = floor((strlen($bytes) - 1) / 3);
