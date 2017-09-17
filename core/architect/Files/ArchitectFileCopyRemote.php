@@ -27,11 +27,15 @@ function ArchitectFileCopyRemoteBodyCallback(){
       $Destination.='/'.$Filename;
       $Destination=str_replace('//','/',$Destination);
     }
-    
-    echo '<p>copy "'.$Source.'" to "'.$Destination.'"</p>';
-    //copy($Source,$Destination);
-    return;
-    
+    if(file_exists($Destination)){
+      die('<h1>File Already Exists.</h1>');
+    }
+    $Result = copy($Source,$Destination);
+    if($Result){
+      return;
+    }else{
+      die('<h1>Error</h1>'); 
+    }
   }
   ?>
   
