@@ -135,7 +135,7 @@ function ArchitectFileExplorerDirectory(){
   $Dir = array();
   
   foreach($directories as $name => $directory){
-    echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    //echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
     $Dir[]=array(
       'Type' => '<img src="/icons/folder.gif" alt="[DIR]"> Directory',
       'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
@@ -145,7 +145,7 @@ function ArchitectFileExplorerDirectory(){
     );
   }
   foreach($files as $name => $file){
-    echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    //echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
     $Dir[]=array(
       'Type' => '<img src="/icons/unknown.gif" alt="[FILE]"> File',
       'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
@@ -155,5 +155,8 @@ function ArchitectFileExplorerDirectory(){
     );
   }
   echo ArrTabler($Dir);
+  echo PHP_EOL."<!--".PHP_EOL;
+  pd($Dir);
+  echo PHP_EOL."-->".PHP_EOL;
   
 }
