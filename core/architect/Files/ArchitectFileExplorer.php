@@ -139,7 +139,7 @@ function ArchitectFileExplorerDirectory(){
     $Dir[]=array(
       'Type' => '<img src="/icons/folder.gif" alt="[DIR]">',
       'Filename' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
-      'Created' =>  '<span title="'.date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
+      //'Created' =>  '<span title="'.date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
       'Modified' => '<span title="'.date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
       'Size' => hFileSize($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
     );
@@ -149,14 +149,11 @@ function ArchitectFileExplorerDirectory(){
     $Dir[]=array(
       'Type' => '<img src="/icons/unknown.gif" alt="[FILE]">',
       'Filename' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
-      'Created' =>  '<span title="'.date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
+      //'Created' =>  '<span title="'.date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
       'Modified' => '<span title="'.date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'">'.ago(filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)).'</span>',
       'Size' => hFileSize($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
     );
   }
   echo ArrTabler($Dir);
-  echo PHP_EOL."<!--".PHP_EOL;
-  pd($Dir);
-  echo PHP_EOL."-->".PHP_EOL;
   
 }
