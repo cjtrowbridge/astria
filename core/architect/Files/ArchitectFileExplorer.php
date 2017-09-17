@@ -140,7 +140,7 @@ function ArchitectFileExplorerDirectory(){
       'Type' => '<img src="/icons/folder.gif" alt="[DIR]">',
       'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
       'Created' =>  date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
-      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name))
+      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
       'Size' => file_size($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
     );
   }
@@ -150,7 +150,7 @@ function ArchitectFileExplorerDirectory(){
       'Type' => '<img src="/icons/folder.gif" alt="[DIR]">',
       'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
       'Created' =>  date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
-      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name))
+      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
       'Size' => file_size($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
     );
   }
