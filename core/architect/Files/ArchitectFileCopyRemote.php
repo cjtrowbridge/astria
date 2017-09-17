@@ -28,7 +28,7 @@ function ArchitectFileCopyRemote(){
     }
     $Result = copy($Source,$Destination);
     if($Result){
-      header('Location: '.$_POST['redirect']);
+      header('Location: /architect/files/?path='.$_POST['redirect']);
       exit;
     }else{
       die('<h1>Error</h1>'); 
