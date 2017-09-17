@@ -24,9 +24,10 @@ function ArchitectFileCopyRemoteBodyCallback(){
       
       $Filename = substr($FilePath,$LastSlashPosition);
       
-      pd($Filename);
+      $Destination.=$Filename;
     }
     
+    echo '<p>copy "'.$Source.'" to "'.$Destination.'"</p>';
     //copy($Source,$Destination);
     return;
     
