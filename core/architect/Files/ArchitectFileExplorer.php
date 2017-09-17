@@ -132,10 +132,28 @@ function ArchitectFileExplorerDirectory(){
   asort($directories);
   asort($files);
   
+  $Dir = array();
+  
   foreach($directories as $name => $directory){
     echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/folder.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    $Dir[]=array(
+      'Type' => '<img src="/icons/folder.gif" alt="[DIR]">',
+      'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
+      'Created' =>  date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
+      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name))
+      'Size' => file_size($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
+    );
   }
   foreach($files as $name => $file){
     echo '<p><a href="/architect/files/?path='.$_GET['path'].$name.'"><img src="/icons/unknown.gif" alt="[DIR]"> '.$name.'</a><p>'.PHP_EOL;
+    $Dir[]=array(
+      'Type' => '<img src="/icons/folder.gif" alt="[DIR]">',
+      'Name' => '<a href="/architect/files/?path='.$_GET['path'].$name.'">'.$name.'</a>',
+      'Created' =>  date('Y-m-d H:i:s',filectime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)),
+      'Modified' => date('Y-m-d H:i:s',filemtime($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name))
+      'Size' => file_size($_SERVER['DOCUMENT_ROOT'].$_GET['path'].$name)
+    );
   }
+  echo ArrTabler($Dir);
+  
 }
