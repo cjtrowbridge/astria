@@ -46,6 +46,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
   
   <h1>Copy Remote File</h1>
   <form action="/architect/files/copy-remote/" method="post" class="form">
+    <input type="hidden" name="redirect" value="<?php echo $_GET['path']; ?>">
     <input type="text" class="form-control" name="url" id="url" placeholder="URL"><br>
     <input type="text" class="form-control" name="destination" id="destination" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
     <input type="submit" class="btn btn-block btn-success" value="Create File">
