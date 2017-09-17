@@ -73,8 +73,7 @@ function ArchitectFileExplorerFile(){
     case 'mpeg':
     case 'wmv':
       //TODO make some way of opening a relative path
-      $AbsolutePath = '';
-      echo '<div class="card"><div class="card-block"><div class="card-text"><video controls preload><source src="'.$AbsolutePath.'"></video></div></div></div>';
+      echo '<div class="card"><div class="card-block"><div class="card-text"><video controls preload><source src="'.$_GET['path'].'"></video></div></div></div>';
       break;
     case 'php':
     case 'js':
