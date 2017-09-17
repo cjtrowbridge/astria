@@ -13,10 +13,14 @@ function ArchitectFileCopyRemoteBodyCallback(){
     if(is_dir($Destination)){
       $URL = parse_url($Source);
       if(!(isset($URL['path']))){
-        die('Invalid url. Can not find a filename.');
+        die("Invalid url. Can't find a filename.");
       }
       $FilePath = $URL['path'];
-      $LastSlashPosition = strrpos($FilePath,'/');
+      $LastSlashPosition = strrpos($FilePath,'/')+1;
+      
+      if($LastSlashPosition>=0){
+        die("Invalid url. Can't find a filename.");
+      }
       
       $Filename = substr($FilePath,$LastSlashPosition);
       
