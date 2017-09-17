@@ -28,8 +28,8 @@ function ArchitectFileCopyRemote(){
     }
     $Result = copy($Source,$Destination);
     if($Result){
-      $Directory = basename(str_replace($_SERVER['DOCUMENT_ROOT'],'',$Desination));
-      header('Location: /architect/files/?path=/'.$Directory);
+      $Directory = '/architect/files/?path=/'.basename(str_replace($_SERVER['DOCUMENT_ROOT'],'',$Destination));
+      header('Location: '.$Directory);
       exit;
     }else{
       die('<h1>Error</h1>'); 
