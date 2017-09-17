@@ -24,5 +24,5 @@ function ago($time){
   if($difference != 1) {
     $periods[$j].= "s";
   }
-  return '<span title="'.$Original.'/'.$time.'">'."$difference $periods[$j] ago".'</span>';
+  return "$difference $periods[$j] ago";
 }
