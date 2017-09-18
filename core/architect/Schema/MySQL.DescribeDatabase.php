@@ -10,7 +10,7 @@ function MySQLDescribeDatabase($Alias){
 
 <h1>'<?php echo $Name; ?>'</h1>
 <p>
-  <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">New Table</a>
+  <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/?new">New Table</a>
   <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">Run A Query</a>
 </p>
 
@@ -23,5 +23,9 @@ function MySQLDescribeDatabase($Alias){
     $Table = array_shift($Table);
     echo '  <li><a href="/architect/schema/'.path(2).'/table/'.$Table.'">'.$Table.'</a></li>'.PHP_EOL;
   }
-  echo "</ul>".PHP_EOL;
+  ?>
+    
+</ul>
+
+<?php
 }
