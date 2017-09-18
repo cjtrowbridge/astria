@@ -38,7 +38,7 @@ function ArchitectSchemaElaborate(){
           //Drop the table
           if(
             isset($_GET['drop'])&&
-            ($_GET['newTableName']=='confirmed')
+            ($_GET['drop']=='confirmed')
           ){
             include_once('MySQL.Table.Drop.php');
             MySQLTableDropConfirmed($Alias,$Table);
