@@ -21,12 +21,46 @@ function ArchitectSchemaElaborate(){
           break;
           
         case 'table':
-          //Table Handlers
+          $Table = path(4,true);
+          if(!(IsValidTable($Table,$Alias))){
+            die('Invalid Table: '.$Table);
+          }
+          
+          //DO a CSV dump of the table. Note, this needs to handle large tables
+          if(
+            isset($_GET['csv'])
+          ){
+            include_once('MySQL.Table.CSV.php');
+            MySQLTableCSV($Alias,$Table);
+            break;
+          }
+          
+          //Drop the table
+          if(
+            isset($_GET['drop'])&&
+            ($_GET['newTableName']=='confirmed')
+          ){
+            include_once('MySQL.Table.Drop.php');
+            MySQLTableDropConfirmed($Alias,$Table);
+            break;
+          }
+          
+          //Truncate the table
+          if(
+            isset($_GET['truncate'])&&
+            ($_GET['truncate']=='confirmed')
+          ){
+            include_once('MySQL.Table.Truncate.php');
+            MySQLTableTruncateConfirmed($Alias,$Table);
+            break;
+          }
+          
+          //DO a CSV dump of the table. Note, this needs to handle large tables
           if(
             isset($_GET['new'])&&
             isset($_POST['newTableName'])
           ){
-            include('MySQL.Table.New.Handler.php');
+            include_once('MySQL.Table.New.Handler.php');
             MySQLTableNewHandler($Alias);
             header('Location: /architect/schema/'.$Alias);
             exit;
@@ -73,14 +107,35 @@ function ArchitectSchemaElaborateBodyCallback(){
           break;
           
         case 'table':
-          if(isset($_GET['new'])){ //Make a new table!
-            include('MySQL.Table.New.php');
+          $Table = path(4,true);
+          if(!(IsValidTable($Table,$Alias))){
+            die('Invalid Table: '.$Table);
+          }
+          
+          //Make a new table!
+          if(isset($_GET['new'])){ 
+            include_once('MySQL.Table.New.php');
             MySQLTableNew($Alias);
             break;
           }
-          //describe a table
+         
+          //Drop the table
+          if(isset($_GET['drop'])){
+            include_once('MySQL.Table.Drop.php');
+            MySQLTableDrop($Alias,$Table);
+            break;
+          }
+          
+          //Truncate the table
+          if(isset($_GET['truncate'])){
+            include_once('MySQL.Table.Truncate.php');
+            MySQLTableTruncate($Alias,$Table);
+            break;
+          }
+          
+          //Describe a table
           include_once('MySQL.Table.Describe.php');
-          MySQLTableDescribe($Alias,path(4,false));
+          MySQLTableDescribe($Alias,$Table);
           break;
         
         case 'view':
