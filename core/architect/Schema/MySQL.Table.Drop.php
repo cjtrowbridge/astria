@@ -1,6 +1,9 @@
 <?php
 
 function MySQLTableDropConfirmed($Alias,$Table){
+  if(!(IsValidTable($Table))){
+   die('Invalid Table'); 
+  }
   Query("DROP ".$Table,$Alias);
   header('Location: /architect/schema/'.$Alias);
   exit;
