@@ -2,12 +2,15 @@
 
 function MySQLTableNew($Alias){
   ?>
-  <h1>New Table</h1>
-  
-  <p><b>Convention:</b> A table should be named a singular capitalized noun. It's primary key will then be that followed by "ID".</p>
   
   <form action="/architect/schema/<?php echo $Alias; ?>/table/?new" method="post" class="form">
     <div class="container no-gutters">
+      <div class="row no-gutters">
+        <div class="col-xs-12">
+          <h1>New Table</h1>
+          <p><b>Convention:</b> A table should be named a singular capitalized noun. It's primary key will then be that followed by "ID".</p>
+        </div>
+      </div>
       <div class="row no-gutters">
         <div class="col-xs-12 col-md-3">
           <p>Object Name:</p>
