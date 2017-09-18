@@ -8,6 +8,43 @@ function ArchitectSchemaElaborate(){
   
   //TODO add listeners for csv dump flags
   
+  global $ASTRIA;
+  $Alias = path(2);
+  $This = $ASTRIA['databases'][$Alias];
+  
+  switch($This['type']){
+    case 'mysql':
+      switch(path(3)){
+        case false:
+          //Database handlers
+          
+          break;
+          
+        case 'table':
+          //Table Handlers
+          if(isset($_GET['new'])){
+            include('MySQL.Table.New.Handler.php');
+            MySQLTableNewHandler();
+            header('Location: /architect/schema/'.$Alias);
+            exit;
+            break;
+          }
+          
+          break;
+        
+        case 'view':
+          //View handlers
+          break;
+          
+        default:
+            //Nothing to handle
+            break;
+      }
+      break;
+    default:
+      break;
+  }
+  
   
   TemplateBootstrap4('Schema: '.path(2),'ArchitectSchemaElaborateBodyCallback();',true);
 }
