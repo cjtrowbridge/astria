@@ -21,7 +21,7 @@ function ArchitectSchemaElaborate(){
           break;
           
         case 'table':
-          $Table = path(4,true);
+          $Table = path(4,false);
           if(!(IsValidTable($Table,$Alias))){
             die('Invalid Table: '.$Table);
           }
@@ -107,7 +107,7 @@ function ArchitectSchemaElaborateBodyCallback(){
           break;
           
         case 'table':
-          $Table = path(4,true);
+          $Table = path(4,false);
           if(!(IsValidTable($Table,$Alias))){
             die('Invalid Table: '.$Table);
           }
