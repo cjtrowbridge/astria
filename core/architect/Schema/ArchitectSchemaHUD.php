@@ -6,7 +6,7 @@ function ArchitectSchemaHUD(){
 
 function ArchitectSchemaHUDBodyCallback(){
   global $ASTRIA;
-  ?><h1><A href="/architect">Architect</a>/<a href="/architect/schema">Schema</a>/</h1>
+  ?><h1><A href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / </h1>
   
   <?php
   foreach($ASTRIA['databases'] as $Alias => $Database){
