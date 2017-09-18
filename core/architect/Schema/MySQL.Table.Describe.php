@@ -37,7 +37,7 @@ function MySQLTableDescribe($Alias,$Table){
             $SQL="SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100";
           }
   
-          echo '<pre>'.$SQL.'<,/pre>';
+          echo '<pre>'.$SQL.'</pre>';
           echo ArrTabler(Query($SQL));
         ?>
       </div>
@@ -45,9 +45,5 @@ function MySQLTableDescribe($Alias,$Table){
   </div>
 
   <?php
-  
-  
-  
-  
   
 }
