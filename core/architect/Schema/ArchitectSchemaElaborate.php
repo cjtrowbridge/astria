@@ -36,22 +36,24 @@ function ArchitectSchemaElaborate(){
           }
           
           //Drop the table
-          if(
-            isset($_POST['drop'])&&
-            ($_POST['drop']=='drop')
-          ){
-            include_once('MySQL.Table.Drop.php');
-            MySQLTableDropConfirmed($Alias,$Table);
+          if(isset($_POST['drop'])){
+            if($_POST['drop']=='drop'){
+              include_once('MySQL.Table.Drop.php');
+              MySQLTableDropConfirmed($Alias,$Table);
+            }else{
+              die('You did not type "drop" into the box.');
+            }
             break;
           }
           
           //Truncate the table
-          if(
-            isset($_POST['truncate'])&&
-            ($_POST['truncate']=='truncate')
-          ){
-            include_once('MySQL.Table.Truncate.php');
-            MySQLTableTruncateConfirmed($Alias,$Table);
+          if(isset($_POST['truncate'])){
+            if($_POST['truncate']=='truncate'){
+              include_once('MySQL.Table.Truncate.php');
+              MySQLTableTruncateConfirmed($Alias,$Table);
+            }else{
+              die('You did not type "truncate" into the box.');
+            }
             break;
           }
           
