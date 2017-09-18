@@ -7,9 +7,7 @@ function MySQLTableNewHandler($Alias){
     //TODO validate $_POST['newTableName']
     $SQL="
       CREATE TABLE `".$_POST['newTableName']."` (
-        `".$_POST['newTableName']."ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        
-    ";
+        `".$_POST['newTableName']."ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,";
     
     if(isset($_POST['commonColumnNameVarchar255'])&&($_POST['commonColumnNameVarchar255']=='true')){
       $SQL.="
