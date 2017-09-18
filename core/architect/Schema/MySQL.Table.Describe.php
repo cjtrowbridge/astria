@@ -8,7 +8,7 @@ function MySQLTableDescribe($Alias,$Table){
 
   <br><div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
-    <a class="btn btn-outline-success" href="/architect/schema/3<?php echo $Alias; ?>/?query">Query</a>
+    <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">Query</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
     
     <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?truncate">Truncate</a>
