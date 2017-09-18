@@ -1,6 +1,8 @@
 <?php
 
 function MySQLTableNew($Alias){
+  global $ASTRIA;
+  $Name = $ASTRIA['databases'][$Alias]['database'];
   ?>
   
   <form action="/architect/schema/<?php echo $Alias; ?>/table/?new" method="post" class="form">
@@ -8,7 +10,7 @@ function MySQLTableNew($Alias){
       <div class="row no-gutters">
         <div class="col-xs-12">
           
-          <h1>New Table</h1>
+          <h1>New Table on '<a href="/architect/schema/<?php echo $Alias; ?>"><?php echo $Name; ?></a>'</h1>
           <p>Object Name: <span class="text-muted">(This is the name of the table. The name of its primary ID will be this, suffixed with ID.)</span></p>
           <input type="text" class="form-control" name="newTableName" id="newTableName" placeholder="Cat">
           
