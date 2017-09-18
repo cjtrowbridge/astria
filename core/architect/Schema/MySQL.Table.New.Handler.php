@@ -2,9 +2,9 @@
 
 function MySQLTableNewHandler($Alias){
   if(isset($_POST['newTableName'])){
-    $_GET['verbose'] = '';
-    pd($_POST);
+    
     //TODO validate $_POST['newTableName']
+    
     $SQL="
       CREATE TABLE `".$_POST['newTableName']."` (
         `".$_POST['newTableName']."ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,";
@@ -26,9 +26,9 @@ function MySQLTableNewHandler($Alias){
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ";
     
-    pd($SQL);
     Query($SQL,$Alias);
     
+    header('Location: /architect/schema/'.$_POST['newTableName']);
     
     exit;
   }
