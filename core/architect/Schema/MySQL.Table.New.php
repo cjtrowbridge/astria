@@ -8,15 +8,14 @@ function MySQLTableNew($Alias){
       <div class="row no-gutters">
         <div class="col-xs-12">
           <h1>New Table</h1>
-          <p><b>Convention:</b> A table should be named a singular capitalized noun. It's primary key will then be that followed by "ID".</p>
         </div>
       </div>
       <div class="row no-gutters">
         <div class="col-xs-12 col-md-3">
-          <p>Object Name:</p>
+          <p>Object Name: <span class="text-muted">(This is the name of the table. The name of its primary ID will be this, suffixed with ID.)</span></p>
         </div>
         <div class="col-xs-12 col-md-9">
-          <input type="text" class="form-control" name="newTableName" placeholder="Cat">
+          <input type="text" class="form-control" name="newTableName" id="newTableName" placeholder="Cat">
         </div>
       </div>
       <div class="row no-gutters">
@@ -33,6 +32,9 @@ function MySQLTableNew($Alias){
       </div>
     </div>
   </form>
+  <script>
+    $('#newTableName').focus();
+  </script>
   
   <?php
 }
