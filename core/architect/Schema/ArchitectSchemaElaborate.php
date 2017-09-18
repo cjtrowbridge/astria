@@ -33,8 +33,10 @@ function ArchitectSchemaElaborateBodyCallback(){
           break;
           
         case 'table':
-          if(isset($_GET['new'])){
-            die("Let's make a new table!");
+          if(isset($_GET['new'])){ //Make a new table!
+            include('MySQL.Table.New.php');
+            MySQLTableNew($Alias);
+            break;
           }
           //describe a table
           include_once('MySQL.Table.Describe.php');
