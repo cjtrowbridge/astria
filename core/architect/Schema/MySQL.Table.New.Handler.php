@@ -10,12 +10,12 @@ function MySQLTableNewHandler($Alias){
         
     ";
     
-    if($_GET['commonColumnNameVarchar255']=='true'){
+    if(isset($_GET['commonColumnNameVarchar255'])&&($_GET['commonColumnNameVarchar255']=='true')){
       $SQL.="
         `Name` varchar(255) DEFAULT NULL,";
     }
     
-    if($_GET['commonColumnDescriptionText']=='true'){
+    if(isset($_GET['commonColumnDescriptionText'])&&($_GET['commonColumnDescriptionText']=='true')){
       $SQL.="
         `Description` text,";
     }
