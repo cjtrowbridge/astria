@@ -37,8 +37,8 @@ function ArchitectSchemaElaborate(){
           
           //Drop the table
           if(
-            isset($_GET['drop'])&&
-            ($_GET['drop']=='drop')
+            isset($_POST['drop'])&&
+            ($_POST['drop']=='drop')
           ){
             include_once('MySQL.Table.Drop.php');
             MySQLTableDropConfirmed($Alias,$Table);
@@ -47,8 +47,8 @@ function ArchitectSchemaElaborate(){
           
           //Truncate the table
           if(
-            isset($_GET['truncate'])&&
-            ($_GET['truncate']=='truncate')
+            isset($_POST['truncate'])&&
+            ($_POST['truncate']=='truncate')
           ){
             include_once('MySQL.Table.Truncate.php');
             MySQLTableTruncateConfirmed($Alias,$Table);
