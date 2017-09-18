@@ -15,7 +15,7 @@ function MySQLTableTruncate($Alias,$Table){
       <form action="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/" method="get">
         <p>Type "truncate" into the box and click submit in order to truncate the table.</p>
         <input class="form-control" type="text name="truncate" id="truncate"><br>
-        <input type="submit class="btn btn-danger">
+        <input type="submit" class="btn btn-danger">
       </form>
     </div>
   </div>
