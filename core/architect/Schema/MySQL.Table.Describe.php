@@ -10,6 +10,9 @@ function MySQLTableDescribe($Alias,$Table){
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
     <a class="btn btn-outline-success" href="/architect/schema/3<?php echo $Alias; ?>/?query">Query</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
+    
+    <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?truncate">Truncate</a>
+    <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?drop">Drop Table</a>
   </div><br>
   
 
