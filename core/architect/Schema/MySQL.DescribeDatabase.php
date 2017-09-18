@@ -6,9 +6,19 @@ function MySQLDescribeDatabase($Alias){
   $Type = $ASTRIA['databases'][$Alias]['type'];
   $Tables = Query('SHOW TABLES',$Alias);
   
-  echo '<h1>'."'".$Name."'".' </h1>';
-  echo '<p><a class="btn btn-outline-success" href="/architect/schema/'.$Alias.'/?query">Run A Query</a></p>';
-  echo PHP_EOL."<h4>Tables:</h4><ul>".PHP_EOL;
+  ?>
+
+<h1>'<?php echo $Name; ?>'</h1>';
+<p>
+  <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">New Table</a>
+  <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alia; ?>/?query">Run A Query</a>
+</p>
+
+<h4>Tables:</h4>
+<ul>
+  
+<?php
+    
   foreach($Tables as $Table){
     $Table = array_shift($Table);
     echo '  <li><a href="/architect/schema/'.path(2).'/table/'.$Table.'">'.$Table.'</a></li>'.PHP_EOL;
