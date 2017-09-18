@@ -5,7 +5,7 @@ function MySQLTableDropConfirmed($Alias,$Table){
 }
 
 function MySQLTableDrop($Alias,$Table){
-  globla $ASTRIA;
+  global $ASTRIA;
 ?>
   <div class="container">
   <div class="row no-gutters">
