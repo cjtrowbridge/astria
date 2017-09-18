@@ -19,8 +19,8 @@ function MySQLTableNew($Alias){
       <div class="row no-gutters">
         <div class="col-xs-12">
           <p><b>Common Columns:</b></p>
-          <p><label><input type="checkbox" class="form-control" name="commonColumnNameVarchar255" value="true"> Name (Size 255)</label></p>
-          <p><label><input type="checkbox" class="form-control" name="commonColumnDescriptionText" value="true"> Description (Size 64k)</label></p>
+          <p><label><input type="checkbox" name="commonColumnNameVarchar255" value="true"> Name (Size 255)</label></p>
+          <p><label><input type="checkbox" name="commonColumnDescriptionText" value="true"> Description (Size 64k)</label></p>
         </div>
       </div>
       <div class="row no-gutters">
