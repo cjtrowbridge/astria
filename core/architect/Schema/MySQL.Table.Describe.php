@@ -1,6 +1,6 @@
 <?php
 
-function MySQLDescribeTable($Alias,$Table){
+function MySQLTableDescribe($Alias,$Table){
   global $ASTRIA;
   $DBName = $ASTRIA['databases'][$Alias]['database'];
   
