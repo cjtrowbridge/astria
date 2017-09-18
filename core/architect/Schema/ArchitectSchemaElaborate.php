@@ -23,7 +23,7 @@ function ArchitectSchemaElaborate(){
         case 'table':
           $Table = path(4,false);
           if(!(IsValidTable($Table,$Alias))){
-            break;
+            $Table = false;
           }
           
           //DO a CSV dump of the table. Note, this needs to handle large tables
@@ -111,7 +111,7 @@ function ArchitectSchemaElaborateBodyCallback(){
         case 'table':
           $Table = path(4,false);
           if(!(IsValidTable($Table,$Alias))){
-            break;
+            $Table = false;
           }
           
           //Make a new table!
