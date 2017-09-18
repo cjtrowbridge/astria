@@ -11,7 +11,7 @@ function MySQLTableTruncate($Alias,$Table){
 <div class="container">
   <div class="row no-gutters">
     <div class="col-xs-12">
-      <h1><a href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $ASTRIA['databases'][$Alias]['name']; ?></a>' TRUNCATE '<?php echo $Table; ?>'</h1> 
+      <h1><a href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $ASTRIA['databases'][$Alias]['database']; ?></a>' TRUNCATE '<?php echo $Table; ?>'</h1> 
       <p>THIS WILL DUMP ALL DATA IN THE TABLE.</p>
       <form action="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/" method="post">
         <p>Type "truncate" into the box and click submit in order to truncate the table.</p>
