@@ -27,7 +27,7 @@ function ArchitectSchemaElaborate(){
             isset($_POST['newTableName'])
           ){
             include('MySQL.Table.New.Handler.php');
-            MySQLTableNewHandler();
+            MySQLTableNewHandler($Alias);
             header('Location: /architect/schema/'.$Alias);
             exit;
             break;
