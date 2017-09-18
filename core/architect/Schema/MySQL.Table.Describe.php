@@ -18,7 +18,7 @@ function MySQLTableDescribe($Alias,$Table){
       <div class="card-text">
         <?php 
           $SQL='DESCRIBE `'.Sanitize($Table).'`';
-          echo '<pre>'.$SQL.'<,/pre>';
+          echo '<pre>'.$SQL.'</pre>';
           $Description = Query($SQL,$Alias);
           echo ArrTabler($Description); 
         ?>
