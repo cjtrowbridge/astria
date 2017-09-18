@@ -1,7 +1,9 @@
 <?php
 
 function MySQLTableDropConfirmed($Alias,$Table){
-  die('TODO');
+  Query("DROP ".$Table,$Alias);
+  header('Location: /architect/schema/'.$Alias);
+  exit;
 }
 
 function MySQLTableDrop($Alias,$Table){
