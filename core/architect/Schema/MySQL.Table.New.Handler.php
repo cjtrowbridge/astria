@@ -2,6 +2,7 @@
 
 function MySQLTableNewHandler($Alias){
   if(isset($_POST['newTableName'])){
+    $_GET['verbose'] = '';
     pd($_POST);
     //TODO validate $_POST['newTableName']
     $SQL="
