@@ -1,7 +1,7 @@
 <?php
 
 function MySQLTableDropConfirmed($Alias,$Table){
-  if(!(IsValidTable($Table))){
+  if(!(IsValidTable($Table,$Alias))){
    die('Invalid Table'); 
   }
   Query("DROP ".$Table,$Alias);
