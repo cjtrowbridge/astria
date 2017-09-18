@@ -1,7 +1,7 @@
 <?php
 
 function MySQLTableTruncateConfirmed($Alias,$Table){
-  if(!(IsValidTable($Table))){
+  if(!(IsValidTable($Table,$Alias))){
    die('Invalid Table'); 
   }
   Query("TRUNCATE ".$Table,$Alias);
