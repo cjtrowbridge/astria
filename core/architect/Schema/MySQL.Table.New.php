@@ -6,7 +6,7 @@ function MySQLTableNew($Alias){
   
   <p><b>Convention:</b> A table should be named a singular capitalized noun. It's primary key will then be that followed by "ID".</p>
   
-  <form action="/architect/schema/<?php ehco $Alias; ?>/table/?new" method="post" class="form">
+  <form action="/architect/schema/<?php echo $Alias; ?>/table/?new" method="post" class="form">
   
     <div class="row no-gutters">
       <div class="col-xs-12 col-md-3">
