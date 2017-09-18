@@ -28,14 +28,14 @@ function ArchitectSchemaElaborateBodyCallback(){
       switch(path(3)){
         case false:
           //list all tables and views
-          include_once('MySQL.DescribeDatabase.php');
-          MySQLDescribeDatabase($Alias);
+          include_once('MySQL.Database.Describe.php');
+          MySQLDatabaseDescribe($Alias);
           break;
           
         case 'table':
           //describe a table
-          include_once('MySQL.DescribeTable.php');
-          MySQLDescribeTable($Alias,path(4,false));
+          include_once('MySQL.Table.Describe.php');
+          MySQLTableDescribe($Alias,path(4,false));
           break;
           
         case 'view':
