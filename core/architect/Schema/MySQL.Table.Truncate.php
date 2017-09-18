@@ -1,7 +1,12 @@
 <?php
 
 function MySQLTableTruncateConfirmed($Alias,$Table){
-  die('TODO');
+  if(!(IsValidTable($Table))){
+   die('Invalid Table'); 
+  }
+  Query("TRUNCATE ".$Table,$Alias);
+  header('Location: /architect/schema/'.$Alias);
+  exit;
 }
 
 function MySQLTableTruncate($Alias,$Table){
