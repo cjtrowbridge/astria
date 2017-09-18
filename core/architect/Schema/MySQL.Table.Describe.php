@@ -38,7 +38,7 @@ function MySQLTableDescribe($Alias,$Table){
           }
   
           echo '<pre>'.$SQL.'<,/pre>';
-          echo ArrTabler(Query($SQL);
+          echo ArrTabler(Query($SQL));
         ?>
       </div>
     </div>
