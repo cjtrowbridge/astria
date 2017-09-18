@@ -11,22 +11,15 @@ function MySQLTableNewHandler($Alias){
         
     ";
     
-    if(
-      isset($_GET['commonColumnNameVarchar255'])
-    ){
-      if($_GET['commonColumnNameVarchar255']=='true'){
-        $SQL.="
-          `Name` varchar(255) DEFAULT NULL,";
-      }else{Event('commonColumnNameVarchar255 was checked but did not match');}
-    }else{Event('User did not check commonColumnNameVarchar255');}
-    
-    if(isset($_GET['commonColumnDescriptionText'])){
-      if($_GET['commonColumnDescriptionText']=='true'){
-        $SQL.="
-          `Description` text,";
-      }else{Event('commonColumnDescriptionText was checked but did not match');}
-    }else{Event('User did not check commonColumnDescriptionText');}
-    
+    if(isset(($_POST['commonColumnNameVarchar255'])&&($_POST['commonColumnNameVarchar255']=='true')){
+      $SQL.="
+        `Name` varchar(255) DEFAULT NULL,";
+    }
+      
+    if(isset($_POST['commonColumnDescriptionText'])&&($_POST['commonColumnDescriptionText']=='true')){
+      $SQL.="
+        `Description` text,";
+    }
     
     //Remove Any Leading Comma If Present
     $SQL=rtrim($SQL,',');
