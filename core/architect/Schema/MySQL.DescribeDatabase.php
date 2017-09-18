@@ -8,7 +8,7 @@ function MySQLDescribeDatabase($Alias){
   
   ?>
 
-<h1>'<?php echo $Name; ?>'</h1>';
+<h1>'<?php echo $Name; ?>'</h1>
 <p>
   <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">New Table</a>
   <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alia; ?>/?query">Run A Query</a>
