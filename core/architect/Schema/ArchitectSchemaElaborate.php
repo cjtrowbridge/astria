@@ -22,7 +22,10 @@ function ArchitectSchemaElaborate(){
           
         case 'table':
           //Table Handlers
-          if(isset($_GET['new'])){
+          if(
+            isset($_GET['new'])&&
+            isset($_POST['newTableName'])
+          ){
             include('MySQL.Table.New.Handler.php');
             MySQLTableNewHandler();
             header('Location: /architect/schema/'.$Alias);
