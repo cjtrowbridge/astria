@@ -48,7 +48,7 @@ function ArchitectSchemaElaborate(){
           //Truncate the table
           if(
             isset($_GET['truncate'])&&
-            ($_GET['truncate']=='confirmed')
+            ($_GET['truncate']=='truncate')
           ){
             include_once('MySQL.Table.Truncate.php');
             MySQLTableTruncateConfirmed($Alias,$Table);
