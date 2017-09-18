@@ -11,7 +11,7 @@ function MySQLTableNew($Alias){
           <p>Object Name: <span class="text-muted">(This is the name of the table. The name of its primary ID will be this, suffixed with ID.)</span></p>
           <input type="text" class="form-control" name="newTableName" id="newTableName" placeholder="Cat">
           
-          <p><b>Common Columns:</b></p>
+          <h4>Common Columns:</h4>
           <p><label><input type="checkbox" name="commonColumnNameVarchar255" value="true"> Name (Size 255)</label></p>
           <p><label><input type="checkbox" name="commonColumnDescriptionText" value="true"> Description (Size 64k)</label></p>
         
