@@ -3,9 +3,9 @@
 function MySQLTableDescribe($Alias,$Table){
   global $ASTRIA;
   $DBName = $ASTRIA['databases'][$Alias]['database'];
+  ?><h1><A href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $DBName; ?></a>'.'<?php echo $Table; ?>'</h1>  
   
-  
-  ?>
+
   <br><div>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
     <a class="btn btn-outline-success" href="/architect/schema/3<?php echo $Alias; ?>/?query">Query</a>
@@ -29,7 +29,6 @@ function MySQLTableDescribe($Alias,$Table){
 
   <div class="card">
     <div class="card-block">
-      <h1 class="card-title">'<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $DBName; ?></a>'.'<?php echo $Table; ?>'</h1>
       <div class="card-text">
         <?php 
           if(isset($_GET['show-all'])){
