@@ -11,7 +11,7 @@ function MySQLTableNewHandler($Alias){
         
     ";
     
-    if(isset(($_POST['commonColumnNameVarchar255'])&&($_POST['commonColumnNameVarchar255']=='true')){
+    if(isset($_POST['commonColumnNameVarchar255'])&&($_POST['commonColumnNameVarchar255']=='true')){
       $SQL.="
         `Name` varchar(255) DEFAULT NULL,";
     }
