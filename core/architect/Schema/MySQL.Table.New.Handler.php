@@ -28,7 +28,7 @@ function MySQLTableNewHandler($Alias){
     
     Query($SQL,$Alias);
     
-    header('Location: /architect/schema/table/'.$_POST['newTableName']);
+    header('Location: /architect/schema/'.$Alias.'/table/'.$_POST['newTableName']);
     
     exit;
   }
