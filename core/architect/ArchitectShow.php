@@ -20,7 +20,7 @@ function ArchitectBodyCallback(){
     <div class="form-inline">
       <h4>Architect Tools:</h4>
       <p>
-        <a href="/architect/files" class="btn btn-outline-success">File Manager</a>
+        <a href="/architect/files" class="btn btn-outline-success"><img src="/img/directories.svg" style="height: 1em;">File Manager</a>
         <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">storage</i> Volumes</a>
       </p>
       <p>
