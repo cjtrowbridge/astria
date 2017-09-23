@@ -121,7 +121,7 @@ function ArchitectFileExplorerDirectory(){
   if($handle = opendir($path)){
     while(false !== ($entry = readdir($handle))){
       if(is_dir($path.DIRECTORY_SEPARATOR.$entry)){
-        if(($entry !== '.') && ($entry!=='..')){
+        if(($entry !== '.') /*&& ($entry!=='..')*/){
           $directories[$entry]=$path.DIRECTORY_SEPARATOR.$entry;
         }
       }else{
