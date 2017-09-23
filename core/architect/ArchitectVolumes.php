@@ -1,7 +1,7 @@
 <?php
 
 function ArchitectVolumes(){
-  TemplateBootstrap4('Volmes - Architect' , 'ArchitectVolumesBodyCallback();');
+  TemplateBootstrap4('Volumes - Architect' , 'ArchitectVolumesBodyCallback();');
 }
 
 function ArchitectVolumesBodyCallback(){
