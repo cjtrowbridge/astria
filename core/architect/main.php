@@ -43,6 +43,10 @@ function PresentArchitect(){
         include_once('FeedSyncUI/main.php');
         FeedSyncUI();
         break;
+      case 'volumes':
+        include_once('ArchitectVolumes.php');
+        ArchitectVolumes();
+        break;
       case 'schema':
         include_once('Schema/Routing.php');
         ArchitectSchema();
