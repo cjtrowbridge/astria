@@ -19,14 +19,18 @@ function ArchitectBodyCallback(){
   <div class="col-xs-12">
     <div class="form-inline">
       <h4>Architect Tools:</h4>
-      <a href="/architect/files" class="btn btn-outline-success">File Manager</a>
-      <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
-      <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success">Schema</button>
-      <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
-      <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
-      <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
-      <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
-      
+      <p>
+        <a href="/architect/files" class="btn btn-outline-success">File Manager</a>
+        <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">storage</i> Volumes</a>
+      </p>
+      <p>
+        <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
+        <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success">Schema</button>
+        <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
+        <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
+        <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
+        <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
+      </p>
       <h4>Webhooks:</h4>
       <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
       <button onclick="$('#GetSubrepositoryPullWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
