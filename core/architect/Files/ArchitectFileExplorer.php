@@ -96,7 +96,12 @@ function ArchitectFileExplorerFile(){
     case 'json':
     case 'xml':
     default:
-      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path'])).'</code></pre></div></div></div>';
+      $Text = file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
+      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(substr(0,1000,$Text);
+      if(strlen($Text)>1000){
+        echo '...';
+      }
+      echo '</code></pre></div></div></div>';
       break;
   }
 }
