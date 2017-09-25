@@ -75,6 +75,14 @@ function ArchitectFileExplorerFile(){
       //TODO make some way of opening a relative path
       echo '<div class="card"><div class="card-block"><div class="card-text"><video controls preload><source src="'.$_GET['path'].'"></video></div></div></div>';
       break;
+    case 'jpg':
+    case 'jpeg':
+    case 'png':
+    case 'gif':
+    case 'bmp':
+    case 'ico':
+      echo '<img src="'.$_GET['path'].'" style="max-width: 100%; max-height: 100%;>';
+      break;
     case 'htaccess':
     case 'php':
     case 'js':
@@ -84,18 +92,11 @@ function ArchitectFileExplorerFile(){
     case 'htm':
     case 'shtm':
     case 'sql':
-      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path'])).'</code></pre></div></div></div>';
-      break;
-    case 'jpg':
-    case 'jpeg':
-    case 'png':
-    case 'gif':
-    case 'bmp':
-    case 'ico':
-      echo '<img src="'.$_GET['path'].'" style="max-width: 100%; max-height: 100%;>';
-      break;
+    case 'txt':
+    case 'json':
+    case 'xml':
     default:
-      echo 'No default preview method is set for this extension type.';
+      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path'])).'</code></pre></div></div></div>';
       break;
   }
 }
