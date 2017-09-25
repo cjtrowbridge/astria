@@ -21,7 +21,7 @@ function ArchitectBodyCallback(){
       <h4>Architect Tools:</h4>
       <p>
         <a href="/architect/files" class="btn btn-outline-success"><img src="/img/directories.svg" style="height: 2em;">File Manager</a>
-        <a href="/architect/volumes" class="btn btn-outline-success"><i class="material-icons">storage</i> Volumes</a>
+        <a href="/architect/volumes" class="btn btn-outline-success"><!--i class="material-icons">storage</i--><img src="/img/volumes.svg" style="height: 2em;"> Volumes</a>
       </p>
       <p>
         <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
