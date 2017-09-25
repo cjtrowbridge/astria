@@ -97,7 +97,7 @@ function ArchitectFileExplorerFile(){
     case 'xml':
     default:
       $Text = file_get_contents($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
-      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(substr(0,1000,$Text);
+      echo '<div class="card"><div class="card-block"><div class="card-text"><pre><code>'.htmlentities(substr(0,1000,$Text));
       if(strlen($Text)>1000){
         echo '...';
       }
