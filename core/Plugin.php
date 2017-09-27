@@ -29,7 +29,7 @@ function TestPlugins(){
   if(isset($_GET['testPlugin'])){
     $Found = false;
     global $ASTRIA;
-    foreach($ASTRIA['plugins'] as $Index => $Plugin){
+    foreach($ASTRIA['plugin'] as $Index => $Plugin){
       if(
         (strtolower($_GET['testPlugin'])==strtolower($Index))&&
         ($Plugin['state']=='test' || $Plugin['state']=='broken') //Don't test plugins which are not set to test or broken
@@ -48,9 +48,9 @@ function TestPlugins(){
 
 function IncludeGoodPlugins(){
   global $ASTRIA;
-  //foreach($ASTRIA['plugins'] as $Dir => $Plugin){
+  //foreach($ASTRIA['plugin'] as $Dir => $Plugin){
     //if(){
-      //$ASTRIA['plugins']
+      //$ASTRIA['plugin']
     //}
   //}
 }
@@ -63,7 +63,7 @@ function VerifyPluginListExists(){
       //Need to create a plugins file
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
-        $ASTRIA['plugins'][$Plugin]=array();
+        $ASTRIA['plugin'][$Plugin]=array();
       }
       SavePluginConfig();
     }
