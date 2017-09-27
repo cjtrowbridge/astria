@@ -14,6 +14,7 @@ function ArchitectBodyCallback(){
     <a href="/architect/configuration" target="_blank" style="color: #000;"><i class="material-icons">settings</i></a>
   </span>
 </h1>
+<p><i><?php echo shell_exec('uptime'); ?></i></p>
 
 <div class="row">
   <div class="col-xs-12">
