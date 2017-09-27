@@ -49,12 +49,12 @@ function SavePluginConfig(){
     if(!(isset($Plugin['data']))){
       $Plugin['data']=array();
     }
-    $newPluginsFile.=PHP_EOL.
+    $newPluginsFile.=PHP_EOL.PHP_EOL.
       "  '$Index' => array(".PHP_EOL.
       "    'state' => '".$Plugin['state']."',".PHP_EOL.
       "    'name' => '".$Plugin['name']."',".PHP_EOL.
       "    'data' => ".var_export($Plugin['data'],true).PHP_EOL.
-      "  ),";
+      "  ),".PHP_EOL.PHP_EOL;
   }
   $newPluginsFile=rtrim($newPluginsFile,',');
   $newPluginsFile.=PHP_EOL.");";
