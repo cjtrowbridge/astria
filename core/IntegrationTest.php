@@ -1,6 +1,6 @@
 <?php
 
-Hook('User Is Not Logged In','IntegrationTest();');
+Hook('Webhook','IntegrationTest();');
 
 function IntegrationTest(){
   if(path(0)=='test'){
