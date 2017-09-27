@@ -34,14 +34,16 @@ function ArchitectBodyCallback(){
         <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
         <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
         <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
+      </p>
+      <p>
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
         <a href="/architect/ifconfig" class="btn btn-outline-warning">ifconfig</a>
         <a href="/architect/top" class="btn btn-outline-warning">top</a>
-      </p>
-      <h4>Webhooks:</h4>
-      <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
-      <button onclick="$('#GetSubrepositoryPullWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
       
+        <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
+        <button onclick="$('#GetSubrepositoryPullWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
+      </p>
+        
     </div>
   </div>
 </div><br>
