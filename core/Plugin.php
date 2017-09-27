@@ -14,13 +14,18 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 
 */
 
+Hook('Architect Homepage','PluginsArchitectHomepage();');
+
 function LoadPlugins(){
   //Load plugin config file if it exists 
   if(file_exists('plugin.php')){include_once('plugin.php');}
   
   VerifyPluginListExists();
   
-  TestPlugins();
+  if(isset($_GET['testPlugin'])){
+    PluginLocalTest();
+    exit;
+  }
   
   SortPluginsByPriority();
   
@@ -35,11 +40,7 @@ function SortPluginsByPriority(){
 function TestPlugins(){
   global $ASTRIA;
   
-  if(isset($_GET['testPlugin'])){
-    PluginLocalTest();
-  }
-  
-  //Let's test any plugins set to test or broken
+  //Let's request a test for any plugins set to test or broken
   $Changes = 0;
   foreach($ASTRIA['plugin'] as $Path => $Plugin){
     if(
@@ -62,7 +63,6 @@ function TestPlugins(){
   if($Changes>0){
     SavePluginConfig();
   }
-  
 }
 
 function PluginLocalTest(){
@@ -150,5 +150,15 @@ function getPluginDirList(){
     return $dirs;
   }else{
     die('Unable to load plugins directory.');
+  }
+}
+
+function PluginsArchitectHomepage(){
+  global $ASTRIA;
+  ?><h2>Plugins</h2>
+
+<?php
+  foreach($ASTRIA['plugin'] as $Index => $Plugin){
+    
   }
 }
