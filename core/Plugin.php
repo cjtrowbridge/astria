@@ -21,9 +21,10 @@ function LoadPlugins(){
   if(file_exists('plugin.php')){include_once('plugin.php');}
   
   VerifyPluginListExists();
+  PluginLocalTest();
   
-  if(isset($_GET['testPlugin'])){
-    PluginLocalTest();
+  if(isset($_GET['testPlugins'])){
+    TestPlugins();
     exit;
   }
   
@@ -46,26 +47,34 @@ function TestPlugins(){
     if(
       $Plugin['state']=='test'
     ){
-      
+      Event('Requesting Integration Test For Plugin: '.$Path);
       $Result = file_get_contents($ASTRIA['app']['appURL']);
       
       if(trim($Result)=='ok'){
         $Changes++;
         $ASTRIA['plugin'][$Path]['state'] = 'ready';
+        Event('...Passed.');
       }else{
         $Changes++;
         $ASTRIA['plugin'][$Path]['state'] = 'broken';
         $ASTRIA['plugin'][$Path]['integrationTestError'] = $Result;
+        Event('...Failed: '.$Result);
       }
       
     }
   }
   if($Changes>0){
+    Event('Saving Changes...');
     SavePluginConfig();
+    Event('Changes Saved.');
   }
 }
 
 function PluginLocalTest(){
+  if(!(isset($_GET['testPlugin']))){
+    return;
+  }
+  
   $Found = false;
   global $ASTRIA;
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
@@ -156,9 +165,21 @@ function getPluginDirList(){
 function PluginsArchitectHomepage(){
   global $ASTRIA;
   ?><h2>Plugins</h2>
-
+  <p><a href="/?" class="btn btn-outline-success">Test Plugins</a></p>
 <?php
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
-    
+    ?>
+
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><?php echo $Plugin['name']; ?></h4>
+    <div class="card-text">
+      <p><b>State:</b> <?php echo $Plugin['state']; ?></p>
+      
+    </div>
+  </div>
+</div>
+
+    <?php
   }
 }
