@@ -1,6 +1,20 @@
 <?php
 
 function LoadPlugins(){
+  VerifyPluginListExists();
+  TestPlugins();
+  IncludeGoodPlugins();
+}
+
+function TestPlugins(){
+  
+}
+
+function IncludeGoodPlugins(){
+  
+}
+
+function VerifyPluginListExists(){
   global $ASTRIA;
   if(!(isset($ASTRIA['plugin']))){
     if(file_exists('plugin.php')){
@@ -19,12 +33,8 @@ function LoadPlugins(){
       if($result==false){
        die("Could not write plugin config file. Please give write permission or copy the following into a new plugin.php file;\n\n".$newPluginsFile); 
       }
-      
-      
-      
     }
   }
-  
 }
 
 function getPluginDirList(){
