@@ -48,7 +48,7 @@ function TestPlugins(){
       
       $Result = file_get_contents($ASTRIA['app']['appURL']);
       
-      if($Result=='ok'){
+      if(trim($Result)=='ok'){
         $Changes++;
         $ASTRIA['plugin'][$Path]['state'] = 'ready';
       }else{
@@ -73,7 +73,8 @@ function PluginLocalTest(){
       (strtolower($_GET['testPlugin'])==strtolower($Index))&&
       ($Plugin['state']=='test' || $Plugin['state']=='broken') //Don't test plugins which are not set to test or broken
     ){
-     $Found = $Index; 
+      $Found = $Index; 
+      break;
     }
   }
   if(!($Found == false)){
