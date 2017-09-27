@@ -9,7 +9,7 @@ function ArchitectIfconfigBodyCallback(){
   <h2>/sbin/ifconfig</h2>
   <pre><?php passthru('/sbin/ifconfig'); ?></pre>
 
-  <h2>/etc/network/interfaces</h2>
+  <h2>cat /etc/network/interfaces</h2>
   <pre><?php passthru('cat /etc/network/interfaces'); ?></pre>
     
   <?php
