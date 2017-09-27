@@ -27,12 +27,8 @@ function PluginTestReset(){
       ){
         $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
         SavePluginConfig();
-        header('Location: /architect');
-        exit;
-      }else{
-        pd($ASTRIA['plugin']);
-        die('Invalid reset'); 
       }
+      header('Location: /architect');
       exit;
     }
   }
