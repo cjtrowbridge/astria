@@ -7,7 +7,9 @@ function LoadPlugins(){
 }
 
 function TestPlugins(){
-  
+  if(isset($_GET['testPlugin'])){
+    
+  }
 }
 
 function IncludeGoodPlugins(){
@@ -21,20 +23,37 @@ function VerifyPluginListExists(){
       include_once('plugin.php');
     }else{
       //Need to create a plugins file
-      $newPluginsFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL."\$ASTRIA['plugin'] = array(";
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
-        $newPluginsFile.=PHP_EOL."  '$Plugin' => array('state' => 'test'),";
+        $ASTRIA['plugins'][$Plugin]=array();
       }
-      $newPluginsFile=rtrim($newPluginsFile,',');
-      $newPluginsFile.=PHP_EOL.");";
-      
-      $result=file_put_contents('plugin.php', $newPluginsFile);
-      if($result==false){
-       die("Could not write plugin config file. Please give write permission or copy the following into a new plugin.php file;\n\n".$newPluginsFile); 
-      }
+      SavePluginConfig();
     }
   }
+}
+
+function SavePluginConfig(){
+  global $ASTRIA;
+  $newPluginsFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL."\$ASTRIA['plugin'] = array(";
+  foreach($ASTRIA['plugins'] as $Index => $Plugin){
+    if(!(isset($Plugin['name']))){
+      $Plugin['name']=$Index;
+    }
+    if(!(isset($Plugin['state']))){
+      $Plugin['state']='test';
+    }
+    if(!(isset($Plugin['data']))){
+      $Plugin['data']=array();
+    }
+    $newPluginsFile.=PHP_EOL."  '$Plugin' => array(".PHP_EOL."    'state' => '".$Plugin['state']."',".PHP_EOL."    'name' => '".$Plugin['name']."',".PHP_EOL."    data => ".var_export($Plugin['data']).PHP_EOL."  ),";
+  }
+  $newPluginsFile=rtrim($newPluginsFile,',');
+  $newPluginsFile.=PHP_EOL.");";
+
+  $result=file_put_contents('plugin.php', $newPluginsFile);
+  if($result==false){
+   die("Could not write plugin config file. Please give write permission or copy the following into a new plugin.php file;\n\n".$newPluginsFile); 
+  } 
 }
 
 function getPluginDirList(){
