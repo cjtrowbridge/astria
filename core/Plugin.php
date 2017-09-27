@@ -55,7 +55,22 @@ function TestPlugins(){
     ){
       Event('Requesting Integration Test For Plugin: '.$Path);
       $TestPath = $ASTRIA['app']['appURL'].'?testPlugin='.$Path;
+      
+      //This might not work, so dont throw an error if it doesn't.
+      $PreviousErrorState = error_reporting();
+      error_reporting(0);
       $Result = file_get_contents($TestPath);
+      if($Result==false){
+        //If we cant access the site publically, we will need to run a synchronous integration test. This is super not ideal, but sometimes necessary.
+        $Result = PluginIntegrationTest($PluginPath);
+        if($Result == true){
+          $Result = 'ok';
+        }else{
+          $Result = '';
+        }
+      }
+      error_reporting($PreviousErrorState);
+      
       
       if(trim($Result)=='ok'){
         $Changes++;
@@ -82,6 +97,14 @@ function PluginLocalTest(){
     return;
   }
   
+  if(!(PluginIntegrationTest($_GET['testPlugin']) == false)){
+    die('ok');
+  }else{
+    die();
+  }
+}
+
+function PluginIntegrationTest($PluginPath){
   $Found = false;
   global $ASTRIA;
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
@@ -95,9 +118,9 @@ function PluginLocalTest(){
   }
   if(!($Found == false)){
     Loader('plugins/'.$Found);
-    die('ok');
+    return true;
   }else{
-    die();
+    return false;
   }
 }
 
