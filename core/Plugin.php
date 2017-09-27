@@ -14,7 +14,8 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 
 */
 
-Hook('Webhook','PluginTestReset();');
+Hook('Before Login','PluginTestReset();');
+
 function PluginTestReset(){
   require_once('core/IsAstriaAdmin.php');
   if(isset($_GET['resetTest'])){
@@ -36,6 +37,7 @@ function PluginTestReset(){
     }
   }
 }
+
 
 Hook('Architect Homepage','PluginsArchitectHomepage();');
 
