@@ -28,7 +28,8 @@ if(IsAstriaAdmin()){
       header('Location: /architect');
       exit;
     }else{
-     die('Invalid reset'); 
+      pd($ASTRIA['plugin']);
+      die('Invalid reset'); 
     }
     exit;
   }
