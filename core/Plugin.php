@@ -20,6 +20,22 @@ function PluginTestReset(){
   require_once('core/IsAstriaAdmin.php');
   Event('Begin Plugin Test Handlers');
   
+  if(isset($_GET['overrideTest'])){
+    if(IsAstriaAdmin()){
+      global $ASTRIA;
+      if(
+        isset($ASTRIA['plugin'][$_GET['overrideTest']])&&
+        $ASTRIA['plugin'][$_GET['overrideTest']]['state']=='broken'
+      ){
+        $ASTRIA['plugin'][$_GET['overrideTest']]['state']='ready';
+        SavePluginConfig();
+        header('Location: /architect');
+        exit;
+      }else{
+        die('This plugin is not broken. Unable to override test.');
+      }
+    }
+  }
   if(isset($_GET['resetTest'])){
     if(IsAstriaAdmin()){
       global $ASTRIA;
@@ -279,7 +295,7 @@ function PluginsArchitectHomepage(){
           echo 'Enabled, Running Normally. (<a href="/?disablePlugin='.$Index.'">Disable</a>)';
           break;
         case 'broken':
-          echo '<b style="color: red;">Integration Test Failed</b> (<a href="/?resetTest='.$Index.'">Test Again</a>)';
+          echo '<b style="color: red;">Integration Test Failed</b> (<a href="/?resetTest='.$Index.'">Test Again</a>) or (<a href="/?overrideTest='.$Index.'">Override Test</a>)';
           break;
       }
     
