@@ -30,6 +30,7 @@ function PluginTestReset(){
         $ASTRIA['plugin'][$_GET['overrideTest']]['state']='ready';
         SavePluginConfig();
         header('Location: /architect');
+        sleep(1);
         exit;
       }else{
         die('This plugin is not broken. Unable to override test.');
@@ -46,6 +47,7 @@ function PluginTestReset(){
         $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
         SavePluginConfig();
         header('Location: /architect');
+        sleep(1);
         exit;
       }else{
         die('This plugin is not broken. Unable to reset test.');
@@ -62,6 +64,7 @@ function PluginTestReset(){
         $ASTRIA['plugin'][$_GET['enablePlugin']]['state']='enabled';
         SavePluginConfig();
         header('Location: /architect');
+        sleep(1);
         exit;
       }else{
         die('This plugin is not Ready. Unable to enable.');
@@ -78,6 +81,7 @@ function PluginTestReset(){
         $ASTRIA['plugin'][$_GET['disablePlugin']]['state']='disable';
         SavePluginConfig();
         header('Location: /architect');
+        sleep(1);
         exit;
       }else{
         die('This plugin is not enabled. Unable to disable.');
