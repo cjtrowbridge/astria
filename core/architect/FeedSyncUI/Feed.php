@@ -85,6 +85,7 @@ function FeedSyncFeedPage(){
   TemplateBootstrap4('Feed - FeedSync','FeedSyncFeedPageBodyCallback();');
 }
 function FeedSyncFeedPageBodyCallback(){
+  include_once('Feed.php');
   $FeedID = intval(path(3));
   
   //TODO false should probably show a list of feeds instead of creating a new feed
