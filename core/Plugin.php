@@ -53,7 +53,8 @@ function TestPlugins(){
       $Plugin['state']=='test'
     ){
       Event('Requesting Integration Test For Plugin: '.$Path);
-      $Result = file_get_contents($ASTRIA['app']['appURL']);
+      $TestPath = $ASTRIA['app']['appURL'].'?testPlugin='.$Path;
+      $Result = file_get_contents($TestPath);
       
       if(trim($Result)=='ok'){
         $Changes++;
