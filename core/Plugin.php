@@ -100,7 +100,7 @@ function VerifyPluginListExists(){
       //Need to create a plugins file
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
-        $ASTRIA['plugin'][$Plugin]=array();
+        $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
       }
       SavePluginConfig();
     }
