@@ -33,6 +33,7 @@ function ArchitectBodyCallback(){
       </p>
       <p>
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
+        <a href="/architect/ifconfig" class="btn btn-outline-warning">ifconfig</a>
         <a href="/architect/top" class="btn btn-outline-warning">top</a>
       </p>
       <h4>Webhooks:</h4>
