@@ -29,6 +29,7 @@ Event('Webhook');
 
 //Loading plugins should happen after the webhooks so that if there is an integration error, it will not break the webhooks.
 Loader('plugins');
+LoadPlugins();
 
 Event('Before Login');
 
