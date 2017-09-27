@@ -208,11 +208,11 @@ function PluginIntegrationTest($PluginPath){
 
 function IncludeGoodPlugins(){
   global $ASTRIA;
-  //foreach($ASTRIA['plugin'] as $Dir => $Plugin){
-    //if(){
-      //$ASTRIA['plugin']
-    //}
-  //}
+  foreach($ASTRIA['plugin'] as $Dir => $Plugin){
+    if($Plugin['state']=='enabled'){
+      Loader('plugins/'.$Dir);
+    }
+  }
 }
 
 function VerifyPluginListExists(){
