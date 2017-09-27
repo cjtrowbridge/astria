@@ -25,13 +25,13 @@ function LoadPlugins(){
   VerifyPluginListExists();
   PluginLocalTest();
   
-  if(isset($_GET['testPlugins'])){
+  //if(isset($_GET['testPlugins'])){
     Event('Testing Plugins...');
     TestPlugins();
     Event('Done Testing Plugins');
-    header('Location: /architect');
-    exit;
-  }
+    //header('Location: /architect');
+    //exit;
+  //}
   
   SortPluginsByPriority();
   
