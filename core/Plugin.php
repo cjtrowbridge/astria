@@ -14,6 +14,23 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 
 */
 
+require_once('core/IsAstriaAdmin.php');
+
+if(IsAstriaAdmin()){
+  if(isset($_GET['resetTest'])){
+    global $ASTRIA;
+    if(
+      isset($ASTRIA['plugin'][$_GET['resetTest']])&&
+      $ASTRIA['plugin'][$_GET['resetTest']]['state']=='broken'
+    ){
+      $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
+      SavePluginConfig();
+      header('Location: /architect');
+      exit;
+    }
+  }
+}
+
 Hook('Architect Homepage','PluginsArchitectHomepage();');
 
 function LoadPlugins(){
