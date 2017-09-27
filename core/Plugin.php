@@ -54,6 +54,7 @@ function TestPlugins(){
       }else{
         $Changes++;
         $ASTRIA['plugin'][$Path]['state'] = 'broken';
+        $ASTRIA['plugin'][$Path]['integrationTestError'] = $Result;
       }
       
     }
