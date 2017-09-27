@@ -19,7 +19,7 @@ function LoadPlugins(){
   if(file_exists('plugin.php')){include_once('plugin.php');}
   
   VerifyPluginListExists();
-  return;
+  
   TestPlugins();
   
   SortPluginsByPriority();
