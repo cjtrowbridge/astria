@@ -304,7 +304,10 @@ function PluginsArchitectHomepage(){
       }
     
       ?></p>
-      
+      <?php
+      $Command = 'grep -o -r "TODO" '.$_SERVER["DOCUMENT_ROOT"].' | wc -l';
+      ?>
+      <p>Number of TODOs: <span title="<?php echo $Command; ?>"><?php passthru($Command); ?></span></p>
     </div>
   </div>
 </div>
