@@ -110,7 +110,7 @@ function VerifyPluginListExists(){
 function SavePluginConfig(){
   global $ASTRIA;
   $newPluginsFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL."\$ASTRIA['plugin'] = array(";
-  foreach($ASTRIA['plugins'] as $Index => $Plugin){
+  foreach($ASTRIA['plugin'] as $Index => $Plugin){
     if(!(isset($Plugin['name']))){
       $Plugin['name']=$Index;
     }
