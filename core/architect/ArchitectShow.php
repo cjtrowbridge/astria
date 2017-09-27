@@ -32,8 +32,8 @@ function ArchitectBodyCallback(){
         <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
       </p>
       <p>
-        <a href="/architect/df" class="btn btn-outline-success">df</a>
-        <a href="/architect/top" class="btn btn-outline-success">top</a>
+        <a href="/architect/df" class="btn btn-outline-warning">df</a>
+        <a href="/architect/top" class="btn btn-outline-warning">top</a>
       </p>
       <h4>Webhooks:</h4>
       <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
