@@ -1,15 +1,19 @@
 <?php
 
 function LoadPlugins(){
+  
   VerifyPluginListExists();
+  
   TestPlugins();
+  
   IncludeGoodPlugins();
+
 }
 
 function TestPlugins(){
-  if(isset($_GET['testPlugin'])){
+  //if(isset($_GET['testPlugin'])){
     
-  }
+  //}
 }
 
 function IncludeGoodPlugins(){
