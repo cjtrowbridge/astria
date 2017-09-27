@@ -9,40 +9,77 @@ ready   - has been tested but needs to be activated
 enabled - is enabled and should be included in every page load
 broken  - failed an integration test
 
+
+TODO make the plugins retain previous versions and revert when changes cause broken
+
 */
 
 function LoadPlugins(){
-  
-  if(file_exists('plugin.php')){
-    include_once('plugin.php');
-  }
+  //Load plugin config file if it exists 
+  if(file_exists('plugin.php')){include_once('plugin.php');}
   
   VerifyPluginListExists();
   
   TestPlugins();
   
+  SortPluginsByPriority();
+  
   IncludeGoodPlugins();
 
 }
 
+function SortPluginsByPriority()(){
+  
+}
+
 function TestPlugins(){
+  global $ASTRIA;
+  
   if(isset($_GET['testPlugin'])){
-    $Found = false;
-    global $ASTRIA;
-    foreach($ASTRIA['plugin'] as $Index => $Plugin){
-      if(
-        (strtolower($_GET['testPlugin'])==strtolower($Index))&&
-        ($Plugin['state']=='test' || $Plugin['state']=='broken') //Don't test plugins which are not set to test or broken
-      ){
-       $Found = $Index; 
+    PluginLocalTest();
+  }
+  
+  //Let's test any plugins set to test or broken
+  $Changes = 0;
+  foreach($ASTRIA['plugin'] as $Path => $Plugin){
+    if(
+      $Plugin['state']=='test'
+    ){
+      
+      $Result = file_get_contents($ASTRIA['app']['appURL']);
+      
+      if($Result=='ok'){
+        $Changes++;
+        $ASTRIA['plugin'][$Path]['state'] = 'ready';
+      }else{
+        $Changes++;
+        $ASTRIA['plugin'][$Path]['state'] = 'broken';
       }
+      
     }
-    if(!($Found == false)){
-      Loader('plugins/'.$Found);
-      die('ok');
-    }else{
-      die();
+  }
+  if($Changes>0){
+    SavePluginConfig();
+  }
+  
+}
+
+function PluginLocalTest(){
+  $Found = false;
+  global $ASTRIA;
+  foreach($ASTRIA['plugin'] as $Index => $Plugin){
+    if(
+      (strtolower($_GET['testPlugin'])==strtolower($Index))&&
+      ($Plugin['state']=='test' || $Plugin['state']=='broken') //Don't test plugins which are not set to test or broken
+    ){
+     $Found = $Index; 
     }
+  }
+  if(!($Found == false)){
+    Loader('plugins/'.$Found);
+    die('ok');
+  }else{
+    die();
   }
 }
 
