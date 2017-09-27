@@ -21,7 +21,7 @@ function ArchitectBodyCallback(){
       <h4>Architect Tools:</h4>
       <p>
         <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">folder</i> File Manager</a>
-        <a href="/architect/volumes" class="btn btn-outline-success"><i class="material-icons">storage</i> Volumes</a>
+        
         <a href="/architect/feedsync" class="btn btn-outline-success"><i class="material-icons">&#xE0E5;</i> FeedSync</a>
         <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success"><i class="material-icons">&#xE322;</i> Schema</button>
       </p>
@@ -30,6 +30,10 @@ function ArchitectBodyCallback(){
         <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
         <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
         <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
+      </p>
+      <p>
+        <a href="/architect/df" class="btn btn-outline-success">df</a>
+        <a href="/architect/top" class="btn btn-outline-success">top</a>
       </p>
       <h4>Webhooks:</h4>
       <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
