@@ -1,5 +1,16 @@
 <?php
 
+/*
+
+Plugin States
+
+test    - needs to be tested
+ready   - has been tested but needs to be activated
+enabled - is enabled and should be included in every page load
+broken  - failed an integration test
+
+*/
+
 function LoadPlugins(){
   
   VerifyPluginListExists();
@@ -11,13 +22,33 @@ function LoadPlugins(){
 }
 
 function TestPlugins(){
-  //if(isset($_GET['testPlugin'])){
-    
-  //}
+  if(isset($_GET['testPlugin'])){
+    $Found = false;
+    global $ASTRIA;
+    foreach($ASTRIA['plugins'] as $Index => $Plugin){
+      if(
+        (strtolower($_GET['testPlugin'])==strtolower($Index))&&
+        ($Plugin['state']=='test' || $Plugin['state']=='broken') //Don't test plugins which are not set to test or broken
+      ){
+       $Found = $Index; 
+      }
+    }
+    if(!($Found == false)){
+      Loader('plugins/'.$Found);
+      die('ok');
+    }else{
+      die();
+    }
+  }
 }
 
 function IncludeGoodPlugins(){
-  
+  global $ASTRIA;
+  foreach($ASTRIA['plugins'] as $Dir => $Plugin){
+    if(){
+      $ASTRIA['plugins']
+    }
+  }
 }
 
 function VerifyPluginListExists(){
