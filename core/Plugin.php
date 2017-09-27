@@ -111,14 +111,16 @@ function TestPlugins(){
     if(
       $Plugin['state']=='test'
     ){
-      Event('Requesting Integration Test For Plugin: '.$Path);
-      $TestPath = '127.0.0.1/?testPlugin='.$Path;
+      $TestPath = $ASTRIA['app']['appURL'].'?testPlugin='.$Path;
+      Event('Requesting Integration Test For Plugin: '.$Path.' ('.$TestPath.')');
+      
       
       //This might not work, so dont throw an error if it doesn't.
       $PreviousErrorState = error_reporting();
       error_reporting(0);
       $Result = file_get_contents($TestPath);
       if($Result==false){
+        
         //If we cant access the site publically, we will need to run a synchronous integration test. This is super not ideal, but sometimes necessary.
         $Result = PluginIntegrationTest($PluginPath);
         if($Result == true){
@@ -126,6 +128,7 @@ function TestPlugins(){
         }else{
           $Result = '';
         }
+        
       }
       error_reporting($PreviousErrorState);
       
