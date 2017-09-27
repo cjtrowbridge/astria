@@ -18,6 +18,7 @@ Hook('Before Login','PluginTestReset();');
 
 function PluginTestReset(){
   require_once('core/IsAstriaAdmin.php');
+  Event('Begin Plugin Test Handlers')
   
   if(isset($_GET['resetTest'])){
     if(IsAstriaAdmin()){
@@ -68,7 +69,7 @@ function PluginTestReset(){
     }
   }
   
-  
+  Event('End Plugin Test Handlers')
 }
 
 
