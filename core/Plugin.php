@@ -17,6 +17,8 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 Hook('Architect Homepage','PluginsArchitectHomepage();');
 
 function LoadPlugins(){
+  Event('Plugin Manager: Starting...');
+  
   //Load plugin config file if it exists 
   if(file_exists('plugin.php')){include_once('plugin.php');}
   
@@ -32,6 +34,7 @@ function LoadPlugins(){
   
   IncludeGoodPlugins();
 
+  Event('Plugin Manager: ...Finished');
 }
 
 function SortPluginsByPriority(){
