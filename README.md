@@ -1,3 +1,3 @@
-# Astria v13
+# astria
 
-Astria manages schema and implements smart user-interfaces that scale.
+astria manages users and data while implementing good user-interfaces that scale.
