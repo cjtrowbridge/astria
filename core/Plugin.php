@@ -13,6 +13,10 @@ broken  - failed an integration test
 
 function LoadPlugins(){
   
+  if(file_exists('plugin.php')){
+    include_once('plugin.php');
+  }
+  
   VerifyPluginListExists();
   
   TestPlugins();
@@ -52,11 +56,10 @@ function IncludeGoodPlugins(){
 }
 
 function VerifyPluginListExists(){
+  
   global $ASTRIA;
   if(!(isset($ASTRIA['plugin']))){
-    if(file_exists('plugin.php')){
-      include_once('plugin.php');
-    }else{
+    if(!(file_exists('plugin.php'))){
       //Need to create a plugins file
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
