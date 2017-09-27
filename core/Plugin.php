@@ -28,7 +28,7 @@ function LoadPlugins(){
 
 }
 
-function SortPluginsByPriority()(){
+function SortPluginsByPriority(){
   
 }
 
