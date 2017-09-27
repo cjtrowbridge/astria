@@ -29,6 +29,7 @@ function LoadPlugins(){
     Event('Testing Plugins...');
     TestPlugins();
     Event('Done Testing Plugins');
+    header('Location: /architect');
     exit;
   }
   
