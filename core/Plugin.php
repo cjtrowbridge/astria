@@ -53,7 +53,7 @@ function SavePluginConfig(){
       "  '$Index' => array(".PHP_EOL.
       "    'state' => '".$Plugin['state']."',".PHP_EOL.
       "    'name' => '".$Plugin['name']."',".PHP_EOL.
-      "    'data' => ".var_export($Plugin['data']).PHP_EOL.
+      "    'data' => ".var_export($Plugin['data'],true).PHP_EOL.
       "  ),";
   }
   $newPluginsFile=rtrim($newPluginsFile,',');
