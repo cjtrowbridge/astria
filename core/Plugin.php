@@ -46,13 +46,13 @@ function LoadPlugins(){
   VerifyPluginListExists();
   PluginLocalTest();
   
-  if(isset($_GET['testPlugins'])){
+  //if(isset($_GET['testPlugins'])){
     Event('Testing Plugins...');
     TestPlugins();
     Event('Done Testing Plugins');
-    header('Location: /architect');
-    exit;
-  }
+    //header('Location: /architect');
+    //exit;
+  //}
   
   SortPluginsByPriority();
   
@@ -216,7 +216,7 @@ function getPluginDirList(){
 function PluginsArchitectHomepage(){
   global $ASTRIA;
   ?><h2>Plugins</h2>
-  <p><a href="/?testPlugins" class="btn btn-outline-success">Test Plugins</a></p>
+  <!--p><a href="/?testPlugins" class="btn btn-outline-success">Test Plugins</a></p-->
 <?php
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
     ?>
