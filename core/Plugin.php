@@ -7,17 +7,13 @@ function LoadPlugins(){
       include_once('plugin.php');
     }else{
       //Need to create a plugins file
-      $newPluginsFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL."\$ASTRIA['plugin'] = array(".PHP_EOL;
+      $newPluginsFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL."\$ASTRIA['plugin'] = array(";
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
         $newPluginsFile.=PHP_EOL."  '$Plugin' => array('state' => 'test'),";
       }
       $newPluginsFile=rtrim($newPluginsFile,',');
       $newPluginsFile.=PHP_EOL.");";
-
-      echo 'Recreating plugins file...<br>';
-      echo 'Found Plugins;<br>';
-      pd($Plugins);
       
       $result=file_put_contents('plugin.php', $newPluginsFile);
       if($result==false){
