@@ -15,6 +15,10 @@ function LoadPlugins(){
       $newPluginsFile=rtrim($newPluginsFile,',');
       $newPluginsFile.=PHP_EOL.");";
 
+      echo 'Recreating plugins file...<br>';
+      echo 'Found Plugins;<br>';
+      pd($Plugins);
+      
       $result=file_put_contents('plugin.php', $newPluginsFile);
       if($result==false){
        die("Could not write plugin config file. Please give write permission or copy the following into a new plugin.php file;\n\n".$newPluginsFile); 
