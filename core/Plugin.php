@@ -307,8 +307,12 @@ function PluginsArchitectHomepage(){
       <?php
         $Command = 'grep -o -r "TODO" '.$_SERVER["DOCUMENT_ROOT"].'/plugins/'.$Index.' | wc -l';
         $Todos = shell_exec($Command);
+      if($Todos>0){
+        ?>
+        <p>Number of TODOs: <?php echo $Todos; ?></p>
+        <?php
+      }
       ?>
-      <p>Number of TODOs: <?php echo $Todos; ?></p>
     </div>
   </div>
 </div>
