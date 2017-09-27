@@ -112,7 +112,7 @@ function TestPlugins(){
       $Plugin['state']=='test'
     ){
       Event('Requesting Integration Test For Plugin: '.$Path);
-      $TestPath = $ASTRIA['app']['appURL'].'?testPlugin='.$Path;
+      $TestPath = '127.0.0.1/?testPlugin='.$Path;
       
       //This might not work, so dont throw an error if it doesn't.
       $PreviousErrorState = error_reporting();
