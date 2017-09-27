@@ -18,6 +18,7 @@ Hook('Before Login','PluginTestReset();');
 
 function PluginTestReset(){
   require_once('core/IsAstriaAdmin.php');
+  
   if(isset($_GET['resetTest'])){
     if(IsAstriaAdmin()){
       global $ASTRIA;
@@ -27,11 +28,47 @@ function PluginTestReset(){
       ){
         $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
         SavePluginConfig();
+        header('Location: /architect');
+        exit;
+      }else{
+        die('This plugin is not broken. Unable to reset test.');
       }
-      header('Location: /architect');
-      exit;
     }
   }
+  if(isset($_GET['enablePlugin'])){
+    if(IsAstriaAdmin()){
+      global $ASTRIA;
+      if(
+        isset($ASTRIA['plugin'][$_GET['enablePlugin']])&&
+        $ASTRIA['plugin'][$_GET['enablePlugin']]['state']=='ready'
+      ){
+        $ASTRIA['plugin'][$_GET['enablePlugin']]['state']='enabled';
+        SavePluginConfig();
+        header('Location: /architect');
+        exit;
+      }else{
+        die('This plugin is not Ready. Unable to enable.');
+      }
+    }
+  }
+  if(isset($_GET['disablePlugin'])){
+    if(IsAstriaAdmin()){
+      global $ASTRIA;
+      if(
+        isset($ASTRIA['plugin'][$_GET['disablePlugin']])&&
+        $ASTRIA['plugin'][$_GET['disablePlugin']]['state']=='enabled'
+      ){
+        $ASTRIA['plugin'][$_GET['disablePlugin']]['state']='disable';
+        SavePluginConfig();
+        header('Location: /architect');
+        exit;
+      }else{
+        die('This plugin is not enabled. Unable to disable.');
+      }
+    }
+  }
+  
+  
 }
 
 
@@ -225,7 +262,24 @@ function PluginsArchitectHomepage(){
   <div class="card-block">
     <h4 class="card-title"><?php echo $Plugin['name']; ?></h4>
     <div class="card-text">
-      <p><b>State:</b> <?php echo $Plugin['state']; if($Plugin['state']=='broken'){echo ' (<a href="/?resetTest='.$Index.'">Test Again</a>)';} ?></p>
+      <p><b>State:</b> <?php 
+    
+      switch($Plugin['state']){
+        case 'test':
+          echo 'Integration test is pending...';
+          break;
+        case 'ready':
+          echo '<b style="color: green;">Passed Integration Test, Ready.</b> (<a href="/?enablePlugin='.$Index.'">Activate Plugin</a>)';
+          break;
+        case 'enabled':
+          echo 'Enabled, Running Normally. (<a href="/?disablePlugin='.$Index.'">Disable</a>)';
+          break;
+        case 'broken':
+          echo '<b style="color: red;">Integration Test Failed</b> (<a href="/?resetTest='.$Index.'">Test Again</a>)';
+          break;
+      }
+    
+      ?></p>
       
     </div>
   </div>
