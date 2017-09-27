@@ -33,7 +33,7 @@ function LoadPlugins(){
 
 function getPluginDirList(){
   $dirs = array();
-  if($handle = opendir('plugins')){
+  if($handle = opendir('../plugins')){
     while (false !== ($dir = readdir($handle))){
       if($dir != "." && $dir != ".." && is_dir($dir)){
         $dirs[]=$dir;
