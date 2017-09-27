@@ -224,7 +224,7 @@ function PluginsArchitectHomepage(){
   <div class="card-block">
     <h4 class="card-title"><?php echo $Plugin['name']; ?></h4>
     <div class="card-text">
-      <p><b>State:</b> <?php echo $Plugin['state']; if($Plugin['state']=='broken'){echo '(<a href="/?resetTest='.$Index.'">Test Again</a>)';} ?></p>
+      <p><b>State:</b> <?php echo $Plugin['state']; if($Plugin['state']=='broken'){echo ' (<a href="/?resetTest='.$Index.'">Test Again</a>)';} ?></p>
       
     </div>
   </div>
