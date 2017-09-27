@@ -26,7 +26,9 @@ function LoadPlugins(){
   PluginLocalTest();
   
   if(isset($_GET['testPlugins'])){
+    Event('Testing Plugins...');
     TestPlugins();
+    Event('Done Testing Plugins');
     exit;
   }
   
