@@ -27,7 +27,10 @@ if(IsAstriaAdmin()){
       SavePluginConfig();
       header('Location: /architect');
       exit;
+    }else{
+     die('Invalid reset'); 
     }
+    exit;
   }
 }
 
