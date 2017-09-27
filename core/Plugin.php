@@ -44,11 +44,11 @@ function TestPlugins(){
 
 function IncludeGoodPlugins(){
   global $ASTRIA;
-  foreach($ASTRIA['plugins'] as $Dir => $Plugin){
+  //foreach($ASTRIA['plugins'] as $Dir => $Plugin){
     //if(){
       //$ASTRIA['plugins']
     //}
-  }
+  //}
 }
 
 function VerifyPluginListExists(){
