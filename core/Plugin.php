@@ -165,7 +165,7 @@ function getPluginDirList(){
 function PluginsArchitectHomepage(){
   global $ASTRIA;
   ?><h2>Plugins</h2>
-  <p><a href="/?" class="btn btn-outline-success">Test Plugins</a></p>
+  <p><a href="/?testPlugins" class="btn btn-outline-success">Test Plugins</a></p>
 <?php
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
     ?>
