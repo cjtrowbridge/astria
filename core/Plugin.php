@@ -14,24 +14,27 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 
 */
 
-require_once('core/IsAstriaAdmin.php');
+Hook('Webhook','PluginTestReset();');
+function PluginTestReset(){
+  require_once('core/IsAstriaAdmin.php');
 
-if(IsAstriaAdmin()){
-  if(isset($_GET['resetTest'])){
-    global $ASTRIA;
-    if(
-      isset($ASTRIA['plugin'][$_GET['resetTest']])&&
-      $ASTRIA['plugin'][$_GET['resetTest']]['state']=='broken'
-    ){
-      $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
-      SavePluginConfig();
-      header('Location: /architect');
+  if(IsAstriaAdmin()){
+    if(isset($_GET['resetTest'])){
+      global $ASTRIA;
+      if(
+        isset($ASTRIA['plugin'][$_GET['resetTest']])&&
+        $ASTRIA['plugin'][$_GET['resetTest']]['state']=='broken'
+      ){
+        $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
+        SavePluginConfig();
+        header('Location: /architect');
+        exit;
+      }else{
+        pd($ASTRIA['plugin']);
+        die('Invalid reset'); 
+      }
       exit;
-    }else{
-      pd($ASTRIA['plugin']);
-      die('Invalid reset'); 
     }
-    exit;
   }
 }
 
