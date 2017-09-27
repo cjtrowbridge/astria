@@ -22,10 +22,10 @@ function ArchitectBodyCallback(){
       <p>
         <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">folder</i> File Manager</a>
         <a href="/architect/volumes" class="btn btn-outline-success"><i class="material-icons">storage</i> Volumes</a>
+        <a href="/architect/feedsync" class="btn btn-outline-success"><i class="material-icons">&#xE0E5;</i> FeedSync</a>
+        <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success"><i class="material-icons">&#xE322;</i> Schema</button>
       </p>
       <p>
-        <a href="/architect/feedsync" class="btn btn-outline-success">FeedSync</a>
-        <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success">Schema</button>
         <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
         <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
         <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
