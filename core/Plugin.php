@@ -17,9 +17,8 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 Hook('Webhook','PluginTestReset();');
 function PluginTestReset(){
   require_once('core/IsAstriaAdmin.php');
-
-  if(IsAstriaAdmin()){
-    if(isset($_GET['resetTest'])){
+  if(isset($_GET['resetTest'])){
+    if(IsAstriaAdmin()){
       global $ASTRIA;
       if(
         isset($ASTRIA['plugin'][$_GET['resetTest']])&&
