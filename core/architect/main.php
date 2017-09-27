@@ -47,6 +47,10 @@ function PresentArchitect(){
         include_once('ArchitectDF.php');
         ArchitectDF();
         break;
+      case 'ifconfig':
+        include_once('ArchitectIfconfig.php');
+        ArchitectIfconfig();
+        break;
       case 'top':
         include_once('ArchitectTop.php');
         ArchitectTop();
