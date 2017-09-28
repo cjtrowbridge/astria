@@ -34,7 +34,7 @@ function FeedSyncUIBodyCallback(){
       <li><h2>Category: <a href="/architect/feedsync/category/<?php if($Feed['Path']==''){echo $Feed['FeedCategoryID'];}else{echo $Feed['Path'];} ?>"><?php echo $Feed['Name']; ?></a></h2>
       <ul>
         <li><a class="btn btn-outline-success" href="/architect/feedsync/feed/add?FeedCategoryID=<?php echo $Feed['FeedCategoryID']; ?>">New Feed</a></li>
-          <?php
+          <?php pd($Feed);
         }
    
         if(!($Feed['URL']=='')){
