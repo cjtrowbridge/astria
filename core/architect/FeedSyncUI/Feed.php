@@ -93,9 +93,7 @@ function FeedSyncFeedPageBodyCallback(){
     $FeedID == 'add'||
     $FeedID == false
   ){
-    $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
-    $Feed = $Feed[0];
-    FeedSyncFeedNew($Feed);
+    FeedSyncFeedNew();
   }else{
     $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
     if(count($Feed)==0){
@@ -139,22 +137,26 @@ function FeedSyncFeedEdit($Feed){
   );
   
 }
-function FeedSyncFeedNew($Feed){
+function FeedSyncFeedNew(){
   ?>
   <h1><a href="/architect/feedsync">FeedSync</a> - Feed Editor - New</h1>
   <?php
   
+  if(!(isset($_GET['ParentID']))){
+    $_GET['ParentID']='';
+  }
+  
   $Editable = array(
-    'FeedSourceID'    => $Feed['FeedSourceID'],
-    'FeedCategoryID'  => $Feed['FeedCategoryID'],
-    'FeedParserID'    => $Feed['FeedParserID'],
-    'URL'             => $Feed['URL'],
-    'FeedName'        => $Feed['FeedName'],
-    'FeedDescription' => $Feed['FeedDescription'],
-    'FeedLogoURL'     => $Feed['FeedLogoURL'],
-    'MinimumInterval' => $Feed['MinimumInterval'],
-    'LastFetch'       => $Feed['LastFetch'],
-    'TTL'             => $Feed['TTL']
+    'FeedSourceID'    => '',
+    'FeedCategoryID'  => $_GET['ParentID'],
+    'FeedParserID'    => '',
+    'URL'             => '',
+    'FeedName'        => '',
+    'FeedDescription' => '',
+    'FeedLogoURL'     => '',
+    'MinimumInterval' => '',
+    'LastFetch'       => '',
+    'TTL'             => ''
   );
   
   echo AstriaBootstrapAutoForm(
