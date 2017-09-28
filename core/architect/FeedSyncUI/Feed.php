@@ -93,7 +93,7 @@ function FeedSyncFeedPageBodyCallback(){
     $FeedID == 'add'||
     $FeedID == false
   ){
-    FeedSyncFeedNew();
+    FeedSyncFeedNew($Feed);
   }else{
     $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
     if(count($Feed)==0){
@@ -137,7 +137,7 @@ function FeedSyncFeedEdit($Feed){
   );
   
 }
-function FeedSyncFeedNew(){
+function FeedSyncFeedNew($Feed){
   ?>
   <h1><a href="/architect/feedsync">FeedSync</a> - Feed Editor - New</h1>
   <?php
