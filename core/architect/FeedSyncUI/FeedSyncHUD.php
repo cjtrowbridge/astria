@@ -19,7 +19,7 @@ function FeedSyncUIBodyCallback(){
   <ul>
     <li><a class="btn btn-outline-success" href="/architect/feedsync/category/add">New Category</a></li>
   <?php
-      $Feeds = Query('SELECT * FROM `FeedCategory` LEFT JOIN `Feed` ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID ORDER BY Name ASC');
+      $Feeds = Query('SELECT *,FeedCategory.FeedCategoryID FROM `FeedCategory` LEFT JOIN `Feed` ON FeedCategory.FeedCategoryID = Feed.FeedCategoryID ORDER BY Name ASC');
       $LastCategory = '';
       foreach($Feeds as $Feed){
         if(!($Feed['Name'] == $LastCategory)){
