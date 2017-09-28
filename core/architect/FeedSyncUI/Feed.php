@@ -93,6 +93,8 @@ function FeedSyncFeedPageBodyCallback(){
     $FeedID == 'add'||
     $FeedID == false
   ){
+    $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
+    $Feed = $Feed[0];
     FeedSyncFeedNew($Feed);
   }else{
     $Feed = Query('SELECT * FROM Feed WHERE FeedID LIKE '.$FeedID);
