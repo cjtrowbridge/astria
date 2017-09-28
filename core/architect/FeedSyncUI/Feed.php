@@ -142,13 +142,13 @@ function FeedSyncFeedNew(){
   <h1><a href="/architect/feedsync">FeedSync</a> - Feed Editor - New</h1>
   <?php
   
-  if(!(isset($_GET['ParentID']))){
-    $_GET['ParentID']='';
+  if(!(isset($_GET['FeedCategoryID']))){
+    $_GET['FeedCategoryID']='';
   }
   
   $Editable = array(
     'FeedSourceID'    => '',
-    'FeedCategoryID'  => $_GET['ParentID'],
+    'FeedCategoryID'  => $_GET['FeedCategoryID'],
     'FeedParserID'    => '',
     'URL'             => '',
     'FeedName'        => '',
