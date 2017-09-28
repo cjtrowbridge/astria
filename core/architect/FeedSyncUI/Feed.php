@@ -50,7 +50,7 @@ function FeedSyncFeedPage(){
       
       //New
       Query("
-        INSERT INTO `FeedCategory`(
+        INSERT INTO `Feed`(
           `FeedSourceID`,
           `FeedCategoryID`,
           `FeedParserID`,
