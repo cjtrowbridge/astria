@@ -18,10 +18,10 @@ function MySQLTableColumnAdd($Alias){
           
           <h1>New Column on '<a href="/architect/schema/<?php echo $Alias; ?>"><?php echo $Name; ?></a>'.'<a href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/"><?php echo $Table; ?></a>'</h1>
           
-          <p>Column Name:</p>
+          <br><br>Column Name:<br>
           <input type="text" class="form-control" name="newColumnName" id="newColumnName">
           
-          <p>Column Type:</p>
+          <br><br>Column Type:<br>
           <!--This select list is copied from PHPMyAdmin. Credit to their great open source project for making this list. -->
           <select class="form-control" name="columnType" id="columnType">
             <option title="A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned range is 0 to 4,294,967,295">INT</option>
@@ -79,22 +79,23 @@ function MySQLTableColumnAdd($Alias){
             </optgroup>
           </select>
           
-          <p>Column Size:</p>
+          <br><br>Column Size:<br>
           <input type="text" class="form-control" name="newColumnSize" id="newColumnSize">
            
-          <p>Index This Column?</p>
+          <br><br>Index This Column?<br>
           <select name="newColumnIndex" id="newColumnIndex">
             <option default value="">No</option>
             <option value="unique">Unique</option>
             <option value="index">Index</option>
           </select>
           
-          <p>Allow Null Values:</p>
+          <br><br>Allow Null Values:<br>
           <input type="checkbox" name="newColumnNull" id="newColumnNull" value="yes">
           
-          <p>Autoincrement?</p>
+          <br><br>Autoincrement?<br>
           <input type="checkbox" name="newColumnAutoincrement" id="newColumnAutoincrement" value="yes">
           
+          <br><br>
           <input type="submit" class="form-control" value="Add Column">
           
         </div>
