@@ -96,7 +96,7 @@ function MySQLTableColumnAdd($Alias){
           <label><input type="checkbox" name="newColumnAutoincrement" id="newColumnAutoincrement" value="yes"> Autoincrement</label><br>
           
           <br><br>
-          <input type="submit" class="form-control" value="Add Column">
+          <input type="submit" class="form-control btn btn-success" value="Add Column">
           
         </div>
       </div>
