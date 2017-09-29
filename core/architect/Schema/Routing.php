@@ -141,14 +141,14 @@ function ArchitectSchemaElaborateBodyCallback(){
             break;
           }
          
-          //Drop the table
+          //Add a column
           if(isset($_GET['add-column'])){
             include_once('MySQL.Table.Column.Add.php');
             MySQLTableAddColumn($Alias,$Table);
             break;
           }
          
-          //Drop the table
+          //Remove a column
           if(isset($_GET['remove-column'])){
             include_once('MySQL.Table.Column.Remove.php');
             MySQLTableAddColumn($Alias,$Table);
