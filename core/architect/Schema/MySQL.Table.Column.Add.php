@@ -11,7 +11,7 @@ function MySQLTableColumnAdd($Alias){
   }
   ?>
   
-  <form action="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?new-column" method="post" class="form">
+  <form action="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?add-column" method="post" class="form">
     <div class="container no-gutters">
       <div class="row no-gutters">
         <div class="col-xs-12">
