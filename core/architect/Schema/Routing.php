@@ -131,6 +131,20 @@ function ArchitectSchemaElaborateBodyCallback(){
           }
          
           //Drop the table
+          if(isset($_GET['add-column'])){
+            include_once('MySQL.Table.Column.Add.php');
+            MySQLTableAddColumn($Alias,$Table);
+            break;
+          }
+         
+          //Drop the table
+          if(isset($_GET['remove-column'])){
+            include_once('MySQL.Table.Column.Remove.php');
+            MySQLTableAddColumn($Alias,$Table);
+            break;
+          }
+         
+          //Drop the table
           if(isset($_GET['drop'])){
             include_once('MySQL.Table.Drop.php');
             MySQLTableDrop($Alias,$Table);
