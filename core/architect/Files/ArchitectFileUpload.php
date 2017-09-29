@@ -1,7 +1,7 @@
 <?php
 
 function ArchitectFileUpload(){
-  if(isset($_POST['fileToUpload'])){
+  if(isset($_POST['destination'])){
     
     
     $target_dir = $_POST['destination'];
@@ -15,15 +15,6 @@ function ArchitectFileUpload(){
         $uploadOk = 0;
     }
     
-    /*
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-        echo "Sorry, your file is too large.";
-        $uploadOk = 0;
-    }
-    */
-    
-    
     // Check if $uploadOk is set to 0 by an error
     if ($uploadOk == 0) {
         die("Sorry, your file was not uploaded.");
@@ -31,10 +22,11 @@ function ArchitectFileUpload(){
     // if everything is ok, try to upload file
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+          Event('Upload Succeeded');
           header('Location: /architect/files/?path='.$_POST['redirect']);
           exit;
         } else {
-            die("Sorry, there was an error uploading your file.");
+          die("Sorry, there was an error uploading your file.");
         }
     }
 
