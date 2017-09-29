@@ -11,8 +11,8 @@ function MySQLTableDescribe($Alias,$Table){
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">Query</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
     
-    <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?add-coumn">Add Column</a>
-    <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?remove-coumn">Remove Column</a>
+    <a class="btn btn-outline-warning" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?add-coumn">Add Column</a>
+    <a class="btn btn-outline-warning" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?remove-coumn">Remove Column</a>
     
     <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?truncate">Truncate</a>
     <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?drop">Drop Table</a>
