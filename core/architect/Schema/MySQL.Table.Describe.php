@@ -6,14 +6,17 @@ function MySQLTableDescribe($Alias,$Table){
   ?><h1><A href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $DBName; ?></a>'.'<?php echo $Table; ?>'</h1>  
   
 
-  <br><div>
+  <br><p>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?csv">Dump to CSV</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/?query">Query</a>
     <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?show-all">Show All</a>
     
+    <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?add-coumn">Add Column</a>
+    <a class="btn btn-outline-success" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?remove-coumn">Remove Column</a>
+    
     <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?truncate">Truncate</a>
     <a class="btn btn-outline-danger" href="/architect/schema/<?php echo $Alias; ?>/table/<?php echo $Table; ?>/?drop">Drop Table</a>
-  </div><br>
+  </p>
   
 
   <div class="card" id="tableDescription">
