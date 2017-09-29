@@ -82,18 +82,18 @@ function MySQLTableColumnAdd($Alias){
           <br><br>Column Size:<br>
           <input type="text" class="form-control" name="newColumnSize" id="newColumnSize">
            
-          <br><br>Index This Column?<br>
+          <br><br><label>Index This Column? 
           <select name="newColumnIndex" id="newColumnIndex">
             <option default value="">No</option>
             <option value="unique">Unique</option>
             <option value="index">Index</option>
-          </select>
+          </select></label></br>
           
-          <br><br>Allow Null Values:<br>
-          <input type="checkbox" name="newColumnNull" id="newColumnNull" value="yes">
+          <br><br>
+          <label><input type="checkbox" name="newColumnNull" id="newColumnNull" value="yes">Allow Null Values</label><br>
           
-          <br><br>Autoincrement?<br>
-          <input type="checkbox" name="newColumnAutoincrement" id="newColumnAutoincrement" value="yes">
+          <br><br>
+          <label><input type="checkbox" name="newColumnAutoincrement" id="newColumnAutoincrement" value="yes">Autoincrement</label><br>
           
           <br><br>
           <input type="submit" class="form-control" value="Add Column">
