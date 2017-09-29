@@ -77,6 +77,17 @@ function ArchitectSchema(){
             break;
           }
           
+          //Handle the adding of columns
+          if(
+            isset($_GET['add-column'])&&
+            isset($_POST['newColumn'])
+          ){
+            include_once('MySQL.Table.Column.Add.Handler.php');
+            MySQLTableColumnAddHandler($Alias);
+            exit;
+            break;
+          }
+          
           break;
         
         case 'view':
