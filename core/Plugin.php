@@ -284,7 +284,7 @@ function PluginsArchitectHomepage(){
 
 <div class="card">
   <div class="card-block">
-    <h4 class="card-title"><?php echo $Plugin['name']; ?></h4>
+    <h4 class="card-title"><a href="/architect/files/?path=/plugins/<?php echo $Index; ?>/"><?php echo $Plugin['name']; ?></a></h4>
     <div class="card-text">
       <p><b>State:</b> <?php 
     
