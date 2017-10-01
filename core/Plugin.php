@@ -126,6 +126,10 @@ function SortPluginsByPriority(){
 function TestPlugins(){
   global $ASTRIA;
   
+  if(!(isset($ASTRIA['plugin']))){
+    die('Unable to load plugin configuration.');
+  }
+  
   //Let's request a test for any plugins set to test or broken
   $Changes = 0;
   foreach($ASTRIA['plugin'] as $Path => $Plugin){
