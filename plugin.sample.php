@@ -2,7 +2,7 @@
 
 global $ASTRIA;
 
-$ASTRIA['plugins']=array(
+$ASTRIA['plugin']=array(
   
   
   'defaultViews' => array(
