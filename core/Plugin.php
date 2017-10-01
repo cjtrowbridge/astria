@@ -221,7 +221,7 @@ function VerifyPluginListExists(){
   if(!(isset($ASTRIA['plugin']))){
     if(!(file_exists('plugin.php'))){
       //Need to create a plugins file
-      copy('plugin.sample.php','plugins.php');
+      copy('plugin.sample.php','plugin.php');
       include('plugin.php');
       /*
       $Plugins = getPluginDirList();
