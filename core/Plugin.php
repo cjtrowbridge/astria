@@ -221,11 +221,14 @@ function VerifyPluginListExists(){
   if(!(isset($ASTRIA['plugin']))){
     if(!(file_exists('plugin.php'))){
       //Need to create a plugins file
+      copy('plugin.sample.php','plugins.php');
+      /*
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
         $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
       }
       SavePluginConfig();
+      */
     }
   }
 }
