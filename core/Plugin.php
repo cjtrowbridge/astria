@@ -52,7 +52,7 @@ function SortPluginsByPriority(){
 
 function LookForNewPlugins(){
   global $ASTRIA;
-  if(!(isset($ASRIA['plugin']))){
+  if(!(isset($ASTRIA['plugin']))){
     die("Can't load plugins file.");
   }
   
