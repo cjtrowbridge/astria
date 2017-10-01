@@ -222,6 +222,7 @@ function VerifyPluginListExists(){
     if(!(file_exists('plugin.php'))){
       //Need to create a plugins file
       copy('plugin.sample.php','plugins.php');
+      include('plugin.php');
       /*
       $Plugins = getPluginDirList();
       foreach($Plugins as $Plugin){
