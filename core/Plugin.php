@@ -26,14 +26,7 @@ function LoadPlugins(){
   
   
   //check if there are any new plugins present
-  /*
-  $Plugins = getPluginDirList();
-  foreach($Plugins as $Plugin){
-    $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
-  }
-  SavePluginConfig();
-  */
-  
+  LookForNewPlugins();
   
   PluginLocalTest();
   
@@ -56,6 +49,23 @@ function SortPluginsByPriority(){
   
 }
 
+
+function LookForNewPlugins(){
+  global $ASTRIA;
+  if(!(isset($ASRIA['plugin']))){
+    break;
+  }
+  
+  $Plugins = getPluginDirList();
+  
+  foreach($Plugins as $Plugin){
+    if(!(isset($ASTRIA['plugin'][$Plugin]))){
+      $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
+    }
+  }
+  SavePluginConfig();
+   
+}
 
 
 
