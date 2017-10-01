@@ -43,8 +43,11 @@ function ArchitectFileCopyRemoteBodyCallback(){
   
   <h1>Copy Remote File</h1>
   <form action="/architect/files/copy-remote/" method="post" class="form">
-    <p><a href="javascript:void(0);" title="https://github.com/cjtrowbridge/astria/archive/master.zip" onclick="$('#url').val('https://github.com/cjtrowbridge/astria/archive/master.zip');">Astria Latest</a></p>
-    <p><a href="javascript:void(0);" title="https://wordpress.org/latest.zip" onclick="$('#url').val('https://wordpress.org/latest.zip');">Wordpress Latest</a></p>
+    <p>
+      <a class="btn btn-outline-success" href="javascript:void(0);" title="https://github.com/cjtrowbridge/astria/archive/master.zip" onclick="$('#url').val('https://github.com/cjtrowbridge/astria/archive/master.zip');">Astria</a>
+      <a class="btn btn-outline-success" href="javascript:void(0);" title="https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip" onclick="$('#url').val('https://www.phpmyadmin.net/downloads/phpMyAdmin-latest-all-languages.zip');">PHPMyAdmin</a>
+      <a class="btn btn-outline-success" href="javascript:void(0);" title="https://wordpress.org/latest.zip" onclick="$('#url').val('https://wordpress.org/latest.zip');">Wordpress</a>
+    </p>
     <input type="hidden" name="redirect" value="<?php echo $_GET['path']; ?>">
     <input type="text" class="form-control" name="url" id="url" placeholder="URL"><br>
     <input type="text" class="form-control" name="destination" id="destination" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
