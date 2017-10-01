@@ -14,6 +14,51 @@ TODO make the plugins retain previous versions and revert when changes cause bro
 
 */
 
+
+function LoadPlugins(){
+  Event('Plugin Manager: Starting...');
+  
+  //Load plugin config file if it exists 
+  if(file_exists('plugin.php')){include_once('plugin.php');}
+  
+  
+  VerifyPluginListExists();
+  
+  
+  //check if there are any new plugins present
+  /*
+  $Plugins = getPluginDirList();
+  foreach($Plugins as $Plugin){
+    $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
+  }
+  SavePluginConfig();
+  */
+  
+  
+  PluginLocalTest();
+  
+  //if(isset($_GET['testPlugins'])){
+    Event('Testing Plugins...');
+    TestPlugins();
+    Event('Done Testing Plugins');
+    //header('Location: /architect');
+    //exit;
+  //}
+  
+  SortPluginsByPriority();
+  
+  IncludeGoodPlugins();
+
+  Event('Plugin Manager: ...Finished');
+}
+
+function SortPluginsByPriority(){
+  
+}
+
+
+
+
 Hook('Before Login','PluginTestReset();');
 
 function PluginTestReset(){
@@ -93,35 +138,6 @@ function PluginTestReset(){
 }
 
 
-Hook('Architect Homepage','PluginsArchitectHomepage();');
-
-function LoadPlugins(){
-  Event('Plugin Manager: Starting...');
-  
-  //Load plugin config file if it exists 
-  if(file_exists('plugin.php')){include_once('plugin.php');}
-  
-  VerifyPluginListExists();
-  PluginLocalTest();
-  
-  //if(isset($_GET['testPlugins'])){
-    Event('Testing Plugins...');
-    TestPlugins();
-    Event('Done Testing Plugins');
-    //header('Location: /architect');
-    //exit;
-  //}
-  
-  SortPluginsByPriority();
-  
-  IncludeGoodPlugins();
-
-  Event('Plugin Manager: ...Finished');
-}
-
-function SortPluginsByPriority(){
-  
-}
 
 function TestPlugins(){
   global $ASTRIA;
@@ -222,19 +238,15 @@ function IncludeGoodPlugins(){
 function VerifyPluginListExists(){
   
   global $ASTRIA;
+  if(!(file_exists('plugin.php'))){
+    //Need to create a plugins file
+    copy('plugin.sample.php','plugin.php');
+    include('plugin.php');
+    header("Location: ./");
+    exit;
+  }
   if(!(isset($ASTRIA['plugin']))){
-    if(!(file_exists('plugin.php'))){
-      //Need to create a plugins file
-      copy('plugin.sample.php','plugin.php');
-      include('plugin.php');
-      /*
-      $Plugins = getPluginDirList();
-      foreach($Plugins as $Plugin){
-        $ASTRIA['plugin'][$Plugin]=array('state' => 'test','name' => $Plugin,'data'=>array());
-      }
-      SavePluginConfig();
-      */
-    }
+    die('Unable to load plugin config file. Attempt to create a new file failed.');
   }
 }
 
@@ -281,6 +293,9 @@ function getPluginDirList(){
     die('Unable to load plugins directory.');
   }
 }
+
+
+Hook('Architect Homepage','PluginsArchitectHomepage();');
 
 function PluginsArchitectHomepage(){
   global $ASTRIA;
