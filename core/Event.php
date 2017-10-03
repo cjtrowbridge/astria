@@ -45,7 +45,7 @@ function Event($EventDescription){
     }
     */
     
-    pd($DEBUG);
+    var_dump($DEBUG);
     
     $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
     
