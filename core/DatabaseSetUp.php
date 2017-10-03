@@ -10,39 +10,7 @@ function DatabaseSetUp(){
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
-    CREATE TABLE IF NOT EXISTS `Feed` (
-      `FeedID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      `FeedSourceID` int(11) NOT NULL,
-      `FeedCategoryID` int(11) NOT NULL,
-      `FeedParserID` int(11) DEFAULT NULL,
-      `URL` varchar(255) NOT NULL,
-      `FeedName` varchar(255) DEFAULT NULL,
-      `FeedDescription` text,
-      `FeedLogoURL` varchar(255) DEFAULT NULL,
-      `MinimumInterval` int(11) NOT NULL DEFAULT '0',
-      `TTL` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
-    CREATE TABLE IF NOT EXISTS `FeedFetch` (
-      `FetchID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      `FeedID` int(11) NOT NULL,
-      `URL` varchar(255) NOT NULL,
-      `Arguments` text NULL,
-      `FetchTime` datetime NOT NULL,
-      `Duration` decimal(10,4) NOT NULL,
-      `Content` text,
-      `ContentLength` int(11) NOT NULL,
-      `Expires` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-    
-    CREATE TABLE IF NOT EXISTS `FeedCategory` (
-      `FeedCategoryID` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-      `Name` varchar(255) NOT NULL,
-      `Description` text NOT NULL,
-      `Path` varchar(255) NOT NULL,
-      `ParentID` int(11) DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT;
-
     
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
@@ -98,14 +66,6 @@ function DatabaseSetUp(){
       `GroupID` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16 ROW_FORMAT=COMPACT;
     
-    CREATE TABLE `ACE` (
-      `ACEID` int(11) NOT NULL,
-      `Hash` varchar(255) NOT NULL,
-      `Code` text NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-
-    ALTER TABLE `ACE` ADD PRIMARY KEY (`ACEID`), ADD KEY `Hash` (`Hash`(191));
-    ALTER TABLE `ACE` MODIFY `ACEID` int(11) NOT NULL AUTO_INCREMENT;
     ALTER TABLE `Cache` ADD PRIMARY KEY (`CacheID`), ADD UNIQUE KEY `Hash` (`Hash`) USING BTREE;
     ALTER TABLE `Group` ADD PRIMARY KEY (`GroupID`), ADD KEY `ParentID` (`ParentID`);
     ALTER TABLE `Permission` ADD PRIMARY KEY (`PermissionID`), ADD KEY `UserID` (`UserID`,`GroupID`,`ViewID`) USING BTREE;
