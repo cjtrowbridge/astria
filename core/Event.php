@@ -194,6 +194,7 @@ function DebugServiceDumpToDatabase(){
     }
     closedir($handle);
     
+    rtrim($SQL,',');
     pd($SQL);
     
   }
