@@ -210,9 +210,10 @@ function DebugServiceDumpToDatabase(){
         include_once($include_path);
         unlink($include_path);
         Event('Debug Service: After Dumping To Database: '.$include_path);
-        $SQL .= "
-          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".Sanitize($DEBUG_EXPORT[0]['timestamp'])."','".date('Y-m-d H:i:s',intval(round($DEBUG_EXPORT[0]['timestamp'])))."'),";
-        
+        if(isset($DEBUG_EXPORT[0])){
+          $SQL .= "
+            ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".Sanitize($DEBUG_EXPORT[0]['timestamp'])."','".date('Y-m-d H:i:s',intval(round($DEBUG_EXPORT[0]['timestamp'])))."'),";
+        }
       }
     }
     closedir($handle);
