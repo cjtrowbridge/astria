@@ -179,7 +179,7 @@ function DebugServiceDumpToDatabase(){
   //check if there is a debug table
   global $ASTRIA;
   $DBName = $ASTRIA['databases']['astria']['name'];
-  $Check = Query("SELECT COUNT(*) as 'Count' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'Debug';");
+  $Check = Query("SELECT COUNT(*) as 'Count' FROM information_schema.tables WHERE table_schema = '".$DBName."' AND table_name = 'Debug';");
   if($Check[0]['Count']==0){
     Query("
       CREATE TABLE `Debug` (
