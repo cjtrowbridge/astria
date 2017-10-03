@@ -26,7 +26,7 @@ function Event($EventDescription){
     echo $EventDescription."<br><br>\n\n";
   }
 
-  global $EVENTS, $ASTRIA;
+  global $EVENTS, $ASTRIA, $THREADID;
   /*
     Call this function with a string EventDescription in order to allow callbacks to be hooked at this location in the script,
     as well as for verbose debugging and runtime analysis to take place.
