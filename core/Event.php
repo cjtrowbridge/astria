@@ -37,11 +37,16 @@ function Event($EventDescription){
     //BEGIN DEBUG SECTION
     
     global $DEBUG, $START_TIME;
+    /*
     if(isset($DEBUG[(count($DEBUG)-1)])){
       $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
     }else{
       $Previous = $DEBUG(count($DEBUG))][0]['timestamp'];
     }
+    */
+    
+    $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
+    
     $temp_debug_output=array(
       'description'=> $EventDescription,
       'ram'=> (memory_get_usage()/1000000),
