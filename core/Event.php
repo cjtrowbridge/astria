@@ -45,8 +45,6 @@ function Event($EventDescription){
     }
     */
     
-    var_dump($DEBUG);
-    
     $Previous = $DEBUG[(count($DEBUG))]['timestamp'];
     
     $temp_debug_output=array(
