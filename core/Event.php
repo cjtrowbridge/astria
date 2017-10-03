@@ -1,6 +1,6 @@
 <?php
 
-global $EVENTS, $DEBUG;
+global $EVENTS, $DEBUG, $THREADID;
 $EVENTS=array();
 if(!(is_dir('debug'))){
   mkdir('debug');
@@ -8,8 +8,9 @@ if(!(is_dir('debug'))){
 
 include_once('core/SHA256.php');
 
+$THREADID = sha256(uniqid(true));
+
 $DEBUG=array(
-  'ThreadID' => sha256(uniqid(true)),
   0=>array(
     'description'=> 'Startup',
     'ram'=> (memory_get_usage()/1000000),
@@ -38,7 +39,7 @@ function Event($EventDescription){
     
     global $DEBUG, $START_TIME;
     
-    $Previous = $DEBUG[(count($DEBUG)-2)]['timestamp'];
+    $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
     
     $temp_debug_output=array(
       'description'=> $EventDescription,
@@ -50,7 +51,7 @@ function Event($EventDescription){
     
     
     file_put_contents(
-      'debug/'.$DEBUG['ThreadID'].'.php',
+      'debug/'.$THREADID.'.php',
       '$DEBUG_EXPORT[] = '.var_export($temp_debug_output,true).';'.PHP_EOL, 
       FILE_APPEND | LOCK_EX
     );
@@ -151,8 +152,8 @@ function DebugShowSummary(){
   echo "<h3>Debug Summary:</h3>\n";
   $summary=array(
     array(
-      'Total Runtime' => ($DEBUG[(count($DEBUG)-2)]['timestamp']-$DEBUG[0]['timestamp']).'  seconds',
-      'Total RAM' => $DEBUG[(count($DEBUG)-2)]['ram'].' megabytes'
+      'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['timestamp']-$DEBUG[0]['timestamp']).'  seconds',
+      'Total RAM' => $DEBUG[(count($DEBUG)-1)]['ram'].' megabytes'
     )
   );
   echo ArrTabler($summary);
