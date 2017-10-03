@@ -232,7 +232,7 @@ function DebugServiceDumpToDatabase(){
     }
     closedir($handle);
     
-    $SQL=rtrim($SQL,',');
+    $SQL=rtrim($SQL,',').';';
     
     Query($SQL);
     
