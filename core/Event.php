@@ -195,7 +195,7 @@ function DebugServiceDumpToDatabase(){
   }
   
   
-  //delete everything but the top 10,000 rows
+  //Delete everything but the top 50,000 rows. This equates to about one-hundred requests
   Query("
     DELETE FROM Debug 
     WHERE ThreadID 
@@ -204,7 +204,7 @@ function DebugServiceDumpToDatabase(){
             SELECT ThreadID 
             FROM Debug
             ORDER BY DateTime DESC
-            LIMIT 10000) r
+            LIMIT 50000) r
     )
   ");
   
@@ -227,12 +227,12 @@ function DebugServiceDumpToDatabase(){
           $SQL .= "
             ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($Entry['description'])."','".Sanitize($Entry['ram'])."','".Sanitize($Entry['runtime'])."','".Sanitize($Entry['timestamp'])."','".date('Y-m-d H:i:s',intval(round($Entry['timestamp'])))."'),";
         }
+        
       }
     }
     closedir($handle);
     
     $SQL=rtrim($SQL,',').';';
-    
     Query($SQL);
     
   }
