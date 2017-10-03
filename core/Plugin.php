@@ -240,7 +240,12 @@ function IncludeGoodPlugins(){
   global $ASTRIA;
   foreach($ASTRIA['plugin'] as $Dir => $Plugin){
     if($Plugin['state']=='enabled'){
-      Loader('plugins/'.$Dir);
+      if(file_exists('plugins/'.$Dir)){
+        Loader('plugins/'.$Dir);
+      }else{
+        $ASTRIA['plugin'][$Dir]['state'] = 'broken';
+        SavePluginConfig();
+      }
     }
   }
 }
