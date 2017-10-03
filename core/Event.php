@@ -171,6 +171,22 @@ function DebugShowSummary(){
 Hook('Hourly Webhook', 'DebugServiceDumpToDatabase();' );
 
 function DebugServiceDumpToDatabase(){
+  
+  if(!(is_dir('debug'))){
+    Event('No debug dir. Cancelling debug dump service.');
+    return;
+  }
+  
+  //check if there is a debug table
+
+  //offer to create one
+
+  //or
+
+  //dump stuff
+  return;
+  
+  
   if($handle = opendir('debug')){
     
     $SQL = "
@@ -185,8 +201,7 @@ function DebugServiceDumpToDatabase(){
         $DEBUG_EXPORT=array();
         Event('Debug Service: Before Dumping To Database: '.$include_path);
         include_once($include_path);
-        //unlink($include_path);
-        echo '<p>unlink('.$include_path.');</p>';
+        unlink($include_path);
         Event('Debug Service: After Dumping To Database: '.$include_path);
         $SQL .= "
           ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".Sanitize($DEBUG_EXPORT[0]['timestamp'])."','".date('Y-m-d H:i:s',intval(round($DEBUG_EXPORT[0]['timestamp'])))."'),";
@@ -197,7 +212,7 @@ function DebugServiceDumpToDatabase(){
     
     $SQL=rtrim($SQL,',');
     
-    pd($SQL);
+    Query($SQL);
     
   }
 }
