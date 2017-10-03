@@ -62,7 +62,7 @@ function CondenseGetWordScores($Text){
 
 function CondenseSortByScore(&$arr, $col = 'Score', $dir = SORT_DESC) {
   include_once('Helpers.php');
-  hCondenseSortByScore(&$arr, $col, $dir);
+  hCondenseSortByScore($arr, $col, $dir);
 }
 
 function Condensr($LongformText,$NumberOfSentences=1){
