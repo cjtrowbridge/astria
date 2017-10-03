@@ -4,6 +4,7 @@ global $EVENTS, $DEBUG, $THREADID;
 $EVENTS=array();
 if(!(is_dir('debug'))){
   mkdir('debug');
+  file_put_contents('debug/index.php','<?php header("Location: /");');
 }
 
 include_once('core/SHA256.php');
