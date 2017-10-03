@@ -221,10 +221,8 @@ function DebugServiceDumpToDatabase(){
         
         global $DEBUG_EXPORT;
         $DEBUG_EXPORT=array();
-        Event('Debug Service: Before Dumping To Database: '.$include_path);
         include_once($include_path);
         unlink($include_path);
-        Event('Debug Service: After Dumping To Database: '.$include_path);
         foreach($DEBUG_EXPORT as $Entry){
           $SQL .= "
             ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($Entry['description'])."','".Sanitize($Entry['ram'])."','".Sanitize($Entry['runtime'])."','".Sanitize($Entry['timestamp'])."','".date('Y-m-d H:i:s',intval(round($Entry['timestamp'])))."'),";
