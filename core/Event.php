@@ -151,8 +151,8 @@ function DebugShowSummary(){
   echo "<h3>Debug Summary:</h3>\n";
   $summary=array(
     array(
-      'Total Runtime' => ($DEBUG[(count($DEBUG)-1)]['timestamp']-$DEBUG[0]['timestamp']).'  seconds',
-      'Total RAM' => $DEBUG[(count($DEBUG)-1)]['ram'].' megabytes'
+      'Total Runtime' => ($DEBUG[(count($DEBUG)-2)]['timestamp']-$DEBUG[0]['timestamp']).'  seconds',
+      'Total RAM' => $DEBUG[(count($DEBUG)-2)]['ram'].' megabytes'
     )
   );
   echo ArrTabler($summary);
