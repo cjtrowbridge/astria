@@ -37,15 +37,15 @@ function Event($EventDescription){
     //BEGIN DEBUG SECTION
     
     global $DEBUG, $START_TIME;
-    /*
+    
     if(isset($DEBUG[(count($DEBUG)-1)])){
       $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
     }else{
-      $Previous = $DEBUG(count($DEBUG))][0]['timestamp'];
+      $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
+      echo '<p>Tried accessing element '.(count($DEBUG)-1).'["timestamp"]</p>';
+      pd($DEBUG);
+      exit;
     }
-    */
-    
-    $Previous = $DEBUG[(count($DEBUG))]['timestamp'];
     
     $temp_debug_output=array(
       'description'=> $EventDescription,
