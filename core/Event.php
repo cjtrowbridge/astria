@@ -174,7 +174,7 @@ function DebugServiceDumpToDatabase(){
   if($handle = opendir('debug')){
     
     $SQL = "
-      INSERT INTO Debug(ThreadID,Description, RAM, Runtime, Timestamp) VALUES
+      INSERT INTO Debug(ThreadID,Description, RAM, Runtime, Timestamp,DateTime) VALUES
     ";
     
     while (false !== ($Identifier = readdir($handle))){
@@ -189,7 +189,7 @@ function DebugServiceDumpToDatabase(){
         echo '<p>unlink('.$include_path.');</p>';
         Event('Debug Service: After Dumping To Database: '.$include_path);
         $SQL .= "
-          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',intval($DEBUG_EXPORT[0]['timestamp']))."'),";
+          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".Sanitize($DEBUG_EXPORT[0]['timestamp'])."','".date('Y-m-d H:i:s',intval(round($DEBUG_EXPORT[0]['timestamp'])))."'),";
         
       }
     }
