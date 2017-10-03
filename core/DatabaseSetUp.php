@@ -10,8 +10,6 @@ function DatabaseSetUp(){
   $SQL="
     SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
 
-    
-    
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
