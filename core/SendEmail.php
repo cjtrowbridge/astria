@@ -5,6 +5,9 @@ function SendEmail($message, $subject = null, $to, $from = null){
   if($subject==null){$subject = $ASTRIA['app']['appName'];}
   if($from==null){$from = $ASTRIA['smtp']['defaultEmailFrom'];}
   
+  include_once('core/PHPMailer/PHPMailer.php');
+  include_once('core/PHPMailer/PHPMailerSMTP.php');
+	
   $mail = new PHPMailer;
   $mail->isSMTP();
   $mail->SMTPSecure = 'tls';
