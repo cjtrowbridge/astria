@@ -101,9 +101,16 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
     $Runtime = round(microtime(true)-$DEBUG[0]['timestamp'],4);
   
   ?>
-  <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds.'; /*Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries. Ran '.$NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE.' Queries From Disk Cache.';*/ ?>">
-    <a href="https://github.com/cjtrowbridge/astria" target="_blank">Astria</a> Loaded in <?php echo  $Runtime; ?> Seconds
+  
+  <div id="debugSummary" style="display: none;">
+    <?php DebugShowSummary(); ?>
+  <div>
+    
+  <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds.'; ?>">
+    <a href="javascript:void(0);" onclick="$('#debugSummary').slideToggle();"><?php echo  $Runtime; ?></a>
   </div>
+  
+  
   <script>
     FixTopPadding();
     $(window).resize(function(){
