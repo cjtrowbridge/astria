@@ -235,6 +235,8 @@ function DebugServiceDumpToDatabase(){
     
     $SQL=rtrim($SQL,',').';';
     
+    pd($SQL);
+    
     Query($SQL);
     
   }
