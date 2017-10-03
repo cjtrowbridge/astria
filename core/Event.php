@@ -205,7 +205,7 @@ function DebugServiceDumpToDatabase(){
             ORDER BY DateTime DESC
             LIMIT 10000) r
     )
-  );
+  ");
   
   
   if($handle = opendir('debug')){
