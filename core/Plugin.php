@@ -101,6 +101,9 @@ function PluginTestReset(){
       ){
         $ASTRIA['plugin'][$_GET['resetTest']]['state']='test';
         SavePluginConfig();
+        
+        PluginLocalTest($_GET['resetTest']);
+        
         header('Location: /architect');
         sleep(1);
         exit;
@@ -204,9 +207,13 @@ function TestPlugins(){
   }
 }
 
-function PluginLocalTest(){
+function PluginLocalTest($Index = false){
   if(!(isset($_GET['testPlugin']))){
-    return;
+    if($Index==false){
+      return;
+    }else{
+     $_GET['testPlugin'] = $Index; 
+    }
   }
   
   if(!(PluginIntegrationTest($_GET['testPlugin']) == false)){
