@@ -19,7 +19,7 @@ $DEBUG=array(
   )
 );
 
-file_put_contents('debug/'.$DEBUG['ThreadID'].'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
+file_put_contents('debug/'.$THREADID.'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
 
 function Event($EventDescription){
   if(isset($_GET['verbose'])){
