@@ -188,7 +188,7 @@ function DebugServiceDumpToDatabase(){
         //rm($include_path);
         Event('Debug Service: After Dumping To Database: '.$include_path);
         $SQL .= "
-          ('".Sanitize($Identifier)."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',strtotime($DEBUG_EXPORT[0]['timestamp']))."'),";
+          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',strtotime($DEBUG_EXPORT[0]['timestamp']))."'),";
         
       }
     }
