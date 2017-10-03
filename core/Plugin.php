@@ -239,10 +239,10 @@ function PluginIntegrationTest($PluginPath){
   }
   if(!($Found == false)){
     Loader('plugins/'.$Found);
-    Event('End Plugin Integration Test: '.$PluginPath)
+    Event('End Plugin Integration Test: '.$PluginPath);
     return true;
   }else{
-    Event('End Plugin Integration Test: '.$PluginPath)
+    Event('End Plugin Integration Test: '.$PluginPath);
     return false;
   }
 }
