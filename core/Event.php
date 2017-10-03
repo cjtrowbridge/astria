@@ -168,6 +168,7 @@ function DebugShowSummary(){
 
 
 Hook('Hourly Webhook', 'DebugServiceDumpToDatabase();' );
+Hook('Architect Homepage', 'DebugServiceDumpToDatabase();' );
 
 function DebugServiceDumpToDatabase(){
   
