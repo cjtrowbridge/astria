@@ -174,7 +174,7 @@ function DebugServiceDumpToDatabase(){
   if($handle = opendir('debug')){
     
     $SQL = "
-      INSERT INTO Debug(ThreadID,Description, RAM, Runtime, Timestamp,DateTime) VALUES
+      INSERT INTO Debug(ThreadID,Description, RAM, Runtime, Timestamp, DateTime) VALUES
     ";
     
     while (false !== ($Identifier = readdir($handle))){
