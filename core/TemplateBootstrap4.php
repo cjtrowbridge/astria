@@ -104,7 +104,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   
   <div id="debugSummary" style="display: none;">
     <?php DebugShowSummary(); ?>
-  <div>
+  </div>
     
   <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds.'; ?>">
     <a href="javascript:void(0);" onclick="$('#debugSummary').slideToggle();"><?php echo  $Runtime; ?></a>
