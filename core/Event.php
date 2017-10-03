@@ -217,7 +217,7 @@ function DebugServiceDumpToDatabase(){
     
     while (false !== ($Identifier = readdir($handle))){
       $include_path='debug/'.$Identifier;
-      if((!(strpos($Identifier,'.php')===false)) && $Identifier != "." && $Identifier != ".." && file_exists($include_path)){
+      if((!(strpos($Identifier,'.php')===false)) && $Identifier != "." && $Identifier != "index.php" && $Identifier != ".." && file_exists($include_path)){
         
         global $DEBUG_EXPORT;
         $DEBUG_EXPORT=array();
