@@ -39,6 +39,8 @@ function Event($EventDescription){
     global $DEBUG, $START_TIME;
     if(isset($DEBUG[(count($DEBUG)-1)])){
       $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
+    }else{
+      $Previous=0;
     }
     $temp_debug_output=array(
       'description'=> $EventDescription,
