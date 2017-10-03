@@ -40,7 +40,7 @@ function Event($EventDescription){
     if(isset($DEBUG[(count($DEBUG)-1)])){
       $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
     }else{
-      $Previous=0;
+      $Previous = $DEBUG(count($DEBUG))][0]['timestamp'];
     }
     $temp_debug_output=array(
       'description'=> $EventDescription,
