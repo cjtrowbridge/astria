@@ -43,7 +43,9 @@ function Event($EventDescription){
     }else{
       $Previous = $DEBUG[(count($DEBUG)-1)]['timestamp'];
       echo '<p>Tried accessing element '.(count($DEBUG)-1).'["timestamp"]</p>';
-      pd($DEBUG);
+      echo '<pre>';
+      var_dump($DEBUG);
+      echo '</pre>';
       exit;
     }
     
