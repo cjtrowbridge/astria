@@ -103,7 +103,13 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   ?>
   
   <div id="debugSummary" style="display: none;">
-    <?php DebugShowSummary(); ?>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <?php DebugShowSummary(); ?>
+        </div>
+      </div>
+    </div>
   </div>
     
   <div id="runtime" class="<?php if($Runtime>0.1){echo 'runtimeBad';} ?>" title="<?php echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4).' seconds.'; ?>">
