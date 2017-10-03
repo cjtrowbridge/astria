@@ -185,10 +185,10 @@ function DebugServiceDumpToDatabase(){
         $DEBUG_EXPORT=array();
         Event('Debug Service: Before Dumping To Database: '.$include_path);
         include_once($include_path);
-        //rm($include_path);
+        rm($include_path);
         Event('Debug Service: After Dumping To Database: '.$include_path);
         $SQL .= "
-          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',strtotime($DEBUG_EXPORT[0]['timestamp']))."'),";
+          ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',intval($DEBUG_EXPORT[0]['timestamp']))."'),";
         
       }
     }
