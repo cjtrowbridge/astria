@@ -166,3 +166,35 @@ function DebugShowSummary(){
   
 }
 
+
+
+Hook('Hourly Webhook', 'DebugServiceDumpToDatabase();' );
+
+function DebugServiceDumpToDatabase(){
+  if($handle = opendir('debug')){
+    
+    $SQL = "
+      INSERT INTO Debug(Description, RAM, Runtime, Timestamp) VALUES
+    ";
+    
+    while (false !== ($Identifier = readdir($handle))){
+      $include_path='debug/'.$Identifier;
+      if((!(strpos($Identifier,'.php')===false)) && $Identifier != "." && $Identifier != ".." && file_exists($include_path)){
+        
+        global $DEBUG_EXPORT;
+        $DEBUG_EXPORT=array();
+        Event('Debug Service: Before Dumping To Database: '.$include_path);
+        include_once($include_path);
+        //rm($include_path);
+        Event('Debug Service: After Dumping To Database: '.$include_path);
+        $SQL .= "
+          ('".Sanitize($DEBUG_EXPORT[0]['description'])."','".Sanitize($DEBUG_EXPORT[0]['ram'])."','".Sanitize($DEBUG_EXPORT[0]['runtime'])."','".date('Y-m-d H:i:s',strtotime($DEBUG_EXPORT[0]['timestamp']))."'),";
+        
+      }
+    }
+    closedir($handle);
+    
+    pd($SQL);
+    
+  }
+}
