@@ -2,7 +2,12 @@
 
 global $EVENTS, $DEBUG;
 $EVENTS=array();
+if(!(is_dir('debug'))){
+  mkdir('debug');
+}
+
 $DEBUG=array(
+  'ThreadID' => sha256(uniqid(true)),
   0=>array(
     'description'=> 'Startup',
     'ram'=> (memory_get_usage()/1000000),
@@ -10,6 +15,8 @@ $DEBUG=array(
     'timestamp'=> round(microtime(true),4)
   )
 );
+
+file_put_contents('debug/'.$DEBUG['ThreadID'].'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
 
 function Event($EventDescription){
   if(isset($_GET['verbose'])){
@@ -35,6 +42,14 @@ function Event($EventDescription){
       'timestamp'=> round(microtime(true)-$START_TIME,4)
     );
     $DEBUG[]=$temp_debug_output;
+    
+    
+    file_put_contents(
+      'debug/'.$DEBUG['ThreadID'].'.php',
+      '$DEBUG_EXPORT = '.var_export($temp_debug_output,true).PHP_EOL, 
+      FILE_APPEND | LOCK_EX
+    );
+    
     
     if($ASTRIA['debugging']['verbose']){
       
