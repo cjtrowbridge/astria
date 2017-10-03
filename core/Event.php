@@ -192,9 +192,6 @@ function DebugServiceDumpToDatabase(){
      ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     ");
   }
-
-  //dump stuff
-  return;
   
   
   if($handle = opendir('debug')){
