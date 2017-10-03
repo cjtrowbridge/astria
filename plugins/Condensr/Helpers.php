@@ -1,6 +1,6 @@
 <?php
 
-function PickBest3($Array,$NumberOfSentences = 1){
+function hPickBest3($Array,$NumberOfSentences = 1){
   
   foreach($Array as $Element){
     //This prevents syndication duplicates from having extra weight.
@@ -79,7 +79,7 @@ function PickBest3($Array,$NumberOfSentences = 1){
   return $Output;
 }
 
-function PickBest2($Array,$NumberOfSentences = 1){
+function hPickBest2($Array,$NumberOfSentences = 1){
   
   //global $levenshtein;
   //$levenshtein=array();
@@ -143,13 +143,13 @@ function PickBest2($Array,$NumberOfSentences = 1){
   return $Output;
 }
 
-function GetStories($Headlines){
+function hGetStories($Headlines){
   //find the original stories matching each headline, and include the entire row from the database into an array which is returned.
   
   return array('Coming Soon.');
 }
 
-function ElementsContaining($Array,$String){
+function hElementsContaining($Array,$String){
   $String = strtolower($String);
   $Output = array();
   foreach($Array as $Element){
@@ -162,7 +162,7 @@ function ElementsContaining($Array,$String){
   return $Output;
 }
 
-function ElementsContainingArray($Elements,$Containing){
+function hElementsContainingArray($Elements,$Containing){
   $String = strtolower($String);
   $Output = array();
   foreach($Elements as $Element){
@@ -180,7 +180,7 @@ function ElementsContainingArray($Elements,$Containing){
   return $Output;
 }
 
-function FindMostImportantWords($Array,$Ignore = array()){
+function hFindMostImportantWords($Array,$Ignore = array()){
   $Text = '';
   
   foreach($Array as $RawSentence){
@@ -209,7 +209,7 @@ function FindMostImportantWords($Array,$Ignore = array()){
 }
 
 
-function ScoreWords($Text){
+function hScoreWords($Text){
   
   //Make it all lower case
   $Text = strtolower($Text);
@@ -226,7 +226,7 @@ function ScoreWords($Text){
   return $Scores;
 }
 
-function PickBest($Array,$NumberOfSentences = 1){
+function hPickBest($Array,$NumberOfSentences = 1){
   //TODO remove from list of headlines each word which was a previous top word. ie. "trump" is most popular word in first headline, so remove any headlines with that word before calculating second headline.
   $Text = '';
   foreach($Array as $RawSentence){
@@ -276,7 +276,7 @@ function PickBest($Array,$NumberOfSentences = 1){
   return $Output;
 }
 
-function Condense($Text,$NumberOfSentences = 1){
+function hCondense($Text,$NumberOfSentences = 1){
   //Clean Up The Text
   $CleanText = CondenseCleanUp($Text);
 
@@ -321,7 +321,7 @@ function Condense($Text,$NumberOfSentences = 1){
   //return $Sentences[0]['Raw'];
 }
 
-function CondenseCleanUp($Text){
+function hCondenseCleanUp($Text){
   $CleanText = strtolower($Text);
   $CleanText = str_replace("'","",$CleanText);
   $CleanText = str_replace('"','',$CleanText);
@@ -329,7 +329,7 @@ function CondenseCleanUp($Text){
   return $CleanText;
 }
 
-function CondenseFindScore($Word,$Scores){
+function hCondenseFindScore($Word,$Scores){
   foreach($Scores as $Score){
     if($Score['Word']==$Word){
       return $Score['Score'];
@@ -338,7 +338,7 @@ function CondenseFindScore($Word,$Scores){
   return 0;
 }
 
-function CondenseGetWordScores($Text){
+function hCondenseGetWordScores($Text){
   $WordScores = array_count_values(str_word_count($Text, 1));
 
   $Scores = array();
@@ -393,7 +393,7 @@ function CondenseGetWordScores($Text){
   return $Scores;
 }
 
-function CondenseSortByScore(&$arr, $col = 'Score', $dir = SORT_DESC) {
+function hCondenseSortByScore(&$arr, $col = 'Score', $dir = SORT_DESC) {
     $sort_col = array();
     foreach ($arr as $key=> $row) {
         $sort_col[$key] = $row[$col];
@@ -405,7 +405,7 @@ function CondenseSortByScore(&$arr, $col = 'Score', $dir = SORT_DESC) {
 
 
 
-function Condensr($LongformText,$NumberOfSentences=1){
+function hCondensr($LongformText,$NumberOfSentences=1){
    $URL='https://api.condensr.io/v1';
   
   $Arguments=array(
