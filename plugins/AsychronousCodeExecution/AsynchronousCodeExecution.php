@@ -48,3 +48,20 @@ function handleAce($Hash){
   }
   die('Invalid ACE Hash.');
 }
+
+
+function ACEDatabaseSetup(){
+  $SQL="
+    CREATE TABLE `ACE` (
+      `ACEID` int(11) NOT NULL,
+      `Hash` varchar(255) NOT NULL,
+      `Code` text NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+
+    ALTER TABLE `ACE` ADD PRIMARY KEY (`ACEID`), ADD KEY `Hash` (`Hash`(191));
+    ALTER TABLE `ACE` MODIFY `ACEID` int(11) NOT NULL AUTO_INCREMENT;
+    
+ ";
+  global $ASTRIA;
+  mysqli_multi_query($ASTRIA['databases']['astria']['resource'],$SQL);
+}
