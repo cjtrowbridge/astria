@@ -194,6 +194,20 @@ function DebugServiceDumpToDatabase(){
   }
   
   
+  //delete everything but the top 10,000 rows
+  Query("
+    DELETE FROM Debug 
+    WHERE ThreadID 
+    NOT IN (
+        SELECT * FROM (
+            SELECT ThreadID 
+            FROM Debug
+            ORDER BY DateTime DESC
+            LIMIT 10000) r
+    )
+  );
+  
+  
   if($handle = opendir('debug')){
     
     $SQL = "
