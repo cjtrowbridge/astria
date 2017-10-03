@@ -6,6 +6,8 @@ if(!(is_dir('debug'))){
   mkdir('debug');
 }
 
+include_once('core/SHA256.php');
+
 $DEBUG=array(
   'ThreadID' => sha256(uniqid(true)),
   0=>array(
