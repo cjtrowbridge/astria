@@ -224,12 +224,3 @@ function DebugServiceDumpToDatabase(){
     
   }
 }
-
-function DebugServiceDumpToDatabasepd(){
-  echo '<pre>';
-  DebugServiceDumpToDatabase();
-  echo '</pre>';
-  
-}
-
-Hook('Architect Homepage','DebugServiceDumpToDatabasepd();');
