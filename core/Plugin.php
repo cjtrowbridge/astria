@@ -243,7 +243,9 @@ function IncludeGoodPlugins(){
       if(file_exists('plugins/'.$Dir)){
         Loader('plugins/'.$Dir);
       }else{
-        $ASTRIA['plugin'][$Dir]['state'] = 'broken';
+        $OldData = '/* '.var_export($ASTRIA['plugin'][$Dir],true).' */';
+        file_put_contents('plugin.php', $OldData, FILE_APPEND | LOCK_EX);
+        unset($ASTRIA['plugin'][$Dir]);
         SavePluginConfig();
       }
     }
