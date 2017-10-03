@@ -167,7 +167,6 @@ function DebugShowSummary(){
 }
 
 
-
 Hook('Hourly Webhook', 'DebugServiceDumpToDatabase();' );
 
 function DebugServiceDumpToDatabase(){
@@ -178,10 +177,21 @@ function DebugServiceDumpToDatabase(){
   }
   
   //check if there is a debug table
-
-  //offer to create one
-
-  //or
+  global $ASTRIA;
+  $DBName = $ASTRIA['databases']['astria']['name'];
+  $Check = Query("SELECT COUNT(*) as 'Count' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'Debug';");
+  if($Check[0]['Count']==0){
+    Query("
+      CREATE TABLE `Debug` (
+        `ThreadID` varchar(255) NOT NULL,
+        `Description` varchar(255) NOT NULL,
+        `RAM` float(20,10) NOT NULL,
+        `Runtime` float(20,10) NOT NULL,
+        `Timestamp` float(20,10) NOT NULL,
+        `DateTime` datetime NOT NULL
+     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ");
+  }
 
   //dump stuff
   return;
