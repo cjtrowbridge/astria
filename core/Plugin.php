@@ -24,16 +24,14 @@ function LoadPlugins(){
   
   VerifyPluginListExists();
   
-  
   //check if there are any new plugins present
+  
   LookForNewPlugins();
   
   PluginLocalTest();
   
   //if(isset($_GET['testPlugins'])){
-    Event('Testing Plugins...');
     TestPlugins();
-    Event('Done Testing Plugins');
     //header('Location: /architect');
     //exit;
   //}
@@ -153,6 +151,8 @@ function PluginTestReset(){
 
 
 function TestPlugins(){
+  Event('Testing Plugins...');
+  
   global $ASTRIA;
   
   if(!(isset($ASTRIA['plugin']))){
@@ -205,6 +205,7 @@ function TestPlugins(){
     SavePluginConfig();
     Event('Changes Saved.');
   }
+  Event('Done Testing Plugins');
 }
 
 function PluginLocalTest($Index = false){
@@ -224,6 +225,7 @@ function PluginLocalTest($Index = false){
 }
 
 function PluginIntegrationTest($PluginPath){
+  Event('Begin Plugin Integration Test: '.$PluginPath);
   $Found = false;
   global $ASTRIA;
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
@@ -237,8 +239,10 @@ function PluginIntegrationTest($PluginPath){
   }
   if(!($Found == false)){
     Loader('plugins/'.$Found);
+    Event('End Plugin Integration Test: '.$PluginPath)
     return true;
   }else{
+    Event('End Plugin Integration Test: '.$PluginPath)
     return false;
   }
 }
