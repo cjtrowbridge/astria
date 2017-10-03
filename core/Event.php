@@ -206,4 +206,4 @@ function DebugServiceDumpToDatabasepd(){
   
 }
 
-Hook('Architect Homepage','DebugServiceDumpToDatabasepd();')
+Hook('Architect Homepage','DebugServiceDumpToDatabasepd();');
