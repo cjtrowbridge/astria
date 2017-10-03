@@ -9,6 +9,7 @@ function FeedSyncFetchServiceCron(){
   //TODO logging for cron runtimes
   
   //Call each service in the appropriate order
+  include_once('FeedSyncFetch.php');
   FeedSyncFetchService();
   Event('FeedSync Fetch Service Done');
   
