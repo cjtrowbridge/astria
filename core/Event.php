@@ -53,7 +53,7 @@ function Event($EventDescription){
     
     file_put_contents(
       'debug/'.$DEBUG['ThreadID'].'.php',
-      '$DEBUG_EXPORT[] = '.var_export($temp_debug_output,true).PHP_EOL, 
+      '$DEBUG_EXPORT[] = '.var_export($temp_debug_output,true).';'.PHP_EOL, 
       FILE_APPEND | LOCK_EX
     );
     
