@@ -19,7 +19,7 @@ function MaybeDefaultHomepage(){
           UserID = ".$UserID."
         ";
         Query($SQL);
-        header('Location: /account?message=Changes+Saved');
+        header('Location: /account/?message=Changes+Saved');
         exit;
       }
       TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
