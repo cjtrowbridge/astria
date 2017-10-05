@@ -25,13 +25,12 @@ function ArchitectBodyCallback(){
       <h4>Architect Tools:</h4>
       <p>
         <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">folder</i> File Manager</a>
-        
-        <a href="/architect/feedsync" class="btn btn-outline-success"><i class="material-icons">&#xE0E5;</i> FeedSync</a>
+        <a href="/architect/plugins" class="btn btn-outline-success"><i class="material-icons">&#xE63C;</i> Plugins</a>
         <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success"><i class="material-icons">&#xE322;</i> Schema</button>
+        <?php Event('Architect Tools 1'); ?>
       </p>
       <p>
         <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
-        <a href="/architect/plugins" class="btn btn-outline-success">Plugins</a>
         <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
         <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
         <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
