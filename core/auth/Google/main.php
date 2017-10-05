@@ -65,7 +65,7 @@ function GoogleChallengeSession(){
 
 function AttemptGoogleAuth(){
   include_once('core/Session.php');
-  include_once('auth/Google/autoload.php');
+  include_once('core/auth/Google/autoload.php');
   global $ASTRIA;
   Event('Starting Google Auth Check');
   /************************************************
@@ -159,6 +159,7 @@ function AttemptGoogleAuth(){
 
 function authGoogleCallback(){
   global $ASTRIA, $EVENTS;
+  /*
   if(count($EVENTS['Attempt Auth'])==1){
   ?>
   <div class="row">
@@ -168,6 +169,7 @@ function authGoogleCallback(){
   </div>
   <?php
   }
+  */
   ?>
 
   <div class="row">
