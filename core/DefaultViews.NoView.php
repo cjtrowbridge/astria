@@ -1,6 +1,6 @@
 <?php
 
-Hook('User Is Logged In - No Presentation','DefaultViewNoView();');
+//Hook('User Is Logged In - No Presentation','DefaultViewNoView();');
 
 function DefaultViewNoView(){
   Hook('Template Body','DefaultViewNoViewBodyCallback();');
