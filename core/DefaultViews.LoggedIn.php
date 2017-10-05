@@ -21,11 +21,14 @@ function defaultViewsMyAccountBodyCallback(){
   
   //Classify each column
   $Writeable=array(
-    'FirstName' => $User['FirstName'],
-    'LastName' => $User['LastName']
+    'First Name' => $User['FirstName'],
+    'Last Name'  => $User['LastName'],
+    'Photo'     => $User['Photo']
   );
   $Readable=array(
-    'Email' => $User['Email'],
+    'Email'     => $User['Email'],
+    'Last Login' => $User['LastLogin'],
+    'Signup Date' => $User['SignupDate']
   );
   
   ?>
