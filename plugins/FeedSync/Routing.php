@@ -1,5 +1,14 @@
 <?php
 
+Hook('Architect Tools 1','FeedSyncArchitectTools();');
+
+function FeedSyncArchitectTools(){
+  ?>
+        <a href="/architect/feedsync" class="btn btn-outline-success"><i class="material-icons">&#xE0E5;</i> FeedSync</a>
+  <?php
+}
+
+
 Hook('Hourly Cron','FeedSyncFetchServiceCron();');
 
 function FeedSyncFetchServiceCron(){
