@@ -76,7 +76,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
         <a class="nav-link active" href="/logout"><i title="Log Out" class="material-icons">&#xE879;</i></a>
       </li>
       <li class="nav-item">
-        <img id="userPhoto" src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>">
+        <a class="nav-link active" href="/account"><img id="userPhoto" src="<?php echo $ASTRIA['Session']['User']['Photo']; ?>"></a>
       </li>
     </ul>
     <?php } ?>
