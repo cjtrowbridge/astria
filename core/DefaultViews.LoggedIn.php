@@ -5,6 +5,10 @@ Hook('User Is Logged In - No Presentation','MaybeDefaultHomepage();');
 function MaybeDefaultHomepage(){
   switch(path(0)){
     case 'account':
+      if(isset($_POST['FirstName'])){
+        pd($_POST);
+        exit;
+      }
       TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
     case false:
       TemplateBootstrap4('Home Page','defaultViewsHomepageBodyCallback();');
