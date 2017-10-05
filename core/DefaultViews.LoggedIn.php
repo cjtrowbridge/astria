@@ -18,7 +18,8 @@ function MaybeDefaultHomepage(){
         WHERE 
           UserID = ".$UserID."
         ";
-        pd($SQL);
+        Query($SQL);
+        header('Location: /account?message=Changes+Saved');
         exit;
       }
       TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
@@ -34,7 +35,9 @@ function defaultViewsMyAccountBodyCallback(){
   ?><h1>My Account</h1>
   
 <?php
-  
+  if(isset($_GET['message'])){
+    echo '<h2>'.$_GET['message']'</h2>';
+  }
   //Classify each column
   $Writeable=array(
     'First Name' => $User['FirstName'],
