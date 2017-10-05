@@ -3,11 +3,24 @@
 Hook('User Is Logged In - No Presentation','MaybeDefaultHomepage();');
 
 function MaybeDefaultHomepage(){
-  if(path(0)===false){
-    Hook('Template Body','defaultViewsHomepageBodyCallback();');
-    TemplateBootstrap4('Default Home Page');
+  switch(path(0)){
+    case 'account':
+      TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
+    case false:
+      TemplateBootstrap4('Home Page','defaultViewsHomepageBodyCallback();');
+      break;
   }
 }
+
+function defaultViewsMyAccountBodyCallback(){
+  global $ASTRIA;
+  $User = $ASTRIA['Session']['User'];
+  ?><h1>My Account</h1>
+  
+<?php
+  pd($User);
+}
+
 function defaultViewsHomepageBodyCallback(){
   ?><h1>Welcome To Astria</h1>
   <p>Astria takes care of user management and manages databases so you can focus on developing an application.<p>
