@@ -18,6 +18,27 @@ function defaultViewsMyAccountBodyCallback(){
   ?><h1>My Account</h1>
   
 <?php
+  
+  //Classify each column
+  $Writeable=array(
+    'FirstName' => $User['FirstName'],
+    'LastName' => $User['LastName']
+  );
+  $Readable=array(
+    'Email' => $User['Email'],
+  );
+  
+  ?>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <?php echo AstriaBootstrapAutoForm($Writeable,$Readable); ?>
+      </div>
+    </div>
+  </div>
+
+<?php
   pd($User);
 }
 
