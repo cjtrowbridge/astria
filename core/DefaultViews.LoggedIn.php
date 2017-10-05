@@ -36,7 +36,7 @@ function defaultViewsMyAccountBodyCallback(){
   
 <?php
   if(isset($_GET['message'])){
-    echo '<h2>'.$_GET['message']'</h2>';
+    echo '<h2>'.$_GET['message'].'</h2>';
   }
   //Classify each column
   $Writeable=array(
