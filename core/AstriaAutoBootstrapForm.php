@@ -26,7 +26,7 @@ function AstriaBootstrapAutoForm($Editable,$Readable = array(),$Hidden = array()
     $Return .= "</div>\n";
   }
   foreach($Hidden as $Key => $Value){
-    $Return .= "    <input type=\"hidden\" name=\"".$Key."\" id=\"".$Key."\" value=\"".$Value."\">\n";
+    $Return .= "    <input type=\"hidden\" name=\"".str_replace(' ','_',$Key)."\" id=\"".str_replace(' ','_',$Key)."\" value=\"".$Value."\">\n";
   }
   $Return .= "  <input class=\"form-control\" type=\"submit\">\n";
   if($TakeFocus){
