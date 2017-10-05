@@ -6,7 +6,19 @@ function MaybeDefaultHomepage(){
   switch(path(0)){
     case 'account':
       if(isset($_POST['First_Name'])){
-        pd($_POST);
+        global $ASTRIA;
+        $UserID = $ASTRIA['Session']['User']['UserID'];
+        $FirstName = Sanitize($_POST['First_Name']);
+        $LastName  = Sanitize($_POST['Last_Name']);
+        $Photo     = Sanitize($_POST['Photo']);
+        $SQL = "UPDATE User SET 
+          FirstName = '".$FirstName."',
+          FirstName = '".$LastName."',
+          FirstName = '".$Photo."'
+        WHERE 
+          UserID = ".$UserID."
+        ";
+        pd($SQL);
         exit;
       }
       TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
