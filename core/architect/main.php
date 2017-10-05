@@ -39,6 +39,10 @@ function PresentArchitect(){
         include_once('GetSubrepositoryPullWebhook.php');
         GetSubrepositoryPullWebhook();
         break;
+      case 'plugins':
+        include_once('ArchitectPluginManager.php');
+        ArchitectPluginManager();
+        break;
       case 'feedsync':
         include_once('FeedSyncUI/main.php');
         FeedSyncUI();
