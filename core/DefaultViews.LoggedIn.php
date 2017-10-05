@@ -5,7 +5,7 @@ Hook('User Is Logged In - No Presentation','MaybeDefaultHomepage();');
 function MaybeDefaultHomepage(){
   switch(path(0)){
     case 'account':
-      if(isset($_POST['FirstName'])){
+      if(isset($_POST['First_Name'])){
         pd($_POST);
         exit;
       }
