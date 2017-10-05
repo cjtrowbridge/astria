@@ -49,6 +49,7 @@ li{
 }
 
 #userPhoto{
-  max-height: 2.5rem;
+  height: 30px;
+  width: 30px;
   border-radius: 50%;
 }
