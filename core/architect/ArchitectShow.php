@@ -31,6 +31,7 @@ function ArchitectBodyCallback(){
       </p>
       <p>
         <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
+        <a href="/architect/plugins" type="button" class="btn btn-outline-success">Plugins</a>
         <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
         <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
         <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
