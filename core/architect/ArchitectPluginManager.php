@@ -2,7 +2,7 @@
 
 function ArchitectPluginManager(){
 
-  TemplateBoostrap4('Plugin Manager','ArchitectPluginManagerBodyCallback();');
+  TemplateBootstrap4('Plugin Manager','ArchitectPluginManagerBodyCallback();');
 }
 
 function ArchitectPluginManagerBodyCallback(){
