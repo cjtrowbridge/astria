@@ -54,7 +54,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
 <body>
 
   <nav class="navbar navbar-fixed-top navbar-dark bg-primary container<?php if($Fluid){echo '-fluid';} ?>" id="topNav">
-    <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><img title="<?php echo $ASTRIA['app']['appName']; ?>" src="<?php echo $ASTRIA['app']['favicon'].'" class="navbar-brand"> '.$ASTRIA['app']['appName']; ?></a>
+    <a class="navbar-brand" href="<?php echo $ASTRIA['app']['appURL']; ?>"><img title="<?php echo $ASTRIA['app']['appName']; ?>" src="<?php echo $ASTRIA['app']['favicon'].'" style="width: 30px; height: 30px;"> '.$ASTRIA['app']['appName']; ?></a>
     <ul class="nav navbar-nav">
       <?php
         
