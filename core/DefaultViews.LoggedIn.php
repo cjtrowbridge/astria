@@ -36,7 +36,9 @@ function defaultViewsMyAccountBodyCallback(){
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <?php echo AstriaBootstrapAutoForm($Writeable,$Readable); ?>
+        <form action="/account" method="post">
+          <?php echo AstriaBootstrapAutoForm($Writeable,$Readable); ?>
+        </form>
       </div>
     </div>
   </div>
