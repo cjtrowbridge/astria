@@ -19,9 +19,9 @@ include('core/Locale.php');
 include('core/Loader.php');
 Loader('core');
 Loader('core/architect');
-//Loader('auth/Email');
-//Loader('auth/Facebook');
-Loader('auth/Google');
+//Loader('core/auth/Email');
+//Loader('core/auth/Facebook');
+Loader('core/auth/Google');
 
 RequireSSL();
 
