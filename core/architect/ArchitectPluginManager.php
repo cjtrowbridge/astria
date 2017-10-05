@@ -7,7 +7,7 @@ function ArchitectPluginManager(){
 
 function ArchitectPluginManagerBodyCallback(){
   global $ASTRIA;
-  ?><h1><a href="/architect">Architect</a> - <a href="/architect/plugins">Plugins</a></h1>
+  ?><h1><a href="/architect">Architect</a> / <a href="/architect/plugins">Plugins</a></h1>
 
 <?php
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
