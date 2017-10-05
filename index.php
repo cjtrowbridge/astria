@@ -28,7 +28,6 @@ RequireSSL();
 Event('Webhook');
 
 //Loading plugins should happen after the webhooks so that if there is an integration error, it will not break the webhooks.
-//Loader('plugins');
 LoadPlugins();
 
 Event('Before Login');
@@ -47,7 +46,7 @@ if(LoggedIn()){
   //This should not typically be necessary but it will display a 404 page if no template or other interrupts have occured.
   Event('User Is Logged In - No Presentation');
   
-  die('This is not good.');
+  DefaultViewNoView();
   
 }else{
   
@@ -57,7 +56,5 @@ if(LoggedIn()){
   Event('User Is Not Logged In - No Presentation');
   
   PromptForLogin();
-  
-  die('This is not good!');
   
 }
