@@ -42,7 +42,7 @@ function defaultViewsMyAccountBodyCallback(){
   </div>
 
 <?php
-  pd($User);
+  
 }
 
 function defaultViewsHomepageBodyCallback(){
