@@ -1,5 +1,11 @@
 <?php
 
+/*
+add and remove sources
+build schema automatically
+fix the old stockhistory importer
+*/
+
 Hook('Architect Tools 1','FeedSyncArchitectTools();');
 
 function FeedSyncArchitectTools(){
