@@ -1,6 +1,9 @@
 <?php
 
 /*
+
+TODO
+
   Astria Facebook OAuth Integration
   
   Astria does not use PHP sessions because they are less scalable and fault-tolerant than Astria's hybrid cached sessions, but Facebook's SDK needs them. 
