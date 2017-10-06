@@ -1,4 +1,7 @@
 <?php
+
+//TODO make this be not the beta branch of bootstrap
+
 function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   global $HAMBURGER, $ASTRIA, $USER;
   $HAMBURGER=array('Home'=>'/');
