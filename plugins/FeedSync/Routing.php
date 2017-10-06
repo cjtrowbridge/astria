@@ -1,9 +1,9 @@
 <?php
 
 /*
-add and remove sources
-build schema automatically
-fix the old stockhistory importer
+TODO add and remove sources
+TODO build schema automatically
+TODO fix the old stockhistory importer
 */
 
 Hook('Architect Tools 1','FeedSyncArchitectTools();');
