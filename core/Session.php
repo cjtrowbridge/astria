@@ -1,5 +1,10 @@
 <?php
 
+/*
+TODO sessions need to be automatically refreshed from the database every minute or so before parallelism and clustering can really happen
+  TODO let astria track when it last challenged the user's session and automatically challenge again periodically (depends on first item
+*/
+
 AstriaSessionSetUp();
 
 function AstriaSessionSetUp(){
