@@ -1,5 +1,9 @@
 <?php
 
+/*
+TODO Implement adding and removing table columns within schema tool
+*/
+
 function ArchitectSchema(){
   
   switch(path(2)){
