@@ -81,7 +81,7 @@ function ArchitectFileExplorerFile(){
     case 'gif':
     case 'bmp':
     case 'ico':
-      echo '<img src="'.$_GET['path'].'" style="width: 100%; max-width: 100%; max-height: 100%;>';
+      echo '<img src="'.$_GET['path'].'" style="width: 100%; max-width: 100%; max-height: 100%;">';
       break;
     case 'htaccess':
     case 'php':
