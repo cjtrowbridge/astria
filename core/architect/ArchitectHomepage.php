@@ -30,7 +30,7 @@ function ArchitectBodyCallback(){
         <?php Event('Architect Tools 1'); ?>
       </p>
       <p>
-        <a href="/architect/event" class="btn btn-outline-success">Events</a>
+        <a href="/architect/events" class="btn btn-outline-success">Events</a>
         <a href="/architect/session" class="btn btn-outline-success">Session</a>
       </p>
       <p>
@@ -49,21 +49,8 @@ function ArchitectBodyCallback(){
         
     </div>
   </div>
-</div><br>
-<div class="row">
-  <div class="hidden" id="events">
-    <?php pd($EVENTS); ?>
-  </div>
-  <div class="hidden" id="debugSummary">
-    <?php DebugShowSummary(); ?>
-  </div>
-  <div class="hidden" id="queriesRun">
-    <?php 
-      pd(htmlentities($QUERIES_RUN));
-    ?>
-  </div>
 </div>
-    
+
 <div class="row">
   <div class="col-xs-12">
     <?php
