@@ -10,6 +10,8 @@ function ArchitectGitWebhooksBodyCallback(){
 
 ?>
 
+<h1>Git Webhooks</h1>
+
 <div class="card">
   <div class="card-block">
     <div class="card-text">
@@ -20,6 +22,7 @@ function ArchitectGitWebhooksBodyCallback(){
     </div>
   </div>
 </div>
+
 <div class="card">
   <div class="card-block">
     <div class="card-text">
