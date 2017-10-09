@@ -1,5 +1,18 @@
 <?php
 
+Hook('User Is Logged In','MaybeCheckForUpdates();');
+
+function MaybeCheckForUpdates(){
+  if(
+    isset($_GET['checkForUpdates'])&&
+    HasMembership('Astria Administrators')
+  ){
+    CheckForUpdates();
+    exit;
+  }
+}
+
+
 function CheckForUpdates(){
   Event("Begining Checking For Updates");
   global $ASTRIA;
