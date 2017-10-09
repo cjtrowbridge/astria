@@ -149,7 +149,7 @@ function Hook($EventDescription,$Callback,$Supremacy = false){
 
 function DebugShowSummary(){
   
-  global $DEBUG;
+  global $DEBUG, $EVENTS;
   echo "<h3>Debug Summary:</h3>\n";
   $summary=array(
     array(
@@ -160,6 +160,8 @@ function DebugShowSummary(){
   echo ArrTabler($summary);
   echo "<h3>Debug Details:</h3>\n";
   echo ArrTabler($DEBUG);
+  echo "<h3>Events:</h3>\n";
+  pd($EVENTS);
   ?>
   <script>$('.tablesorter').tablesorter({widgets: ["zebra", "filter"]});</script>
   <?php 
