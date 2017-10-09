@@ -170,7 +170,19 @@ function DebugShowSummary(){
 
 
 Hook('Hourly Webhook', 'DebugServiceDumpToDatabase();' );
+Hook('User Is Logged In', 'DebugServiceDumpToDatabaseOverride();' );
 //Hook('Architect Homepage', 'DebugServiceDumpToDatabase();' );
+
+function DebugServiceDumpToDatabaseOverride(){
+  if(isset($_GET['DebugServiceDumpToDatabaseOverride'])){
+    if(HasMembership('Astria Administrators')){
+      DebugServiceDumpToDatabase();
+      exit;
+    }else{
+      die('You are not an admin');
+    }
+  }
+}
 
 function DebugServiceDumpToDatabase(){
   
