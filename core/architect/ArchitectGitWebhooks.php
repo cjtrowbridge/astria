@@ -9,12 +9,12 @@ function ArchitectGitWebhooksBodyCallback(){
 
 ?>
 
- <div class="hidden box" id="PullMainlineWebhook">
+ <div id="PullMainlineWebhook">
     <h2>Webhook: Pull Mainline from Github</h2>
     <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
   </div>
   
-  <div class="hidden box" id="GetSubrepositoryPullWebhook">
+  <div id="GetSubrepositoryPullWebhook">
     <h2>Webhook: Pull Subrepository</h2>
     <form onsubmit="return false;" class="form">
       <div class="form-group">
