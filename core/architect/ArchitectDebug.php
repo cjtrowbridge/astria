@@ -19,7 +19,7 @@ function ArchitectEventDebugBodyCallback(){
         <p><i>Data Since 
           <?php 
             $OldestRecord = Query("SELECT ABS(ROUND(MIN(Timestamp))) as Min FROM Debug")[0]['Min'];
-            echo ago($OldestRecord); 
+            echo date('r',$OldestRecord).' ',ago($OldestRecord); 
           ?>
         .</i></p>
         <?php 
