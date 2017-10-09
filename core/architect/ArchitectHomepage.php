@@ -26,14 +26,14 @@ function ArchitectBodyCallback(){
       <p>
         <a href="/architect/files" class="btn btn-outline-success"><i class="material-icons">folder</i> File Manager</a>
         <a href="/architect/plugins" class="btn btn-outline-success"><i class="material-icons">&#xE63C;</i> Plugins</a>
-        <button onclick="document.location='/architect/schema'" type="button" class="btn btn-outline-success"><i class="material-icons">&#xE322;</i> Schema</button>
+        <a href="/architect/schema" class="btn btn-outline-success"><i class="material-icons">&#xE322;</i> Schema</a>
         <?php Event('Architect Tools 1'); ?>
       </p>
       <p>
-        <button onclick="Cardify('Events','events');" type="button" class="btn btn-outline-success">Events</button>
-        <button onclick="Cardify('Users','users');" type="button" class="btn btn-outline-success">Users</button>
-        <button onclick="Cardify('Groups','groups');" type="button" class="btn btn-outline-success">Groups</button>
-        <button onclick="Cardify('Session','session');" type="button" class="btn btn-outline-success">Session</button>
+        <a href="/architect/event" class="btn btn-outline-success">Events</a>
+        <a href="/architect/user" class="btn btn-outline-success">Users</a>
+        <a href="/architect/group" class="btn btn-outline-success">Groups</a>
+        <a href="/architect/session" class="btn btn-outline-success">Session</a>
       </p>
       <p>
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
