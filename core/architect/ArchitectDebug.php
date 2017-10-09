@@ -14,7 +14,14 @@ function AArchitectDebugBodyCallback(){
       <div class="card-text">
         <?php echo ArrTabler(Query("
         
-          SELECT * FROM Debug LIMIT 10
+          SELECT 
+            Description,
+            AVG(RAM) AS RAM,
+            AVG(RunTime) as Runtime
+          
+          FROM Debug 
+          
+          GROUP BY Description
         
         ")); ?>
       </div>
