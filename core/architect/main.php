@@ -94,6 +94,10 @@ function PresentArchitect(){
             ArchitectDirectoryDelete();
             break;
           
+          case 'move':
+            include_once('core/architect/Files/ArchitectFileMove.php');
+            ArchitectFileMove();
+            break;
           case 'upload': //TODO  
           default:
             include_once('core/architect/Files/ArchitectFileExplorer.php');
