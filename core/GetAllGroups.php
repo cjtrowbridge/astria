@@ -3,7 +3,7 @@
 function GetAllGroups($UserID){
   //Find the groups they are a member of, as well as all the ancestor groups
   $Memberships=array();
-  $DirectMemberships = Query("SELECT DISTINCT(GroupID) FROM `UserMembership` WHERE UserID = ".intval($UserID));
+  $DirectMemberships = Query("SELECT DISTINCT(GroupID) FROM `UserGroupMembership` WHERE UserID = ".intval($UserID));
     
     foreach($DirectMemberships as $DirectMembership){
       
@@ -32,7 +32,7 @@ function GetAllGroups($UserID){
 function GetGroupAncestors($GroupID){
   $Ancestors = array();
   while(true){
-    $Output= Query('SELECT ParentID FROM `Group` WHERE GroupID = '.intval($GroupID));
+    $Output= Query('SELECT ParentID FROM `UserGroup` WHERE GroupID = '.intval($GroupID));
     
     if(count($Output)==0){
       break;
