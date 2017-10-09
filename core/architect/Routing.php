@@ -37,7 +37,7 @@ function PresentArchitect(){
         break;
       case 'debug':
         include_once('ArchitectDebug.php');
-        ArchitectDebug();
+        ArchitectEventDebug();
         break;
       case 'session':
         include_once('ArchitectSession.php');
