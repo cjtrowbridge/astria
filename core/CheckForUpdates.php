@@ -18,7 +18,8 @@ function CheckForUpdates(){
 <div class="card">
   <div class="card-block">
     <div class="card-text" id="updatesChecker">
-      <p><center><img src="/img/spinner.gif"><br>Checking For Updates...</center></p>
+      <h3>Updates</h3>
+      <p>Checking... <img src="/img/spinner.gif"></p>
     </div>
   </div>
 </div>
