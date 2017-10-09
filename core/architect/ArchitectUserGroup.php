@@ -2,7 +2,7 @@
 
 function ArchitectUserGroup(){
   
-  TemplateBootstrap4('User Group - Architect','ArchitectUserBodyCallback();'); 
+  TemplateBootstrap4('User Group - Architect','ArchitectUserGroupBodyCallback();'); 
 }
 function ArchitectUserGroupBodyCallback(){
   ?>
