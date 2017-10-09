@@ -14,12 +14,13 @@ function MaybeCheckForUpdates(){
 
 function CheckForUpdates(){
   ?>
-
-<div class="card">
-  <div class="card-block">
-    <div class="card-text" id="updatesChecker">
-      <h3>Updates</h3>
-      <p>Checking... <img src="/img/spinner.gif"></p>
+<div id="updatesChecker">
+  <div class="card">
+    <div class="card-block">
+      <div class="card-text">
+        <h3>Updates</h3>
+        <p>Checking... <img src="/img/spinner.gif"></p>
+      </div>
     </div>
   </div>
 </div>
@@ -41,13 +42,19 @@ function CheckNowForUpdates(){
 
   if(!($Local==$Global)){
     ?>
-      <h2>Updates are Available!</h2>
-      <a href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>">Pull Mainline From Github, pending an integration test.</a>
-      <p>Local Master Head is at: <?php echo $Local; ?></p>
-      <p>Global Master Head is at: <?php echo $Global; ?></p>
+
+  <div class="card">
+    <div class="card-block">
+      <div class="card-text" id="updatesChecker">
+        <h2>Updates are Available!</h2>
+        <a href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>">Pull Mainline From Github, pending an integration test.</a>
+        <p>Local Master Head is at: <?php echo $Local; ?></p>
+        <p>Global Master Head is at: <?php echo $Global; ?></p>
+      </div>
+    </div>
+  </div>
+
     <?php
-  }else{
-     echo "<p>Already Up To Date!</p>";
   }
   Event("Done Checking For Updates");
 }
