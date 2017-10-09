@@ -55,7 +55,7 @@ function PresentArchitect(){
         include_once('ArchitectIfconfig.php');
         ArchitectIfconfig();
         break;
-      case 'gitWebhooks':
+      case 'git-webhooks':
         include_once('ArchitectGitWebhooks.php');
         ArchitectGitWebhooks();
         break;
