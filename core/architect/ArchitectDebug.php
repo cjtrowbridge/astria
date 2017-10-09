@@ -9,6 +9,8 @@ function ArchitectEventDebugBodyCallback(){
   
   <h1>Event Debugging</h1>
   
+  <a href="/?DebugServiceDumpToDatabaseOverride" class="btn btn-outline-warning">Dump Debug Data To DB Now</a>
+
   <div class="card">
     <div class="card-block">
       <div class="card-text">
