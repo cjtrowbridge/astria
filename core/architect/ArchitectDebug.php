@@ -14,19 +14,25 @@ function ArchitectEventDebugBodyCallback(){
   <div class="card">
     <div class="card-block">
       <div class="card-text">
-        <?php echo ArrTabler(Query("
-        
-          SELECT 
-            Description,
-            ROUND(AVG(RAM),2) AS RAM,
-            ROUND(AVG(RunTime),2) as Runtime
+        <p><i>Data Since <?php echo ago(Query("SELECT MIN(Timestamp) as Min FROM Debug")[0]['Min']); ?>.</i></p>
+        <?php 
           
-          FROM Debug 
-          
-          GROUP BY Description
-          ORDER BY 'Runtime' DESC
-        
-        ")); ?>
+          echo ArrTabler(Query("
+            SELECT * FROM (
+              SELECT 
+                Description,
+                ROUND(AVG(RAM),2) AS 'AVG RAM',
+                ROUND(AVG(RunTime),2) as 'AVG Runtime'
+
+              FROM Debug 
+
+              GROUP BY Description
+            ) x
+
+            ORDER BY Runtime DESC
+
+          ")); 
+        ?>
       </div>
     </div>
   </div>
