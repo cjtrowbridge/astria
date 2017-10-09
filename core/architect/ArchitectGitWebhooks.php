@@ -40,7 +40,11 @@ function ArchitectGitWebhooksBodyCallback(){
                     if($dh = opendir($dir)){
                       while(($File = readdir($dh)) !== false){
                         if($File!=='.'&&$File!=='..'&&$File!=='defaultViews'){
-                          echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');GetSubrepositoryPullWebhook();">'.$File.'</a></li>';
+                          echo '<li>';
+                          if(!(is_dir('plugins/'.$File.'/.git'))){
+                            echo '<p>This does not appear to be a git repository.</p>'
+                          }
+                          echo '<a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');GetSubrepositoryPullWebhook();">'.$File.'</a></li>';
                         }
                       }
                       closedir($dh);
