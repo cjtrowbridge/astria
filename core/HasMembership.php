@@ -8,6 +8,15 @@ function HasMembership($Group,$UserID=''){
     $UserID = $USER['UserID'];
   }
   
+  if(intval($Group)==$Group){
+    $Group = Sanitize($Group);
+    $FoundGroup = Query('SELECT * FROM UserGroup WHERE Name LIKE "'.$Group.'"');
+    if(!(isset($FoundGroup[0]))){
+      die('UserGroup '.$Group.' Not Found');
+    }
+    $Group = $FoundGroup[0]['GroupID'];
+  }
+  
   //TODO add something to look up the id if a group name is passed
   $GroupID=intval($Group);
   
