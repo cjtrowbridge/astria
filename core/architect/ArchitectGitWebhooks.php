@@ -32,22 +32,26 @@ function ArchitectGitWebhooksBodyCallback(){
           <div class="form-group">
             <div class="input-group">
               <div>
-                <p>Here are some potential repositories I found in the plugins directory...</p>
+                <p>Here are the git repositories I found in the plugins directory...</p>
                 <ul>
                 <?php
                   $dir = "plugins";
+                  $repos = 0;
                   if(is_dir($dir)){
                     if($dh = opendir($dir)){
                       while(($File = readdir($dh)) !== false){
                         if($File!=='.'&&$File!=='..'&&$File!=='defaultViews'){
-                          echo '<li>';
                           if(is_dir('plugins/'.$File.'/.git')){
-                            echo '<a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');GetSubrepositoryPullWebhook();">'.$File.'</a></li>';
+                            echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');GetSubrepositoryPullWebhook();">'.$File.'</a></li>';
+                            $repos++;
                           }
                         }
                       }
                       closedir($dh);
                     }
+                  }
+                  if($repos==0){
+                    echo '<li>None Found.</li>
                   }
                 ?>
                 </ul>
