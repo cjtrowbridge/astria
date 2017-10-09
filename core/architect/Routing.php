@@ -43,6 +43,14 @@ function PresentArchitect(){
         include_once('ArchitectSession.php');
         ArchitectSession();
         break;
+      case 'group':
+        include_once('ArchitectGroup.php');
+        ArchitectGroup();
+        break;
+      case 'user':
+        include_once('ArchitectUser.php');
+        ArchitectUser();
+        break;
       case 'plugins':
         include_once('ArchitectPluginManager.php');
         ArchitectPluginManager();
