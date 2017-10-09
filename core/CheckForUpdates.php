@@ -7,13 +7,32 @@ function MaybeCheckForUpdates(){
     isset($_GET['checkForUpdates'])&&
     HasMembership('Astria Administrators')
   ){
-    CheckForUpdates();
+    CheckNowForUpdates();
     exit;
   }
 }
 
-
 function CheckForUpdates(){
+  ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text" id="updatesChecker">
+      <p><center><img src="/img/spinner.gif"><br>Checking For Updates...</center></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  $.get("/?checkForUpdates",function(data){
+    $('#updatesChecker').html(data);
+  });
+</script>
+
+  <?php
+}
+
+function CheckNowForUpdates(){
   Event("Begining Checking For Updates");
   global $ASTRIA;
   $Local  = gitLocalHash();
