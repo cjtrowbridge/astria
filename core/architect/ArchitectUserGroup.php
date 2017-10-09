@@ -12,7 +12,13 @@ function ArchitectUserGroupBodyCallback(){
   <div class="card">
     <div class="card-block">
       <div class="card-text">
-        <?php echo ArrTabler(Query("SELECT * FROM UserGroup")); ?>
+        <?php
+          global $ASTRIA;
+          $DBName = $ASTRIA['Databases']['astria']['name'];
+          $TableExists = Query("SELECT count(*) as 'Found' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'UserGroup';");
+          pd($TableExists[0]['Found']);
+          echo ArrTabler(Query("SELECT * FROM UserGroup")); 
+        ?>
       </div>
     </div>
   </div>
