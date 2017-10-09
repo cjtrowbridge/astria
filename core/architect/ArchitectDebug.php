@@ -16,8 +16,8 @@ function AArchitectDebugBodyCallback(){
         
           SELECT 
             Description,
-            AVG(RAM) AS RAM,
-            AVG(RunTime) as Runtime
+            ROUND(AVG(RAM),2) AS RAM,
+            ROUND(AVG(RunTime),2) as Runtime
           
           FROM Debug 
           
