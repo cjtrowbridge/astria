@@ -51,7 +51,7 @@ function ArchitectGitWebhooksBodyCallback(){
                     }
                   }
                   if($repos==0){
-                    echo '<li>None Found.</li>
+                    echo '<li>None Found.</li>';
                   }
                 ?>
                 </ul>
