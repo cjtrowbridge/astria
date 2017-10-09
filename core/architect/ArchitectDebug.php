@@ -18,7 +18,7 @@ function ArchitectEventDebugBodyCallback(){
       <div class="card-text">
         <p><i>Data Since 
           <?php 
-            $OldestRecord = Query("SELECT MIN(Timestamp) as Min FROM Debug")[0]['Min'];
+            $OldestRecord = round(Query("SELECT MIN(Timestamp) as Min FROM Debug")[0]['Min']);
             echo $OldestRecord.' '.ago($OldestRecord); 
           ?>
         .</i></p>
