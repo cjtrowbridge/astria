@@ -24,6 +24,7 @@ function ArchitectEventDebugBodyCallback(){
           FROM Debug 
           
           GROUP BY Description
+          ORDER BY 'Runtime' DESC
         
         ")); ?>
       </div>
