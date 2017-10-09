@@ -14,7 +14,7 @@ function PrepareArchitect(){
   }
 
   if(
-    HasMembership(2)||
+    HasMembership('Astria Administrators')||
     $UserID==1
   ){
     Nav('Main','Link','Architect','/architect');
