@@ -36,7 +36,7 @@ function ArchitectEventDebugBodyCallback(){
               GROUP BY Description
             ) x
 
-            ORDER BY x.'AVG Runtime' DESC
+            ORDER BY x.`AVG Runtime` DESC
 
           ")); 
         ?>
