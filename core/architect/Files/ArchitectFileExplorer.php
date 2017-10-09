@@ -57,6 +57,7 @@ function ArchitectFileExplorerFile(){
   <p>
     <a href="<?php echo $_GET['path']; ?>" target="_blank" class="btn btn-primary">Launch This File</a>
     <a href="/architect/files/edit/?path=<?php echo $_GET['path']; ?>" class="btn btn-primary">Edit This File</a>
+    <a href="/architect/files/move/?path=<?php echo $_GET['path']; ?>" class="btn btn-primary">Move This File</a>
     <a href="/architect/files/delete/?path=<?php echo $_GET['path']; ?>" class="btn btn-danger">Delete This File</a>
   </p>
   
