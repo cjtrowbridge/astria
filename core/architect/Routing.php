@@ -17,14 +17,6 @@ function PrepareArchitect(){
     HasMembership(2)||
     $UserID==1
   ){
-
-    //SetupArchitect();
-
-    //global $ASTRIA;
-    //$ASTRIA['nav']['main']=array(
-      //'Architect' => '/architect'
-    //);
-    
     Nav('Main','Link','Architect','/architect');
     Hook('User Is Logged In - Presentation','PresentArchitect();');
   }
@@ -43,9 +35,13 @@ function PresentArchitect(){
         include_once('ArchitectSession.php');
         ArchitectSession();
         break;
-      case 'group':
-        include_once('ArchitectGroup.php');
-        ArchitectGroup();
+      case 'usergroupmembership':
+        include_once('ArchitectUserGroupMembership.php');
+        ArchitectUserGroupMembership();
+        break;
+      case 'usergroup':
+        include_once('ArchitectUserGroup.php');
+        ArchitectUserGroup();
         break;
       case 'user':
         include_once('ArchitectUser.php');
