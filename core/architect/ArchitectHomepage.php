@@ -31,8 +31,8 @@ function ArchitectBodyCallback(){
       </p>
       <p>
         <a href="/architect/events" class="btn btn-outline-success">Events</a>
-        <a href="/architect/session" class="btn btn-outline-success">Session</a>
         <a href="/architect/debug" class="btn btn-outline-success">Event Debugger</a>
+        <a href="/architect/session" class="btn btn-outline-success">Session</a>
         
       </p>
       <p>
