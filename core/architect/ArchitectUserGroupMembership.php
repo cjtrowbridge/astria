@@ -13,6 +13,7 @@ function ArchitectUserGroupMembershipBodyCallback(){
     <div class="card-block">
       <div class="card-text">
         <?php 
+  
           global $ASTRIA;
           $DBName = $ASTRIA['databases']['astria']['database'];
           $TableExists = Query("SELECT count(*) as 'Found' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'UserMembership';");
@@ -20,6 +21,7 @@ function ArchitectUserGroupMembershipBodyCallback(){
             Query("ALTER TABLE `UserMembership` RENAME `UserGroupMembership`;");
           }
           echo ArrTabler(Query("SELECT * FROM UserGroupMembership")); 
+  
         ?>
       </div>
     </div>
