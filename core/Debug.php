@@ -89,7 +89,7 @@ function DebugServiceDumpToDatabase(){
         global $DEBUG_EXPORT;
         $DEBUG_EXPORT=array();
         include_once($include_path);
-        unlink($include_path);
+        //unlink($include_path);
         foreach($DEBUG_EXPORT as $Entry){
           $SQL .= "
             ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($Entry['description'])."','".Sanitize($Entry['ram'])."','".Sanitize($Entry['runtime'])."','".Sanitize($Entry['timestamp'])."','".date('Y-m-d H:i:s',intval(round($Entry['timestamp'])))."'),";
@@ -100,7 +100,8 @@ function DebugServiceDumpToDatabase(){
     closedir($handle);
     
     $SQL=rtrim($SQL,',').';';
-    Query($SQL);
+    pd($SQL);
+    //Query($SQL);
     
   }
 }
