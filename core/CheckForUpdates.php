@@ -1,6 +1,7 @@
 <?php
 
 function CheckForUpdates(){
+  Event("Begining Checking For Updates");
   global $ASTRIA;
   $Local  = gitLocalHash();
   $Global = gitGlobalHash();
@@ -17,4 +18,5 @@ function CheckForUpdates(){
       </div>
     <?php
   }
+  Event("Done Checking For Updates");
 }
