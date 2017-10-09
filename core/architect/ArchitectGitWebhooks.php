@@ -16,7 +16,7 @@ function ArchitectGitWebhooksBodyCallback(){
   <div class="card-block">
     <div class="card-text">
       <div id="PullMainlineWebhook">
-        <h2>Webhook: Pull Mainline from Github</h2>
+        <h2>Pull Mainline from Github</h2>
         <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
       </div>
     </div>
@@ -27,7 +27,7 @@ function ArchitectGitWebhooksBodyCallback(){
   <div class="card-block">
     <div class="card-text">
       <div id="GetSubrepositoryPullWebhook">
-        <h2>Webhook: Pull Subrepository</h2>
+        <h2>Pull A Subrepository</h2>
         <form onsubmit="return false;" class="form">
           <div class="form-group">
             <div class="input-group">
