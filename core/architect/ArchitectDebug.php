@@ -9,7 +9,9 @@ function ArchitectEventDebugBodyCallback(){
   
   <h1>Event Debugging</h1>
   
-  <a href="/?DebugServiceDumpToDatabaseOverride" class="btn btn-outline-warning">Dump Debug Data To DB Now</a>
+  <p>
+      <a href="/?DebugServiceDumpToDatabaseOverride" class="btn btn-outline-warning">Dump Debug Data To DB Now</a>
+  </p>
 
   <div class="card">
     <div class="card-block">
@@ -29,7 +31,7 @@ function ArchitectEventDebugBodyCallback(){
               GROUP BY Description
             ) x
 
-            ORDER BY Runtime DESC
+            ORDER BY 'AVG Runtime' DESC
 
           ")); 
         ?>
