@@ -46,17 +46,7 @@ function ArchitectBodyCallback(){
       <p>
         <a href="/architect/git-webhooks" class="btn btn-outline-danger">Git Webhooks</a>
       </p>
-        
     </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12">
-    <?php
-      //TODO maybe show the schemas?
-      Event('Architect Homepage');
-    ?>
   </div>
 </div>
 
@@ -80,6 +70,16 @@ if(!($Local==$Global)){
 }
   
 ?>
-    
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <?php
+      //TODO maybe show the schemas?
+      Event('Architect Homepage');
+    ?>
+  </div>
+</div>
+
 <?php
 }
