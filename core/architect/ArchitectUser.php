@@ -12,7 +12,7 @@ function ArchitectUserBodyCallback(){
   <div class="card">
     <div class="card-block">
       <div class="card-text">
-        <?php echo ArrTabler(Query("SELECT * FROM User"));
+        <?php echo ArrTabler(Query("SELECT * FROM User")); ?>
       </div>
     </div>
   </div>
