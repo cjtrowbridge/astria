@@ -16,7 +16,12 @@ function ArchitectEventDebugBodyCallback(){
   <div class="card">
     <div class="card-block">
       <div class="card-text">
-        <p><i>Data Since <?php echo ago(Query("SELECT MIN(Timestamp) as Min FROM Debug")[0]['Min']); ?>.</i></p>
+        <p><i>Data Since 
+          <?php 
+            $OldestRecord = Query("SELECT MIN(Timestamp) as Min FROM Debug")[0]['Min'];
+            echo $OldestRecord.' '.ago($OldestRecord); 
+          ?>
+        .</i></p>
         <?php 
           
           echo ArrTabler(Query("
