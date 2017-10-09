@@ -39,58 +39,16 @@ function ArchitectBodyCallback(){
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
         <a href="/architect/ifconfig" class="btn btn-outline-warning">ifconfig</a>
         <a href="/architect/top" class="btn btn-outline-warning">top</a>
-      
-        <button onclick="$('#PullMainlineWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Mainline</button>
-        <button onclick="$('#GetSubrepositoryPullWebhook').slideToggle();" type="button" class="btn btn-outline-danger">Pull Subrepository</button>
+      </p>
+      <p>
+        <a href="/architect/git-webhooks" class="btn btn-danger">Git Webhooks</a>
       </p>
         
     </div>
   </div>
 </div><br>
 <div class="row">
-  <div class="hidden box" id="PullMainlineWebhook">
-    <h2>Webhook: Pull Mainline from Github</h2>
-    <a target="_blank" href="<?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?>"><?php echo $ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')); ?></a>
-  </div>
-  
-  <div class="hidden box" id="GetSubrepositoryPullWebhook">
-    <h2>Webhook: Pull Subrepository</h2>
-    <form onsubmit="return false;" class="form">
-      <div class="form-group">
-        <div class="input-group">
-          <div>
-            <p>Here are some potential repositories I found in the plugins directory...</p>
-            <ul>
-            <?php
-              $dir = "plugins";
-              if(is_dir($dir)){
-                if($dh = opendir($dir)){
-                  while(($File = readdir($dh)) !== false){
-                    if($File!=='.'&&$File!=='..'&&$File!=='defaultViews'){
-                      echo '<li><a href="javascript:void(0);" onclick="$(\'#subrepositoryPath\').val(\'/plugins/'.$File.'\');GetSubrepositoryPullWebhook();">'.$File.'</a></li>';
-                    }
-                  }
-                  closedir($dh);
-                }
-              }
-            ?>
-            </ul>
-          </div>
-          <input onkeyup="GetSubrepositoryPullWebhook();" type="text" class="form-control" id="subrepositoryPath" placeholder="Enter path to subrepository">
-        </div>
-      </div>
-      <div id="GetSubrepositoryPullWebhookResult"></div>
-    </form>
-    <script>
-      function GetSubrepositoryPullWebhook(){
-        var theURL="/architect/create-webhook-pull-subrepository/?path="+$('#subrepositoryPath').val();
-        console.log('Fetching: '+theURL);
-        $.get(theURL, function(data){
-          $("#GetSubrepositoryPullWebhookResult").html('<a target="_blank" href="'+data+'">'+data+'</a>');
-        });
-      }
-    </script>
-  </div>
+ 
   
   <div class="hidden" id="session">
     <?php
