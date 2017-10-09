@@ -1,6 +1,6 @@
 <?php
 
-function showArchitect(){
+function ArchitectHomepage(){
   TemplateBootstrap4('Architect','ArchitectBodyCallback();'); 
 }
   
