@@ -2,14 +2,14 @@
 
 function ArchitectFileMove(){
   
-  if(isset($_POST['newDirectoryPath'])){
+  if(isset($_POST['moveTo'])){
     if(
-      mkdir($_SERVER['DOCUMENT_ROOT'].$_POST['newDirectory'],0775)
+      rename($_POST['moveFrom'],$_SERVER['DOCUMENT_ROOT'].$_POST['moveTo'])
       ==false
     ){
-      die('<p>Unable to create: '.$_GET['path'].'</p>');
+      die('<p>Unable to move: '.$_GET['path'].'</p>');
     }
-    header('Location: /architect/files/?path='.$_POST['newDirectory']);
+    header('Location: /architect/files/?path='.basename($_POST['newDirectory']));
     exit;
   }
   
@@ -26,7 +26,7 @@ function ArchitectFileMoveBodyCallback(){
   ?>
   
   <h1>Move</h1>
-  <form action="/architect/files/move/" method="post" class="form">
+  <form action="/architect/files/move/?path=<?php echo $_GET['path']; ?>" method="post" class="form">
     <input type="text" class="form-control" name="moveFrom" id="MoveFrom" value="<?php echo $_GET['path']; ?>"><br>
     <input type="text" class="form-control" name="moveTo" id="moveTo" value="<?php echo $_GET['path']; ?>"><br>
     <input type="submit" class="btn btn-block btn-success" value="Move">
