@@ -1,13 +1,13 @@
 <?php
 
-function ArchitectDebug(){
-    TemplateBootstrap4('Debug - Architect','AArchitectDebugBodyCallback();'); 
+function ArchitectEventDebug(){
+    TemplateBootstrap4('Debug - Architect','ArchitectEventDebugBodyCallback();'); 
 }
 
-function AArchitectDebugBodyCallback(){
+function ArchitectEventDebugBodyCallback(){
   ?>
   
-  <h1>Debug</h1>
+  <h1>Event Debugging</h1>
   
   <div class="card">
     <div class="card-block">
