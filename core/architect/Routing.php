@@ -33,7 +33,7 @@ function PrepareArchitect(){
 function PresentArchitect(){
   if(path(0)=='architect'){
     
-    include_once('ArchitectShow.php');
+    include_once('ArchitectHomepage.php');
     switch(path(1)){
       case 'create-webhook-pull-subrepository':
         include_once('GetSubrepositoryPullWebhook.php');
@@ -126,7 +126,7 @@ function PresentArchitect(){
         }
         break;
       default:
-        showArchitect();
+        ArchitectHomepage();
         break;
     }
   }
