@@ -41,7 +41,7 @@ function ArchitectBodyCallback(){
         <a href="/architect/top" class="btn btn-outline-warning">top</a>
       </p>
       <p>
-        <a href="/architect/git-webhooks" class="btn btn-danger">Git Webhooks</a>
+        <a href="/architect/git-webhooks" class="btn btn-outline-danger">Git Webhooks</a>
       </p>
         
     </div>
