@@ -1,6 +1,6 @@
 <?php
 
-function CheckForUpdate(){
+function CheckForUpdates(){
   global $ASTRIA;
   $Local  = gitLocalHash();
   $Global = gitGlobalHash();
