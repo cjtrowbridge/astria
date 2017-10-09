@@ -4,7 +4,7 @@ function ArchitectFileMove(){
   
   if(isset($_POST['moveTo'])){
     if(
-      rename($_POST['moveFrom'],$_SERVER['DOCUMENT_ROOT'].$_POST['moveTo'])
+      rename($_POST['moveFrom'],$_POST['moveTo'])
       ==false
     ){
       die('<p>Unable to move: '.$_GET['path'].'</p>');
