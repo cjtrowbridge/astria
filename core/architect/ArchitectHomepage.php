@@ -32,7 +32,8 @@ function ArchitectBodyCallback(){
       <p>
         <a href="/architect/events" class="btn btn-outline-success">Events</a>
         <a href="/architect/session" class="btn btn-outline-success">Session</a>
-        <a href="/?DebugServiceDumpToDatabaseOverride" class="btn btn-outline-success">Dump Debug To DB Now</a>
+        <a href="/architect/debug" class="btn btn-outline-success">Debug</a>
+        <a href="/?DebugServiceDumpToDatabaseOverride" class="btn btn-outline-warning">Dump Debug To DB Now</a>
         
       </p>
       <p>
