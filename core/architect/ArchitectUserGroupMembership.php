@@ -16,13 +16,9 @@ function ArchitectUserGroupMembershipBodyCallback(){
   
           global $ASTRIA;
           $DBName = $ASTRIA['databases']['astria']['database'];
-          $SQL = "SELECT count(*) as 'Found' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'UserMembership';";
-  	      $TableExists = Query($SQL);
-          pd($SQL);
-          if($TableExists[0]['Found']==0){
-            $SQL + "ALTER TABLE `UserMembership` RENAME `UserGroupMembership`;";
-            Query($SQL);
-            pd($SQL);
+  	      $TableExists = Query("SELECT count(*) as 'Found' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = 'UserMembership';");
+          if($TableExists[0]['Found']>0){
+            Query("ALTER TABLE `UserMembership` RENAME `UserGroupMembership`;");
           }
           echo ArrTabler(Query("SELECT * FROM UserGroupMembership")); 
   
