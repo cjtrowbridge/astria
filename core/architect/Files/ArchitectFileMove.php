@@ -27,8 +27,8 @@ function ArchitectFileMoveBodyCallback(){
   
   <h1>Move</h1>
   <form action="/architect/files/move/?path=<?php echo $_GET['path']; ?>" method="post" class="form">
-    <input type="text" class="form-control" name="moveFrom" id="MoveFrom" value="<?php echo $_GET['path']; ?>"><br>
-    <input type="text" class="form-control" name="moveTo" id="moveTo" value="<?php echo $_GET['path']; ?>"><br>
+    <input type="text" class="form-control" name="moveFrom" id="MoveFrom" value="<?php echo $_SERVER['DOCUMENT_ROOT'].$_GET['path']; ?>"><br>
+    <input type="text" class="form-control" name="moveTo" id="moveTo" value="<?php echo $_SERVER['DOCUMENT_ROOT'].$_GET['path']; ?>"><br>
     <input type="submit" class="btn btn-block btn-success" value="Move">
   </form>
   
