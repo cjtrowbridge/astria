@@ -31,9 +31,12 @@ function ArchitectBodyCallback(){
       </p>
       <p>
         <a href="/architect/event" class="btn btn-outline-success">Events</a>
-        <a href="/architect/user" class="btn btn-outline-success">Users</a>
-        <a href="/architect/group" class="btn btn-outline-success">Groups</a>
         <a href="/architect/session" class="btn btn-outline-success">Session</a>
+      </p>
+      <p>
+        <a href="/architect/user" class="btn btn-outline-success">User</a>
+        <a href="/architect/usergroup" class="btn btn-outline-success">User Group</a>
+        <a href="/architect/usergroupmembership" class="btn btn-outline-success">User Group Membership</a>
       </p>
       <p>
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
@@ -48,25 +51,6 @@ function ArchitectBodyCallback(){
   </div>
 </div><br>
 <div class="row">
- 
-  
-  <div class="hidden" id="session">
-    <?php
-      pd($ASTRIA['Session']);
-    ?>
-  </div>
-  <div class="hidden" id="groups">
-    <?php
-      echo ArrTabler(Query("SELECT * FROM `Group`"));
-    ?>
-  </div>
-  <div class="hidden" id="users">
-    <?php
-      echo ArrTabler(Query("
-        SELECT * FROM `User`
-      "));
-    ?>
-  </div>
   <div class="hidden" id="events">
     <?php pd($EVENTS); ?>
   </div>
