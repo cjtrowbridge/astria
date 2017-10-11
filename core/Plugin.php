@@ -268,7 +268,7 @@ function VerifyPluginListExists(){
   global $ASTRIA;
   if(!(file_exists('plugin.php'))){
     //Need to create a plugins file
-    copy('core/sample/plugin.sample.php','plugin.php');
+    copy('sample/plugin.sample.php','plugin.php');
     include('plugin.php');
     header("Location: ./");
     exit;
