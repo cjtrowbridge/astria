@@ -18,7 +18,7 @@ function DatabaseSetUp(){
       `Expires` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
-    CREATE TABLE `Group` (
+    CREATE TABLE `UserGroup` (
       `GroupID` int(11) NOT NULL,
       `ParentID` int(11) DEFAULT NULL,
       `Name` varchar(255) NOT NULL,
@@ -58,7 +58,7 @@ function DatabaseSetUp(){
       `SignupDate` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
-    CREATE TABLE `UserMembership` (
+    CREATE TABLE `UserGroupMembership` (
       `UserMembershipID` int(11) NOT NULL,
       `UserID` int(11) NOT NULL,
       `GroupID` int(11) NOT NULL
