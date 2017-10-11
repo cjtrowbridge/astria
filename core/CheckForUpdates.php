@@ -3,12 +3,15 @@
 Hook('User Is Logged In','MaybeCheckForUpdates();');
 
 function MaybeCheckForUpdates(){
-  if(
-    isset($_GET['checkForUpdates'])&&
-    HasMembership('Astria Administrators')
-  ){
-    CheckNowForUpdates();
-    exit;
+  if(isset($_GET['checkForUpdates'])){
+    if(
+      HasMembership('Astria Administrators')
+    ){
+      CheckNowForUpdates();
+      exit;
+    }else{
+      die('You do not have permission to check for updates. ');
+    }
   }
 }
 
