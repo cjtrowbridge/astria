@@ -1,6 +1,15 @@
 <?php
 
 function GetAllGroups($UserID){
+  
+  //Make sure the tables are set up the new way
+  if(TableExists('Group')){
+    Query("ALTER TABLE `Group` RENAME `UserGroup`;");
+  }
+  if(TableExists('UserMembership')){
+    Query("ALTER TABLE `UserMembership` RENAME `UserGroupMembership`;");
+  }
+  
   //Find the groups they are a member of, as well as all the ancestor groups
   $Memberships=array();
   $DirectMemberships = Query("SELECT DISTINCT(GroupID) FROM `UserGroupMembership` WHERE UserID = ".intval($UserID));
