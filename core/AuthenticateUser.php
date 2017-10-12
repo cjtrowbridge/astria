@@ -3,14 +3,6 @@
 function AuthenticateUser($email=null){
   global $ASTRIA;
   
-  //Validate and sanitize the email
-  if($email == null){die('Tried to authenticate invalid user.');}
-  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email);
-  
-  //Get all the user's profile info for the session
-  $User=Query("SELECT *,NULL as Password FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
-  $ASTRIA['Session']['User']=$User;
-  
   //Make sure the tables are set up the new way
   if(TableExists('Group')){
     Query("ALTER TABLE `Group` RENAME `UserGroup`;");
@@ -18,6 +10,14 @@ function AuthenticateUser($email=null){
   if(TableExists('UserMembership')){
     Query("ALTER TABLE `UserMembership` RENAME `UserGroupMembership`;");
   }
+  
+  //Validate and sanitize the email
+  if($email == null){die('Tried to authenticate invalid user.');}
+  $cleanEmail=mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email);
+  
+  //Get all the user's profile info for the session
+  $User=Query("SELECT *,NULL as Password FROM `User` WHERE `Email` LIKE '".$cleanEmail."' LIMIT 1")[0]; 
+  $ASTRIA['Session']['User']=$User;
   
   //Insert group memberships into the session
   $ASTRIA['Session']['User']['Memberships']=GetAllGroups($ASTRIA['Session']['User']['UserID']);
