@@ -18,6 +18,17 @@ function ArchitectBodyCallback(){
   <b><?php echo file_get_contents('/etc/hostname'); ?></b>
   <i><?php echo shell_exec('uptime'); ?></i>
 </p>
+<p>
+  <?php
+    $Command = 'grep -o -r "TODO" '.$_SERVER["DOCUMENT_ROOT"].'/core/ | wc -l';
+    $Todos = shell_exec($Command);
+    if($Todos>0){
+      ?>
+      <p>Number of Astria Core TODOs: <?php echo $Todos; ?></p>
+      <?php
+    }
+  ?>
+</p>
 
 <div class="row">
   <div class="col-xs-12">
