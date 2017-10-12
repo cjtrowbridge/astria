@@ -10,6 +10,8 @@ function TableExists($Table,$Database = 'astria'){
   $SQL="SELECT count(*) as 'Found' FROM information_schema.tables WHERE table_schema = '$DBName' AND table_name = '".$Table."';";
   Event($SQL);
   $TableExists = Query($SQL);
+  pd($TableExists);
+  
   if($TableExists[0]['Found']>0){
     return false;
   }else{
