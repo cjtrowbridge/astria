@@ -136,6 +136,7 @@ function AttemptGoogleAuth(){
     
       //Update User Data From Google
       //TODO make this check if its necessary before updating, in order to save time and resources
+      Event('Updating user info from google data.');
       Query("
         UPDATE `User` 
         SET 
@@ -145,6 +146,7 @@ function AttemptGoogleAuth(){
         WHERE `Email` LIKE '".mysqli_real_escape_string($ASTRIA['databases']['astria']['resource'],$ASTRIA['Session']['google_oauth2']['user_object']->email)."';
       ");
     
+      Event('Calling "Authenticate User"');
       AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
     
   }else{
