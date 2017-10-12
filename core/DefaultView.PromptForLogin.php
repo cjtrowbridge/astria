@@ -12,7 +12,6 @@ function PromptForLoginBodyCallback(){
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-				<h2>Please Login</h2>
 				<?php Event('Auth Login Options'); ?>
 			</div>
 		</div>
