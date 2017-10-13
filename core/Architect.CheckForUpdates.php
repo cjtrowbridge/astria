@@ -17,16 +17,7 @@ function MaybeCheckForUpdates(){
 
 function CheckForUpdates(){
   ?>
-<div id="updatesChecker">
-  <div class="card">
-    <div class="card-block">
-      <div class="card-text">
-        <h3>Updates</h3>
-        <p>Checking... <img src="/img/spinner.gif"></p>
-      </div>
-    </div>
-  </div>
-</div>
+<span id="updatesChecker"><img src="/img/spinner.gif" title="Checking For Updates..."></span>
 
 <script>
   $.get("/?checkForUpdates",function(data){
@@ -44,7 +35,8 @@ function CheckNowForUpdates(){
   $Global = gitGlobalHash();
 
   if(!($Local==$Global)){
-    ?>
+    echo '<a href="'.$ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')).'"><i class="material-icons" title="Updates Available" style="color: red;">system_update_alt</i></a>';
+    /* ?>
 
   <div class="card">
     <div class="card-block">
@@ -57,7 +49,9 @@ function CheckNowForUpdates(){
     </div>
   </div>
 
-    <?php
+    <?php */
+  }else{
+    ?><i class="material-icons" title="Up To Date">done</i><?php
   }
   Event("Done Checking For Updates");
 }
