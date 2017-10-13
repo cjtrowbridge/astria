@@ -4,7 +4,7 @@ Hook('Before Login','GitMasterHash();');
 
 function GitMasterHash(){
   if(isset($_GET['gitHash'])){
-    die(gitHash());
+    die(gitLocalHash());
   }
 }
 
