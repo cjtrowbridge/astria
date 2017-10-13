@@ -102,7 +102,7 @@ function PluginTestReset(){
         
         PluginLocalTest($_GET['resetTest']);
         
-        header('Location: /architect/plugin');
+        header('Location: /architect/plugins');
         sleep(1);
         exit;
       }else{
@@ -119,7 +119,7 @@ function PluginTestReset(){
       ){
         $ASTRIA['plugin'][$_GET['enablePlugin']]['state']='enabled';
         SavePluginConfig();
-        header('Location: /architect/plugin');
+        header('Location: /architect/plugins');
         sleep(1);
         exit;
       }else{
@@ -136,7 +136,7 @@ function PluginTestReset(){
       ){
         $ASTRIA['plugin'][$_GET['disablePlugin']]['state']='ready';
         SavePluginConfig();
-        header('Location: /architect/plugin');
+        header('Location: /architect/plugins');
         sleep(1);
         exit;
       }else{
