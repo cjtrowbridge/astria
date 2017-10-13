@@ -36,6 +36,10 @@ function CheckNowForUpdates(){
 
   if(!($Local==$Global)){
     echo '<a href="'.$ASTRIA['app']['appURL'].'/?'.urlencode(BlowfishEncrypt('Pull Mainline From Github')).'"><i class="material-icons" title="Updates Available" style="color: red;">system_update_alt</i></a>';
+    echo PHP_EOL.PHP_EOL.'<!--';
+    echo PHP_EOL.'Local Master Head is at:  '.$Local.PHP_EOL;
+    echo PHP_EOL.'Global Master Head is at: '.$Global.PHP_EOL;
+    echo '-->'.PHP_EOL.PHP_EOL;
     /* ?>
 
   <div class="card">
