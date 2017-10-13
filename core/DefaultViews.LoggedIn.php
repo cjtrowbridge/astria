@@ -69,7 +69,10 @@ function defaultViewsMyAccountBodyCallback(){
 function defaultViewsHomepageBodyCallback(){
   global $EVENTS;
   Event('User Is Logged In - Homepage Content');
-  if(count($EVENTS['User Is Logged In - Homepage Content'])==0){
+  if(
+    isset($EVENTS['User Is Logged In - Homepage Content'])&&
+    count($EVENTS['User Is Logged In - Homepage Content'])==0)
+  {
     ?><h1>Welcome To Astria</h1>
     <p>Astria takes care of user management and manages databases so you can focus on developing an application.<p>
     <p>If you are seeing this default homepage for a logged in user, it is because no other page was loaded, or no functions were hooked to the "User Is Logged In - Homepage Content" event.</p>
