@@ -17,7 +17,7 @@ function MaybeCheckForUpdates(){
 
 function CheckForUpdates(){
   ?>
-<span id="updatesChecker"><img src="/img/spinner.gif" title="Checking For Updates..."></span>
+<span id="updatesChecker"><img src="/img/ajax-loader.gif" title="Checking For Updates..."></span>
 
 <script>
   $.get("/?checkForUpdates",function(data){
