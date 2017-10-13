@@ -24,7 +24,7 @@ function MaybeDefaultHomepage(){
       }
       TemplateBootstrap4('My Account','defaultViewsMyAccountBodyCallback();');
     case false:
-      TemplateBootstrap4('Home Page','defaultViewsHomepageBodyCallback();');
+      TemplateBootstrap4('','defaultViewsHomepageBodyCallback();');
       break;
   }
 }
@@ -67,10 +67,16 @@ function defaultViewsMyAccountBodyCallback(){
 }
 
 function defaultViewsHomepageBodyCallback(){
-  ?><h1>Welcome To Astria</h1>
-  <p>Astria takes care of user management and manages databases so you can focus on developing an application.<p>
-  <p>If you are seeing this default homepage for a logged in user, it is because no other page was loaded.</p>
-  <p>My best practice for getting started is to fork <a href="https://github.com/cjtrowbridge/astria-blank-plugin" target="_blank">Astria Blank Plugin</a> on Github and clone it into the plugins directory. Then use architect to set up a webhook and start coding!</p>
-  <p>Also, check out the various examples on <a href="https://github.com/cjtrowbridge/">my Github</a> of apps written as plugins for Astria.</p>
-  <?php
+  global $EVENTS;
+  Event('User Is Logged In - Homepage Content');
+  if(count($EVENTS['User Is Logged In - Homepage Content'])==0){
+    ?><h1>Welcome To Astria</h1>
+    <p>Astria takes care of user management and manages databases so you can focus on developing an application.<p>
+    <p>If you are seeing this default homepage for a logged in user, it is because no other page was loaded, or no functions were hooked to the "User Is Logged In - Homepage Content" event.</p>
+    <p>My best practice for getting started is to fork <a href="https://github.com/cjtrowbridge/astria-blank-plugin" target="_blank">Astria Blank Plugin</a> on Github and clone it into the plugins directory. Then use architect to set up a webhook and start coding!</p>
+    <p>Also, check out the various examples on <a href="https://github.com/cjtrowbridge/">my Github</a> of apps written as plugins for Astria.</p>
+    <?php
+  }
+  
+  
 }
