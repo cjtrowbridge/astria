@@ -134,7 +134,7 @@ function PluginTestReset(){
         isset($ASTRIA['plugin'][$_GET['disablePlugin']])&&
         $ASTRIA['plugin'][$_GET['disablePlugin']]['state']=='enabled'
       ){
-        $ASTRIA['plugin'][$_GET['disablePlugin']]['state']='disable';
+        $ASTRIA['plugin'][$_GET['disablePlugin']]['state']='ready';
         SavePluginConfig();
         header('Location: /architect');
         sleep(1);
