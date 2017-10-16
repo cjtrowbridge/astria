@@ -34,7 +34,7 @@ function PatchUserTableAddColumns(){
   
   //Need to update the first user to still be an admin
   //This assumes the first user will always be an admin
-  Query("UPDATE User SET IsAstriaAdmin = TRUE, IsWaiting = FALSE WHERE Email LIKE '".$cleanEmail."';");
+  Query("UPDATE User SET IsAstriaAdmin = TRUE, IsWaiting = FALSE WHERE UserID = 1;");
   
   
   Event('Patch: Done looking for columns that need to be added to the User table.');
