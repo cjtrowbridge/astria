@@ -27,7 +27,7 @@ function PatchUserTableAddColumns(){
   ");
   if($Check[0]['Check']==0){
     Event('Adding IsWaiting column');
-    Query("ALTER TABLE `User` ADD `IsWaiting` BOOLEAN NOT NULL DEFAULT FALSE;");
+    Query("ALTER TABLE `User` ADD `IsWaiting` BOOLEAN NOT NULL DEFAULT TRUE;");
   }else{
     Event('IsWaiting column already exists');
   }
