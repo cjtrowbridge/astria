@@ -1,9 +1,9 @@
 <?php 
 
 function AstriaWaitingRoom(){
-	TemplateBootstrap4('Waiting','PromptForLoginBodyCallback();');
+	TemplateBootstrap4('Waiting','WaitingRoomBodyCallback();');
 }
-function PromptForLoginBodyCallback(){
+function WaitingRoomBodyCallback(){
 	?>
 	
 	<div class="container">
