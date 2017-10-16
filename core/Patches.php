@@ -3,6 +3,8 @@
 Hook('Done Updating Astria','AstriaPatches();');
 
 function AstriaPatches(){
+ 
+ Event('Loading Astria Patches...');
 
  if($handle = opendir('core/patches')){
     while (false !== ($class = readdir($handle))){
