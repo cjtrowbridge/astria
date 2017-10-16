@@ -24,4 +24,5 @@ function PatchUserTableAddColumns(){
     Query("ALTER TABLE `User` ADD `IsWaiting` BOOLEAN NOT NULL DEFAULT FALSE;");
   }
   
+  
 }
