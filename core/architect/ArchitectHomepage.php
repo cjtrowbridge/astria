@@ -25,7 +25,7 @@ function ArchitectBodyCallback(){
     $Todos = shell_exec($Command);
     if($Todos>0){
       ?>
-      <p>Number of Astria Core TODOs: <?php echo $Todos; ?></p>
+      <p>Number of Astria <a href="https://github.com/cjtrowbridge/astria/search?q=todo" target="_blank">Core TODOs: <?php echo $Todos; ?></a></p>
       <?php
     }
   ?>
