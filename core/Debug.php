@@ -28,7 +28,9 @@ Hook('User Is Logged In', 'DebugServiceDumpToDatabaseOverride();' );
 
 function DebugServiceDumpToDatabaseOverride(){
   if(isset($_GET['DebugServiceDumpToDatabaseOverride'])){
-    if(HasMembership('Astria Administrators')){
+    if(
+      IsAstriaAdmin()
+    ){
       DebugServiceDumpToDatabase();
       exit;
     }else{
