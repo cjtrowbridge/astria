@@ -8,6 +8,11 @@ function CreateUser($Email){
   //Add user to users table
   Query("INSERT INTO `User`(`Email`,`SignupDate`)VALUES('".$cleanEmail."',NOW());");
   
+  $User = Query("SELECT UserID FROM User WHERE Email LIKE '".$cleanEmail."';");
+  if($User[0]['UserID']==1){
+    Query("UPDATE User SET IsAstriaAdmin = TRUE, IsWaiting = FALSE WHERE Email LIKE '".$cleanEmail."';");
+  }
+  
   //Add this new user to the default group 
   CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria']['resource']),1);
   
