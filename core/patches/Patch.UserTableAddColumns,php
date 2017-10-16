@@ -1,0 +1,27 @@
+<?php
+
+Hook('Done Updating Astria','PatchUserTableAddColumns();');
+
+function PatchUserTableAddColumns(){
+
+  $Check = Query("
+    SELECT COUNT(*) as 'Check'
+    FROM information_schema.columns 
+    WHERE table_name = 'User'
+    AND column_name = 'IsAstriaAdmin';
+  ");
+  if($Check[0]['Check']==0){
+    Query("ALTER TABLE `User` ADD `IsAstriaAdmin` BOOLEAN NOT NULL DEFAULT FALSE;");
+  }
+  
+  $Check = Query("
+    SELECT COUNT(*) as 'Check'
+    FROM information_schema.columns 
+    WHERE table_name = 'User'
+    AND column_name = 'IsWaiting';
+  ");
+  if($Check[0]['Check']==0){
+    Query("ALTER TABLE `User` ADD `IsWaiting` BOOLEAN NOT NULL DEFAULT FALSE;");
+  }
+  
+}
