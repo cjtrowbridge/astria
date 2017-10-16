@@ -13,6 +13,8 @@ function AstriaPatches(){
         Event('Before Loading Patch: '.$include_path);
         include_once($include_path);
         Event('After Loading Patch: '.$include_path);
+      }else{
+        Event('Skipping Patch '.$include_path);
       }
     }
     closedir($handle);
