@@ -51,5 +51,7 @@ function RepoPullExecute(){
 </script>
 
     <?php */
+  
+  Event('Done Updating Astria');
     
 }
