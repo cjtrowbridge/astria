@@ -1,6 +1,6 @@
 <?php
 
-Hook('Done Updating Astria','PatchUserTableAddColumns();');
+Hook('Run Astria Patches','PatchUserTableAddColumns();');
 
 function PatchUserTableAddColumns(){
 
