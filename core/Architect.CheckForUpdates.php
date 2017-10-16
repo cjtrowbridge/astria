@@ -4,8 +4,8 @@ Hook('User Is Logged In','MaybeCheckForUpdates();');
 
 function MaybeCheckForUpdates(){
   if(isset($_GET['checkForUpdates'])){
-    if(()
-      IsAstriaAdmin
+    if(
+      IsAstriaAdmin()
     ){
       CheckNowForUpdates();
       exit;
