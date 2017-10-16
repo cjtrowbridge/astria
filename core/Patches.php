@@ -14,6 +14,8 @@ function AstriaPatches(){
       }
     }
     closedir($handle);
+  }else{
+    die('Unable to load patches directory!');
   }
   
   Event('Run Astria Patches');
