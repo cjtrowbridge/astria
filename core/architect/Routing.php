@@ -14,8 +14,9 @@ function PrepareArchitect(){
   }
 
   if(
-    HasMembership('Astria Administrators')||
-    $UserID==1
+    //HasMembership('Astria Administrators')||
+    //$UserID==1
+    IsAstriaAdmin()
   ){
     Nav('Main','Link','Architect','/architect');
     Hook('User Is Logged In - Presentation','PresentArchitect();');
