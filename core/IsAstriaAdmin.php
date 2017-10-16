@@ -1,5 +1,9 @@
 <?php
 
+function IsAstriaAdministrator(){
+  return IsAstriaAdmin();
+}
+
 function IsAstriaAdmin(){
   global $ASTRIA;
   
