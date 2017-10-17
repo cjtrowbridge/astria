@@ -53,3 +53,6 @@ li{
   width: 30px;
   border-radius: 50%;
 }
+.navbar-fixed-top{
+  height: 60px;
+}
