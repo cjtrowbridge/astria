@@ -56,13 +56,13 @@ function LoadUserPermissionsIntoSession(){
   $Permissions = Query($SQL);
   
   $ASTRIA['Session']['AllPermissions']  = array();
-  $ASTRIA['Session']['User']['Permissions'] = array();
+  $ASTRIA['Session']['User']['Permission'] = array();
   
   foreach($Permissions as $Permission){
     if($Permission['UserID']==0){
       $ASTRIA['Session']['AllPermissions'][$Permission['Text']]=$Permission['Text'];
     }else{
-      $ASTRIA['Session']['User']['Permissions'][$Permission['Text']]=$Permission['Text'];
+      $ASTRIA['Session']['User']['Permission'][$Permission['Text']]=$Permission['Text'];
     }
   }
   
