@@ -18,7 +18,7 @@ function ArchitectSchema(){
     default:
       //try elaborating on this as a database alias
       global $ASTRIA;
-      if(!(isset($ASTRIA['databases'][path(2)]))){
+      if(!(isset($ASTRIA['databases'][path(2,false)]))){
         die('Invalid Database Alias');
       }
 
