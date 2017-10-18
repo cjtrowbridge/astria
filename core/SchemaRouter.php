@@ -13,7 +13,7 @@ function SchemaRouter(){
     path(0)!='js'
   ){
     global $ASTRIA;
-    if(isset($ASTRIA['databases'][path(1)])){
+    if(isset($ASTRIA['databases'][path(0)])){
       die('LETS ROUTE THIS SCHEMA OBJECT');
     }
   }
