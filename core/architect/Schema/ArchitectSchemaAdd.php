@@ -3,8 +3,7 @@
 function ArchitectSchemaAdd(){
   if(isset($_POST['dbHost'])){
     
-    $NewAlias = preg_replace("/^[a-zA-Z0-9_]+([-.][a-zA-Z0-9_]+)*$/", "", $_POST['dbAlias']);
-    if($NewAlias=='astria'){
+    if($_POST['dbAlias']=='astria'){
       die('Nonprimary schema can not be aliased to "astria".');
     }
     
@@ -25,7 +24,7 @@ function ArchitectSchemaAdd(){
     }
     
     $newSchemaFile.=PHP_EOL.PHP_EOL.
-    "\$ASTRIA['databases']['".$NewAlias."'] = array(".PHP_EOL.
+    "\$ASTRIA['databases']['".$_POST['dbAlias']."'] = array(".PHP_EOL.
     "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
     "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
     "  'username'                 => '".$_POST['dbUsername']."',".PHP_EOL.
