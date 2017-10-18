@@ -16,4 +16,5 @@ function SchemaRouter(){
     if(isset($ASTRIA['databases'][path(1)])){
       die('LETS ROUTE THIS SCHEMA OBJECT');
     }
+  }
 }
