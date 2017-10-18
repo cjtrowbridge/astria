@@ -16,6 +16,7 @@ function path($index = 0,$Lowercase = true){
 function paths($Lowercase = true){
   $theURL=url($Lowercase);
   
+  //If there is a question mark, truncate the url we are parsing at that point.
   $PreQ = explode("?", $theURL);
   $theURL = $PreQ[0];
   
