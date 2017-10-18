@@ -33,7 +33,6 @@ function HasPermission($Permission){
   
   //add it to the database under user 0.
   $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(0,'".Sanitize($Permission)."')";
-  pd($SQL);
   Query($SQL); 
      
   //reload the user's list of permissions.
