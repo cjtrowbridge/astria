@@ -32,7 +32,9 @@ function HasPermission($Permission){
   if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){return false;}
   
   //add it to the database under user 0.
-  Query("INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')"); 
+  $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')";
+  pd($SQL);
+  Query($SQL); 
      
   //reload the user's list of permissions.
   LoadUserPermissionsIntoSession();
