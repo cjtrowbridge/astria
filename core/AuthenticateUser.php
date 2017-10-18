@@ -28,6 +28,9 @@ function AuthenticateUser($email=null){
   
   Query("UPDATE `User` SET `LastLogin` = NOW() WHERE `UserID` = ".$UserIDClean.";");
   
+  //Get all the user's permissions
+  LoadUserPermissionsIntoSession();
+  
   //Cache the entire session
   AstriaSessionSave();
   
