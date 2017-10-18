@@ -22,6 +22,6 @@ function SchemaRouter(){
         die('Permission denied.');//TODO make this more pretty and allow hooks for alternate page
       }
       
-    }else{Event('Schema Router Found No Schema Matches');}
+    }else{Event('Schema Router Found No Schema Matches');pd($ASTRIA['databases']);}
   }
 }
