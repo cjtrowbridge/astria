@@ -13,14 +13,33 @@ function SchemaRouter(){
     path(0)!='js'
   ){
     global $ASTRIA;
-    $Schema=path(0);
+    
+    $Schema = Sanitize(path(0));
+    $Table  = Sanitize(path(1));
+    $Key    = Sanitize(path(2));
+    
     if(isset($ASTRIA['databases'][$Schema])){
       
-      $Permission = $Schema;
-      if(HasPermission($Permission)){
-        die('YOur wish is my command.');
+      if(HasPermission('View_Schema_'$Schema)){
+        
+        switch($Table){
+          //my thinking is that this will later be able to handle inserts and updates
+          case false;
+            die('Show list of tables');
+            break;
+          default:
+            
+            if(HasPermission('View_Schema_'$Schema.'_View_Table_'.$Table)){
+              die('Let\'s look at the table '.$Table.' in schema '.$Schema);
+            }else{
+              die('Permission denied to view table '.$Table.' in Schema '.$Schema.'.'); //TODO make this more pretty and allow hooks for alternate page
+            }
+            
+            break;
+        }
+        
       }else{
-        die('Permission denied.');//TODO make this more pretty and allow hooks for alternate page
+        die('Permission denied to view schema '.$Schema.'.'); //TODO make this more pretty and allow hooks for alternate page
       }
       
     }
