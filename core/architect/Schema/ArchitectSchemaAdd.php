@@ -10,7 +10,7 @@ function ArchitectSchemaAdd(){
     global $ASTRIA;
     $newSchemaFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL;
     foreach($ASTRIA['databases'] as $Index => $Schema){
-      if(true||$Index != 'astria'){
+      if($Index != 'astria'){
         $newSchemaFile.=PHP_EOL.PHP_EOL.
         "\$ASTRIA['databases']['".$Index."'] = array(".PHP_EOL.
         "  'type'                     => '".$Schema['type']."',    ".PHP_EOL.
