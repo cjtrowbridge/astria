@@ -35,6 +35,8 @@ function SchemaRouter(){
               //User is navigating at the table level and has view permission.
               
               Event('SchemaRouter: View Table');
+              SchemaRouterEndpointBuilder();
+              
               die('Let\'s look at the table '.$Table.' in schema '.$Schema); //TODO make this more pretty
               
             }else{
@@ -49,4 +51,8 @@ function SchemaRouter(){
       
     }
   }
+}
+
+function SchemaRouterEndpointBuilder(){
+  
 }
