@@ -22,24 +22,29 @@ function SchemaRouter(){
       
       if(HasPermission('View_Schema_'.$Schema)){
         
-        switch($Table){
-          //my thinking is that this will later be able to handle inserts and updates
-          case false;
-            die('Show list of tables');
-            break;
-          default:
-            
-            if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
-              die('Let\'s look at the table '.$Table.' in schema '.$Schema);
-            }else{
-              die('Permission denied to view table '.$Table.' in Schema '.$Schema.'.'); //TODO make this more pretty and allow hooks for alternate page
-            }
-            
-            break;
-        }
+        if($Table==false){
+            //User is navigating at the schema level and has view permission.
+          
+            Event('SchemaRouter: View Schema');
+            die('Show list of tables'); //TODO make this more pretty
         
+        }else{
+            //User is navigating at the table level. Permission Unclear
+          
+            if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
+              //User is navigating at the table level and has view permission.
+              
+              Event('SchemaRouter: View Table');
+              die('Let\'s look at the table '.$Table.' in schema '.$Schema); //TODO make this more pretty
+              
+            }else{
+                Event('SchemaRouter: Permission Denied to View Table');
+                die('Permission denied to view table '.$Table.' in Schema '.$Schema.'.'); //TODO make this more pretty
+            }
+        }
       }else{
-        die('Permission denied to view schema '.$Schema.'.'); //TODO make this more pretty and allow hooks for alternate page
+        Event('SchemaRouter: Permission Denied to View Schema');
+        die('Permission denied to view schema '.$Schema.'.'); //TODO make this more pretty
       }
       
     }
