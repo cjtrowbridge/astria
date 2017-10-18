@@ -33,6 +33,7 @@ function DatabaseSetUp(){
       `InsertedTime` datetime NOT NULL,
       `InsertedUser` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ALTER TABLE `Permission` ADD `Text` VARCHAR(255) NULL AFTER `GroupID`;
 
     CREATE TABLE `Session` (
       `SessionID` int(11) NOT NULL,
