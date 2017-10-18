@@ -30,7 +30,7 @@ function ArchitectSchema(){
       //TODO add listeners for csv dump flags
 
       global $ASTRIA;
-      $Alias = path(2);
+      $Alias = path(2,false);
       $This = $ASTRIA['databases'][$Alias];
 
       switch($This['type']){
