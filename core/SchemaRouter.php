@@ -12,11 +12,14 @@ function SchemaRouter(){
     path(0)!='img'&&
     path(0)!='js'
   ){
-    global $ASTRIA;
-    
-    
-    if(isset($ASTRIA['databases'][path(0)])){
-      die('LETS ROUTE THIS SCHEMA OBJECT');
+    $Schema=path(0);
+    if(isset($ASTRIA['databases'][$Schema])){
+      $Permission = $Schema;
+      if(HasPermission($Permission)){
+        die('YOur wish is my command.');
+      }else{
+        die('Permission denied.');//TODO make this more pretty and allow hooks for alternate page
+      }
     }
   }
 }
