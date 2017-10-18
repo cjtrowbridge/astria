@@ -48,6 +48,8 @@ function LoadUserPermissionsIntoSession(){
   if(!isset($ASTRIA['Session']['User'])){return false;}
   if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
   
+  if($ASTRIA['Session']['User']['IsAstriaAdmin']==1){return true;}
+  
   $UserID = $ASTRIA['Session']['User']['UserID'];
   
   //Get relevant permissions
