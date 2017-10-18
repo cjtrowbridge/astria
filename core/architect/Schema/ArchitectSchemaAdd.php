@@ -24,6 +24,7 @@ function ArchitectSchemaAdd(){
     }
     
     $NewAlias=strtolower($_POST['dbAlias']);
+    $NewAlias = preg_replace("/[^a-zA-Z0-9]+/", "", $NewAlias);
     
     $newSchemaFile.=PHP_EOL.
     "\$ASTRIA['databases']['".$NewAlias."'] = array(".PHP_EOL.
@@ -69,7 +70,7 @@ function ArchitectSchemaAddBodyCallback(){
       <label class="col-xs-2 col-form-label">Database Alias:</label>
       <div class="col-xs-10">
         <input class="form-control" type="text" name="dbAlias" id="dbAlias">
-        <small class="form-text text-muted">Alias must be lowercase and probably should only be letters and numbers. Other characters could produce unexpected behavior depending on your environment.</small>
+        <small class="form-text text-muted">Alias must be lowercase letters and numbers only.</small>
       </div>
     </div>
     <div class="form-group row">
