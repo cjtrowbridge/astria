@@ -11,7 +11,7 @@ function ArchitectSchemaAdd(){
     $newSchemaFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL;
     foreach($ASTRIA['databases'] as $Index => $Schema){
       if($Index != 'astria'){
-        $newSchemaFile.=PHP_EOL.PHP_EOL.
+        $newSchemaFile.=PHP_EOL.
         "\$ASTRIA['databases']['".$Index."'] = array(".PHP_EOL.
         "  'type'                     => '".$Schema['type']."',    ".PHP_EOL.
         "  'hostname'                 => '".$Schema['hostname']."',".PHP_EOL.
@@ -23,7 +23,7 @@ function ArchitectSchemaAdd(){
       }
     }
     
-    $newSchemaFile.=PHP_EOL.PHP_EOL.
+    $newSchemaFile.=PHP_EOL.
     "\$ASTRIA['databases']['".$_POST['dbAlias']."'] = array(".PHP_EOL.
     "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
     "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
@@ -33,8 +33,7 @@ function ArchitectSchemaAdd(){
     "  'resource'                 => false".PHP_EOL.
     ");".PHP_EOL.PHP_EOL;
     
-    $result=false;
-    //$result=file_put_contents('schema.php', $newSchemaFile);
+    $result=file_put_contents('schema.php', $newSchemaFile);
     if($result==false){
      die("Could not write schema config file. Please give write permission or copy the following into a new schema.php file;\n\n".$newSchemaFile); 
     } 
