@@ -12,6 +12,7 @@ function SchemaRouter(){
     path(0)!='img'&&
     path(0)!='js'
   ){
+    global $ASTRIA;
     $Schema=path(0);
     if(isset($ASTRIA['databases'][$Schema])){
       
@@ -22,6 +23,6 @@ function SchemaRouter(){
         die('Permission denied.');//TODO make this more pretty and allow hooks for alternate page
       }
       
-    }else{Event('Schema Router Found No Schema Matches');pd($ASTRIA['databases']);}
+    }
   }
 }
