@@ -30,10 +30,10 @@ function DatabaseSetUp(){
       `ViewID` int(11) NOT NULL,
       `UserID` int(11) DEFAULT NULL,
       `GroupID` int(11) DEFAULT NULL,
+      `Text` VARCHAR(255) DEFAULT NULL,
       `InsertedTime` datetime NOT NULL,
       `InsertedUser` int(11) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
-    ALTER TABLE `Permission` ADD `Text` VARCHAR(255) NULL AFTER `GroupID`;
 
     CREATE TABLE `Session` (
       `SessionID` int(11) NOT NULL,
