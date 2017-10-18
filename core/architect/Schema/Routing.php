@@ -11,6 +11,10 @@ function ArchitectSchema(){
       include_once('ArchitectSchemaHUD.php');
       ArchitectSchemaHUD();
       break;
+    case 'add':
+      include_once('ArchitectSchemaAdd.php');
+      ArchitectSchemaAdd();
+      break;
     default:
       //try elaborating on this as a database alias
       global $ASTRIA;
