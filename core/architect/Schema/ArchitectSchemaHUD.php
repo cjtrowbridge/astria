@@ -7,7 +7,11 @@ function ArchitectSchemaHUD(){
 function ArchitectSchemaHUDBodyCallback(){
   global $ASTRIA;
   ?><h1><A href="/architect">Architect</a> / <a href="/architect/schema">Schema</a> / </h1>
-  <p><a class="btn btn-success" href="/architect/schema/add">Add Schema</a></p>
+  <p>
+    <a class="btn btn-success" href="/architect/schema/add">Add Schema</a>
+    <a class="btn btn-success" href="/architect/files/edit/?path=/schema.php">Edit Current Configuration</a>
+    
+  </p>
   <?php
   foreach($ASTRIA['databases'] as $Alias => $Database){
     ?>
