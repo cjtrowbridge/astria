@@ -20,7 +20,11 @@ function ArchitectSchema(){
       global $ASTRIA;
       $Alias = path(2,false);
       if(!(isset($ASTRIA['databases'][$Alias]))){
-        die('Invalid Database Alias: '.$Alias);
+        echo 'Invalid Database Alias: '.$Alias.PHP_EOL.'<br>Found:'.PHP_EOL;
+        foreach($ASTRIA['databases'] as $Key => $Value){
+          echo '-'.$Key.PHP_EOL;
+        }
+        exit;
       }
 
       //TODO add listeners for csv dump flags
