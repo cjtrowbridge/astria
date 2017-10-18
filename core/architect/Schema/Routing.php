@@ -18,7 +18,7 @@ function ArchitectSchema(){
     default:
       //try elaborating on this as a database alias
       global $ASTRIA;
-      $Alias = path(2,false);
+      $Alias = path(2);
       if(!(isset($ASTRIA['databases'][$Alias]))){
         echo 'Invalid Database Alias: '.$Alias.PHP_EOL.'<br>Found:<br>'.PHP_EOL;
         foreach($ASTRIA['databases'] as $Key => $Value){
@@ -30,7 +30,7 @@ function ArchitectSchema(){
       //TODO add listeners for csv dump flags
 
       global $ASTRIA;
-      $Alias = path(2,false);
+      $Alias = path(2);
       $This = $ASTRIA['databases'][$Alias];
 
       switch($This['type']){
@@ -124,7 +124,7 @@ function ArchitectSchema(){
 
 function ArchitectSchemaElaborateBodyCallback(){
   global $ASTRIA;
-  $Alias = path(2,false);
+  $Alias = path(2);
   $This = $ASTRIA['databases'][$Alias];
   
   switch($This['type']){
