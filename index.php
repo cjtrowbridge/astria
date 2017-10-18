@@ -13,8 +13,8 @@ if(!file_exists('config.php')){
   include('core/Configuration.php');
   AstriaConfiguration();
 }
-if(file_exists('databases.php')){
-  include('databases.php');
+if(file_exists('schema.php')){
+  include('schema.php');
 }
 
 include('config.php');
