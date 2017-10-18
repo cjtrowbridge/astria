@@ -53,7 +53,6 @@ function LoadUserPermissionsIntoSession(){
   
   //Get relevant permissions
   $SQL = "SELECT * FROM Permission WHERE Text IS NOT NULL AND ( UserID = 0 OR UserID = ".$UserID.")";
-  pd($SQL);
   $Permissions = Query($SQL);
   
   $ASTRIA['Session']['AllPermissions']  = array();
