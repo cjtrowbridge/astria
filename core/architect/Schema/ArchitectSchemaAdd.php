@@ -22,7 +22,7 @@ function ArchitectSchemaAddBodyCallback(){
     <div class="form-group row">
       <label class="col-xs-2 col-form-label">Database Username:</label>
       <div class="col-xs-10">
-        <input class="form-control" type="text" name="dbUsername">
+        <input class="form-control" type="text" name="dbUsername" id="dbUsername">
       </div>
     </div>
     <div class="form-group row">
@@ -43,6 +43,8 @@ function ArchitectSchemaAddBodyCallback(){
       </div>
     </div>
   </div>
-
+  <script>
+    $('#dbUsername').focus();
+  </script>
 <?php
 }
