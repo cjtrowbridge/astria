@@ -14,12 +14,14 @@ function SchemaRouter(){
   ){
     $Schema=path(0);
     if(isset($ASTRIA['databases'][$Schema])){
+      
       $Permission = $Schema;
       if(HasPermission($Permission)){
         die('YOur wish is my command.');
       }else{
         die('Permission denied.');//TODO make this more pretty and allow hooks for alternate page
       }
-    }
+      
+    }else{Event('Schema Router Found No Schema Matches');}
   }
 }
