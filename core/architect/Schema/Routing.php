@@ -20,7 +20,7 @@ function ArchitectSchema(){
       global $ASTRIA;
       $Alias = path(2,false);
       if(!(isset($ASTRIA['databases'][$Alias]))){
-        echo 'Invalid Database Alias: '.$Alias.PHP_EOL.'<br>Found:'.PHP_EOL;
+        echo 'Invalid Database Alias: '.$Alias.PHP_EOL.'<br>Found:<br>'.PHP_EOL;
         foreach($ASTRIA['databases'] as $Key => $Value){
           echo '-'.$Key.'<br>'.PHP_EOL;
         }
