@@ -22,7 +22,7 @@ $DEBUG=array(
 
 file_put_contents('debug/'.$THREADID.'.php','<?php '.PHP_EOL.'global $DEBUG_EXPORT;'.PHP_EOL.'if(!(isset($DEBUG_EXPORT))){$DEBUG_EXPORT=array();}'.PHP_EOL.PHP_EOL);
 
-function Event($EventDescription){
+function Event($EventDescription,$DefaultCallback = ''){
   if(isset($_GET['verbose'])){
     echo $EventDescription."<br><br>\n\n";
   }
@@ -108,6 +108,11 @@ function Event($EventDescription){
           }
           
         }
+      }
+    }else{
+      //If no functions are hooked to this event, call the default callback if one is set
+      if($DefaultCallback != ''){
+        eval($DefaultCallback);
       }
     }
     //END EVENT HANDLER SECTION
