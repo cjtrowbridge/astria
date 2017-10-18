@@ -22,29 +22,19 @@ function ArchitectSchemaAddBodyCallback(){
     <div class="form-group row">
       <label class="col-xs-2 col-form-label">Database Username:</label>
       <div class="col-xs-10">
-        <input class="form-control" type="text" name="dbUsername" value="astria.io">
+        <input class="form-control" type="text" name="dbUsername">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-xs-2 col-form-label">Database Password:</label>
       <div class="col-xs-10">
-        <input class="form-control" type="text" name="dbPassword" value="OzyNTF1a3tLBV5Jr">
+        <input class="form-control" type="text" name="dbPassword">
       </div>
     </div>
     <div class="form-group row">
       <label class="col-xs-2 col-form-label">Database Name:</label>
       <div class="col-xs-10">
-        <input class="form-control" type="text" name="dbName" value="astria.io">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label class="col-xs-2 col-form-label">Initial Set Up:</label>
-      <div class="col-xs-10">
-        <label class="custom-control custom-checkbox">
-          <input type="checkbox" value="yes" name="initialDatabaseSetUp" id="initialDatabaseSetUp" class="custom-control-input">
-          <span class="custom-control-indicator"></span>
-          <span class="custom-control-description">Set Up Database Now</span>
-        </label>
+        <input class="form-control" type="text" name="dbName">
       </div>
     </div>
     <div class="form-group row">
