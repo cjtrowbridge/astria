@@ -15,6 +15,10 @@ function path($index = 0,$Lowercase = true){
 
 function paths($Lowercase = true){
   $theURL=url($Lowercase);
+  
+  $PreQ = explode("?", $theURL);
+  $theURL = $PreQ[0];
+  
   if(!(substr($theURL, -1)=='/')){$theURL.='/';}
   $pathSegments = explode('/', $theURL);
   $output = array();
