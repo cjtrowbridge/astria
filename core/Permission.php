@@ -19,17 +19,17 @@ I think this is a very good system which will scale much better than my previous
 function HasPermission($Permission){
   //check if the permission exists within the user's list of permissions
   global $ASTRIA;
-  if(!isset($ASTRIA['Session'])){return false;}
-  if(!isset($ASTRIA['Session']['User'])){return false;}
-  if(!isset($ASTRIA['Session']['User']['Permission'])){return false;}
-  if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
+  if(!isset($ASTRIA['Session'])){Event('Permission Negative: No Session');return false;}
+  if(!isset($ASTRIA['Session']['User'])){Event('Permission Negative: No User');return false;}
+  if(!isset($ASTRIA['Session']['User']['Permission'])){Event('Permission Negative: No Permissions object');return false;}
+  if(!isset($ASTRIA['Session']['User']['UserID'])){Event('Permission Negative: No User ID');return false;}
 
   //if yes, return true;
   if(isset($ASTRIA['Session']['User']['Permission'][$Permission])){return true;}
   
   //check if the permission is in the list of all possible permissions
   //if yes, return false;
-  if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){return false;}
+  if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){Event('Permission Negative: We know about this and you don\'t have it.');return false;}
   
   //add it to the database under user 0.
   $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')";
