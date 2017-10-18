@@ -10,19 +10,30 @@ function ArchitectSchemaAdd(){
     
     global $ASTRIA;
     $newSchemaFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL;
-    foreach($ASTRIA['databases'] as $Index => $Plugin){
-      if($Index != 'astria'){
+    foreach($ASTRIA['databases'] as $Index => $Schema){
+      if(true||$Index != 'astria'){
         $newSchemaFile.=PHP_EOL.PHP_EOL.
-          "\$ASTRIA['databases']['".$NewAlias."'] = array(";
-          "  'type'                     => 'mysql',".PHP_EOL.
-          "  'hostname'                 => 'localhost',".PHP_EOL.
-          "  'username'                 => 'secscidata',".PHP_EOL.
-          "  'password'                 => 'fzTRbSZWa7Rpjjeg',".PHP_EOL.
-          "  'database'                 => 'securities.science.data',".PHP_EOL.
-          "  'resource'                 => false".PHP_EOL.
-          ");".PHP_EOL.PHP_EOL;
+        "\$ASTRIA['databases']['".$Index."'] = array(";
+        "  'type'                     => '".$Schema['type']."',    ".PHP_EOL.
+        "  'hostname'                 => '".$Schema['hostname']."',".PHP_EOL.
+        "  'username'                 => '".$Schema['username']."',".PHP_EOL.
+        "  'password'                 => '".$Schema['password']."',".PHP_EOL.
+        "  'database'                 => '".$Schema['database']."',".PHP_EOL.
+        "  'resource'                 => false".PHP_EOL.
+        ");".PHP_EOL.PHP_EOL;
       }
     }
+    
+    $newSchemaFile.=PHP_EOL.PHP_EOL.
+    "\$ASTRIA['databases']['".$NewAlias."'] = array(";
+    "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
+    "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
+    "  'username'                 => '".$_POST['dbUsername']."',".PHP_EOL.
+    "  'password'                 => '".$_POST['dbPassword']."',".PHP_EOL.
+    "  'database'                 => '".$_POST['dbName']."',".PHP_EOL.
+    "  'resource'                 => false".PHP_EOL.
+    ");".PHP_EOL.PHP_EOL;
+    
     $result=false;
     //$result=file_put_contents('schema.php', $newSchemaFile);
     if($result==false){
@@ -44,6 +55,14 @@ function ArchitectSchemaAddBodyCallback(){
       <div class="col-xs-10">
         <input class="form-control" type="text" name="dbHost" value="localhost">
         <small class="form-text text-muted">This is usually localhost, but it cann be any hostname, IP, etc..</small>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-xs-2 col-form-label">Database Type:</label>
+      <div class="col-xs-10">
+        <select class="form-control" name="dbType">
+          <option value="mysql">MySQL</option>
+        </select>
       </div>
     </div>
     <div class="form-group row">
