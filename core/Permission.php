@@ -34,10 +34,30 @@ function HasPermission(){
 }
 
 function LoadUserPermissionsIntoSession(){
-  //load the list of all permissions this user has
+  global $ASTRIA;
   
-  //load the list of all possible permissions
+  if(!isset($ASTRIA['Session'])){return false;}
+  if(!isset($ASTRIA['Session']['User'])){return false;}
+  if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
+  
+  $UserID = $ASTRIA['Session']['User']['UserID'];
+  
+  //Get relevant permissions
+  $Permissions = Query("SELECT * FROM Permission WHERE Text NOT NULL AND UserID = 0 OR UserID = ".$UserID);
+  
+  $ASTRIA['Session']['AllPermissions']  = array();
+  $ASTRIA['Session']['User']['Permissions'] = array();
+  
+  foreach($Permissions as $Permission){
+    if($Permission['UserID']==0){
+      $ASTRIA['Session']['AllPermissions'][$Permission['Text']]=$Permission['Text'];
+    }else{
+      $ASTRIA['Session']['User']['Permissions'][$Permission['Text']]=$Permission['Text'];
+    }
+  }
+  
   
   //save session
-  
+  AstriaSessionSave();
+
 }
