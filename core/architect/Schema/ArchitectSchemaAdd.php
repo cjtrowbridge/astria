@@ -23,8 +23,10 @@ function ArchitectSchemaAdd(){
       }
     }
     
+    $NewAlias=strtolower($_POST['dbAlias']);
+    
     $newSchemaFile.=PHP_EOL.
-    "\$ASTRIA['databases']['".$_POST['dbAlias']."'] = array(".PHP_EOL.
+    "\$ASTRIA['databases']['".$NewAlias."'] = array(".PHP_EOL.
     "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
     "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
     "  'username'                 => '".$_POST['dbUsername']."',".PHP_EOL.
