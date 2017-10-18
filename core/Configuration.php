@@ -102,8 +102,8 @@ function AstriaConfigurationBodyCallback(){
             </div>
           </div>
           
-          <h2>Core Database</h2>
-          <p>You can use many databases, but let's talk about the one that holds the core data like user accounts and sessions.</p>
+          <h2>Astria Database</h2>
+          <p>You can use many databases, but let's talk about the one that holds the core astria data like user accounts, permissions, and sessions.</p>
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Type:</label>
             <div class="col-xs-10">
