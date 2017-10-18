@@ -25,7 +25,7 @@ function HasPermission($Permission){
   if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
 
   //if yes, return true;
-  if(isset($ASTRIA['Session']['User']['Permission'][$Permission]){return true;}
+  if(isset($ASTRIA['Session']['User']['Permission'][$Permission])){return true;}
   
   //check if the permission is in the list of all possible permissions
   //if yes, return false;
