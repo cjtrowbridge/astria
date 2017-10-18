@@ -124,7 +124,7 @@ function ArchitectSchema(){
 
 function ArchitectSchemaElaborateBodyCallback(){
   global $ASTRIA;
-  $Alias = path(2);
+  $Alias = path(2,false);
   $This = $ASTRIA['databases'][$Alias];
   
   switch($This['type']){
