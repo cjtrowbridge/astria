@@ -13,6 +13,7 @@ function PatchPermissionTableAddText(){
   if($Check[0]['Check']==0){
     Event('Adding Text column to Permission table');
     Query("ALTER TABLE `Permission` ADD `Text` VARCHAR(255) NULL AFTER `GroupID`;");
+    Query("ALTER TABLE `Permission` ADD UNIQUE(`UserID`,`Text`);");
   }else{
     Event('Permission table already contains Text');
   }
