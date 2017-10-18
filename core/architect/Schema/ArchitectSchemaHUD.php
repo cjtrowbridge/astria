@@ -30,5 +30,6 @@ function ArchitectSchemaHUDBodyCallback(){
 
     <?php
   }
+  pd($ASTRIA['databases']);
   
 }
