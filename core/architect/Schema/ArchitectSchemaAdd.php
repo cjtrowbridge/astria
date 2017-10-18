@@ -13,7 +13,7 @@ function ArchitectSchemaAdd(){
     foreach($ASTRIA['databases'] as $Index => $Schema){
       if(true||$Index != 'astria'){
         $newSchemaFile.=PHP_EOL.PHP_EOL.
-        "\$ASTRIA['databases']['".$Index."'] = array(";
+        "\$ASTRIA['databases']['".$Index."'] = array(".
         "  'type'                     => '".$Schema['type']."',    ".PHP_EOL.
         "  'hostname'                 => '".$Schema['hostname']."',".PHP_EOL.
         "  'username'                 => '".$Schema['username']."',".PHP_EOL.
@@ -25,7 +25,7 @@ function ArchitectSchemaAdd(){
     }
     
     $newSchemaFile.=PHP_EOL.PHP_EOL.
-    "\$ASTRIA['databases']['".$NewAlias."'] = array(";
+    "\$ASTRIA['databases']['".$NewAlias."'] = array(".
     "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
     "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
     "  'username'                 => '".$_POST['dbUsername']."',".PHP_EOL.
