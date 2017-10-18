@@ -29,7 +29,7 @@ function HasPermission($Permission){
   
   //check if the permission is in the list of all possible permissions
   //if yes, return false;
-  if(isset($ASTRIA['Session']['AllPermissions'][$Permission]){return false;}
+  if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){return false;}
   
   //add it to the database under user 0.
   Query("INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')"); 
