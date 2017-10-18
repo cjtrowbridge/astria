@@ -16,21 +16,28 @@ I think this is a very good system which will scale much better than my previous
 */
 
 
-function HasPermission(){
+function HasPermission($Permission){
   //check if the permission exists within the user's list of permissions
-  
-  //if yes, return true, else;
+  global $ASTRIA;
+  if(!isset($ASTRIA['Session'])){return false;}
+  if(!isset($ASTRIA['Session']['User'])){return false;}
+  if(!isset($ASTRIA['Session']['User']['Permission'])){return false;}
+  if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
+
+  //if yes, return true;
+  if(isset($ASTRIA['Session']['User']['Permission'][$Permission]){return true;}
   
   //check if the permission is in the list of all possible permissions
-  
-  //if yes, return false, else;
+  //if yes, return false;
+  if(isset($ASTRIA['Session']['AllPermissions'][$Permission]){return false;}
   
   //add it to the database under user 0.
-  
+  Query("INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')"); 
+     
   //reload the user's list of permissions.
   LoadUserPermissionsIntoSession();
   
-  //return false
+  return false;
 }
 
 function LoadUserPermissionsIntoSession(){
