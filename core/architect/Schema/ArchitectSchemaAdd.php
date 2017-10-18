@@ -1,7 +1,7 @@
 <?php
 
 function ArchitectSchemaAdd(){
-  if(isset($_POST)){
+  if(isset($_POST['dbHost'])){
     pd($_POST);
     exit;
   }
