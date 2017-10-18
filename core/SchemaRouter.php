@@ -20,7 +20,7 @@ function SchemaRouter(){
     
     if(isset($ASTRIA['databases'][$Schema])){
       
-      if(HasPermission('View_Schema_'$Schema)){
+      if(HasPermission('View_Schema_'.$Schema)){
         
         switch($Table){
           //my thinking is that this will later be able to handle inserts and updates
@@ -29,7 +29,7 @@ function SchemaRouter(){
             break;
           default:
             
-            if(HasPermission('View_Schema_'$Schema.'_View_Table_'.$Table)){
+            if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
               die('Let\'s look at the table '.$Table.' in schema '.$Schema);
             }else{
               die('Permission denied to view table '.$Table.' in Schema '.$Schema.'.'); //TODO make this more pretty and allow hooks for alternate page
