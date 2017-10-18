@@ -32,7 +32,7 @@ function HasPermission($Permission){
   if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){Event('Permission Negative: We know about this and you don\'t have it.');return false;}
   
   //add it to the database under user 0.
-  $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(".intval($ASTRIA['Session']['User']['UserID']).",'".Sanitize($Permission)."')";
+  $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(0,'".Sanitize($Permission)."')";
   pd($SQL);
   Query($SQL); 
      
