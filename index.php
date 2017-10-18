@@ -13,6 +13,9 @@ if(!file_exists('config.php')){
   include('core/Configuration.php');
   AstriaConfiguration();
 }
+if(file_exists('databases.php')){
+  include('databases.php');
+}
 
 include('config.php');
 include('core/Locale.php');
