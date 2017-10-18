@@ -15,8 +15,8 @@ function SchemaRouter(){
     global $ASTRIA;
     
     $Schema = Sanitize(path(0));
-    $Table  = Sanitize(path(1));
-    $Key    = Sanitize(path(2));
+    $Table  = Sanitize(path(1,false));
+    $Key    = Sanitize(path(2,false));
     
     if(isset($ASTRIA['databases'][$Schema])){
       
