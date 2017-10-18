@@ -13,11 +13,12 @@ if(!file_exists('config.php')){
   include('core/Configuration.php');
   AstriaConfiguration();
 }
+include('config.php');
+
 if(file_exists('schema.php')){
   include('schema.php');
 }
 
-include('config.php');
 include('core/Locale.php');
 include('core/Loader.php');
 Loader('core');
