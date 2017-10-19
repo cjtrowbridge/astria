@@ -14,6 +14,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
     Event('SchemaRouter: Building $Table page.');
     $Title   = $Table;
     $Content = SchemaRouterPageBuilderGetTablePageContents($Schema, $Table);
+    $Content = var_export($Content,true);
     $Event = 'SchemaRouter_Schema_'.$Schema.'_Table_'.$Table;
     
   }
@@ -31,7 +32,14 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .="  <div class=\"card\">".PHP_EOL;
   $Func .="    <div class=\"card-block\">".PHP_EOL;
   $Func .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
-  $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
+  if($Table == false){
+    $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
+  }else{
+    foreach($Content as $Table){
+      pd($Table);
+      $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
+    }
+  }
   $Func .="      </div>".PHP_EOL;
   $Func .="    </div>".PHP_EOL;
   $Func .="  </div>".PHP_EOL;
@@ -58,6 +66,7 @@ function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
   
   $SQL="SELECT TABLE_SCHEMA,TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."'";
   $Data = Query($SQL,$Schema);
+  return $Data;
   return var_export($Data,true);
 }
 
