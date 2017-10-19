@@ -99,7 +99,7 @@ function SchemaRouterHomepageBodyCallback(){
     if($Database['database']=='astria'){continue;}
     
     if(HasPermission('SchemaRouter_Schema_'.$Schema)){
-      include_once('SchemaRouterPageBuilder.php'
+      include_once('SchemaRouterPageBuilder.php');
       Event('SchemaRouter_Schema_'.$Schema,'function(){
         SchemaRouterPageBuilder($Schema);
       }'););
