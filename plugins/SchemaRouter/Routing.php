@@ -25,8 +25,8 @@ function SchemaRouter(){
         if($Table==false){
             //User is navigating at the schema level and has view permission.
           
-            Event('SchemaRouter: View Schema');
-            die('Show list of tables'); //TODO make this more pretty
+            Event('SchemaRouter: View_Schema_'.$Schema);
+            SchemaRouterEndpointBuilder($Schema, $Table);
         
         }else{
             //User is navigating at the table level. Permission Unclear
@@ -34,10 +34,8 @@ function SchemaRouter(){
             if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
               //User is navigating at the table level and has view permission.
               
-              Event('SchemaRouter: View Table');
-              SchemaRouterEndpointBuilder();
-              
-              die('Let\'s look at the table '.$Table.' in schema '.$Schema); //TODO make this more pretty
+              Event('SchemaRouter: View_Schema_'.$Schema.'_View_Table_'.$Table);
+              SchemaRouterEndpointBuilder($Schema, $Table);
               
             }else{
                 Event('SchemaRouter: Permission Denied to View Table');
@@ -53,6 +51,13 @@ function SchemaRouter(){
   }
 }
 
-function SchemaRouterEndpointBuilder(){
+function SchemaRouterEndpointBuilder($Schema = false, $Table = false){
+  //make the page
+  include_once('SchemaRouterPageBuilder.php');
+  $Page = SchemaRouterPageBuilder($Schema, $Table);
   
+  //try to save the page with hook
+  
+  //display the page
+  echo $Page;
 }
