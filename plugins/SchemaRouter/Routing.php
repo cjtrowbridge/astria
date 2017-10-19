@@ -23,22 +23,22 @@ function SchemaRouter(){
     
     if(isset($ASTRIA['databases'][$Schema])){
       
-      if(HasPermission('View_Schema_'.$Schema)){
+      if(HasPermission('SchemaRouter_Schema_'.$Schema)){
         
         if($Table==false){
             //User is navigating at the schema level and has view permission.
           
-            Event('SchemaRouter_View_Schema_'.$Schema);
+            Event('SchemaRouter_Schema_'.$Schema);
             include_once('SchemaRouterPageBuilder.php');
             SchemaRouterPageBuilder($Schema);
         
         }else{
             //User is navigating at the table level. Permission Unclear
           
-            if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
+            if(HasPermission('SchemaRouter_Schema_'.$Schema.'_Table_'.$Table)){
               //User is navigating at the table level and has view permission.
               
-              Event('SchemaRouter_View_Schema_'.$Schema.'_View_Table_'.$Table);
+              Event('SchemaRouter_Schema_'.$Schema.'_Table_'.$Table);
               include_once('SchemaRouterPageBuilder.php');
               SchemaRouterPageBuilder($Schema, $Table);
               
