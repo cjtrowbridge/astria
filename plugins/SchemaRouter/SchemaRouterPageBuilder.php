@@ -24,20 +24,21 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Page .= "Hook('$Event',\"".PHP_EOL;
   $Page .= "  TemplateBootstrap4('$Title','$Event();'); ".PHP_EOL;
   $Page .= '");'.PHP_EOL.PHP_EOL;
-  $Page .= "function ".$Event."(){".PHP_EOL.PHP_EOL;
-  $Page .= "?>".PHP_EOL;
   
-  $Page .="<h1><a href=\"\">".$Title."</a></h1>".PHP_EOL;
-  $Page .="  <div class=\"card\">".PHP_EOL;
-  $Page .="    <div class=\"card-block\">".PHP_EOL;
-  $Page .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
-  $Page .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
-  $Page .="      </div>".PHP_EOL;
-  $Page .="    </div>".PHP_EOL;
-  $Page .="  </div>".PHP_EOL;
+  $Func .= "function ".$Event."(){".PHP_EOL.PHP_EOL;
+  $Func .= "?>".PHP_EOL;
+  $Func .="<h1><a href=\"\">".$Title."</a></h1>".PHP_EOL;
+  $Func .="  <div class=\"card\">".PHP_EOL;
+  $Func .="    <div class=\"card-block\">".PHP_EOL;
+  $Func .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
+  $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
+  $Func .="      </div>".PHP_EOL;
+  $Func .="    </div>".PHP_EOL;
+  $Func .="  </div>".PHP_EOL;
+  $Func .= "<?php".PHP_EOL;
+  $Func .= "}".PHP_EOL;
   
-  $Page .= "<?php".PHP_EOL;
-  $Page .= "}".PHP_EOL;
+  $Page.=$Func;
   
   if(!(is_dir('plugins/SchemaRouter/cache'))){
     mkdir('plugins/SchemaRouter/cache');
@@ -45,8 +46,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   file_put_contents('plugins/SchemaRouter/cache/'.$Event.'.php',$Page);
   
-  eval($Page);
-  Event($Event);
+  eval($Func.$Event.'();');
   exit;
   
 }
