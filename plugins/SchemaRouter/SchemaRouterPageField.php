@@ -1,13 +1,17 @@
 <?php
 
 function SchemaRouterPageField($Schema,$Table,$Fields){
+  
+  //depending on hwo this is called, this might be an exported array. if so, convert it to a real array
   if(!(is_array($Fields))){
     eval('$Fields = '.$Fields.';');
   }
   
+  //get the details about where we are. This should later be abstracted
   $Schema = Sanitize(path(0));
   $Table = Sanitize(path(1,false));
   $Key = intval(path(2));
+  
   if($Key){
     $Table = Sanitize($Table);
     $SQL = "SELECT * FROM `".$Table."` WHERE ".$Table."ID = ".$Key;
@@ -19,8 +23,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     }
   }
   
-  $R  = PHP_EOL;
-  pd($Fields);
+  $R  = PHP_EOL; //Iniitalize output variable
   
   foreach($Fields as $Field){
     
@@ -44,9 +47,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       switch($Field['DATA_TYPE']){
         default:
         case 'varchar':
-          if($Key){
-            $R.='      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
-          }
+          $R.='      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
           break;
       }
       
