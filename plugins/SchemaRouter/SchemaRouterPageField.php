@@ -28,15 +28,25 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     $R .= '    <div class="col-xs-12 col-lg-2">'.PHP_EOL;
     $R .= '      '.$Field['COLUMN_NAME'].PHP_EOL;
     $R .= '    </div>'.PHP_EOL;
-    $R .= '    <div class="col-xs-12 col-lg-10"><input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
+    $R .= '    <div class="col-xs-12 col-lg-10">'.PHP_EOL;
     
-    switch($Field['DATA_TYPE']){
-      default:
-      //case 'varchar':
-        if($Key){
-          //echo $Row[$Field['COLUMN_NAME']];
-        }
-        break;
+    
+    if(false){
+      //is foreign key
+      //do a dropdown
+      
+      
+    }else{
+    
+      switch($Field['DATA_TYPE']){
+        default:
+        case 'varchar':
+          if($Key){
+            echo '      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
+          }
+          break;
+      }
+      
     }
     
     $R .= '    </div>'.PHP_EOL;
