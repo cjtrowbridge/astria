@@ -17,7 +17,8 @@ function MySQLTableNew($Alias){
           <h4>Include Common Columns?</h4>
           <p><label><input type="checkbox" name="commonColumnNameVarchar255" value="true" checked="checked"> Name (Size 255)</label></p>
           <p><label><input type="checkbox" name="commonColumnDescriptionText" value="true" checked="checked"> Description (Size 64k)</label></p>
-        
+          <p><label><input type="checkbox" name="commonColumnInsertedModified" value="true" checked="checked"> User Inserted,TimeInserted,UserUpdated,TimeUpdated</label></p>
+          
           <input type="submit" class="form-control" value="Create">
           
         </div>
