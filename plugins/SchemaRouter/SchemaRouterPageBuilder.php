@@ -30,7 +30,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .= "?>".PHP_EOL;
   
   if(SchemaRoute('table')){
-    $Func .= "<form action=\"".$Schema."/".$Table."/\" method=\"post\">".PHP_EOL;
+    $Func .= "<form action=\"/".$Schema."/".$Table."/\" method=\"post\">".PHP_EOL;
   }
   
   $Func .= "<h1><a href=\"/".$Schema."/\">".$Schema."</a> / ";
