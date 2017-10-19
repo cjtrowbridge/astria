@@ -8,9 +8,9 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   }
   
   //get the details about where we are. This should later be abstracted
-  $Schema = Sanitize(path(0));
-  $Table = Sanitize(path(1,false));
-  $Key = intval(path(2));
+  $Schema = SchemaRoute('Schema');
+  $Table  = SchemaRoute('Table');
+  $Key    = SchemaRoute('Key');
   
   if($Key){
     $Table = Sanitize($Table);
