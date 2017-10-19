@@ -78,8 +78,8 @@ function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   $ColumnSQL = "SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
   $ConstraintSQL = "SELECT COLUMN_NAME, CONSTRAINT_NAME, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
   
-  $Data = Query($ColumnSQL,$Schema);
-  $Constraints => Query($ConstraintSQL,$Schema);
+  $Data        = Query($ColumnSQL,$Schema);
+  $Constraints = Query($ConstraintSQL,$Schema);
   
   foreach($Columns as &$Column){
     
