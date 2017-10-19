@@ -1,6 +1,7 @@
 <?php
 
 Hook('User Is Logged In - Presentation','SchemaRouter();');
+Hook('User Is Logged In - Before Presentation','LoadCachedSchemaPages();');
 
 function SchemaRouter(){
   if(
@@ -54,4 +55,18 @@ function SchemaRouter(){
       
     }else{Event('SchemaRouter: No schema match detected.');}
   }
+}
+
+function LoadCachedSchemaPages(){ 
+  if($handle = opendir('plugins/SchemaRouter/cache')){
+    while (false !== ($class = readdir($handle))){
+      $include_path='plugins/SchemaRouter/cache/'.$class;
+      if((!(strpos($class,'.php')===false)) && $class != "." && $class != ".." && file_exists($include_path)){
+        Event('Before Loading SchemaRouter cache file: '.$include_path);
+        include_once($include_path);
+        Event('After Loading SchemaRouter cache file: '.$include_path);
+      }
+    }
+    closedir($handle);
+  } 
 }
