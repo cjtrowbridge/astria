@@ -36,10 +36,8 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     $R .= '    <div class="col-xs-12 col-lg-10">'.PHP_EOL;
     
     
-    if(false){
-      //is foreign key
-      //do a dropdown
-      
+    if(count($Field['Constraints'])>0){
+      $R.='THERE BE CONSTRAINTS HERE';
       
     }else{
     
@@ -47,7 +45,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
         default:
         case 'varchar':
           if($Key){
-            echo '      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
+            $R.='      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
           }
           break;
       }
