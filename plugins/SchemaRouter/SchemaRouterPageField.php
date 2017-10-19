@@ -28,10 +28,9 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   foreach($Fields as $Field){
     
     if(
-      $Key==false && 
+      $Key==0 && 
       isset($Field['Constraint']['PRIMARY KEY'])
     ){
-      echo 'skip';
       continue;
     }
     
