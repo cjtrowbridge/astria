@@ -40,7 +40,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     }
     
     $R .= '    </div>'.PHP_EOL;
-    $R .= '  </div>'.PHP_EOL;
+    $R .= '  </div><br>'.PHP_EOL;
     $R .= '  <!--'.PHP_EOL.var_export($Field,true).PHP_EOL.'-->'.PHP_EOL.PHP_EOL;
   }
   return $R;
