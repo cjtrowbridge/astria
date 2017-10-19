@@ -43,7 +43,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       foreach($Field['Constraints'] as $Constraint){
         switch($Constraint['CONSTRAINT_TYPE']){
           case 'PRIMARY KEY':
-            $R.='<input type="hidden" name="'.$Field['COLUMN_NAME'].'" value="">';
+            $R.='<input type="hidden" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'"><a href="#">'.$Value.'</a>'; //TODO make this link to the text from the first varchar in that table
             break;
           case 'FOREIGN KEY':
             $R.='<p>DO A DROPDOWN FOR FOREIGN KEY '.$Constraint['REFERENCED_COLUMN_NAME'].' IN TABLE '.$Constraint['REFERENCED_TABLE_NAME'].'</p>';
