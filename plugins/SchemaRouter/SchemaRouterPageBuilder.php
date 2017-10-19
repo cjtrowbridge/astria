@@ -25,7 +25,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Page .= "  TemplateBootstrap4('$Title','$Event();'); ".PHP_EOL;
   $Page .= '");'.PHP_EOL.PHP_EOL;
   
-  $Func .= "function ".$Event."(){".PHP_EOL.PHP_EOL;
+  $Func  = "function ".$Event."(){".PHP_EOL.PHP_EOL;
   $Func .= "?>".PHP_EOL;
   $Func .="<h1><a href=\"\">".$Title."</a></h1>".PHP_EOL;
   $Func .="  <div class=\"card\">".PHP_EOL;
