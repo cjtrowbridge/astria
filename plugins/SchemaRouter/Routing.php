@@ -70,3 +70,26 @@ function LoadCachedSchemaPages(){
     closedir($handle);
   } 
 }
+
+function SchemaRoute($Query = false){
+  switch($Query){
+    case 'Schema':
+    case 'schema':
+      return Sanitize(path(0));;
+    case 'Table':
+    case 'table':
+      return Sanitize(path(1,false));
+    case 'Key':
+    case 'key':
+      return intval(path(2));
+    default
+      return array(
+        'Schema' => Sanitize(path(0)),
+        'Table'  => Sanitize(path(1,false)),
+        'Key'    => intval(path(2))
+      );
+  }
+ 
+
+  
+  
