@@ -39,7 +39,15 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Page .= "<?php".PHP_EOL;
   $Page .= "}".PHP_EOL;
   
-  die($Page);
+  if(!(is_dir('plugins/SchemaRouter/cache'))){
+    mkdir('plugins/SchemaRouter/cache');
+  }
+  
+  file_put_contents('plugins/SchemaRouter/cache/'.$Event.'.php',$Page);
+  
+  eval($Page);
+  Event($Event);
+  exit;
   
 }
 
