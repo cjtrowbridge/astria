@@ -7,14 +7,14 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
     Event('SchemaRouter: Building $Schema page...');
     $Title   = $Schema;
     $Content = SchemaRouterPageBuilderGetSchemaPageContents($Schema);
-    $Event = 'SchemaRouter_View_Schema_'.$Schema;
+    $Event = 'SchemaRouter_Schema_'.$Schema;
     
   }else{
     
     Event('SchemaRouter: Building $Table page.');
     $Title   = $Table;
     $Content = SchemaRouterPageBuilderGetTablePageContents($Schema, $Table);
-    $Event = 'SchemaRouter_View_Schema_'.$Schema.'_View_Table_'.$Table;
+    $Event = 'SchemaRouter_Schema_'.$Schema.'_Table_'.$Table;
     
   }
   
