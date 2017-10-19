@@ -2,7 +2,7 @@
 
 function SchemaRouterPageField($Schema,$Table,$Fields){
   if(!(is_array($Fields))){
-    eval('$Fields = '.$Fields);
+    eval('$Fields = '.$Fields.';');
   }
   
   $Schema = Sanitize(path(0));
