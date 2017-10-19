@@ -43,7 +43,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
     $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
   }else{
     foreach($Content as $Table){
-      $Func .="        <p><a href=\"".$Schema."/".$Table['TABLE_NAME']."\">".$Table['TABLE_NAME']."</a></p>".PHP_EOL.PHP_EOL;
+      $Func .="        <p><a href=\"/".$Schema."/".$Table['TABLE_NAME']."\">".$Table['TABLE_NAME']."</a></p>".PHP_EOL.PHP_EOL;
     }
   }
   $Func .="      </div>".PHP_EOL;
