@@ -6,19 +6,6 @@ Hook('User Is Logged In - Before Presentation','LoadCachedSchemaPages();');
 function SchemaRouter(){
   if(
     !IsWaiting() &&
-    path(0)!='astria'&&
-    path(0)!='architect'&&
-    path(0)!='css'&&
-    path(0)!='img'&&
-    path(0)!='js'
-  ){
-    //Include this so the templates can call it
-    include_once('SchemaRouterPageField.php');
-    Hook('User Is Logged In - Homepage Content','SchemaRouterHomepageBodyCallback();'); 
-    
-  }
-  if(
-    !IsWaiting() &&
     path(0)&&
     path(0)!='astria'&&
     path(0)!='architect'&&
@@ -101,20 +88,5 @@ function SchemaRoute($Query = false){
         'Table'  => Sanitize(path(1,false)),
         'Key'    => intval(path(2))
       );
-  }
-}
-
-function SchemaRouterHomepageBodyCallback(){
-  global $ASTRIA;
-  foreach($ASTRIA['databases'] as $Schema => $Database){
-    if($Database['database']=='astria'){continue;}
-    
-    if(HasPermission('SchemaRouter_Schema_'.$Schema)){
-      include_once('SchemaRouterPageBuilder.php');
-      Event('SchemaRouter_Schema_'.$Schema,'function(){
-        SchemaRouterPageBuilder("'.$Schema.'");
-      }');
-    }
-    
   }
 }
