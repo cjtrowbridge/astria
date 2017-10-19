@@ -28,7 +28,7 @@ function SchemaRouter(){
         if($Table==false){
             //User is navigating at the schema level and has view permission.
           
-            Event('SchemaRouter: View_Schema_'.$Schema);
+            Event('SchemaRouter_View_Schema_'.$Schema);
             include_once('SchemaRouterPageBuilder.php');
             SchemaRouterPageBuilder($Schema);
         
@@ -38,7 +38,7 @@ function SchemaRouter(){
             if(HasPermission('View_Schema_'.$Schema.'_View_Table_'.$Table)){
               //User is navigating at the table level and has view permission.
               
-              Event('SchemaRouter: View_Schema_'.$Schema.'_View_Table_'.$Table);
+              Event('SchemaRouter_View_Schema_'.$Schema.'_View_Table_'.$Table);
               include_once('SchemaRouterPageBuilder.php');
               SchemaRouterPageBuilder($Schema, $Table);
               
