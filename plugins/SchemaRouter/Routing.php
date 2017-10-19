@@ -112,7 +112,7 @@ function SchemaRouterHomepageBodyCallback(){
     if(HasPermission('SchemaRouter_Schema_'.$Schema)){
       include_once('SchemaRouterPageBuilder.php');
       Event('SchemaRouter_Schema_'.$Schema,'function(){
-        SchemaRouterPageBuilder($Schema);
+        SchemaRouterPageBuilder("'.$Schema.'");
       }');
     }
     
