@@ -79,8 +79,8 @@ function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   $ConstraintSQL = "SELECT * FROM `TABLE_CONSTRAINTS` WHERE TABLE_SCHEMA LIKE '".Sanitize($DatabaseName)."' AND TABLE_NAME LIKE '".Sanitize($Table)."';";
   
   $Data = array(
-    'Columns' = Query($ColumnSQL,$Schema),
-    'Constraints' = Query($ConstraintSQL,$Schema)
+    'Columns'     => Query($ColumnSQL,$Schema),
+    'Constraints' => Query($ConstraintSQL,$Schema)
   );
   return var_export($Data,true);
 }
