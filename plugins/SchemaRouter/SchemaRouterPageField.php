@@ -28,7 +28,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     $R .= '    <div class="col-xs-12 col-lg-2">'.PHP_EOL;
     $R .= '      '.$Field['COLUMN_NAME'].PHP_EOL;
     $R .= '    </div>'.PHP_EOL;
-    $R .= '    <div class="col-xs-12 col-lg-10"><input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'">'.PHP_EOL;
+    $R .= '    <div class="col-xs-12 col-lg-10"><input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
     
     switch($Field['DATA_TYPE']){
       default:
