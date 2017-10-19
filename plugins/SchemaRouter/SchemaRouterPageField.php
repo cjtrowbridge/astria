@@ -40,8 +40,9 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     
     
     if(count($Field['Constraints'])>0){
-      $R.='THERE BE CONSTRAINTS HERE';
-      
+      foreach($Field['Constraints'] as $Constraint){
+        $R.='<p>'.var_export($Constraint,true).'</p>';
+      }
     }else{
     
       switch($Field['DATA_TYPE']){
