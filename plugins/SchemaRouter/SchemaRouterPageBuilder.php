@@ -18,9 +18,9 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   }
   
   $Page = PHP_EOL."<h1><a href=\"\">".$Title."</a></h1>".PHP_EOL;
-  $Page .="  <div class="card">".PHP_EOL;
-  $Page .="    <div class="card-block">".PHP_EOL;
-  $Page .="      <div class="card-text">".PHP_EOL.PHP_EOL;
+  $Page .="  <div class=\"card\">".PHP_EOL;
+  $Page .="    <div class=\"card-block\">".PHP_EOL;
+  $Page .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
   $Page .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',array(".$Content.")); ?>".PHP_EOL.PHP_EOL;
   $Page .="      </div>".PHP_EOL;
   $Page .="    </div>".PHP_EOL;
