@@ -26,7 +26,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Page .="    </div>".PHP_EOL;
   $Page .="  </div>".PHP_EOL;
   
-  
+  die($Page);
   
 }
 
