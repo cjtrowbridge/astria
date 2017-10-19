@@ -1,6 +1,9 @@
 <?php
 
 function SchemaRouterPageField($Schema,$Table,$Fields){
+  if(!(is_array($Fields))){
+    eval('$Fields = '.$Fields);
+  }
   
   $Schema = Sanitize(path(0));
   $Table = Sanitize(path(1,false));
