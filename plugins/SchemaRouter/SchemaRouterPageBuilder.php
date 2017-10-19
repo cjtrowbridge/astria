@@ -3,14 +3,14 @@
 function SchemaRouterPageBuilder($Schema = false, $Table = false){
   if($Table == false){
     
-    //we are displaying $Schema
+    Event('SchemaRouter: Building $Schema page...');
     $Title   = $Schema;
     $Content = SchemaRouterPageBuilderGetSchemaPageContents($Schema);
     $Event = 'SchemaRouter: View_Schema_'.$Schema;
     
   }else{
     
-    //We are displaying $Table
+    Event('SchemaRouter: Building $Table page.');
     $Title   = $Table;
     $Content = SchemaRouterPageBuilderGetTablePageContents($Schema, $Table);
     $Event = 'SchemaRouter: View_Schema_'.$Schema.'_View_Table_'.$Table;
