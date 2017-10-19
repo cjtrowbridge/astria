@@ -102,7 +102,7 @@ function SchemaRouterHomepageBodyCallback(){
       include_once('SchemaRouterPageBuilder.php');
       Event('SchemaRouter_Schema_'.$Schema,'function(){
         SchemaRouterPageBuilder($Schema);
-      }'););
+      }');
     }
     
   }
