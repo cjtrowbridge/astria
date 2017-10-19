@@ -1,9 +1,6 @@
 <?php
 
 function SchemaRouterPageBuilder($Schema = false, $Table = false){
-  global $ASTRIA;
-  //Dereference schema
-  $Schema = $ASTRIA['databases'][$Schema]['database'];
   
   if($Table == false){
     
@@ -36,6 +33,11 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
 
 function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
   $SQL="SELECT TABLE_SCHEMA,TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".Sanitize($Schema)."'";
+  
+  global $ASTRIA;
+  //Dereference schema
+  $Schema = $ASTRIA['databases'][$Schema]['database'];
+  
   $Data = Query($SQL,$Schema);
   pd($SQL);
   pd($Data);
@@ -44,6 +46,11 @@ function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
 
 function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   $SQL="SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($Schema)."' AND TABLE_NAME = '".Sanitize($Table)."'";
+  
+  global $ASTRIA;
+  //Dereference schema
+  $Schema = $ASTRIA['databases'][$Schema]['database'];
+  
   $Data = Query($SQL,$Schema);
   pd($SQL);
   pd($Data);
