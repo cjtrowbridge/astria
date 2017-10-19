@@ -12,6 +12,9 @@ function SchemaRouter(){
     path(0)!='img'&&
     path(0)!='js'
   ){
+    //Include this so the templates can call it
+    include_once('SchemaRouterPageField.php');
+    
     global $ASTRIA;
     
     $Schema = Sanitize(path(0));
