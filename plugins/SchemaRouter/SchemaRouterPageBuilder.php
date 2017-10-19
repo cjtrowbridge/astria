@@ -28,6 +28,11 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   $Func  = "function ".$Event."(){".PHP_EOL.PHP_EOL;
   $Func .= "?>".PHP_EOL;
+  
+  if(SchemaRoute('table')){
+    $Func .= "<form action=\"".$Schema."/".$Table."/\" method=\"post\">".PHP_EOL;
+  }
+  
   $Func .= "<h1><a href=\"/".$Schema."/\">".$Schema."</a> / ";
   
   if(SchemaRoute('table')!=false){
@@ -54,6 +59,10 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .="      </div>".PHP_EOL;
   $Func .="    </div>".PHP_EOL;
   $Func .="  </div>".PHP_EOL;
+  if(SchemaRoute('table')){
+    $Func .= "</form>".PHP_EOL;
+  }
+
   $Func .= "<?php".PHP_EOL;
   $Func .= "}".PHP_EOL;
   
@@ -63,7 +72,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
     mkdir('plugins/SchemaRouter/cache');
   }
   
-  file_put_contents('plugins/SchemaRouter/cache/'.$Event.'.php',$Page);
+  //file_put_contents('plugins/SchemaRouter/cache/'.$Event.'.php',$Page);
   
   eval($Func.'TemplateBootstrap4("'.$Title.'","'.$Event.'();");');
   exit;
