@@ -29,7 +29,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     
     if(
       $Key==0 && 
-      isset($Field['Constraint']['PRIMARY KEY'])
+      isset($Field['Constraints']['PRIMARY KEY'])
     ){
       continue;
     }
