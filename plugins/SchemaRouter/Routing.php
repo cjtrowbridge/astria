@@ -89,7 +89,4 @@ function SchemaRoute($Query = false){
         'Key'    => intval(path(2))
       );
   }
- 
-
-  
-  
+}
