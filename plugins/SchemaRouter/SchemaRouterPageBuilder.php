@@ -31,13 +31,17 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
 }
 
 function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
-  $Data = Query("SELECT TABLE_SCHEMA,TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".Sanitize($Schema)."'");
+  $SQL="SELECT TABLE_SCHEMA,TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".Sanitize($Schema)."'";
+  $Data = Query($SQL);
+  pd($SQL);
   pd($Data);
   return var_export($Data,true);
 }
 
 function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
-  $Data = Query("SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($Schema)."' AND TABLE_NAME = '".Sanitize($Table)."'");
+  $SQL="SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($Schema)."' AND TABLE_NAME = '".Sanitize($Table)."'";
+  $Data = Query($SQL);
+  pd($SQL);
   pd($Data);
   return var_export($Data,true);
 }
