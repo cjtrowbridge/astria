@@ -36,7 +36,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
 
 function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
   $SQL="SELECT TABLE_SCHEMA,TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA = '".Sanitize($Schema)."'";
-  $Data = Query($SQL);
+  $Data = Query($SQL,$Schema);
   pd($SQL);
   pd($Data);
   return var_export($Data,true);
@@ -44,7 +44,7 @@ function SchemaRouterPageBuilderGetSchemaPageContents($Schema){
 
 function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   $SQL="SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($Schema)."' AND TABLE_NAME = '".Sanitize($Table)."'";
-  $Data = Query($SQL);
+  $Data = Query($SQL,$Schema);
   pd($SQL);
   pd($Data);
   return var_export($Data,true);
