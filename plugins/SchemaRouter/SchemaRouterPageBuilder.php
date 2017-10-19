@@ -81,7 +81,7 @@ function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   $Data        = Query($ColumnSQL,$Schema);
   $Constraints = Query($ConstraintSQL,$Schema);
   
-  foreach($Columns as &$Column){
+  foreach($Data as &$Column){
     
     //initialize an array to hold this column's constraints
     $Column['Constraints']=array();
