@@ -27,6 +27,13 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   
   foreach($Fields as $Field){
     
+    if(
+      $Key==false && 
+      isset($Field['Constraint']['PRIMARY KEY'])
+    ){
+      continue;
+    }
+    
     $Value='';
     if($Key){
       $Value = $Row[$Field['COLUMN_NAME']];
