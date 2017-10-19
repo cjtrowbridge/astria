@@ -31,6 +31,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       $Key==false && 
       isset($Field['Constraint']['PRIMARY KEY'])
     ){
+      echo 'skip';
       continue;
     }
     
