@@ -99,10 +99,10 @@ function SchemaRouterHomepageBodyCallback(){
     if($Database['database']=='astria'){continue;}
     
     if(HasPermission('SchemaRouter_Schema_'.$Schema)){
-      Event('SchemaRouter_Schema_'.$Schema);
-      include_once('SchemaRouterPageBuilder.php','function(){
+      include_once('SchemaRouterPageBuilder.php'
+      Event('SchemaRouter_Schema_'.$Schema,'function(){
         SchemaRouterPageBuilder($Schema);
-      }');
+      }'););
     }
     
   }
