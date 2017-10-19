@@ -82,7 +82,7 @@ function SchemaRoute($Query = false){
     case 'Key':
     case 'key':
       return intval(path(2));
-    default
+    default:
       return array(
         'Schema' => Sanitize(path(0)),
         'Table'  => Sanitize(path(1,false)),
