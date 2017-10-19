@@ -19,6 +19,14 @@ function MySQLTableNewHandler($Alias){
         `Description` text,";
     }
     
+    if(isset($_POST['commonColumnInsertedModified'])&&($_POST['commonColumnInsertedModified']=='true')){
+      $SQL.="
+        `UserInserted` INT NOT NULL,
+        `TimeInserted` DATETIME NOT NULL,
+        `UserUpdated` INT NULL,
+        `TimeUpdated` DATETIME NULL,";
+    }
+    
     //Remove Any Leading Comma If Present
     $SQL=rtrim($SQL,',');
     
