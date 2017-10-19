@@ -46,7 +46,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   file_put_contents('plugins/SchemaRouter/cache/'.$Event.'.php',$Page);
   
-  eval($Func.$Event.'();');
+  eval($Func.'TemplateBootstrap4("'.$Title.'","'.$Event.'();");');
   exit;
   
 }
