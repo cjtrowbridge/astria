@@ -21,8 +21,9 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   
   $Page = "<?php ".PHP_EOL.PHP_EOL;
-  $Page .= "Hook('".$Event."','".$Event."();');".PHP_EOL.PHP_EOL;
+  $Page .= "Hook('".$Event."','TemplateBootstrap4('".$Title."','".$Event."();');".PHP_EOL.PHP_EOL;
   $Page .= "function ".$Event."(){".PHP_EOL.PHP_EOL;
+  $Page .= "?>".PHP_EOL;
   
   $Page .="<h1><a href=\"\">".$Title."</a></h1>".PHP_EOL;
   $Page .="  <div class=\"card\">".PHP_EOL;
@@ -33,6 +34,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Page .="    </div>".PHP_EOL;
   $Page .="  </div>".PHP_EOL;
   
+  $Page .= "<?php".PHP_EOL;
   $Page .= "}".PHP_EOL;
   
   die($Page);
