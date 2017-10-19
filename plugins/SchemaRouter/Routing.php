@@ -16,6 +16,8 @@ function SchemaRouter(){
     //Include this so the templates can call it
     include_once('SchemaRouterPageField.php');
     
+    Hook('User Is Logged In - Homepage Content','SchemaRouterHomepageBodyCallback();');
+    
     global $ASTRIA;
     
     $Schema = SchemaRoute('Schema');
@@ -88,5 +90,20 @@ function SchemaRoute($Query = false){
         'Table'  => Sanitize(path(1,false)),
         'Key'    => intval(path(2))
       );
+  }
+}
+
+function SchemaRouterHomepageBodyCallback(){
+  global $ASTRIA;
+  foreach($ASTRIA['databases'] as $Schema => $Database){
+    if($Database['database']=='astria'){continue;}
+    
+    if(HasPermission('SchemaRouter_Schema_'.$Schema)){
+      Event('SchemaRouter_Schema_'.$Schema);
+      include_once('SchemaRouterPageBuilder.php','function(){
+        SchemaRouterPageBuilder($Schema);
+      }');
+    }
+    
   }
 }
