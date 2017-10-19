@@ -22,7 +22,9 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     switch($Field['DATA_TYPE']){
       default:
       //case 'varchar':
-        echo $Row[$Field['COLUMN_NAME']];
+        if($Key){
+          echo $Row[$Field['COLUMN_NAME']];
+        }
         break;
     }
     
