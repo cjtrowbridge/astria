@@ -28,7 +28,11 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   $Func  = "function ".$Event."(){".PHP_EOL.PHP_EOL;
   $Func .= "?>".PHP_EOL;
-  $Func .="<h1><a href=\"/".$Schema."/".$Table."/\">".$Title."</a></h1>".PHP_EOL;
+  $Func .="<h1><a href=\"/".$Schema."/".$Table."/\">".$Title."</a>";
+  if(SchemaRoute('Key')==0){
+    $Func .= ": New";
+  }
+  $Func .= "</h1>".PHP_EOL;
   $Func .="  <div class=\"card\">".PHP_EOL;
   $Func .="    <div class=\"card-block\">".PHP_EOL;
   $Func .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
