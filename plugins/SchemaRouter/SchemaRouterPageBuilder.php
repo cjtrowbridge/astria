@@ -1,6 +1,10 @@
 <?php
 
 function SchemaRouterPageBuilder($Schema = false, $Table = false){
+  global $ASTRIA;
+  //Dereference schema
+  $Schema = $ASTRIA['databases'][$Schema]['name'];
+  
   if($Table == false){
     
     Event('SchemaRouter: Building $Schema page...');
