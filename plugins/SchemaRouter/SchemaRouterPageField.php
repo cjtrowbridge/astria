@@ -22,18 +22,16 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   $R  = PHP_EOL;
   pd($Fields);
   
-  $Columns = $Fields['Columns'];
-  
-  foreach($Columns as $Column){
+  foreach($Fields as $Field){
     
     $Value='';
     if($Key){
-      $Value = $Row[$Column['COLUMN_NAME']];
+      $Value = $Row[$Field['COLUMN_NAME']];
     }
     
     $R .= '  <div class="row">'.PHP_EOL;
     $R .= '    <div class="col-xs-12 col-lg-2">'.PHP_EOL;
-    $R .= '      '.$Column['COLUMN_NAME'].PHP_EOL;
+    $R .= '      '.$Field['COLUMN_NAME'].PHP_EOL;
     $R .= '    </div>'.PHP_EOL;
     $R .= '    <div class="col-xs-12 col-lg-10">'.PHP_EOL;
     
@@ -45,11 +43,11 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       
     }else{
     
-      switch($Column['DATA_TYPE']){
+      switch($Field['DATA_TYPE']){
         default:
         case 'varchar':
           if($Key){
-            echo '      <input type="text" name="'.$Column['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
+            echo '      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
           }
           break;
       }
@@ -58,7 +56,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     
     $R .= '    </div>'.PHP_EOL;
     $R .= '  </div><br>'.PHP_EOL;
-    $R .= '  <!--'.PHP_EOL.var_export($Column,true).PHP_EOL.'-->'.PHP_EOL.PHP_EOL;
+    $R .= '  <!--'.PHP_EOL.var_export($Field,true).PHP_EOL.'-->'.PHP_EOL.PHP_EOL;
   }
   return $R;
 }
