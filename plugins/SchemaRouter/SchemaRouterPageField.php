@@ -17,6 +17,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   }
   
   $R  = PHP_EOL;
+  pd($Fields);
   foreach($Fields as $Field){
     
     $Value='';
