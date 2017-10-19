@@ -22,7 +22,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   $Page = "<?php ".PHP_EOL.PHP_EOL;
   $Page .= "Hook('$Event',\"".PHP_EOL;
-  $Page .= "  TemplateBootstrap4('$Title','$Event();'); ".PHP_EOL.PHP_EOL;
+  $Page .= "  TemplateBootstrap4('$Title','$Event();'); ".PHP_EOL;
   $Page .= '");'.PHP_EOL.PHP_EOL;
   $Page .= "function ".$Event."(){".PHP_EOL.PHP_EOL;
   $Page .= "?>".PHP_EOL;
