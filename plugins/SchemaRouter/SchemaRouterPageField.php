@@ -8,9 +8,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   if($Key){
     $Table = Sanitize($Table);
     $SQL = "SELECT * FROM `".$Table."` WHERE ".$Table."ID = ".$Key;
-    pd($SQL);
     $Row = Query($SQL,$Schema);
-    pd($Row);
     if(!(isset($Row[0]))){
       $Key=0;
     }else{
