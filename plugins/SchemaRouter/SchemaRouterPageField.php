@@ -49,7 +49,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
             $R.='<p>DO A DROPDOWN FOR FOREIGN KEY '.$Constraint['REFERENCED_COLUMN_NAME'].' IN TABLE '.$Constraint['REFERENCED_TABLE_NAME'].'</p>';
             break;
           default:
-            $R .= ShowField($Field);
+            $R .= ShowField($Field,$Value);
             break;
         }
         
@@ -57,7 +57,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       }
     }else{
     
-      $R .= ShowField($Field);
+      $R .= ShowField($Field,$Value);
       
     }
     
@@ -68,7 +68,7 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
   return $R;
 }
 
-function ShowField($Field){
+function ShowField($Field,$Value){
   $R = '';
   switch($Field['DATA_TYPE']){
     default:
