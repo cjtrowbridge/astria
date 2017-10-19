@@ -41,22 +41,40 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
     
     if(count($Field['Constraints'])>0){
       foreach($Field['Constraints'] as $Constraint){
-        $R.='<p>'.var_export($Constraint,true).'</p>';
+        switch($Constraint['CONSTRAINT_TYPE']){
+          case 'PRIMARY KEY':
+            $R.='<input type="hidden" name="'.$Field['COLUMN_NAME'].'" value="">';
+            break;
+          case 'FOREIGN KEY':
+            $R.='<p>DO A DROPDOWN FOR FOREIGN KEY '.$Constraint['REFERENCED_COLUMN_NAME'].' IN TABLE '.$Constraint['REFERENCED_TABLE_NAME'].'</p>';
+            break;
+          default:
+            $R .= ShowField($Field);
+            break;
+        }
+        
+                
       }
     }else{
     
-      switch($Field['DATA_TYPE']){
-        default:
-        case 'varchar':
-          $R.='      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
-          break;
-      }
+      $R .= ShowField($Field);
       
     }
     
     $R .= '    </div>'.PHP_EOL;
     $R .= '  </div><br>'.PHP_EOL;
     $R .= '  <!--'.PHP_EOL.var_export($Field,true).PHP_EOL.'-->'.PHP_EOL.PHP_EOL;
+  }
+  return $R;
+}
+
+function ShowField($Field){
+  $R = '';
+  switch($Field['DATA_TYPE']){
+    default:
+    case 'varchar':
+      $R.='      <input type="text" name="'.$Field['COLUMN_NAME'].'" value="'.$Value.'" class="form-control">'.PHP_EOL;
+      break;
   }
   return $R;
 }
