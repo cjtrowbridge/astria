@@ -30,7 +30,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .= "?>".PHP_EOL;
   $Func .="<h1><a href=\"/".$Schema."/";
   
-  if(SchemaRoute('table')==false){
+  if(SchemaRoute('table')!=false){
     $Func .=$Table."/";
   }
     
