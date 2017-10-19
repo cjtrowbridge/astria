@@ -28,13 +28,13 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   
   $Func  = "function ".$Event."(){".PHP_EOL.PHP_EOL;
   $Func .= "?>".PHP_EOL;
-  $Func .="<h1><a href=\"/".$Schema;
+  $Func .="<h1><a href=\"/".$Schema."/";
   
   if(SchemaRoute('table')==false){
-    $Func .="/".$Table;
+    $Func .=$Table."/";
   }
     
-  $Func .="/\">".$Title."</a>";
+  $Func .="\">".$Title."</a>";
   if(
     SchemaRoute('Key')==0 &&
     SchemaRoute('Table')
