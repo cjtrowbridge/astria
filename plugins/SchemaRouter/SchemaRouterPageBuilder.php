@@ -88,8 +88,8 @@ function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
     
     //look through all the constraints and put them in the constraints array for each column
     foreach($Constraints as $Constraint){
-      if($Column['COLUMN_NAME']==$Constraint['COLUMN_NAME']){
-        $Column['Constraints'][]=$Constraint;
+      if($Column['COLUMN_NAME'] == $Constraint['COLUMN_NAME']){
+        $Column['Constraints'][ $Constraint['CONSTRAINT_NAME'] ] = $Constraint;
       }
     }
   }
