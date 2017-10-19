@@ -40,7 +40,7 @@ function SchemaRouter(){
               
               Event('SchemaRouter: View_Schema_'.$Schema.'_View_Table_'.$Table);
               include_once('SchemaRouterPageBuilder.php');
-              chemaRouterPageBuilder($Schema, $Table);
+              SchemaRouterPageBuilder($Schema, $Table);
               
             }else{
                 Event('SchemaRouter: Permission Denied to View Table');
