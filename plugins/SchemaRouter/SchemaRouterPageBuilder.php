@@ -75,7 +75,12 @@ function SchemaRouterPageBuilderGetTablePageContents($Schema, $Table){
   //Dereference schema
   $DatabaseName = $ASTRIA['databases'][$Schema]['database'];
   
-  $SQL="SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
-  $Data = Query($SQL,$Schema);
+  $ColumnSQL = "SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
+  $ConstraintSQL = "SELECT * FROM `TABLE_CONSTRAINTS` WHERE TABLE_SCHEMA LIKE '".Sanitize($DatabaseName)."' AND TABLE_NAME LIKE '".Sanitize($Table)."';";
+  
+  $Data = array(
+    'Columns' = Query($ColumnSQL,$Schema),
+    'Constraints' = Query($ConstraintSQL,$Schema)
+  );
   return var_export($Data,true);
 }
