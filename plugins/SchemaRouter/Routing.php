@@ -52,6 +52,6 @@ function SchemaRouter(){
         die('Permission denied to view schema '.$Schema.'.'); //TODO make this more pretty
       }
       
-    }
+    }else{Event('SchemaRouter: No schema match detected.');}
   }
 }
