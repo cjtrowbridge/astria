@@ -32,7 +32,7 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .="  <div class=\"card\">".PHP_EOL;
   $Func .="    <div class=\"card-block\">".PHP_EOL;
   $Func .="      <div class=\"card-text\">".PHP_EOL.PHP_EOL;
-  if($Table == false){
+  if($Table){
     $Func .="        <?php echo SchemaRouterPageField('".$Schema."', '".$Table."',".$Content."); ?>".PHP_EOL.PHP_EOL;
   }else{
     foreach($Content as $Table){
