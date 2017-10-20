@@ -60,6 +60,11 @@ function SchemaRouterPageBuilder($Schema = false, $Table = false){
   $Func .="    </div>".PHP_EOL;
   $Func .="  </div>".PHP_EOL;
   if(SchemaRoute('table')){
+    $Func .= '  <div class="row">'.PHP_EOL;
+    $Func .= '    <div class="col-xs-12">'.PHP_EOL;
+    $Func .= '      <input type="submit" class="btn btn-block btn-success" value="save">'.PHP_EOL;
+    $Func .= '    </div>'.PHP_EOL;
+    $Func .= '  </div>'.PHP_EOL;
     $Func .= "</form>".PHP_EOL;
   }
 
