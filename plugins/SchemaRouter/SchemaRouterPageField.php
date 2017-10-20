@@ -86,6 +86,16 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
 
 function ShowField($Field,$Value){
   $R = '';
+  
+  if(
+    $Field['COLUMN_NAME']=='UserInserted'||
+    $Field['COLUMN_NAME']=='TimeInserted'||
+    $Field['COLUMN_NAME']=='UserUpdated'||
+    $Field['COLUMN_NAME']=='TimeUpdated'
+  ){
+    return '      '.$Value.PHP_EOL;
+  }
+  
   switch($Field['DATA_TYPE']){
     default:
     case 'varchar':
