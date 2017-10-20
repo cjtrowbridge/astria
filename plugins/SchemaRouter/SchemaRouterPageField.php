@@ -69,10 +69,18 @@ function SchemaRouterPageField($Schema,$Table,$Fields){
       
     }
     
+    
+    
     $R .= '    </div>'.PHP_EOL;
     $R .= '  </div><br>'.PHP_EOL;
     $R .= '  <!--'.PHP_EOL.var_export($Field,true).PHP_EOL.'-->'.PHP_EOL.PHP_EOL;
   }
+  
+    $R .= '  <div class="row">'.PHP_EOL;
+    $R .= '    <div class="col-xs-12">'.PHP_EOL;
+    $R .= '      <input type="submit" class="btn btn-block btn-success" value="Save">'.PHP_EOL;
+    $R .= '    </div>'.PHP_EOL;
+    $R .= '  </div>'.PHP_EOL;
   return $R;
 }
 
