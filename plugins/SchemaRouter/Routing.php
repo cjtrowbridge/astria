@@ -9,7 +9,8 @@ function SchemaRouter_Routing(){
   //Get Route
   include_once('GetSchemaRoute.php');
   $Route = GetSchemaRoute();
-  
+
+  //call the appropriate router for the route's hierarchical level
   switch($Route['RouteType']){
     case 'allschemas':
       include_once('SchemaRouter_AllSchemas.php');
