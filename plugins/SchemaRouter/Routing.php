@@ -1,5 +1,9 @@
 <?php
 
+// use this for recursive permissions checks for children
+// https://stackoverflow.com/questions/17199482/search-array-keys-with-wildcard
+
+
 function SchemaRouter_Routing(){
 
   //Get Route
