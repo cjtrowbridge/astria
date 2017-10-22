@@ -1,11 +1,5 @@
 <?php
 
-//TODO review and standardize nomenclature for cache types and primitives
-//TODO make each database have a separate count of queries run
-//TODO implement query v3
-//TODO implement complete schema editor ui
-//TODO implement getlastid
-
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
@@ -22,10 +16,6 @@ if(file_exists('schema.php')){
 include('core/Locale.php');
 include('core/Loader.php');
 Loader('core');
-Loader('core/architect');
-//Loader('core/auth/Email');
-//Loader('core/auth/Facebook');
-//Loader('core/auth/Google');
 
 RequireSSL();
 
