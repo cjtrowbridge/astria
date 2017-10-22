@@ -1,17 +1,26 @@
 <?php 
 
-global $ASTRIA;
-if(
-  isset($ASTRIA['oauth'])&&
-  isset($ASTRIA['oauth']['Google'])&&
-  isset($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'])&&
-  (!($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']==''))
-){
-  Hook('Attempt Auth','AttemptGoogleAuth();');
-  Hook('Auth Login Options','authGoogleCallback();');
-}else{
-  //notify admin about this
-  Hook('Architect Homepage','AlertAdminMissingGoogleOAuthCredentials();');
+GoogleAuth();
+
+function GoogleAuth(){
+
+  global $ASTRIA;
+  if(
+    isset($ASTRIA['oauth'])&&
+    isset($ASTRIA['oauth']['Google'])&&
+    isset($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID'])&&
+    (!($ASTRIA['oauth']['Google']['GoogleOAuth2ClientID']==''))
+  ){
+    Hook('Attempt Auth','AttemptGoogleAuth();');
+    Hook('Auth Login Options','authGoogleCallback();');
+  }else{
+    //notify admin about this
+    Hook('Architect Homepage','AlertAdminMissingGoogleOAuthCredentials();');
+  }
+  
+  
+  Hook('Challenge Session', 'GoogleChallengeSession();');  
+  
 }
 
 function AlertAdminMissingGoogleOAuthCredentials(){
@@ -25,7 +34,6 @@ function AlertAdminMissingGoogleOAuthCredentials(){
   <?php
 }
 
-Hook('Challenge Session', 'GoogleChallengeSession();');  
 function GoogleChallengeSession(){
   include_once('auth/Google/autoload.php');
   global $ASTRIA;
