@@ -25,7 +25,7 @@ Loader('core');
 Loader('core/architect');
 //Loader('core/auth/Email');
 //Loader('core/auth/Facebook');
-Loader('core/auth/Google');
+//Loader('core/auth/Google');
 
 RequireSSL();
 
