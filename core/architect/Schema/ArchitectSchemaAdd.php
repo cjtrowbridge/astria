@@ -10,10 +10,14 @@ function ArchitectSchemaAdd(){
     global $ASTRIA;
     $newSchemaFile="<?php ".PHP_EOL."global \$ASTRIA;".PHP_EOL;
     foreach($ASTRIA['databases'] as $Index => $Schema){
+      if(!(isset($Schema['title']))){
+        $Schema['title'] = strtoupper($Index);
+      }
       if($Index != 'astria'){
         $newSchemaFile.=PHP_EOL.
         "\$ASTRIA['databases']['".$Index."'] = array(".PHP_EOL.
         "  'type'                     => '".$Schema['type']."',    ".PHP_EOL.
+        "  'title'                    => '".$Schema['title']."',    ".PHP_EOL.
         "  'hostname'                 => '".$Schema['hostname']."',".PHP_EOL.
         "  'username'                 => '".$Schema['username']."',".PHP_EOL.
         "  'password'                 => '".$Schema['password']."',".PHP_EOL.
@@ -29,6 +33,7 @@ function ArchitectSchemaAdd(){
     $newSchemaFile.=PHP_EOL.
     "\$ASTRIA['databases']['".$NewAlias."'] = array(".PHP_EOL.
     "  'type'                     => '".$_POST['dbType']."',    ".PHP_EOL.
+    "  'title'                    => '".$_POST['dbTitle']."',    ".PHP_EOL.
     "  'hostname'                 => '".$_POST['dbHost']."',".PHP_EOL.
     "  'username'                 => '".$_POST['dbUsername']."',".PHP_EOL.
     "  'password'                 => '".$_POST['dbPassword']."',".PHP_EOL.
@@ -67,10 +72,17 @@ function ArchitectSchemaAddBodyCallback(){
       </div>
     </div>
     <div class="form-group row">
+      <label class="col-xs-2 col-form-label">Database Title:</label>
+      <div class="col-xs-10">
+        <input class="form-control" type="text" name="dbTitle" id="dbTitle">
+        <small class="form-text text-muted">This is what we will display to users when refering to this database. It should be a pretty capitalized verion of the alias.</small>
+      </div>
+    </div>
+    <div class="form-group row">
       <label class="col-xs-2 col-form-label">Database Alias:</label>
       <div class="col-xs-10">
         <input class="form-control" type="text" name="dbAlias" id="dbAlias">
-        <small class="form-text text-muted">Alias must be lowercase letters and numbers only.</small>
+        <small class="form-text text-muted">Alias must be lowercase letters and numbers only. This is the safe version of the title which goes in urls and code.</small>
       </div>
     </div>
     <div class="form-group row">
