@@ -49,7 +49,7 @@ function SchemaRouter_QueryCard(){
     <div class="card-text">
       <form class="form" method="get" action="">
         <div class="col-xs-12 col-lg-9">
-          <input type="text" class="fomr-control" name="query" id="schemaQuery">
+          <input type="text" class="form-control" name="query" id="schemaQuery">
         </div>
         <div class="col-xs-12 col-lg-3">
           <input type="submit" class="btn btn-block btn-success" value="Search">
@@ -57,7 +57,7 @@ function SchemaRouter_QueryCard(){
       </form>
     </div>
   </div>
-</div>
+</div><br><br>
 <script>
   $('#schemaQuery').focus();
 </script>
