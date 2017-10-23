@@ -44,7 +44,7 @@ function SchemaRouter_Default_Homepage(){
 function SchemaRouter_QueryCard(){
  ?>
 
-<div id="SchemaRouterQueryCard" style="display: none;">
+<div id="SchemaRouterQueryCard" style="display: none;"><br>
   <form class="form" method="get" action="">
     <p><input type="text" class="form-control" name="query" id="schemaQuery" placeholder="Search"></p>
   </form>
