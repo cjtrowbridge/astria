@@ -12,6 +12,6 @@ function SchemaRouter_TableRows($Schema, $Table){
 function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $Table = Sanitize($Table);
   global $ASTRIA;
-  echo '<h1><a href="/'.$Schema.'/">'.$ASTRIA['databases'][$Schema]['title'].'</a> / <a href="/'.$Schema.'/'.$Table.'/">'.$Table.'</h1>';
+  echo '<h1><a href="/'.$Schema.'/">'.$ASTRIA['databases'][$Schema]['title'].'</a> / <a href="/'.$Schema.'/'.$Table.'/">'.$Table.'</a></h1>';
   echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC",$Schema));
 }
