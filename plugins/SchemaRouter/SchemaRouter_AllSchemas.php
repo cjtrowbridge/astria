@@ -1,10 +1,10 @@
 <?php
 
 function SchemaRouter_AllSchemas(){
-  //this will always simply be a list of all the schemas this user has permission to view
-  //this could be json
-  //or the contents of a dom object
-  //default to a full page with template
+  //TODO this will always simply be a list of all the schemas this user has permission to view
+  //TODO this could be json
+  //TODO or the contents of a dom object
+  //TODO default to a full page with template
 }
 
 function SchemaRouter_AllSchemas_DOM_UL(){
