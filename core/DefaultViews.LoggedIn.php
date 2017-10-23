@@ -32,7 +32,7 @@ function MaybeDefaultHomepage(){
 function defaultViewsMyAccountBodyCallback(){
   global $ASTRIA;
   $User = $ASTRIA['Session']['User'];
-  ?><h1><div style="float: right; white-space: nowrap;"><a href="/logout"><i title="Log Out" class="material-icons"> Log Out</i></a></div>My Account</h1>
+  ?><h1><div style="float: right; white-space: nowrap;"><a href="/logout"><i title="Log Out" class="material-icons"></i> Log Out</a></div>My Account</h1>
   
 <?php
   if(isset($_GET['message'])){
