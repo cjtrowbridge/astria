@@ -51,8 +51,7 @@ function HasPermissionBeginingWith($Permission){
   if(!isset($ASTRIA['Session']['User']['Permission'])){Event('Permission Negative: No Permissions object');return false;}
   if(!isset($ASTRIA['Session']['User']['UserID'])){Event('Permission Negative: No User ID');return false;}
 
-  //TODO this should be uncommented once the rest of the schemarouter plugin is done. 
-  //if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
+  if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
   
   if(count(preg_grep('/^'.$Permission.'/', array_keys($ASTRIA['Session']['User']['Permission']))) > 0){return true;}
   
