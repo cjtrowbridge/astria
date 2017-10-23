@@ -7,6 +7,14 @@ function SchemaRouter_SchemaTables($Schema){
     //this could be json
     //or the contents of a dom object
     //default to a full page with template
+    
+    global $ASTRIA;
+    TemplateBootstrap4($ASTRIA['databases'][$Schema]['title'],'SchemaRouter_SchemaTables_DOM_Page("'.$Schema.'");');
+}
+
+function SchemaRouter_SchemaTables_DOM_Page($Schema){
+  echo '<h1>'.$Schema.'</h1>';
+  echo SchemaRouter_SchemaTables_DOM_UL($Schema);
 }
 
 function SchemaRouter_SchemaTables_DOM_UL($Schema){
