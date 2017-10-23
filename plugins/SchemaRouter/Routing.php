@@ -5,6 +5,9 @@
 
 function SchemaRouter_Routing(){
 
+  //include DOM functions so views can be included in outside pages
+  include_once('');
+  
   //Get Route
   include_once('GetSchemaRoute.php');
   $Route = GetSchemaRoute();
@@ -24,8 +27,8 @@ function SchemaRouter_Routing(){
       SchemaRouter_TableRows($Route['Schema'],$Route['Table']);
       break;
     case 'row':
-      include_once('SchemaRouter_RowFields.php');
-      SchemaRouter_RowFields($Route['Schema'],$Route['Table'],$Route['Row']);
+      include_once('SchemaRouter_RowColumns.php');
+      SchemaRouter_RowColumns($Route['Schema'],$Route['Table'],$Route['Row']);
       break;
   }
   
