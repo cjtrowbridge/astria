@@ -8,7 +8,13 @@ function DefaultViewNoView(){
 }
 function DefaultViewNoViewBodyCallback(){
   global $NUMBER_OF_QUERIES_RUN, $QUERIES_RUN, $DEBUG, $NUMBER_OF_QUERIES_RUN_FROM_DISK_CACHE,$ASTRIA;
-  echo '<h1>404: Page not found.</h1>';
+  ?>
+
+  <h1>404: Page not found.</h1>
+  <p>You may have a bad URL, of you may not have permission for this page.</p>
+  <p>Contact your admin if you think something should be here!</p>
+
+  <?php
   //echo 'User '.$ASTRIA['Session']['User']['Email'].' is logged in, but nothing happened at this url.<br>';
   //echo 'Runtime '.round(microtime(true)-$DEBUG[0]['timestamp'],4)." seconds.<br>";
   //echo 'Ran '.$NUMBER_OF_QUERIES_RUN.' Database Queries.<br>';
