@@ -57,7 +57,7 @@ function SchemaRouter_QueryCard(){
       </form>
     </div>
   </div>
-</div><br>
+</div>
 <script>
   $('#schemaQuery').focus();
 </script>
