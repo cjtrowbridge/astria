@@ -46,7 +46,7 @@ function SchemaRouter_QueryCard(){
 
 <div id="SchemaRouterQueryCard" style="display: none;">
   <form class="form" method="get" action="">
-    <p><input type="text" class="form-control" name="query" id="schemaQuery"></p>
+    <p><input type="text" class="form-control" name="query" id="schemaQuery" placeholder="Search"></p>
   </form>
 </div>
 <script>
@@ -59,31 +59,4 @@ function SchemaRouter_QueryCard(){
 
   <?php
   
-  return;
-  
-  ?>
-
-<div class="card" id="SchemaRouterQueryCard" style="display: none;">
-  <div class="card-block">
-    <div class="card-text">
-      <form class="form" method="get" action="">
-        <div class="col-xs-12 col-lg-9">
-          <p><input type="text" class="form-control" name="query" id="schemaQuery"></p>
-        </div>
-        <div class="col-xs-12 col-lg-3">
-          <p><input type="submit" class="btn btn-block btn-success" value="Search"></p>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<script>
-  function SchemaRouterSearch(){
-    $('#SchemaRouterQueryCard').slideToggle('fast',function(){
-      $('#schemaQuery').focus();
-    });
-  }
-</script>
-
-  <?php
 }
