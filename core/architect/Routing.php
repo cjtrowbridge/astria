@@ -40,6 +40,10 @@ function PresentArchitect(){
         include_once('ArchitectDebug.php');
         ArchitectEventDebug();
         break;
+      case 'my-permissions':
+        include_once('ArchitectMyPermissions.php');
+        ArchitectMyPermissions();
+        break;
       case 'session':
         include_once('ArchitectSession.php');
         ArchitectSession();
