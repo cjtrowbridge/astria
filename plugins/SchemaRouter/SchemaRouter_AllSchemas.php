@@ -7,10 +7,19 @@ function SchemaRouter_AllSchemas(){
   //default to a full page with template
 }
 
-function SchemaRouter_AllSchemas_DOM(){
+function SchemaRouter_AllSchemas_DOM_UL(){
   //this function returns a string which shows a dom ui for accessing each schema which the user has any recursive permission to view
   $AllSchemas = SchemaRouter_AllSchemas_Array();
-  return '<pre>'.var_export($AllSchemas,true).'</pre>';
+  $R= PHP_EOL.PHP_EOL.'<ul>'.PHP_EOL;
+  foreach($AllSchemas as $Alias => $Database){
+    $R.= '  <li><a href="/'.$Alias.'/">'.$Alias.'</a></li>'.PHP_EOL;
+    $R.=SchemaRouter_SchemaTables_DOM_UL();
+  }
+  if(count($AllSchemas)==0){
+    $R.= '  <li>You do not have permission to access any databases.</li>'.PHP_EOL; //TODO make this prettier
+  }
+  $R.= PHP_EOL.'</ul>'.PHP_EOL.PHP_EOL;
+  return $R;
 }
 
 function SchemaRouter_AllSchemas_Array(){
