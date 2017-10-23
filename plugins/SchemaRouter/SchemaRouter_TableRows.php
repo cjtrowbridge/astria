@@ -7,7 +7,7 @@ function SchemaRouter_TableRows($Schema, $Table){
     //or the contents of a dom object
     //default to a full page with template
     global $ASTRIA;
-    TemplateBootstrap4($Table.' - '.$ASTRIA['databases'][$Schema]['title'],'SchemaRouter_SchemaTables_DOM_Page("'.$Schema.'","'.$Table.'");');
+    TemplateBootstrap4($Table.' - '.$ASTRIA['databases'][$Schema]['title'],'SchemaRouter_TableRows_DOM_Page("'.$Schema.'","'.$Table.'");');
 }
 function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $Table = Sanitize($Table);
