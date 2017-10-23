@@ -44,11 +44,11 @@ function SchemaRouter_Default_Homepage(){
 function SchemaRouter_QueryCard(){
  ?>
 
-<p id="SchemaRouterQueryCard" style="display: none;">
+<div id="SchemaRouterQueryCard" style="display: none;">
   <form class="form" method="get" action="">
-    <input type="text" class="form-control" name="query" id="schemaQuery">
+    <p><input type="text" class="form-control" name="query" id="schemaQuery"></p>
   </form>
-</p>
+</div>
 <script>
   function SchemaRouterSearch(){
     $('#SchemaRouterQueryCard').slideToggle('fast',function(){
