@@ -103,6 +103,7 @@ function UpdateConfig(
       'astria' => array(
 
         'type'                     => '".$dbType."',
+        'title'                    => 'Astria',
         'hostname'                 => '".$dbHost."',
         'username'                 => '".$dbUsername."',
         'password'                 => '".$dbPassword."',
