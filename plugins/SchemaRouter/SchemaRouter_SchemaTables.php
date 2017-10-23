@@ -27,7 +27,7 @@ function SchemaRouter_SchemaTables_Array($Schema){
   //initialize the output list
   $R = array();
   
-  $Tables = Query('SHOW TABLES',$Alias);
+  $Tables = Query('SHOW TABLES',$Schema);
   
   foreach($Tables as $Table){
     $Table = array_shift($Table);
