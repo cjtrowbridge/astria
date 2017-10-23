@@ -40,3 +40,27 @@ Hook('User Is Logged In - Homepage Content','SchemaRouter_Default_Homepage();');
 function SchemaRouter_Default_Homepage(){
   echo '<h1>Databases</h1>'.PHP_EOL.SchemaRouter_AllSchemas_DOM_UL();
 }
+
+function SchemaRouter_QueryCard(){
+ ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <form class="form" method="get" action="">
+        <div class="col-xs-12 col-lg-9">
+          <input type="text" class="fomr-control" name="query" id="schemaQuery">
+        </div>
+        <div class="col-xs-12 col-lg-3">
+          <input type="submit" class="btn btn-block btn-success" value="Search">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+  $('#schemaQuery').focus();
+</script>
+
+  <?php
+}
