@@ -13,7 +13,18 @@ function SchemaRouter_TableRows($Schema, $Table){
 function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $Table = Sanitize($Table);
   global $ASTRIA;
-  echo '<h1><div style="float: right; white-space: nowrap;"><a href="./?insert" class="btn btn-outline-success">New</a> <a href="javascript:void(0);" onclick="SchemaRouterSearch();" class="btn btn-outline-success">Search</a></div>/ <a href="/'.$Schema.'/">'.$ASTRIA['databases'][$Schema]['title'].'</a> / <a href="/'.$Schema.'/'.$Table.'/">'.$Table.'</a></h1>';
+  ?>
+
+  <h1>
+    <div style="float: right; white-space: nowrap;">
+      <a href="./?insert" class="btn btn-success">New</a> 
+      <a href="javascript:void(0);" onclick="SchemaRouterSearch();" class="btn btn-success">Search</a>
+    </div>
+    / <a href="/<?php echo $Schema; ?>/"><?php echo $ASTRIA['databases'][$Schema]['title']; ?></a> 
+    / <a href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/"><?php echo $Table; ?></a>
+  </h1>
+  
+  <?php
   SchemaRouter_QueryCard();
   echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100",$Schema));
 }
