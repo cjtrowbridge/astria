@@ -1,11 +1,11 @@
 <?php
 
 function SchemaRouter_TableRows($Schema, $Table){
-  //this could be an insert of a new row
-  //deafult to returning a list of rows in the table
-    //this could be json
-    //or the contents of a dom object
-    //default to a full page with template
+  //TODO this could be an insert of a new row
+  //TODO deafult to returning a list of rows in the table
+    //TODO this could be json
+    //TODO or the contents of a dom object
+    //TODO default to a full page with template
     global $ASTRIA;
     TemplateBootstrap4($Table.' - '.$ASTRIA['databases'][$Schema]['title'],'SchemaRouter_TableRows_DOM_Page("'.$Schema.'","'.$Table.'");');
 }
