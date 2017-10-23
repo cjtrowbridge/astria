@@ -22,8 +22,12 @@ function SchemaRouter_AllSchemas_Array(){
   
   foreach($ASTRIA['databases'] as $Alias => $Database){
     $PermissionString = 'Schema_'.$Alias.'_';
+    Event('Checking If User Has Any Permissions Begining with: '.$PermissionString);
     if(HasPermissionBeginingWith($PermissionString)){
+      Event('Yes');
       $Schemas[$Alias]=$Database['database'];
+    }else{
+      Event('None found.');
     }
   }
   
