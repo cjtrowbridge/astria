@@ -23,7 +23,7 @@ function SchemaRouter_AllSchemas_Array(){
   foreach($ASTRIA['databases'] as $Alias => $Database){
     $PermissionString = 'Schema_'.$Alias.'_';
     if(HasPermissionBeginingWith($PermissionString)){
-      $Schemas[$Alias]=$Database['name'];
+      $Schemas[$Alias]=$Database['database'];
     }
   }
   
