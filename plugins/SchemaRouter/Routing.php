@@ -49,10 +49,10 @@ function SchemaRouter_QueryCard(){
     <div class="card-text">
       <form class="form" method="get" action="">
         <div class="col-xs-12 col-lg-9">
-          <input type="text" class="form-control" name="query" id="schemaQuery">
+          <p><input type="text" class="form-control" name="query" id="schemaQuery"></p>
         </div>
         <div class="col-xs-12 col-lg-3">
-          <input type="submit" class="btn btn-block btn-success" value="Search">
+          <p><input type="submit" class="btn btn-block btn-success" value="Search"></p>
         </div>
       </form>
     </div>
