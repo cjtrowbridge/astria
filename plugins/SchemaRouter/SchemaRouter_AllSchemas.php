@@ -9,7 +9,7 @@ function SchemaRouter_AllSchemas(){
 
 function SchemaRouter_AllSchemas_DOM(){
   //this function returns a string which shows a dom ui for accessing each schema which the user has any recursive permission to view
-  $AllSchemas = SchemaRouter_AllSchemas_Array()
+  $AllSchemas = SchemaRouter_AllSchemas_Array();
   return '<pre>'.var_export($AllSchemas,true).'</pre>';
 }
 
