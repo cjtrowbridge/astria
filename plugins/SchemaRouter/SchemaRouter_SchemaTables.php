@@ -13,7 +13,8 @@ function SchemaRouter_SchemaTables($Schema){
 }
 
 function SchemaRouter_SchemaTables_DOM_Page($Schema){
-  echo '<h1>'.$Schema.'</h1>';
+  global $ASTRIA;
+  echo '<h1>'.$ASTRIA['databases'][$Schema]['title'].'</h1>';
   echo SchemaRouter_SchemaTables_DOM_UL($Schema);
 }
 
