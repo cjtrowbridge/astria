@@ -1,8 +1,7 @@
 <?php
 
-// use this for recursive permissions checks for children
-// https://stackoverflow.com/questions/17199482/search-array-keys-with-wildcard
-
+// example permission 
+//   Schema_firebridgecrm_Table_Customer_Column_BillingZIP
 
 function SchemaRouter_Routing(){
 
