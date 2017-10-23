@@ -13,7 +13,7 @@ function SchemaRouter_AllSchemas_DOM_UL(){
   $R= PHP_EOL.PHP_EOL.'<ul>'.PHP_EOL;
   foreach($AllSchemas as $Alias => $Database){
     $R.= '  <li><a href="/'.$Alias.'/">'.$Alias.'</a></li>'.PHP_EOL;
-    $R.=SchemaRouter_SchemaTables_DOM_UL();
+    $R.=SchemaRouter_SchemaTables_DOM_UL($Alias);
   }
   if(count($AllSchemas)==0){
     $R.= '  <li>You do not have permission to access any databases.</li>'.PHP_EOL; //TODO make this prettier
