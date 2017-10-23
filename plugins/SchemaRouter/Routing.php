@@ -38,5 +38,5 @@ function SchemaRouter_Routing(){
 Hook('User Is Logged In - Homepage Content','SchemaRouter_Default_Homepage();');
 
 function SchemaRouter_Default_Homepage(){
-  echo SchemaRouter_AllSchemas_DOM_UL();
+  echo '<h1>Databases</h1>'.PHP_EOL.SchemaRouter_AllSchemas_DOM_UL();
 }
