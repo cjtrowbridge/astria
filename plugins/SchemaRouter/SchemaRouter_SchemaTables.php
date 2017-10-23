@@ -1,12 +1,12 @@
 <?php
 
 function SchemaRouter_SchemaTables($Schema){
-  //this could be an insert of a new table
-  //or an update to a table's structure
-  //default to returning a list of all tables in the given schema
-    //this could be json
-    //or the contents of a dom object
-    //default to a full page with template
+  //TODO this could be an insert of a new table
+  //TODO or an update to a table's structure
+  //TODO default to returning a list of all tables in the given schema
+    //TODO this could be json
+    //TODO or the contents of a dom object
+    //TODO default to a full page with template
     
     global $ASTRIA;
     TemplateBootstrap4($ASTRIA['databases'][$Schema]['title'],'SchemaRouter_SchemaTables_DOM_Page("'.$Schema.'");');
