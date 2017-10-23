@@ -44,7 +44,7 @@ function SchemaRouter_Default_Homepage(){
 function SchemaRouter_QueryCard(){
  ?>
 
-<div class="card">
+<div class="card" id="SchemaRouterQueryCard" style="display: none;">
   <div class="card-block">
     <div class="card-text">
       <form class="form" method="get" action="">
@@ -59,7 +59,11 @@ function SchemaRouter_QueryCard(){
   </div>
 </div>
 <script>
-  $('#schemaQuery').focus();
+  function SchemaRouterSearch(){
+    $('#SchemaRouterQueryCard').slideToggle('fast',function(){
+      $('#schemaQuery').focus();
+    });
+  }
 </script>
 
   <?php
