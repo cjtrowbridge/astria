@@ -12,7 +12,7 @@ function SchemaRouter_AllSchemas_DOM_UL(){
   $AllSchemas = SchemaRouter_AllSchemas_Array();
   $R= PHP_EOL.PHP_EOL.'<ul>'.PHP_EOL;
   foreach($AllSchemas as $Alias => $Database){
-    $R.= '  <li><a href="/'.$Alias.'/">'.$Alias.'</a></li>'.PHP_EOL;
+    $R.= '  <li><a href="/'.$Alias.'/">'.$Database.'</a></li>'.PHP_EOL;
     $R.=SchemaRouter_SchemaTables_DOM_UL($Alias);
   }
   if(count($AllSchemas)==0){
@@ -34,7 +34,7 @@ function SchemaRouter_AllSchemas_Array(){
     Event('Checking If User Has Any Permissions Begining with: '.$PermissionString);
     if(HasPermissionBeginingWith($PermissionString)){
       Event('Yes');
-      $Schemas[$Alias]=$Database['database'];
+      $Schemas[$Alias]=$Database['title'];
     }else{
       Event('None found.');
     }
