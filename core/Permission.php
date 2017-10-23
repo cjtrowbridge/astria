@@ -43,6 +43,26 @@ function HasPermission($Permission){
   return false;
 }
 
+function HasPermissionBeginingWith($Permission){
+  //check if the permission exists within the user's list of permissions
+  global $ASTRIA;
+  if(!isset($ASTRIA['Session'])){Event('Permission Negative: No Session');return false;}
+  if(!isset($ASTRIA['Session']['User'])){Event('Permission Negative: No User');return false;}
+  if(!isset($ASTRIA['Session']['User']['Permission'])){Event('Permission Negative: No Permissions object');return false;}
+  if(!isset($ASTRIA['Session']['User']['UserID'])){Event('Permission Negative: No User ID');return false;}
+
+  if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
+  
+  //if yes, return true;
+  if(isset($ASTRIA['Session']['User']['Permission'][$Permission])){return true;}
+  
+  if(count(preg_grep('/^'.$Permission.'/', array_keys($ASTRIA['Session']['User']['Permission']))) > 0){return true;}
+  
+  return false;
+}
+
+
+
 function LoadUserPermissionsIntoSession(){
   global $ASTRIA;
   
