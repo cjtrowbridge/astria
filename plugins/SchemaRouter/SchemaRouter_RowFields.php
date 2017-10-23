@@ -1,6 +1,6 @@
 <?php
 
-function SchemaRouter_RowFields($Schema, $Table, $Row){
+function SchemaRouter_RowColumns($Schema, $Table, $Row){
   //this could be an update to an existing row
   //or a delete of a row
   //default to returning the row
