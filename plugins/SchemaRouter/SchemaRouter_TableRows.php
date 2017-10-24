@@ -35,6 +35,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   }
   $SQL = rtrim($SQL,",");
   pd($SQL);
+  pd($ASTRIA['Session']['Schema'][$Schema]);
   
   echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100",$Schema));
 }
