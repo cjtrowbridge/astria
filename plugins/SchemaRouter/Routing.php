@@ -127,10 +127,10 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     
     //add a list of tables the user has any permissions for
     $SchemaDescription[$Alias] = SchemaRouter_SchemaTables_Array($Alias);
-    //foreach($SchemaDescription[$Alias] as &$Table){
-      //$Table
-      //TODO add constraints to columns
-    //}
+    foreach($SchemaDescription[$Alias] as $Index  => $Value){
+      
+      $Table[$Value] = SchemaRouterGet_Constraints($Alias, $Table);
+    }
   }
   
   //save this into the session and then return it.
