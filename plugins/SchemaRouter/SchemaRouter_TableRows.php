@@ -31,7 +31,9 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
-    $SQL.="`".$Column['COLUMN_NAME']."`,";
+    if(isset($Column['COLUMN_NAME'])){
+      $SQL.="`".$Column['COLUMN_NAME']."`,";
+    }
   }
   $SQL = rtrim($SQL,",");
   pd($SQL);
