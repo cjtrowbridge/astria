@@ -134,7 +134,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   }
   
   //save this into the session and then return it.
-  $ASTRIA['Session']['Schema'] = $SchemaDescriptions;
+  $ASTRIA['Session']['Schema'] = $SchemaDescription;
   AstriaSaveSession();
-  return $SchemaDescriptions;
+  return $SchemaDescription;
 }
