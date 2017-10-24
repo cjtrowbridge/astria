@@ -11,6 +11,7 @@ function ArchitectPluginManagerBodyCallback(){
 
 <?php
   
+  //sort the list of plugins by name, case insensetive
   uksort($ASTRIA['plugin'], 'strcasecmp');
 
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
