@@ -27,7 +27,7 @@ function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice table
           $return.="<td>".$value."</td>";  
         }else{
           //TODO i dont think this will work like this but i dont need it to work at this point
-          $return.="<td>".eval($OutputCallback($key, $value,$row)."</td>";
+          $return.="<td>".$OutputCallback($key, $value,$row)."</td>";
         }
         
       }
