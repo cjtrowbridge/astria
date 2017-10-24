@@ -127,9 +127,9 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     
     //add a list of tables the user has any permissions for
     $SchemaDescription[$Alias] = SchemaRouter_SchemaTables_Array($Alias);
-    foreach($SchemaDescription[$Alias] as $Index  => $Value){
+    foreach($SchemaDescription[$Alias] as $Index  => $Table){
       
-      $Table[$Value] = SchemaRouterGet_Constraints($Alias, $Table);
+      $SchemaDescription[$Table] = SchemaRouterGet_Constraints($Alias, $Table);
     }
   }
   
