@@ -30,9 +30,11 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   //convert any keys to links to the thing those are keys for
   
   $SQL = "SELECT ";
-  foreach($ASTRIA['Databases'][$Schema] as $Column){
-    echo $Column;
+  foreach($ASTRIA['databases'][$Schema] as $Column){
+    $SQL.="`".$Column['COLUMN_NAME']."`,";
   }
+  $SQL = rtrim($SQL,",");
+  pd($SQL);
   
   echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100",$Schema));
 }
