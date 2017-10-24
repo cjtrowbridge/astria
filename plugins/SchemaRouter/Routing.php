@@ -36,11 +36,13 @@ function SchemaRouter_Routing(){
   
 }
 
+
 Hook('User Is Logged In - Homepage Content','SchemaRouter_Default_Homepage();');
 
 function SchemaRouter_Default_Homepage(){
   echo '<h1>Databases</h1>'.PHP_EOL.SchemaRouter_AllSchemas_DOM_UL();
 }
+
 
 function SchemaRouter_QueryCard(){
  ?>
@@ -61,6 +63,7 @@ function SchemaRouter_QueryCard(){
   <?php
   
 }
+
 
 function SchemaRouterGet_Constraints($Schema, $Table){
   
@@ -109,6 +112,7 @@ function SchemaRouterGet_Constraints($Schema, $Table){
   
   return $Data;
 }
+
 
 function SchemaRouter_SchemaDescription($ForceReload = false){
   global $ASTRIA;
