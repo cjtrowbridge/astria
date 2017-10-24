@@ -11,8 +11,8 @@ function ArchitectPluginManagerBodyCallback(){
 
 <?php
   
-  ksort($ASTRIA['plugin']);
-  
+  uksort($ASTRIA['plugin'], 'strcasecmp');
+
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
   
   ?>
