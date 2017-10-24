@@ -150,6 +150,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
           $SchemaDescription[$Alias][$Table]['FirstTextField'] == '' &&
           (
             $Column['DATA_TYPE'] == 'varchar'||
+            $Column['DATA_TYPE'] == 'longtext'||
             $Column['DATA_TYPE'] == 'text'
           )
         ){
