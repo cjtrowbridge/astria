@@ -25,16 +25,13 @@ function LoadPlugins(){
   VerifyPluginListExists();
   
   //check if there are any new plugins present
-  
   LookForNewPlugins();
   
+  //Are we being asked to test a plugin?
   PluginLocalTest();
   
-  //if(isset($_GET['testPlugins'])){
-    TestPlugins();
-    //header('Location: /architect');
-    //exit;
-  //}
+  //Lets see if we need to test any
+  TestPlugins();
   
   SortPluginsByPriority();
   
