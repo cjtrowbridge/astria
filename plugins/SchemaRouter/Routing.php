@@ -70,7 +70,6 @@ function SchemaRouterGet_Constraints($Schema, $Table){
   
   $ColumnSQL = "SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
   $ConstraintSQL = "
-  
     SELECT COLUMN_NAME, CONSTRAINT_TYPE, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
     FROM information_schema.KEY_COLUMN_USAGE 
     LEFT JOIN information_schema.TABLE_CONSTRAINTS ON
@@ -95,7 +94,8 @@ function SchemaRouterGet_Constraints($Schema, $Table){
     //look through all the constraints and put them in the constraints array for each column
     foreach($Constraints as $Constraint){
       if($Column['COLUMN_NAME'] == $Constraint['COLUMN_NAME']){
-        $Data[ $Column['COLUMN_NAME'] ]['Constraints'][ $Constraint['CONSTRAINT_TYPE'] ] = $Constraint;
+        $Data[ $Column['COLUMN_NAME'] ]['Constraints'][] = $Constraint;
+        $Data[ $Column['COLUMN_NAME'] ]['HasConstraint'][ $Constraint['CONSTRAINT_TYPE'] ] = $Constraint['CONSTRAINT_TYPE'];
       }
     }
     unset($Data[$Index]);
