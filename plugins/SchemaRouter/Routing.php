@@ -92,8 +92,8 @@ function SchemaRouterGet_Constraints($Schema, $Table){
     $Data[ $Column['COLUMN_NAME'] ]['Constraints'] = array();
     $Data[ $Column['COLUMN_NAME'] ]['IConstraint'] = array(
       'UNIQUE'      => false,
-      'PRIMARY_KEY' => false,
-      'FOREIGN_KEY' => false,
+      'PRIMARY KEY' => false,
+      'FOREIGN KEY' => false,
       'CHECK'       => false
     );
     
