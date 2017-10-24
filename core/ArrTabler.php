@@ -1,6 +1,6 @@
 <?php
 
-function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice tablesorter-bootstrap', $table_id = null,$Sort = true){
+function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice tablesorter-bootstrap', $table_id = null,$Sort = true,$OutputCallback = false){
   $return='';
   if($table_id==null){
     $table_id=md5(uniqid(true));
@@ -23,7 +23,13 @@ function ArrTabler($arr, $table_class = 'table tablesorter tablesorter-ice table
       $first=false;
       $return.= "			<tr>\n";
       foreach($row as $key => $value){
-        $return.="<td>".OutputMask($key, $value,$row)."</td>";
+        if($OutputCallback == false){
+          $return.="<td>".$value."</td>";  
+        }else{
+          //TODO i dont think this will work like this but i dont need it to work at this point
+          $return.="<td>".eval($OutputCallback($key, $value,$row)."</td>";
+        }
+        
       }
       $return.= "			</tr>\n";
     }
