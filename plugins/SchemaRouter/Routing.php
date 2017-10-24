@@ -144,6 +144,18 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     foreach($SchemaDescription[$Alias] as $Index  => $Table){
       unset($SchemaDescription[$Alias][$Index]);
       $SchemaDescription[$Alias][$Table] = SchemaRouterGet_Constraints($Alias, $Table);
+      $SchemaDescription[$Alias][$Table]['FirstTextField'] = '';
+      foreach($SchemaDescription[$Alias][$Table] as $Column){
+        if(
+          $SchemaDescription[$Alias][$Table]['FirstTextField'] == '' &&
+          (
+            $Column['DATA_TYPE'] == 'varchar'||
+            $Column['DATA_TYPE'] == 'text'
+          )
+        ){
+          $SchemaDescription[$Alias][$Table]['FirstTextField'] = $Column['COLUMN_NAME'];
+        }
+      }
     }
   }
   
