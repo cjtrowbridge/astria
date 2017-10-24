@@ -26,5 +26,8 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   <?php
   SchemaRouter_QueryCard();
+  
+  //convert any keys to links to the thing those are keys for
+  
   echo ArrTabler(Query("SELECT * FROM `".$Table."` ORDER BY 1 DESC LIMIT 100",$Schema));
 }
