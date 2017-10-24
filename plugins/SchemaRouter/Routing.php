@@ -110,6 +110,11 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     return $ASTRIA['Session']['Schema'];
   }
   
+  include_once('SchemaRouter_AllSchemas.php');
+  include_once('SchemaRouter_SchemaTables.php');
+  include_once('SchemaRouter_TableRows.php');
+  include_once('SchemaRouter_RowColumns.php');
+  
   //If this has not already happened during this session, do it now and cache it into the session
   //We can take for granted that permissions are already done, as this function is hooked immediately after that.
   
