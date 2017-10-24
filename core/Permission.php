@@ -84,6 +84,7 @@ function LoadUserPermissionsIntoSession(){
     }
   }
   
+  Event('Done Reloading User Permissions Into Session');
   
   //save session
   AstriaSessionSave();
