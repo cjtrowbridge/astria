@@ -4,6 +4,7 @@
 //   Schema_firebridgecrm_Table_Customer_Column_BillingZIP
 
 Hook('User Is Logged In - Before Presentation','SchemaRouter_Routing();');
+Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription();');
 
 function SchemaRouter_Routing(){
 
@@ -58,5 +59,21 @@ function SchemaRouter_QueryCard(){
 </script>
 
   <?php
+  
+}
+
+function SchemaRouter_SchemaDescription($ForceReload = false){
+  global $ASTRIA;
+  if(
+    isset($ASTRIA['Session']['Schema']) &&
+    ($ForceReload == false)
+  ){
+    return $ASTRIA['Session']['Schema'];
+  }
+  
+  //If this has not already happened during this session, do it now and cache it into the session
+  //We can take for granted that permissions are already done, as this function is hooked immediately after that.
+  
+  //TODO
   
 }
