@@ -31,13 +31,14 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
+    $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     if(
       isset($Column['COLUMN_NAME'])&&
-      (!($Column['COLUMN_NAME'] == $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']))
+      (!($Column['COLUMN_NAME'] == $FirstTextField))
       
     ){
-      if($Column['FirstTextField']['IsConstraint']['PRIMARY KEY']){
-        $SQL.="CONCAT('<a href=\"',`".$Column['COLUMN_NAME']."`,'\">',`".$ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']."`,'</a>') as '".Sanitize($Table)."',";
+      if($Column['IsConstraint']['PRIMARY KEY']){
+        $SQL.="CONCAT('<a href=\"',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
       }else{
         $SQL.="`".$Column['COLUMN_NAME']."`,";
       }
