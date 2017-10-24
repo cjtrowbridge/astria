@@ -10,8 +10,12 @@ function ArchitectPluginManagerBodyCallback(){
   ?><h1><a href="/architect">Architect</a> / <a href="/architect/plugins">Plugins</a></h1>
 
 <?php
+  
+  ksort($ASTRIA['plugin']);
+  
   foreach($ASTRIA['plugin'] as $Index => $Plugin){
-    ?>
+  
+  ?>
 
 <div class="card">
   <div class="card-block">
