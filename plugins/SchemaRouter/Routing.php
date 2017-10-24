@@ -85,17 +85,18 @@ function SchemaRouterGet_Constraints($Schema, $Table){
   $Data        = Query($ColumnSQL,$Schema);
   $Constraints = Query($ConstraintSQL,$Schema);
   
-  foreach($Data as &$Column){
+  foreach($Data as $Index => $Column){
     
     //initialize an array to hold this column's constraints
-    $Column['Constraints']=array();
+    $Data[ $Column['COLUMN_NAME'] ]['Constraints']=array();
     
     //look through all the constraints and put them in the constraints array for each column
     foreach($Constraints as $Constraint){
       if($Column['COLUMN_NAME'] == $Constraint['COLUMN_NAME']){
-        $Column['Constraints'][ $Constraint['CONSTRAINT_TYPE'] ] = $Constraint;
+        $Data[ $Column['COLUMN_NAME'] ]['Constraints'][ $Constraint['CONSTRAINT_TYPE'] ] = $Constraint;
       }
     }
+    unset($Data[$Index]);
   }
   
   return $Data;
