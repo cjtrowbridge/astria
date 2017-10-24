@@ -30,7 +30,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   //convert any keys to links to the thing those are keys for
   
   $SQL = "SELECT ";
-  foreach($ASTRIA['databases'][$Schema] as $Column){
+  foreach($ASTRIA['Session']['Schema'][$Schema] as $Column){
     $SQL.="`".$Column['COLUMN_NAME']."`,";
   }
   $SQL = rtrim($SQL,",");
