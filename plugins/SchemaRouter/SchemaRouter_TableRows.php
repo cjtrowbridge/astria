@@ -33,7 +33,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     if(
       isset($Column['COLUMN_NAME'])&&
-      (!($Column['COLUMN_NAME'] == $Column['FirstTextField']))&&
+      (!($Column['COLUMN_NAME'] == $Column['FirstTextField']))
       
     ){
       if($Column['FirstTextField']['IsConstraint']['PRIMARY KEY']){
