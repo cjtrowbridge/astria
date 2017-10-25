@@ -43,6 +43,13 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       
     ){
       if(
+        ($Column['COLUMN_NAME'] == 'BillingAddress')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress1')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress2')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress3')||
+        ($Column['COLUMN_NAME'] == 'BillingZIP')||
+        ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
+        ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
         ($Column['COLUMN_NAME'] == 'Address')||
         ($Column['COLUMN_NAME'] == 'Address1')||
         ($Column['COLUMN_NAME'] == 'Address2')||
