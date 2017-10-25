@@ -195,7 +195,7 @@ function GetSmartAddressFieldConcat($Schema,$Table){
     }
     
   }
-  $SQL = trim(rtrim(trim($SQL),","));
+  $SQL = trim(rtrim(trim($SQL),", "));
   //TODO add locale settings here for customizing what is output for this.
   return $SQL;
 }
