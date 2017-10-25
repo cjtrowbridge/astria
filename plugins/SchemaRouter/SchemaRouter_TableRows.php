@@ -69,8 +69,8 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       ($Column['COLUMN_NAME'] == 'BillingZIP')||
       ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
       ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
-      //($Column['COLUMN_NAME'] == 'BillingState')||
-      //($Column['COLUMN_NAME'] == 'BillingCountry')||
+      ($Column['COLUMN_NAME'] == 'BillingState')||
+      ($Column['COLUMN_NAME'] == 'BillingCountry')||
       ($Column['COLUMN_NAME'] == 'Address')||
       ($Column['COLUMN_NAME'] == 'Address1')||
       ($Column['COLUMN_NAME'] == 'Address2')||
@@ -78,11 +78,10 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       ($Column['COLUMN_NAME'] == 'ZIP')||
       ($Column['COLUMN_NAME'] == 'ZIPCode')||
       ($Column['COLUMN_NAME'] == 'PostalCode')||
-      //($Column['COLUMN_NAME'] == 'State')||
-      //($Column['COLUMN_NAME'] == 'Country')||
-      //($Column['COLUMN_NAME'] == 'Latitude')||
-      //($Column['COLUMN_NAME'] == 'Longitude')||
-      false
+      ($Column['COLUMN_NAME'] == 'State')||
+      ($Column['COLUMN_NAME'] == 'Country')||
+      ($Column['COLUMN_NAME'] == 'Latitude')||
+      ($Column['COLUMN_NAME'] == 'Longitude')
     ){
       if($AddressDone==false){
         $AddressDone = true;
@@ -176,8 +175,8 @@ function GetSmartAddressFieldConcat($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'BillingZIP')||
         ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
         ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
-        ($Column['COLUMN_NAME'] == 'BillingState')||
-        ($Column['COLUMN_NAME'] == 'BillingCountry')||
+        //($Column['COLUMN_NAME'] == 'BillingState')||
+        //($Column['COLUMN_NAME'] == 'BillingCountry')||
         ($Column['COLUMN_NAME'] == 'Address')||
         ($Column['COLUMN_NAME'] == 'Address1')||
         ($Column['COLUMN_NAME'] == 'Address2')||
@@ -185,10 +184,11 @@ function GetSmartAddressFieldConcat($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'ZIP')||
         ($Column['COLUMN_NAME'] == 'ZIPCode')||
         ($Column['COLUMN_NAME'] == 'PostalCode')||
-        ($Column['COLUMN_NAME'] == 'State')||
-        ($Column['COLUMN_NAME'] == 'Country')||
-        ($Column['COLUMN_NAME'] == 'Latitude')||
-        ($Column['COLUMN_NAME'] == 'Longitude')
+        //($Column['COLUMN_NAME'] == 'State')||
+        //($Column['COLUMN_NAME'] == 'Country')||
+        //($Column['COLUMN_NAME'] == 'Latitude')||
+        //($Column['COLUMN_NAME'] == 'Longitude')||
+        false
       ){
         $SQL.="IFNULL(`".$Column['COLUMN_NAME']."`,''),', ',";
       }
