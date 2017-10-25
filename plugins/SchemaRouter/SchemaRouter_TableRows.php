@@ -56,6 +56,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
         }else{
           $AddressDone = true;
         }
+        continue;
       }
       
       if($Column['IsConstraint']['PRIMARY KEY']){
