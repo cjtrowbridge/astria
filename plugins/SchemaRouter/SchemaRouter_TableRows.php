@@ -112,7 +112,9 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     $SQL.="  `".$Column['COLUMN_NAME']."`,".PHP_EOL;
 
   }
+  pd($SQL);
   $SQL = rtrim($SQL,",");
+  pd($SQL);
   $SQL.=" FROM `".$Table."` ".PHP_EOL." ORDER BY 1 DESC LIMIT 100";
   
   MaybeShowQuery($SQL);
