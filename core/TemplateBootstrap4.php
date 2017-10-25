@@ -102,7 +102,7 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   
   ?>
   
-  <div id="debugSummary" style="<?php if(isset($_GET['verbose'])){ ?>display: none;<?php } ?>">
+  <div id="debugSummary" style="<?php if(!(isset($_GET['verbose']))){ ?>display: none;<?php } ?>">
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
