@@ -34,7 +34,11 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     if(
       isset($Column['COLUMN_NAME'])&&
-      (!($Column['COLUMN_NAME'] == $FirstTextField))
+      (!($Column['COLUMN_NAME'] == $FirstTextField))&&
+      (!($Column['COLUMN_NAME'] == 'UserInserted'))&&
+      (!($Column['COLUMN_NAME'] == 'TimeInserted'))&&
+      (!($Column['COLUMN_NAME'] == 'UserUpdated'))&&
+      (!($Column['COLUMN_NAME'] == 'TimeUpdated'))
       
     ){
       if($Column['IsConstraint']['PRIMARY KEY']){
