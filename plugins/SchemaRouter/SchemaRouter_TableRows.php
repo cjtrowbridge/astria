@@ -85,7 +85,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     ){
       if($AddressDone==false){
         $AddressDone = true;
-        $SQL.="  CONCAT('<a href=\"https://www.google.com/maps/search/',".GetSmartAddressFieldConcat($Schema,$Table).",'\">Map: ',".GetSmartAddressFieldConcat($Schema,$Table).",'</a>') as 'Address',".PHP_EOL;
+        $SQL.="  CONCAT('<a target=\"_blank\" href=\"https://www.google.com/maps/search/',".GetSmartAddressFieldConcat($Schema,$Table).",'\">Map: ',".GetSmartAddressFieldConcat($Schema,$Table).",'</a>') as 'Address',".PHP_EOL;
       }
       continue;
     }
@@ -189,7 +189,7 @@ function GetSmartAddressFieldConcat($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'Latitude')||
         ($Column['COLUMN_NAME'] == 'Longitude')
       ){
-        $SQL.="IFNULL(`".$Column['COLUMN_NAME']."`,''),' ',";
+        $SQL.="IFNULL(`".$Column['COLUMN_NAME']."`,''),', ',";
       }
     }
     
