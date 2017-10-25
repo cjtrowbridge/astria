@@ -44,10 +44,7 @@ function SchemaRouter_SchemaTables_Array($Schema){
     $PermissionString = 'Schema_'.$Schema.'_Table_'.$Table.'_';
     Event('Checking If User Has Any Permissions Begining with: '.$PermissionString);
     if(HasPermissionBeginingWith($PermissionString)){
-      Event('Yes');
       $R[]=$Table;
-    }else{
-      Event('None found.');
     }
   }
   
