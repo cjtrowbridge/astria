@@ -172,6 +172,6 @@ function GetSmartAddressFieldConcat($Schema,$Table){
     }
     
   }
-  $SQL = trim(rtrim($SQL,","));
+  $SQL = trim(rtrim($SQL,",".PHP_EOL));
   return $SQL;
 }
