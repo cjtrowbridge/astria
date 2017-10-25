@@ -37,6 +37,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   //query the table, while enriching the data with relevant content
   $SQL = " SELECT ".PHP_EOL;
+  $AddressDone = false;
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     
@@ -60,7 +61,6 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     
     
     //Any address related fields will be combined into a single address field
-    $AddressDone = false;
     if(
       ($Column['COLUMN_NAME'] == 'BillingAddress')||
       ($Column['COLUMN_NAME'] == 'BillingAddress1')||
