@@ -112,6 +112,13 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     }
     
     
+    //If the column is a phone number, make it a link to that phone number
+    if(strpos(strtolower($Column['COLUMN_NAME']),'phone') !== false){
+      $SQL.="  CONCAT('<a href=\"tel:',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($Column['COLUMN_NAME'])."`,'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
+      continue;
+    }
+    
+    
     //If it is just a regular column, display the contents normally
     $SQL.="  `".$Column['COLUMN_NAME']."`,".PHP_EOL;
 
