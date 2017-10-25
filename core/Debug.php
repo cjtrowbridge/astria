@@ -12,6 +12,7 @@ function DebugShowSummary(){
   );
   echo ArrTabler($summary);
   echo "<h3>Debug Details:</h3>\n";
+  rsort($DEBUG);
   echo ArrTabler($DEBUG);
   echo "<h3>Events:</h3>\n";
   pd($EVENTS);
