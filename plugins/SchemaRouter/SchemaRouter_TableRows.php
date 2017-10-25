@@ -17,7 +17,11 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
 
   <h1>
     <div style="float: right; white-space: nowrap;">
+      
+      <?php if($ASTRIA['Session']['User']['IsAstriaAdmin']){ /* If User is an admin; */ ?>
       <a href="./?show_query" class="btn btn-success">Show Query</a> 
+      <?php } ?>
+      
       <a href="./?insert" class="btn btn-success">New</a> 
       <a href="javascript:void(0);" onclick="SchemaRouterSearch();" class="btn btn-success">Search</a>
     </div>
