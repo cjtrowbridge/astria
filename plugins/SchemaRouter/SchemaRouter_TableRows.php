@@ -31,7 +31,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   
   //query the table, while enriching the data with relevant content
-  $SQL = "SELECT ";
+  $SQL = " SELECT ".PHP_EOL;
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     
@@ -81,7 +81,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     ){
       if($AddressDone==false){
         $AddressDone = true;
-        $SQL.=" CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',";
+        $SQL.="  CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',".PHP_EOL;
       }
       continue;
     }
@@ -89,7 +89,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     
     //If the column is a primary key, make it a link to itself and combine the reference field with the key field
     if($Column['IsConstraint']['PRIMARY KEY']){
-      $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
+      $SQL.="  CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',".PHP_EOL;
       continue;
     }
     
@@ -103,18 +103,40 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       }
       $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
 
-      $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
+      $SQL.="  CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',".PHP_EOL;
     }
     
     
     //If it is just a regular column, display the contents normally
-    $SQL.="`".$Column['COLUMN_NAME']."`,";
+    $SQL.="  `".$Column['COLUMN_NAME']."`,".PHP_EOL;
 
   }
   $SQL = rtrim($SQL,",");
-  $SQL.=" FROM `".$Table."` ORDER BY 1 DESC LIMIT 100";
+  $SQL.=" FROM `".$Table."` ".PHP_EOL." ORDER BY 1 DESC LIMIT 100";
+  
+  MaybeShowSQL($SQL);
+  
   echo ArrTabler(Query($SQL,$Schema));
 }
+
+
+function MaybeShowSQL($SQL){
+  if($_GET['show_sql']){
+    ?>
+    
+    <div class="card">
+      <div class="card-block">
+        <div class="card-text">
+          <h4>Query</h4>
+          <pre><?php echo $SQL; ?></pre>
+        </div>
+      </div>
+    </div>
+
+    <?php
+  }
+}
+
 
 function GetSmartAddressFieldConcat($Schema,$Table){
   global $ASTRIA;
