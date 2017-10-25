@@ -112,8 +112,16 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     }
     
     
+    //If the column is an email, make it a link to that email
+    if(strpos(strtolower($Column['COLUMN_NAME']),'email') !== false){
+      $SQL.="  CONCAT('<a href=\"mailto:',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($Column['COLUMN_NAME'])."`,'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
+      continue;
+    }
+    
+    
     //If the column is a phone number, make it a link to that phone number
     if(strpos(strtolower($Column['COLUMN_NAME']),'phone') !== false){
+      //TODO format the number in the output to look prettier
       $SQL.="  CONCAT('<a href=\"tel:',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($Column['COLUMN_NAME'])."`,'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
       continue;
     }
