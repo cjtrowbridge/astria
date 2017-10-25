@@ -97,7 +97,6 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   }
   $SQL = rtrim($SQL,",");
   $SQL.=" FROM `".$Table."` ORDER BY 1 DESC LIMIT 100";
-  pd($SQL);
   echo ArrTabler(Query($SQL,$Schema));
 }
 
