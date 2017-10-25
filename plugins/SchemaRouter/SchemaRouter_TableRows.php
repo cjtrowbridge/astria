@@ -66,7 +66,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       ){
         if($AddressDone==false){
           $AddressDone = true;
-          $SQL.="'".GetSmartAddressQuery($Schema,$Table)."' as 'Address',";
+          $SQL.="'".GetSmartAddressFieldConcat($Schema,$Table)."' as 'Address',";
         }
         continue;
       }
@@ -101,7 +101,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   echo ArrTabler(Query($SQL,$Schema));
 }
 
-function GetSmartAddressQuery($Schema,$Table){
+function GetSmartAddressFieldConcat($Schema,$Table){
   global $ASTRIA;
   $SQL = '';
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
@@ -127,10 +127,10 @@ function GetSmartAddressQuery($Schema,$Table){
       ($Column['COLUMN_NAME'] == 'Latitude')||
       ($Column['COLUMN_NAME'] == 'Longitude')
     ){
-      $SQL.="`".$Column['COLUMN_NAME']."`,";
+      $SQL.="`".$Column['COLUMN_NAME']."`,', ',";
 
     }
   }
-  $SQL = rtrim($SQL,",");
+  $SQL = trim(rtrim($SQL,","));
   return $SQL;
 }
