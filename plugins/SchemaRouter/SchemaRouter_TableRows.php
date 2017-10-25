@@ -40,7 +40,16 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       if($Column['IsConstraint']['PRIMARY KEY']){
         $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
       }else{
-        $SQL.="`".$Column['COLUMN_NAME']."`,";
+        
+        if($Column['IsConstraint']['FOREIGN KEY']){
+          pd($Column);
+          //$SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
+          $SQL.="`".$Column['COLUMN_NAME']."`,";
+        }else{
+
+          $SQL.="`".$Column['COLUMN_NAME']."`,";
+          
+        }
       }
     }
   }
