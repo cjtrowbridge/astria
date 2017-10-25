@@ -25,18 +25,22 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   </h1>
   
   <?php
+  
+  //display a standard search form on each table page
   SchemaRouter_QueryCard();
   
-  //convert any keys to links to the thing those are keys for
   
+  //query the table, while enriching the data with relevant content
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
+    
     
     //Skip meta data. We are only interested in column data
     if(!isset($Column['COLUMN_NAME'])){
       continue;
     }
+    
     
     //Skip These Columns by Default
     if(
@@ -49,7 +53,8 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     ){
       continue;
     }
-      
+    
+    
     //Any address related fields will be combined into a single address field
     $AddressDone = false;
     if(
@@ -80,26 +85,30 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       }
       continue;
     }
-
     
+    
+    //If the column is a primary key, make it a link to itself and combine the reference field with the key field
     if($Column['IsConstraint']['PRIMARY KEY']){
       $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
-    }else{       
-      if($Column['IsConstraint']['FOREIGN KEY']){
-        foreach($Column['Constraints'] as $Constraint){
-          if(isset($Constraint['REFERENCED_TABLE_NAME'])){
-            $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
-          }
-        }
-        $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
-
-
-        $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
-      }else{
-        $SQL.="`".$Column['COLUMN_NAME']."`,";
-      }
+      continue;
     }
     
+    
+    //If the column is a foreign key, make it be a link to that thing
+    if($Column['IsConstraint']['FOREIGN KEY']){
+      foreach($Column['Constraints'] as $Constraint){
+        if(isset($Constraint['REFERENCED_TABLE_NAME'])){
+          $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
+        }
+      }
+      $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
+
+      $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
+    }
+    
+    
+    //If it is just a regular column, display the contents normally
+    $SQL.="`".$Column['COLUMN_NAME']."`,";
 
   }
   $SQL = rtrim($SQL,",");
