@@ -148,7 +148,7 @@ function MaybeShowQuery($SQL){
       <div class="card-block">
         <div class="card-text">
           <h4>Query</h4>
-          <pre><?php echo $SQL; ?></pre>
+          <pre><?php echo htmlentities($SQL); ?></pre>
         </div>
       </div>
     </div>
