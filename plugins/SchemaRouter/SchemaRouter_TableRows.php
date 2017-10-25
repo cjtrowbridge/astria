@@ -32,6 +32,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
+    $AddressDone = false;
     if(
       isset($Column['COLUMN_NAME'])&&
       (!($Column['COLUMN_NAME'] == $FirstTextField))&&
@@ -41,6 +42,22 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       (!($Column['COLUMN_NAME'] == 'TimeUpdated'))
       
     ){
+      if(
+        ($Column['COLUMN_NAME'] == 'Address')||
+        ($Column['COLUMN_NAME'] == 'Address1')||
+        ($Column['COLUMN_NAME'] == 'Address2')||
+        ($Column['COLUMN_NAME'] == 'Address3')||
+        ($Column['COLUMN_NAME'] == 'ZIP')||
+        ($Column['COLUMN_NAME'] == 'ZIPCode')||
+        ($Column['COLUMN_NAME'] == 'PostalCode')
+      ){
+        if($AddressDone){
+          $SQL.="`` as 'Smart Address',";
+        }else{
+          $AddressDone = true;
+        }
+      }
+      
       if($Column['IsConstraint']['PRIMARY KEY']){
         
         $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
