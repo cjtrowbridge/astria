@@ -33,10 +33,7 @@ function SchemaRouter_AllSchemas_Array(){
     $PermissionString = 'Schema_'.$Alias.'_';
     Event('Checking If User Has Any Permissions Begining with: '.$PermissionString);
     if(HasPermissionBeginingWith($PermissionString)){
-      Event('Yes');
       $Schemas[$Alias]=$Database['title'];
-    }else{
-      Event('None found.');
     }
   }
   
