@@ -128,7 +128,7 @@ function GetSmartAddressFieldConcat($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'Latitude')||
         ($Column['COLUMN_NAME'] == 'Longitude')
       ){
-        $SQL.="`".$Column['COLUMN_NAME']."`,', ',";
+        $SQL.="`".$Column['COLUMN_NAME']."`,' ',";
 
       }
     }else{
