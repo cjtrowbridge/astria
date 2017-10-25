@@ -195,5 +195,9 @@ function GetSmartAddressFieldConcat($Schema,$Table){
     
   }
   $SQL = trim(rtrim(trim($SQL),","));
+  
+  $SQL = str_replace(',,',',',$SQL);
+  $SQL = str_replace(',,',',',$SQL);
+  
   return $SQL;
 }
