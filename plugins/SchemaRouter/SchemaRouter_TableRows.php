@@ -31,7 +31,6 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
-    pd($Column);
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     
     //Skip meta data. We are only interested in column data
