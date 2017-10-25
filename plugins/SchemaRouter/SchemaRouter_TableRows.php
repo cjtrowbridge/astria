@@ -51,10 +51,9 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'ZIPCode')||
         ($Column['COLUMN_NAME'] == 'PostalCode')
       ){
-        if($AddressDone){
-          $SQL.="' ' as 'Smart Address',";
-        }else{
+        if($AddressDone==false){
           $AddressDone = true;
+          $SQL.="' ' as 'Smart Address',";
         }
         continue;
       }
