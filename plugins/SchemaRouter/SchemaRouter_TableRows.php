@@ -45,6 +45,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
         if($Column['IsConstraint']['FOREIGN KEY']){
           
           $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['FirstTextField'];
+          pd($Column);
           $SQL.="CONCAT('<a href=\"/".$Schema."/".$Column['Constraints']['REFERENCED_TABLE_NAME']."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($ForeignObjectName)."',";
           
         }else{
