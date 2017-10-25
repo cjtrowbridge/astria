@@ -52,7 +52,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'PostalCode')
       ){
         if($AddressDone){
-          $SQL.="`` as 'Smart Address',";
+          $SQL.="' ' as 'Smart Address',";
         }else{
           $AddressDone = true;
         }
