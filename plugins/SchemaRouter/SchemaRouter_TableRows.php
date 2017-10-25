@@ -105,6 +105,7 @@ function GetSmartAddressFieldConcat($Schema,$Table){
   global $ASTRIA;
   $SQL = '';
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
+    pd($Column);
     if(
       ($Column['COLUMN_NAME'] == 'BillingAddress')||
       ($Column['COLUMN_NAME'] == 'BillingAddress1')||
