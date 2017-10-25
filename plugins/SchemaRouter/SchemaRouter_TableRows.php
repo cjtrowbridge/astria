@@ -66,7 +66,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       ){
         if($AddressDone==false){
           $AddressDone = true;
-          $SQL.="'".GetSmartAddressFieldConcat($Schema,$Table)."' as 'Address',";
+          $SQL.=" CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',";
         }
         continue;
       }
