@@ -105,6 +105,7 @@ function GetSmartAddressFieldConcat($Schema,$Table){
   global $ASTRIA;
   $SQL = '';
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
+    
     if(isset($Column['COLUMN_NAME'])){
       if(
         ($Column['COLUMN_NAME'] == 'BillingAddress')||
@@ -129,11 +130,9 @@ function GetSmartAddressFieldConcat($Schema,$Table){
         ($Column['COLUMN_NAME'] == 'Longitude')
       ){
         $SQL.="`".$Column['COLUMN_NAME']."`,' ',";
-
       }
-    }else{
-      pd($Column);
     }
+    
   }
   $SQL = trim(rtrim($SQL,","));
   return $SQL;
