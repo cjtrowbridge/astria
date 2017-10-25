@@ -105,31 +105,34 @@ function GetSmartAddressFieldConcat($Schema,$Table){
   global $ASTRIA;
   $SQL = '';
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
-    pd($Column);
-    if(
-      ($Column['COLUMN_NAME'] == 'BillingAddress')||
-      ($Column['COLUMN_NAME'] == 'BillingAddress1')||
-      ($Column['COLUMN_NAME'] == 'BillingAddress2')||
-      ($Column['COLUMN_NAME'] == 'BillingAddress3')||
-      ($Column['COLUMN_NAME'] == 'BillingZIP')||
-      ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
-      ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
-      ($Column['COLUMN_NAME'] == 'BillingState')||
-      ($Column['COLUMN_NAME'] == 'BillingCountry')||
-      ($Column['COLUMN_NAME'] == 'Address')||
-      ($Column['COLUMN_NAME'] == 'Address1')||
-      ($Column['COLUMN_NAME'] == 'Address2')||
-      ($Column['COLUMN_NAME'] == 'Address3')||
-      ($Column['COLUMN_NAME'] == 'ZIP')||
-      ($Column['COLUMN_NAME'] == 'ZIPCode')||
-      ($Column['COLUMN_NAME'] == 'PostalCode')||
-      ($Column['COLUMN_NAME'] == 'State')||
-      ($Column['COLUMN_NAME'] == 'Country')||
-      ($Column['COLUMN_NAME'] == 'Latitude')||
-      ($Column['COLUMN_NAME'] == 'Longitude')
-    ){
-      $SQL.="`".$Column['COLUMN_NAME']."`,', ',";
+    if(isset($Column['COLUMN_NAME'])){
+      if(
+        ($Column['COLUMN_NAME'] == 'BillingAddress')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress1')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress2')||
+        ($Column['COLUMN_NAME'] == 'BillingAddress3')||
+        ($Column['COLUMN_NAME'] == 'BillingZIP')||
+        ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
+        ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
+        ($Column['COLUMN_NAME'] == 'BillingState')||
+        ($Column['COLUMN_NAME'] == 'BillingCountry')||
+        ($Column['COLUMN_NAME'] == 'Address')||
+        ($Column['COLUMN_NAME'] == 'Address1')||
+        ($Column['COLUMN_NAME'] == 'Address2')||
+        ($Column['COLUMN_NAME'] == 'Address3')||
+        ($Column['COLUMN_NAME'] == 'ZIP')||
+        ($Column['COLUMN_NAME'] == 'ZIPCode')||
+        ($Column['COLUMN_NAME'] == 'PostalCode')||
+        ($Column['COLUMN_NAME'] == 'State')||
+        ($Column['COLUMN_NAME'] == 'Country')||
+        ($Column['COLUMN_NAME'] == 'Latitude')||
+        ($Column['COLUMN_NAME'] == 'Longitude')
+      ){
+        $SQL.="`".$Column['COLUMN_NAME']."`,', ',";
 
+      }
+    }else{
+      pd($Column);
     }
   }
   $SQL = trim(rtrim($SQL,","));
