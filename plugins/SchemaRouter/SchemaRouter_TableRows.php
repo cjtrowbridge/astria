@@ -51,7 +51,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
           $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
           
           
-          $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($ForeignObjectName)."` = `".Sanitize($Table)."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
+          $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
           
         }else{
 
