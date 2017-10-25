@@ -32,7 +32,9 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $SQL = "SELECT ";
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
-    $AddressDone = false;
+    
+    
+    //Skip These Columns by Default
     if(
       isset($Column['COLUMN_NAME'])&&
       (!($Column['COLUMN_NAME'] == $FirstTextField))&&
@@ -42,58 +44,60 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       (!($Column['COLUMN_NAME'] == 'TimeUpdated'))
       
     ){
-      if(
-        ($Column['COLUMN_NAME'] == 'BillingAddress')||
-        ($Column['COLUMN_NAME'] == 'BillingAddress1')||
-        ($Column['COLUMN_NAME'] == 'BillingAddress2')||
-        ($Column['COLUMN_NAME'] == 'BillingAddress3')||
-        ($Column['COLUMN_NAME'] == 'BillingZIP')||
-        ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
-        ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
-        ($Column['COLUMN_NAME'] == 'BillingState')||
-        ($Column['COLUMN_NAME'] == 'BillingCountry')||
-        ($Column['COLUMN_NAME'] == 'Address')||
-        ($Column['COLUMN_NAME'] == 'Address1')||
-        ($Column['COLUMN_NAME'] == 'Address2')||
-        ($Column['COLUMN_NAME'] == 'Address3')||
-        ($Column['COLUMN_NAME'] == 'ZIP')||
-        ($Column['COLUMN_NAME'] == 'ZIPCode')||
-        ($Column['COLUMN_NAME'] == 'PostalCode')||
-        ($Column['COLUMN_NAME'] == 'State')||
-        ($Column['COLUMN_NAME'] == 'Country')||
-        ($Column['COLUMN_NAME'] == 'Latitude')||
-        ($Column['COLUMN_NAME'] == 'Longitude')
-      ){
-        if($AddressDone==false){
-          $AddressDone = true;
-          $SQL.=" CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',";
-        }
-        continue;
-      }
+      continue;
+    }
       
-      if($Column['IsConstraint']['PRIMARY KEY']){
-        
-        $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
-        
-      }else{       
-        if($Column['IsConstraint']['FOREIGN KEY']){
-          foreach($Column['Constraints'] as $Constraint){
-            if(isset($Constraint['REFERENCED_TABLE_NAME'])){
-              $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
-            }
-          }
-          $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
-          
-          
-          $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
-          
-        }else{
+    //Any address related fields will be combined into a single address field
+    $AddressDone = false;
+    if(
+      ($Column['COLUMN_NAME'] == 'BillingAddress')||
+      ($Column['COLUMN_NAME'] == 'BillingAddress1')||
+      ($Column['COLUMN_NAME'] == 'BillingAddress2')||
+      ($Column['COLUMN_NAME'] == 'BillingAddress3')||
+      ($Column['COLUMN_NAME'] == 'BillingZIP')||
+      ($Column['COLUMN_NAME'] == 'BillingZIPCode')||
+      ($Column['COLUMN_NAME'] == 'BillingPostalCode')||
+      ($Column['COLUMN_NAME'] == 'BillingState')||
+      ($Column['COLUMN_NAME'] == 'BillingCountry')||
+      ($Column['COLUMN_NAME'] == 'Address')||
+      ($Column['COLUMN_NAME'] == 'Address1')||
+      ($Column['COLUMN_NAME'] == 'Address2')||
+      ($Column['COLUMN_NAME'] == 'Address3')||
+      ($Column['COLUMN_NAME'] == 'ZIP')||
+      ($Column['COLUMN_NAME'] == 'ZIPCode')||
+      ($Column['COLUMN_NAME'] == 'PostalCode')||
+      ($Column['COLUMN_NAME'] == 'State')||
+      ($Column['COLUMN_NAME'] == 'Country')||
+      ($Column['COLUMN_NAME'] == 'Latitude')||
+      ($Column['COLUMN_NAME'] == 'Longitude')
+    ){
+      if($AddressDone==false){
+        $AddressDone = true;
+        $SQL.=" CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',";
+      }
+      continue;
+    }
 
-          $SQL.="`".$Column['COLUMN_NAME']."`,";
-          
+    
+    if($Column['IsConstraint']['PRIMARY KEY']){
+      $SQL.="CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',";
+    }else{       
+      if($Column['IsConstraint']['FOREIGN KEY']){
+        foreach($Column['Constraints'] as $Constraint){
+          if(isset($Constraint['REFERENCED_TABLE_NAME'])){
+            $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
+          }
         }
+        $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
+
+
+        $SQL.="CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($Column['COLUMN_NAME'])."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($ForeignObjectName)."',";
+      }else{
+        $SQL.="`".$Column['COLUMN_NAME']."`,";
       }
     }
+    
+
   }
   $SQL = rtrim($SQL,",");
   $SQL.=" FROM `".$Table."` ORDER BY 1 DESC LIMIT 100";
