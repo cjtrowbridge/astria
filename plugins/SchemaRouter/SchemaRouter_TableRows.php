@@ -49,12 +49,11 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     
     //Skip These Columns by Default
     if(
-      (!($Column['COLUMN_NAME'] == $FirstTextField))&&
-      (!($Column['COLUMN_NAME'] == 'UserInserted'))&&
-      (!($Column['COLUMN_NAME'] == 'TimeInserted'))&&
-      (!($Column['COLUMN_NAME'] == 'UserUpdated'))&&
-      (!($Column['COLUMN_NAME'] == 'TimeUpdated'))
-      
+      ($Column['COLUMN_NAME'] == $FirstTextField)&&
+      ($Column['COLUMN_NAME'] == 'UserInserted')&&
+      ($Column['COLUMN_NAME'] == 'TimeInserted')&&
+      ($Column['COLUMN_NAME'] == 'UserUpdated')&&
+      ($Column['COLUMN_NAME'] == 'TimeUpdated')
     ){
       continue;
     }
