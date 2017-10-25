@@ -17,6 +17,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
 
   <h1>
     <div style="float: right; white-space: nowrap;">
+      <a href="./?show_query" class="btn btn-success">Show Query</a> 
       <a href="./?insert" class="btn btn-success">New</a> 
       <a href="javascript:void(0);" onclick="SchemaRouterSearch();" class="btn btn-success">Search</a>
     </div>
@@ -114,14 +115,14 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   $SQL = rtrim($SQL,",");
   $SQL.=" FROM `".$Table."` ".PHP_EOL." ORDER BY 1 DESC LIMIT 100";
   
-  MaybeShowSQL($SQL);
+  MaybeShowQuery($SQL);
   
   echo ArrTabler(Query($SQL,$Schema));
 }
 
 
-function MaybeShowSQL($SQL){
-  if($_GET['show_sql']){
+function MaybeShowQuery($SQL){
+  if(isset($_GET['show_query'])){
     ?>
     
     <div class="card">
