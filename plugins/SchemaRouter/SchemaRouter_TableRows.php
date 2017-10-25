@@ -34,10 +34,13 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     pd($Column);
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     
+    //Skip meta data. We are only interested in column data
+    if(!isset($Column['COLUMN_NAME'])){
+      continue;
+    }
     
     //Skip These Columns by Default
     if(
-      isset($Column['COLUMN_NAME'])&&
       (!($Column['COLUMN_NAME'] == $FirstTextField))&&
       (!($Column['COLUMN_NAME'] == 'UserInserted'))&&
       (!($Column['COLUMN_NAME'] == 'TimeInserted'))&&
