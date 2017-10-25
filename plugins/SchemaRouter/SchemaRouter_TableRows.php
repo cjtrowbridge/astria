@@ -85,7 +85,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     ){
       if($AddressDone==false){
         $AddressDone = true;
-        $SQL.="  CONCAT('<a target=\"_blank\" href=\"https://www.google.com/maps/search/',".GetSmartAddressFieldConcat($Schema,$Table).",'\">Map: ',".GetSmartAddressFieldConcat($Schema,$Table).",'</a>') as 'Address',".PHP_EOL;
+        $SQL.="  CONCAT(".GetSmartAddressFieldConcat($Schema,$Table).") as 'Address',".PHP_EOL;
       }
       continue;
     }
