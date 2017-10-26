@@ -1,5 +1,6 @@
 <?php
 
+include_once('core/Event.php');
 Hook('User Is Logged In - Before Presentation','MaybeChallengeSession();');
 
 
