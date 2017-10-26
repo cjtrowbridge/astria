@@ -20,7 +20,7 @@ function AstriaChallengeSession(){
   global $AstriaChallengeSession;
   $AstriaChallengeSession = false;
   
-  include('core/Event.php');
+  include_once('core/Event.php');
   Event('Challenge Session');
   
   if($AstriaChallengeSession==false){
