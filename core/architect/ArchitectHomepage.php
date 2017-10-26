@@ -46,20 +46,24 @@ function ArchitectBodyCallback(){
         <a href="/architect/debug" class="btn btn-outline-success">Event Debugger</a>
         <a href="/architect/my-permissions" class="btn btn-outline-success">My Permissions</a>
         <a href="/architect/session" class="btn btn-outline-success">Session</a>
-        
+        <a href="./?challengeSession" class="btn btn-outline-success">Challenge/Reload Session</a>
+        <?php Event('Architect Tools 2'); ?>
       </p>
       <p>
         <a href="/architect/user" class="btn btn-outline-success">User</a>
         <a href="/architect/usergroup" class="btn btn-outline-success">User Group</a>
         <a href="/architect/usergroupmembership" class="btn btn-outline-success">User Group Membership</a>
+        <?php Event('Architect Tools 3'); ?>
       </p>
       <p>
         <a href="/architect/df" class="btn btn-outline-warning">df</a>
         <a href="/architect/ifconfig" class="btn btn-outline-warning">ifconfig</a>
         <a href="/architect/top" class="btn btn-outline-warning">top</a>
+        <?php Event('Architect Tools 4'); ?>
       </p>
       <p>
         <a href="/architect/git-webhooks" class="btn btn-outline-danger">Git Webhooks</a>
+        <?php Event('Architect Tools 5'); ?>
       </p>
     </div>
   </div>
