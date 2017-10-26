@@ -15,6 +15,8 @@ I think this is a very good system which will scale much better than my previous
 
 */
 
+//Whenever the session is challenged, reload permissions. This might not be necessary if performance is a concern in situations where permissions don't change often.
+Hook('Challenge Session','LoadUserPermissionsIntoSession();');
 
 function HasPermission($Permission){
   //check if the permission exists within the user's list of permissions
