@@ -31,6 +31,9 @@ function AuthenticateUser($email=null){
   //Get all the user's permissions
   LoadUserPermissionsIntoSession();
   
+  //Let any other session set up happen
+  Event('Set Up Session');
+  
   //Cache the entire session
   AstriaSessionSave();
   
