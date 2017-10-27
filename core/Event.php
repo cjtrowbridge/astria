@@ -102,9 +102,11 @@ function Event($EventDescription,$DefaultCallback = ''){
           $EventException=$e;
           
           Event('Event Exception');
-          if(true||isset($_GET['verbose'])){
+          if(isset($_GET['verbose'])){
             echo '<p><b>EVENT THREW EXCEPTION!</b></p>';
-            pd($EventException);
+            if(IsAStriaAdmin()){
+              pd($EventException);
+            }
           }
           
         }
