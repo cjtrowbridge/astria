@@ -34,6 +34,16 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   //display a standard search form on each table page
   SchemaRouter_QueryCard();
   
+  //make sure this table exists
+  if(!(
+    isset($ASTRIA['Session'])&&
+    isset($ASTRIA['Session']['Schema'])&&
+    isset($ASTRIA['Session']['Schema'][$Schema])&&
+    isset($ASTRIA['Session']['Schema'][$Schema][$Table])
+  )){
+    echo '<p>Unable to find that table! You may need to log out and back in, if your premissions have changed.</p>';
+    return;
+  }
   
   //query the table, while enriching the data with relevant content
   $SQL = " SELECT ".PHP_EOL;
