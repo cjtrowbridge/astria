@@ -7,7 +7,7 @@ Hook('Challenge Session','SchemaRouter_SchemaDescription(true);');
 Hook('Set Up Session','SchemaRouter_SchemaDescription(true);');
 
 Hook('User Is Logged In - Before Presentation','SchemaRouter_Routing();');
-Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription();');
+Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription(true);');
 
 function SchemaRouter_Routing(){
 
