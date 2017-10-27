@@ -4,10 +4,10 @@
 //   Schema_firebridgecrm_Table_Customer_Column_BillingZIP
 
 Hook('Challenge Session','SchemaRouter_SchemaDescription(true);');
-Hook('Set Up Session','SchemaRouter_SchemaDescription(true);');
+Hook('User Is Logged In','SchemaRouter_SchemaDescription(true);');
+Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription(true);');
 
 Hook('User Is Logged In - Before Presentation','SchemaRouter_Routing();');
-Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription(true);');
 
 function SchemaRouter_Routing(){
 
