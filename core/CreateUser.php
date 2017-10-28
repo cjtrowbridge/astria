@@ -13,8 +13,9 @@ function CreateUser($Email){
     Query("UPDATE User SET IsAstriaAdmin = TRUE, IsWaiting = FALSE WHERE Email LIKE '".$cleanEmail."';");
   }
   
+  //TODO make this into some kind of service that admins can add code to
   //Add this new user to the default group 
-  CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria']['resource']),1);
+  //CreateMembership(mysqli_insert_id($ASTRIA['databases']['astria']['resource']),1);
   
   //Notify Admin of signup
   $message = '<h1>'.$ASTRIA['app']['appName'].': New User Signup!</h1><p>'.htmlentities($cleanEmail).'</p>';
