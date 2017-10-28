@@ -8,9 +8,7 @@ function DatabaseSetUp(){
   include_once('core/MakeSureDBConnected.php');
   MakeSureDBConnected('astria');
   $SQL="
-    SET SQL_MODE = \"NO_AUTO_VALUE_ON_ZERO\";
-
-    CREATE TABLE `Cache` (
+        CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
       `Content` text,
@@ -44,7 +42,6 @@ function DatabaseSetUp(){
     
     ALTER TABLE `Permission` ADD PRIMARY KEY (`PermissionID`);
     ALTER TABLE `Permission` MODIFY `PermissionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
-    ALTER TABLE `Permission` ADD UNIQUE(`UserID`,`Text`);
     
     
     CREATE TABLE `Session` (
@@ -82,13 +79,13 @@ function DatabaseSetUp(){
     
     
     CREATE TABLE `UserGroupMembership` (
-      `UserMembershipID` int(11) NOT NULL,
+      `UserGroupMembershipID` int(11) NOT NULL,
       `UserID` int(11) NOT NULL,
       `GroupID` int(11) NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16 ROW_FORMAT=COMPACT;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
     
-    ALTER TABLE `UserMembership` ADD PRIMARY KEY (`UserMembershipID`), ADD KEY `UserID` (`UserID`,`GroupID`);
-    ALTER TABLE `UserMembership` MODIFY `UserMembershipID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+    ALTER TABLE `UserGroupMembership` ADD PRIMARY KEY (`UserGroupMembershipID`);
+    ALTER TABLE `UserGroupMembership` MODIFY `UserGroupMembershipID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
   ";
   
   //TODO make Query support multiquery or make this work for multiple database types
