@@ -134,7 +134,7 @@ function AstriaConfigurationBodyCallback(){
           <div class="form-group row">
             <label class="col-xs-2 col-form-label">Database Name:</label>
             <div class="col-xs-10">
-              <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['database'];}else{echo 'astria';} ?>">
+              <input class="form-control" type="text" name="dbName" value="<?php if(isset($ASTRIA['app'])){echo $ASTRIA['databases']['astria']['database'];} ?>">
             </div>
           </div>
           <div class="form-group row">
