@@ -58,7 +58,7 @@ function DatabaseSetUp(){
       `LastLogin` datetime DEFAULT NULL,
       `SignupDate` datetime DEFAULT NULL,
       `IsAstriaAdmin` BOOLEAN NOT NULL DEFAULT FALSE,
-      `User` ADD `IsWaiting` BOOLEAN NOT NULL DEFAULT TRUE
+      `IsWaiting` BOOLEAN NOT NULL DEFAULT TRUE
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
 
     CREATE TABLE `UserGroupMembership` (
