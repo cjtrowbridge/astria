@@ -54,7 +54,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
     
     foreach($Results as $Result){
       $Parts = explode(':',$Result);
-      echo '<p><a href="/architect/files/?path='.$Parts[0].'" target="_blank">'.$Parts[0].'('.$Parts[1].')</a></p>'.PHP_EOL;
+      echo '<p><a href="/architect/files/?path='.str_replace($_SERVER['DOCUMENT_ROOT'],'',$Parts[0]).'" target="_blank">'.$Parts[0].'('.$Parts[1].')</a></p>'.PHP_EOL;
       
     }
     
