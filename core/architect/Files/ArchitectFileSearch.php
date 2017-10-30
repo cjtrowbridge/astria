@@ -11,6 +11,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
   <form action="/architect/files/search/" method="get" class="form">
     <div class="row">
       <div class="col-xs-12 col-lg-6">
+        Path:<br>
         <input type="text" class="form-control" name="path" id="pat" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
       </div>
       <div class="col-xs-12 col-lg-6">
