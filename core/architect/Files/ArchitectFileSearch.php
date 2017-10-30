@@ -42,8 +42,8 @@ function ArchitectFileCopyRemoteBodyCallback(){
     $Command = 'grep -R "'.$Query.'" '.$Path;
     pd($Command);
     
-    //$Results = shell_exec($Command);
-    //pd($Results);
+    $Results = shell_exec($Command);
+    pd($Results);
     
   }
 }
