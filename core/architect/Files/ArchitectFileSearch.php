@@ -5,6 +5,15 @@ function ArchitectFileSearch(){
   TemplateBootstrap4('File Search - Architect','ArchitectFileCopyRemoteBodyCallback();'); 
 }
 function ArchitectFileCopyRemoteBodyCallback(){
+  
+  if(isset($_GET['query'])){
+    $Path = $_GET['path'];
+    $Path = realpath($Path);
+    if($Path==''){
+      $Path = realpath($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
+    }
+    $_GET['path']=$Path;
+  }
   ?>
   
   <h1>File Search</h1>
@@ -28,23 +37,15 @@ function ArchitectFileCopyRemoteBodyCallback(){
   
   if(isset($_GET['query'])){
     echo '<h2>Search Results</h2>';
-    pd($_GET);
-    $Path = $_GET['path'];
-    $Path = realpath($Path);
-    if($Path==''){
-      echo 'combining paths because the passed path is relative';
-      $Path = realpath($_SERVER['DOCUMENT_ROOT'].$_GET['path']);
-      echo 'realpath("'.$_SERVER['DOCUMENT_ROOT'].'"."'.$_GET['path'].'") = "'.$Path.'"';
-    }
+    
     if(!(is_dir($Path))){
       echo "Path '".$Path."' is not a directory.";
-      exit;
+      return;
     }
     
     $Query = $_GET['query'];
     $Query = preg_replace("/[^A-Za-z0-9 ]/", "", $Query);
 
-    
     $Command = 'grep -R "'.$Query.'" '.$Path;
     echo '<h2>'.$Command.'</h2>';
     
