@@ -12,7 +12,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
     <div class="row">
       <div class="col-xs-12 col-lg-6">
         Path:<br>
-        <input type="text" class="form-control" name="path" id="path" value="<?php if(isset($_GET['path'])){if($_GET['path']=='/'){echo $_SERVER['DOCUMENT_ROOT'];}else{echo $_GET['path'];}}else{echo $_SERVER['DOCUMENT_ROOT'];} ?>"><br>
+        <input type="text" class="form-control" name="path" id="path" value="<?php if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
       </div>
       <div class="col-xs-12 col-lg-6">
         Query: (Only alphanumeric characters and spaces are allowed)<br>
@@ -28,7 +28,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
   
   if(isset($_GET['query'])){
     echo '<h2>Search Results</h2>';
-    
+    pd($_GET);
     $Path = $_GET['path'];
     $Path = realpath($Path);
     if(!(is_dir($Path))){
