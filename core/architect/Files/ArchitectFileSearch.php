@@ -1,8 +1,11 @@
 <?php
 
 function ArchitectFileSearch(){
-  if(isset($_POST['query'])){
+  if(isset($_GET['query'])){
+    
+    pd($_GET);
     die('k');
+    
     $Source = $_POST['url'];
     $Destination = $_POST['destination'];
     
@@ -40,7 +43,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
   ?>
   
   <h1>File Search</h1>
-  <form action="/architect/search/?path=<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>" method="get" class="form">
+  <form action="/architect/search/" method="get" class="form">
     <input type="text" class="form-control" name="path" id="pat" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
     <input type="text" class="form-control" name="query" id="query" placeholder="Query"><br>
     <input type="submit" class="btn btn-block btn-success" value="File Search">
