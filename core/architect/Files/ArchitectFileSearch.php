@@ -15,7 +15,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
     </label>
     <label>
       Query: (Only alphanumeric characters and spaces are allowed)
-      <input type="text" class="form-control" name="query" id="query" value="<?php echo if(isset($_GET['query'])){echo $_GET['query'];} ?>" placeholder="Query"><br>
+      <input type="text" class="form-control" name="query" id="query" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>" placeholder="Query"><br>
     </label>
     <input type="submit" class="btn btn-block btn-success" value="File Search">
   </form>
