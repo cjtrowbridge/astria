@@ -6,7 +6,7 @@ function ArchitectFileSearch(){
 }
 function ArchitectFileCopyRemoteBodyCallback(){
   
-  if(isset($_GET['query'])){
+  if(isset($_GET['path'])){
     $Path = $_GET['path'];
     $Path = realpath($Path);
     if($Path==''){
