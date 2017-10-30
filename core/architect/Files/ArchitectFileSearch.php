@@ -49,7 +49,8 @@ function ArchitectFileCopyRemoteBodyCallback(){
     echo '<h2>'.$Command.'</h2>';
     
     $Results = shell_exec($Command);
-    pd($Results);
-    
+    $Results = var_export($Results,true);
+    $esults = htmlentities($Results);
+    echo '<p>'.$Results.'</p>';
   }
 }
