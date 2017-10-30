@@ -41,7 +41,9 @@ function ArchitectFileCopyRemoteBodyCallback(){
     
     $Query = $_GET['query'];
     $Query = preg_match('/^[a-z0-9 \-]+$/i', $Query);
-    $Results = shell_exec('grep -R "'.$Query.'"');
+    $Command = 'grep -R "'.$Query.'"';
+    pd($Command);
+    $Results = shell_exec($Command);
     
     pd($Results);
     
