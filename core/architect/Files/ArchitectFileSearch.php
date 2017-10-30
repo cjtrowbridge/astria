@@ -12,13 +12,13 @@ function ArchitectFileCopyRemoteBodyCallback(){
     <div class="row">
       <div class="col-xs-12 col-lg-6">
         <label>
-          Path:
+          Path:<br>
           <input type="text" class="form-control" name="path" id="pat" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
         </label>
       </div>
       <div class="col-xs-12 col-lg-6">
         <label>
-          Query: (Only alphanumeric characters and spaces are allowed)
+          Query: (Only alphanumeric characters and spaces are allowed)<br>
           <input type="text" class="form-control" name="query" id="query" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>" placeholder="Query"><br>
         </label>
       </div>
