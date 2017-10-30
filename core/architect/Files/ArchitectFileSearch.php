@@ -32,7 +32,10 @@ function ArchitectFileCopyRemoteBodyCallback(){
     $Path = $_GET['path'];
     $Path = realpath($Path);
     if($Path==''){
-      $Path = realpath($_SERVER['DOCUMENT_ROOT'].$Path);  
+      echo 'combining paths because the passed path is relative';
+      $NewPath = realpath($_SERVER['DOCUMENT_ROOT'].$Path);  
+      echo 'realpath("'.$_SERVER['DOCUMENT_ROOT'].'"."'.$Path.'") = "'.$NewPath.'"';
+      $Path = $NewPath;
     }
     if(!(is_dir($Path))){
       echo "Path '".$Path."' is not a directory.";
