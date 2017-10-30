@@ -50,7 +50,7 @@ function ArchitectFileCopyRemoteBodyCallback(){
     echo '<h2>'.$Command.'</h2>';
     
     $Results = shell_exec($Command);
-    $Results = explode(PHP_EOL,$Command);
+    $Results = explode(PHP_EOL,$Results);
     
     foreach($Results as $Result){
       $Parts = explode(':',$Result);
