@@ -50,8 +50,14 @@ function ArchitectFileCopyRemoteBodyCallback(){
     echo '<h2>'.$Command.'</h2>';
     
     $Results = shell_exec($Command);
-    $Results = var_export($Results,true);
-    $esults = htmlentities($Results);
-    echo '<p>'.$Results.'</p>';
+    $Results = explode(PHP_EOL,$Command);
+    
+    foreach($Results as $Result){
+      $Parts = explode(':',$Result);
+      
+      echo '<a href="'.$Parts[0].'" target="_blank">'.$Parts[0].'('.$Parts[2].')</a>'.PHP_EOL;
+      
+    }
+    
   }
 }
