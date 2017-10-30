@@ -121,6 +121,7 @@ function ArchitectFileExplorerDirectory(){
       <a href="/architect/files/create-directory/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-success">Create Directory</a>
       <a href="/architect/files/upload/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-warning">Upload File</a>
       <a href="/architect/files/move/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-warning">Move</a>
+      <a href="/architect/files/search/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-warning">Search</a>
       <a href="/architect/files/copy-remote/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-warning">Copy a Remote File</a>
       <a href="/architect/files/delete-directory/?path=<?php echo $_GET['path']; ?>" class="btn btn-sm btn-outline-danger">Delete Directory</a>
     </p>
