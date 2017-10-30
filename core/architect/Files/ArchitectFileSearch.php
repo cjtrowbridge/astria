@@ -9,14 +9,19 @@ function ArchitectFileCopyRemoteBodyCallback(){
   
   <h1>File Search</h1>
   <form action="/architect/files/search/" method="get" class="form">
-    <label>
-      Path:
-      <input type="text" class="form-control" name="path" id="pat" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
-    </label>
-    <label>
-      Query: (Only alphanumeric characters and spaces are allowed)
-      <input type="text" class="form-control" name="query" id="query" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>" placeholder="Query"><br>
-    </label>
+    <div class="row">
+      <div class="col-xs-12 col-lg-6">
+        <label>
+          Path:
+          <input type="text" class="form-control" name="path" id="pat" value="<?php echo $_SERVER['DOCUMENT_ROOT']; if(isset($_GET['path'])){echo $_GET['path'];} ?>"><br>
+        </label>
+      </div>
+      <div class="col-xs-12 col-lg-6">
+        <label>
+          Query: (Only alphanumeric characters and spaces are allowed)
+          <input type="text" class="form-control" name="query" id="query" value="<?php if(isset($_GET['query'])){echo $_GET['query'];} ?>" placeholder="Query"><br>
+        </label>
+      </div>
     <input type="submit" class="btn btn-block btn-success" value="File Search">
   </form>
   <script>
