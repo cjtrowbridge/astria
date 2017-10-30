@@ -98,6 +98,10 @@ function PresentArchitect(){
             include_once('core/architect/Files/ArchitectFileCopyRemote.php');
             ArchitectFileCopyRemote();
             break;
+          case 'search':
+            include_once('core/architect/Files/ArchitectFileSearch.php');
+            ArchitectFileSearch();
+            break;
           case 'create-file':
             include_once('core/architect/Files/ArchitectFileCreate.php');
             ArchitectFileCreate();
