@@ -11,7 +11,7 @@ function RepoTrackerLoad(){
 
 function RepoTracker_ArchitectButton(){
   ?>
-  <a class="btn btn-outline-success" href="/repotracker/"><i class="material-icons">system_update_alt</i></a>
+  <a class="btn btn-outline-success" href="/repotracker/"><i class="material-icons">system_update_alt</i> Repo Tracker</a>
   <?php
 }
 
