@@ -24,7 +24,7 @@ function RepoTracker_Homepage_BodyCallback(){
         
         
         $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
-        $MagicPath=BlowfishEncrypt($_GET['path']); 
+        $MagicPath=BlowfishEncrypt($Repo['Path']); 
         echo urlencode($MagicWord).'='.urlencode($MagicPath);
         
         
