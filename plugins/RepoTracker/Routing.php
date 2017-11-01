@@ -63,10 +63,7 @@ function FindGitRepositoriesRecursive($Path = false){
   $Temp = array();
   
   if(is_dir($Path.DIRECTORY_SEPARATOR.'.git')){
-    $Temp[$Path] = $Path;
-    echo '<p>Y: '.$Path.'</p>';
-  }else{
-    
+    $Temp[] = $Path;
   }
      
   if($Handle = opendir( $Path )){
