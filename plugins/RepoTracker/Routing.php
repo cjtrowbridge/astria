@@ -5,7 +5,14 @@ Hook('User Is Logged In','RepoTrackerLoad();');
 function RepoTrackerLoad(){
   if(HasPermission('RepoTracker')){
     Hook('User Is Logged In - Presentation','RepoTrackerRouting();');
+    Hook('Architect Tools 1','RepoTracker_ArchitectButton();');
   }
+}
+
+function RepoTracker_ArchitectButton(){
+  ?>
+  <a class="btn btn-outline-success" href="/repotracker/"><i class="material-icons">system_update_alt</i></a>
+  <?php
 }
 
 function RepoTrackerRouting(){
