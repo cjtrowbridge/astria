@@ -5,6 +5,7 @@ function RepoTracker_Homepage(){
 }
 
 function RepoTracker_Homepage_BodyCallback(){
+  global $ASTRIA;
   ?><h1><a href="/repotracker">RepoTracker</a></h1>
   <a class="btn btn-success" href="/repotracker/refresh">Refresh</a>
 
@@ -15,12 +16,22 @@ function RepoTracker_Homepage_BodyCallback(){
     <?php 
       $Repos = Query("SELECT * FROM `Repository`");
       foreach($Repos as $Repo){
-        echo '<p><a href="">'.str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']).'</a>';
+        $Path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']);
+        if($Path == ''){
+          $Path = 'Astria';
+        }
+        echo '<p><a href="/?';
         
+        
+        $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
+        $MagicPath=BlowfishEncrypt($_GET['path']); 
+        echo urlencode($MagicWord).'='.urlencode($MagicPath);
+        
+        
+        echo '">'.$Path.'</a>';
         if( $Repo['BleedingEdge'] == 1 ){
           echo ' <b>Bleeding Edge</b>';
         }
-        
         echo '</p>';
       }
   
