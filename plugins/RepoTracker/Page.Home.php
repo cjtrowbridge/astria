@@ -8,9 +8,10 @@ function RepoTracker_Homepage_BodyCallback(){
   ?><h1><a href="/repotracker">RepoTracker</a></h1>
   <a class="btn btn-success" href="/repotracker/refresh">Refresh</a>
 
-<br>
+
 <div class="row">
   <div class="col-xs-12">
+    <h4>Tracked Repositories</h4>
     <?php echo ArrTabler(Query("SELECT * FROM `Repository`")); ?>
   </div>
 </div>
