@@ -62,7 +62,8 @@ function FindGitRepositoriesRecursive($Path = '.'){
       $FullPath = $Path . DIRECTORY_SEPARATOR . $File;
       
       if(is_dir($FullPath.DIRECTORY_SEPARATOR.'.git')){
-        $Temp[] = $FullPath; 
+        $Temp[] = $FullPath;
+        echo '<p>'.$FullPath.'</p>';
       }
       
       if( $File != "." && $File != ".." && is_dir($FullPath)){
