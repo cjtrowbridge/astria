@@ -74,7 +74,11 @@ function FindGitRepositoriesRecursive($Path = false){
       $FullPath = $Path .DIRECTORY_SEPARATOR. $File;
       if( $File != "." && $File != ".." && $File != ".git" && is_dir( $FullPath )){
         $Temp2 = FindGitRepositoriesRecursive($FullPath);
+        echo '<p>Combining: ';
+        pd($Temp);
+        pd($Temp2);
         $Temp = array_combine($Temp, $Temp2);
+        echo '</p>;
       }
     }
     closedir($Handle);
