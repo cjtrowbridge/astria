@@ -20,11 +20,11 @@ function RepoTracker_Homepage_BodyCallback(){
         $Path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']);
         $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
         $MagicPath=BlowfishEncrypt($Path); 
-        if($Path == ''){$Path = '';}
+        if($Path == ''){$Path = '/(Astria Core)';}
         if( $Repo['BleedingEdge'] == 1 ){$BleedingEdge = 'Bleeding Edge';}else{$BleedingEdge = '';}
         
         $Temp[]=array(
-          'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria://'.$Path.'</a>',
+          'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria:'.$Path.'</a>',
           'Bleeding Edge' => $BleedingEdge
         );
         
