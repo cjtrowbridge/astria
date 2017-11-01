@@ -72,7 +72,7 @@ function FindGitRepositoriesRecursive($Path = false){
   if($Handle = opendir( $Path )){
     while (false !== ($File = readdir( $Handle ))){
       $FullPath = $Path . $File;
-      
+      echo '<p>Checking: '.$FullPath.'</p>';
       if( $File != "." && $File != ".." && is_dir( $FullPath )){
         $Temp += FindGitRepositoriesRecursive( $FullPath );
       }
