@@ -53,3 +53,24 @@ function RepoTracker_VerifyTables(){
     ");
   }
 }
+
+
+function FindGitRepositoriesRecursive($Path = '.'){
+  $Temp = array();
+  if($handle = opendir($Path)){
+    while (false !== ($File = readdir($handle))){
+      $FullPath = $Path . DIRECTORY_SEPARATOR . $File;
+      
+      if(is_dir($FullPath.DIRECTORY_SEPARATOR.'.git')){
+        $Temp[] = $FullPath; 
+      }
+      
+      if( $File != "." && $File != ".." && is_dir($FullPath)){
+        $Temp += FindGitRepositoriesRecursive( $FullPath );
+      }
+      
+    }
+    closedir($handle);
+  }
+  return $Temp;
+}
