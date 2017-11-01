@@ -5,7 +5,7 @@ function RepoTracker_Homepage(){
 }
 
 function RepoTracker_Homepage_BodyCallback(){
-  ?><h1>RepoTracker</h1>
+  ?><h1><a href="/repotracker">RepoTracker</a></h1>
   <a class="btn btn-success" href="/repotracker/refresh">Refresh</a>
 
 <?php
