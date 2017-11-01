@@ -24,7 +24,7 @@ function RepoTracker_Homepage_BodyCallback(){
         if( $Repo['BleedingEdge'] == 1 ){$BleedingEdge = 'Bleeding Edge';}else{$BleedingEdge = '';}
         
         $Temp[]=array(
-          'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria:'.$Path.'</a>',
+          'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria:/'.$Path.'</a>',
           'Bleeding Edge' => $BleedingEdge
         );
         
