@@ -89,6 +89,8 @@ function FindGitRepositoriesRecursive($Path = false){
 }
 
 
+Hook('Hourly Cron','RepoTrackerRefresh();');
+
 function RepoTrackerRefresh($Verbose = false){
   $Repos = FindGitRepositoriesRecursive();
   
