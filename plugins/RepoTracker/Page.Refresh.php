@@ -7,7 +7,15 @@ function RepoTracker_Refresh(){
 function RepoTracker_Refresh_BodyCallback(){
   ?><h1><a href="/repotracker">RepoTracker</a> - Refresh</h1>
 
+  <ul>
+    <li>Looking for new repositories...     <br> <?php RepoTrackerRefresh(true); ?></li>
+    <li>Confirming Local Hashes...          <br> </li>
+    <li>Confirming remote Hashes...         <br> </li>
+    <li>Pulling Bleeding Edges...           <br> </li>
+    <li>Done.</li>
+  </ul>
+
 <?php
-  RepoTrackerRefresh(true);
+  
   
 }
