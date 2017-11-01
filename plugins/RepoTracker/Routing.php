@@ -37,7 +37,7 @@ function RepoTracker_VerifyTables(){
   ");
   if($Check[0]['Check']==0){
     Query("
-      CREATE TABLE ``Repository` ( 
+      CREATE TABLE `Repository` ( 
         `RepositoryID` INT NOT NULL AUTO_INCREMENT , 
         `Path` VARCHAR(255) NOT NULL , 
         `LocalHash` VARCHAR(255) NULL , 
