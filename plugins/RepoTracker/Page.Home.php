@@ -5,7 +5,8 @@ function RepoTracker_Homepage(){
 }
 
 function RepoTracker_Homepage_BodyCallback(){
-  ?><h1>ReopTracker</h1>
-  show a list of all repositories found locally.
-  <?php
+  ?><h1>RepoTracker</h1>
+  <a class="btn btn-success" href="/repotracker/refresh">Refresh</a>
+
+<?php
 }
