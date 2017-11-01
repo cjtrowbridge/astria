@@ -21,7 +21,11 @@ function RepoTracker_Homepage_BodyCallback(){
         $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
         $MagicPath=BlowfishEncrypt($Path); 
         if($Path == ''){$Path = '/(Astria Core)';}
-        if( $Repo['BleedingEdge'] == 1 ){$BleedingEdge = 'Bleeding Edge';}else{$BleedingEdge = '';}
+        if( $Repo['BleedingEdge'] == 1 ){
+          $BleedingEdge = 'Enabled (<a href="/?disableBleedingEdge='.$Repo['RepositoryID'].'">Disable</a>)';
+        }else{
+          $BleedingEdge = 'Disabled (<a href="/?enableBleedingEdge='.$Repo['RepositoryID'].'">Enable</a>)';
+        }
         
         $Temp[]=array(
           'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria:/'.$Path.'</a>',
