@@ -72,7 +72,7 @@ function FindGitRepositoriesRecursive($Path = '.'){
       }
       
     }
-    closedir($handle);
+    closedir($Handle);
   }
   
   return $Temp;
