@@ -55,7 +55,7 @@ function RepoTracker_VerifyTables(){
 }
 
 
-function FindGitRepositoriesRecursive($Path = '/'){
+function FindGitRepositoriesRecursive($Path = $_SERVER['DOCUMENT_ROOT']){
   $Temp = array();
   
   if(is_dir($Path.DIRECTORY_SEPARATOR.'.git')){
