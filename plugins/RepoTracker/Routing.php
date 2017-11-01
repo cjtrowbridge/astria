@@ -89,13 +89,13 @@ function FindGitRepositoriesRecursive($Path = false){
 }
 
 
-function RepoTrackerRefresh(){
+function RepoTrackerRefresh($Verbose == false;){
   $Repos = FindGitRepositoriesRecursive();
   
   foreach($Repos as $Repo){
     $Check = Query("SELECT COUNT(*) as 'Count' FROM Repository WHERE Path LIKE '".Sanitize($Repo)."'");
     if($Check[0]['Count']==0){
-      //Insert the repository into the database
+      if($Verbose){echo '<p>Foudn a repo not in database. Adding "'.$Repo.'"...</p>';}
       Query("INSERT INTO Repository ('Path')VALUES('".Sanitize($Repo)."');");
     }
   }
