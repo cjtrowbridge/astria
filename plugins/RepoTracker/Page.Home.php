@@ -9,4 +9,5 @@ function RepoTracker_Homepage_BodyCallback(){
   <a class="btn btn-success" href="/repotracker/refresh">Refresh</a>
 
 <?php
+  pd(FindGitRepositoriesRecursive());
 }
