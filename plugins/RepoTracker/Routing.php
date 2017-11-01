@@ -21,6 +21,10 @@ function RepoTrackerRouting(){
     RepoTracker_VerifyTables();
     
     switch(path(1)){
+      case 'refresh':
+        include('Page.Refresh.php');
+        RepoTracker_Refresh();
+        break;
       case false:
         include_once('plugins/RepoTracker/Page.Home.php');
         RepoTracker_Homepage();
@@ -81,6 +85,18 @@ function FindGitRepositoriesRecursive($Path = false){
     closedir($Handle);
   }
 
-  
   return $Temp;
+}
+
+
+function RepoTrackerRefresh(){
+  $Repos = FindGitRepositoriesRecursive();
+  
+  foreach($Repos as $Repo){
+    $Check = Query("SELECT COUNT(*) as 'Count' FROM Repository WHERE Path LIKE '".Sanitize($Repo)."'");
+    if($Check[0]['Count']==0){
+      //Insert the repository into the database
+      Query("INSERT INTO Repository ('Path')VALUES('".Sanitize($Repo)."');");
+    }
+  }
 }
