@@ -12,7 +12,20 @@ function RepoTracker_Homepage_BodyCallback(){
 <div class="row">
   <div class="col-xs-12">
     <h4>Tracked Repositories</h4>
-    <?php echo ArrTabler(Query("SELECT * FROM `Repository`")); ?>
+    <?php 
+      $Repos = Query("SELECT * FROM `Repository`");
+      foreach($Repos as $Repo){
+        echo '<p><a href="">'.str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']).'</a>';
+        
+        if( $Repo['BleedingEdge'] == 1 ){
+          echo ' <b>Bleeding Edge</b>';
+        }
+        
+        echo '</p>';
+      }
+  
+      echo ArrTabler($Repos); 
+    ?>
   </div>
 </div>
 
