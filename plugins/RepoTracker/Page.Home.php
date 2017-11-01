@@ -17,9 +17,7 @@ function RepoTracker_Homepage_BodyCallback(){
       $Repos = Query("SELECT * FROM `Repository`");
       foreach($Repos as $Repo){
         $Path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']);
-        if($Path == ''){
-          $Path = 'Astria';
-        }
+        
         echo '<p><a href="/?';
         
         
@@ -27,7 +25,9 @@ function RepoTracker_Homepage_BodyCallback(){
         $MagicPath=BlowfishEncrypt($Path); 
         echo urlencode($MagicWord).'='.urlencode($MagicPath);
         
-        
+        if($Path == ''){
+          $Path = 'Astria';
+        }
         echo '">'.$Path.'</a>';
         if( $Repo['BleedingEdge'] == 1 ){
           echo ' <b>Bleeding Edge</b>';
