@@ -89,7 +89,7 @@ function FindGitRepositoriesRecursive($Path = false){
 }
 
 
-function RepoTrackerRefresh($Verbose == false;){
+function RepoTrackerRefresh($Verbose = false){
   $Repos = FindGitRepositoriesRecursive();
   
   foreach($Repos as $Repo){
