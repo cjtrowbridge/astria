@@ -18,18 +18,13 @@ function RepoTracker_Homepage_BodyCallback(){
       $Temp = array();
       foreach($Repos as $Repo){
         $Path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']);
-        
-        
-        
         $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
         $MagicPath=BlowfishEncrypt($Path); 
-        echo urlencode($MagicWord).'='.urlencode($MagicPath);
         if($Path == ''){$Path = 'Astria';}
-        
         if( $Repo['BleedingEdge'] == 1 ){$BleedingEdge = 'Bleeding Edge';}else{$BleedingEdge = '';}
         
         $Temp[]=array(
-          'Pull Webhook'  => '<a href="/?">'.$Path.'</a>',
+          'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">'.$Path.'</a>',
           'Bleeding Edge' => $BleedingEdge
         );
         
