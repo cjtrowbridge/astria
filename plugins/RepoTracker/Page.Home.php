@@ -15,27 +15,27 @@ function RepoTracker_Homepage_BodyCallback(){
     <h4>Tracked Repositories</h4>
     <?php 
       $Repos = Query("SELECT * FROM `Repository`");
+      $Temp = array();
       foreach($Repos as $Repo){
         $Path = str_replace($_SERVER['DOCUMENT_ROOT'],'',$Repo['Path']);
         
-        echo '<p><a href="/?';
         
         
         $MagicWord=BlowfishEncrypt('Pull Subrepository From Github');
         $MagicPath=BlowfishEncrypt($Path); 
         echo urlencode($MagicWord).'='.urlencode($MagicPath);
+        if($Path == ''){$Path = 'Astria';}
         
-        if($Path == ''){
-          $Path = 'Astria';
-        }
-        echo '">'.$Path.'</a>';
-        if( $Repo['BleedingEdge'] == 1 ){
-          echo ' <b>Bleeding Edge</b>';
-        }
-        echo '</p>';
+        if( $Repo['BleedingEdge'] == 1 ){$BleedingEdge = 'Bleeding Edge';}else{$BleedingEdge = '';}
+        
+        $Temp[]=array(
+          'Pull Webhook'  => '<a href="/?">'.$Path.'</a>',
+          'Bleeding Edge' => $BleedingEdge
+        );
+        
       }
   
-      echo ArrTabler($Repos); 
+      echo ArrTabler($Temp); 
     ?>
   </div>
 </div>
