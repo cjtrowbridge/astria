@@ -78,7 +78,7 @@ function FindGitRepositoriesRecursive($Path = false){
         pd($Temp);
         pd($Temp2);
         if(is_array($Temp2) && count($Temp2)>0){
-          $Temp = array_combine($Temp, $Temp2);
+          $Temp = array_merge($Temp, $Temp2);
         }
         echo '</p>';
       }
