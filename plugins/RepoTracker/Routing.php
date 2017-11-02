@@ -130,7 +130,7 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     $Result = shell_exec($Command);
     $Result = rtrim($Result,'.git');
     $Result .= '/git/refs/heads/master';
-    echo '<p><a href='.$Result'">'.$Result.'</a>';
+    echo '<p><a href='.$Result.'">'.$Result.'</a>';
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
     
   }
