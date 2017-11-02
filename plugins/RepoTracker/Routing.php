@@ -109,7 +109,7 @@ function RepoTrackerRefresh($Verbose = false){
   }
 }
 
-function RepoTracker_VerifyLocalHashes(){
+function RepoTracker_VerifyLocalHashes($Verbose = false){
   $Repos = Query("SELECT Path,LocalHash FROM Repository");
   foreach($Repos as $Repo){
     $Hash = file_get_contents($Repo['Path'].'/.git/refs/heads/master');
