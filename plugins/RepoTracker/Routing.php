@@ -145,8 +145,8 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     //if(!(isset($Result['object']['sha']))){continue;}
     //$Result = trim($Result['object']['sha']);
     pd($Result);
-    if(!(isset($Result['object']))){continue;}
-    if(!(isset($Result['object']['sha']))){continue;}
+    if(!(isset($Result['commit']))){continue;}
+    if(!(isset($Result['commit']['sha']))){continue;}
     $Result = trim($Result['object']['sha']);
     Query('UPDATE Repository SET RemoteHash = "'.Sanitize($Result).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
   }
