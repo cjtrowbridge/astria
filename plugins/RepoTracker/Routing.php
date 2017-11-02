@@ -127,9 +127,10 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
   $Repos = Query("SELECT RepositoryID,Path,RemoteHash FROM Repository");
   foreach($Repos as $Repo){
     $Command = 'cd '.$Repo['Path'].' && git config --get remote.origin.url';
-    echo '<p>'.$Command.'</p><pre>';
-    echo shell_exec($Command);
-    echo '</pre>';
+    $Result = shell_exec($Command);
+    $Result = rtrim($Result,'.git');
+    $Result .= '/git/refs/heads/master';
+    echo '<p><a href='.$Result'">'.$Result.'</a>';
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
     
   }
