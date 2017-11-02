@@ -135,15 +135,16 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     //$Result .= '/git/refs/heads/master';
     $Result .= '/branches/master';
     
-    
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
     
     $Result = FetchURL($Result);
     $Result = json_decode($Result,true);
     if($Result==false){continue;}
+    
     //if(!(isset($Result['object']))){continue;}
     //if(!(isset($Result['object']['sha']))){continue;}
     //$Result = trim($Result['object']['sha']);
+    
     if(!(isset($Result['commit']))){continue;}
     if(!(isset($Result['commit']['sha']))){continue;}
     $Result = trim($Result['commit']['sha']);
