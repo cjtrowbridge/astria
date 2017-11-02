@@ -128,6 +128,7 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
   foreach($Repos as $Repo){
     $Command = 'cd '.$Repo['Path'].' && git config --get remote.origin.url';
     $Result = shell_exec($Command);
+    $Result = trim($Result);
     $Result = rtrim($Result,'.git');
     $Result .= '/git/refs/heads/master';
     echo '<p><a href='.$Result.'">'.$Result.'</a>';
