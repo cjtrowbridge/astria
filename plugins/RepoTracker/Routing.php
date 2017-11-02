@@ -113,6 +113,7 @@ function RepoTracker_VerifyLocalHashes($Verbose = false){
     $HashFile = $Repo['Path'].'/.git/refs/heads/master';
     if(file_exists($HashFile)){
       $Hash = file_get_contents($HashFile);
+      $Hash = trim($Hash);
       if($Hash != $Repo['LocalHash']){
         if($Verbose){echo '<p>Updating LocalHash in database for repository: "'.$Repo['Path'].'".</p>';}
         Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
