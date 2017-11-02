@@ -89,7 +89,13 @@ function FindGitRepositoriesRecursive($Path = false){
 }
 
 
-Hook('Hourly Cron','RepoTrackerRefresh();');
+Hook('Hourly Cron','RepoTracker_CronRefresh();');
+
+function RepoTracker_CronRefresh(){
+  RepoTrackerRefresh();
+  RepoTracker_VerifyLocalHashes();
+  
+}
 
 function RepoTrackerRefresh($Verbose = false){
   $Repos = FindGitRepositoriesRecursive();
@@ -100,5 +106,16 @@ function RepoTrackerRefresh($Verbose = false){
       if($Verbose){echo '<p>Foudn a repo not in database. Adding "'.$Repo.'"...</p>';}
       Query("INSERT INTO Repository (`Path`)VALUES('".Sanitize($Repo)."');");
     }
+  }
+}
+
+function RepoTracker_VerifyLocalHashes(){
+  $Repos = Query("SELECT Path,LocalHash");
+  foreach($Repos as $Repo){
+    $Hash = file_get_contents($Repo['Path'].'/.git/refs/heads/master');
+    if($Hash != $Repo['LocalHash']){
+      Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
+    }
+    
   }
 }
