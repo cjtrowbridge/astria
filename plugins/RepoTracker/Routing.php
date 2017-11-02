@@ -103,7 +103,7 @@ function RepoTrackerRefresh($Verbose = false){
   foreach($Repos as $Repo){
     $Check = Query("SELECT COUNT(*) as 'Count' FROM Repository WHERE Path LIKE '".Sanitize($Repo)."'");
     if($Check[0]['Count']==0){
-      if($Verbose){echo '<p>Foudn a repo not in database. Adding "'.$Repo.'"...</p>';}
+      if($Verbose){echo '<p>Found a repo not in database. Adding "'.$Repo.'"...</p>';}
       Query("INSERT INTO Repository (`Path`)VALUES('".Sanitize($Repo)."');");
     }
   }
@@ -114,6 +114,7 @@ function RepoTracker_VerifyLocalHashes(){
   foreach($Repos as $Repo){
     $Hash = file_get_contents($Repo['Path'].'/.git/refs/heads/master');
     if($Hash != $Repo['LocalHash']){
+      if($Verbose){echo '<p>Updating LocalHash in database for repository: "'.$Repo['Path'].'".</p>';}
       Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
     }
     
