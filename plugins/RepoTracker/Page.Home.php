@@ -1,6 +1,18 @@
 <?php
 
 function RepoTracker_Homepage(){
+  if(isset($_GET['enableBleedingEdge'])){
+    //TODO permissions
+    Query("UPDATE Repository SET BleedingEdge = 1 WHERE RepositoryID = ".intval($_GET['enableBleedingEdge']));
+    header('Location: /repotracker');
+    exit;
+  }
+  if(isset($_GET['disableBleedingEdge'])){
+    //TODO permissions
+    Query("UPDATE Repository SET BleedingEdge = 0 WHERE RepositoryID = ".intval($_GET['disableBleedingEdge']));
+    header('Location: /repotracker');
+    exit;
+  }
   TemplateBootstrap4('RepoTracker','RepoTracker_Homepage_BodyCallback();');
 }
 
