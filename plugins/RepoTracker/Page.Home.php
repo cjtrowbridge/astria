@@ -34,9 +34,9 @@ function RepoTracker_Homepage_BodyCallback(){
         $MagicPath=BlowfishEncrypt($Path); 
         if($Path == ''){$Path = '/(Astria Core)';}
         if( $Repo['BleedingEdge'] == 1 ){
-          $BleedingEdge = 'Enabled (<a href="./?disableBleedingEdge='.$Repo['RepositoryID'].'">Disable</a>)';
+          $BleedingEdge = 'Enabled (<a href="/repotracker/?disableBleedingEdge='.$Repo['RepositoryID'].'">Disable</a>)';
         }else{
-          $BleedingEdge = 'Disabled (<a href="./?enableBleedingEdge='.$Repo['RepositoryID'].'">Enable</a>)';
+          $BleedingEdge = 'Disabled (<a href="/repotracker/?enableBleedingEdge='.$Repo['RepositoryID'].'">Enable</a>)';
         }
         
         $Temp[]=array(
