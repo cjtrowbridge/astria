@@ -133,7 +133,7 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     $Result = str_replace('https://github.com/','',$Result);
     $Result = 'https://api.github.com/repos/'.$Result;
     $Result .= '/git/refs/heads/master';
-    echo '<p><a href="'.$Result.'">'.$Result.'</a>';
+    $Result = file_get_contents($Result);
     $Result = json_decode($Result,true);
     pd($Result);
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
