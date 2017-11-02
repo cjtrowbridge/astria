@@ -110,7 +110,7 @@ function RepoTrackerRefresh($Verbose = false){
 }
 
 function RepoTracker_VerifyLocalHashes($Verbose = false){
-  $Repos = Query("SELECT Path,LocalHash FROM Repository");
+  $Repos = Query("SELECT RepositoryID,Path,LocalHash FROM Repository");
   foreach($Repos as $Repo){
     $HashFile = $Repo['Path'].'/.git/refs/heads/master';
     if(file_exists($HashFile)){
