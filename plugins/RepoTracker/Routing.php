@@ -130,8 +130,8 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     $Result = shell_exec($Command);
     $Result = trim($Result);
     $Result = rtrim($Result,'.git');
-    $Result = ltrim($Result,'https://');
-    $Result = 'https://api.'.$Result;
+    $Result = ltrim($Result,'https://github.com');
+    $Result = 'https://api.github.com/repos'.$Result;
     $Result .= '/git/refs/heads/master';
     echo '<p><a href="'.$Result.'">'.$Result.'</a>';
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
