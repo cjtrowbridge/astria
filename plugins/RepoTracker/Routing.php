@@ -112,11 +112,15 @@ function RepoTrackerRefresh($Verbose = false){
 function RepoTracker_VerifyLocalHashes($Verbose = false){
   $Repos = Query("SELECT Path,LocalHash FROM Repository");
   foreach($Repos as $Repo){
-    $Hash = file_get_contents($Repo['Path'].'/.git/refs/heads/master');
-    if($Hash != $Repo['LocalHash']){
-      if($Verbose){echo '<p>Updating LocalHash in database for repository: "'.$Repo['Path'].'".</p>';}
-      Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
+    $HashFile = $Repo['Path'].'/.git/refs/heads/master';
+    if(file_exists($HashFile)){
+      $Hash = file_get_contents($HashFile);
+      if($Hash != $Repo['LocalHash']){
+        if($Verbose){echo '<p>Updating LocalHash in database for repository: "'.$Repo['Path'].'".</p>';}
+        Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
+      }
+    }else{
+      if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
     }
-    
   }
 }
