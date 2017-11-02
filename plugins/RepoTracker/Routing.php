@@ -135,9 +135,15 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     $Result .= '/git/refs/heads/master';
     $Result = file_get_contents($Result);
     $Result = json_decode($Result,true);
-    pd($Result);
     //if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
     
+    $Result = FetchURL($Result);
+    $Result = json_decode($Result,true);
+    if($Result==false){continue;}
+    if(!(isset($Result['object']))){continue;}
+    if(!(isset($Result['object']['sha']))){continue;}
+    $Result = trim($Result['object']['sha']);
+    Query('UPDATE Repository SET RemoteHash = "'.Sanitize($Result).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
   }
 }
 
