@@ -13,7 +13,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
 function SchemaRouter_RowColumns_Fields($Schema, $Table){
   
   global $ASTRIA;
-  $Columns = $ASTRIA['Schema'][$Schema][$Table];
+  $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
   pd($Columns);
   exit;
   
