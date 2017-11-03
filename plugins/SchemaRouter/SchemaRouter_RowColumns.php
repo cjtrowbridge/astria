@@ -6,11 +6,13 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
   //TODO default to returning the row
     //TODO this could be json
     //TODO or the contents of a dom object
-    pd(SchemaRouter_RowColumns_Fields($Schema, $Table));
+    
+    //TODO make the title be more relevant 
+    TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'")');
     exit;
 }
 
-function SchemaRouter_RowColumns_Fields($Schema, $Table){
+function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   
   global $ASTRIA;
   $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
