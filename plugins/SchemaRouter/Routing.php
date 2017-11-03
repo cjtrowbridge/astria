@@ -169,5 +169,9 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   $ASTRIA['Session']['Schema'] = $SchemaDescription;
   Event('Done Caching Schema to Session');
   AstriaSessionSave();
+  if(isset($_GET['verbose'])){
+    echo '<p>Loading Schema Description Into Session:</p>';
+    pd($SchemaDescription);
+  }
   return $SchemaDescription;
 }
