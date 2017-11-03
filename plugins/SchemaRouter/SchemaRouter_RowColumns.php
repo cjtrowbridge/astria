@@ -13,26 +13,12 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
 function SchemaRouter_RowColumns_Fields($Schema, $Table){
   
   global $ASTRIA;
-  $DatabaseName = $ASTRIA['databases'][$Schema]['database'];
+  $Columns = $ASTRIA['Schema'][$Schema][$Table];
+  pd($Columns);
+  exit;
   
-  $ColumnSQL = "SELECT TABLE_SCHEMA,TABLE_NAME,COLUMN_NAME,DATA_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND TABLE_NAME = '".Sanitize($Table)."'";
-  $ConstraintSQL = "
   
-    SELECT COLUMN_NAME, CONSTRAINT_TYPE, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
-    FROM information_schema.KEY_COLUMN_USAGE 
-    LEFT JOIN information_schema.TABLE_CONSTRAINTS ON
-      information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA    = information_schema.KEY_COLUMN_USAGE.TABLE_SCHEMA AND
-      information_schema.TABLE_CONSTRAINTS.TABLE_NAME      = information_schema.KEY_COLUMN_USAGE.TABLE_NAME AND
-      information_schema.TABLE_CONSTRAINTS.CONSTRAINT_NAME = information_schema.KEY_COLUMN_USAGE.CONSTRAINT_NAME
-    WHERE 
-      information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA = '".Sanitize($DatabaseName)."' AND
-      information_schema.TABLE_CONSTRAINTS.TABLE_NAME   = '".Sanitize($Table)."'
-  ";
-  
-  $Data        = Query($ColumnSQL,$Schema);
-  $Constraints = Query($ConstraintSQL,$Schema);
-  
-  foreach($Data as &$Column){
+  foreach($Columns as $Column){
     
     //initialize an array to hold this column's constraints
     $Column['Constraints']=array();
