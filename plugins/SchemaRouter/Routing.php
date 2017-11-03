@@ -144,9 +144,9 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     //add a list of tables the user has any permissions for
     $SchemaDescription[$Alias] = SchemaRouter_SchemaTables_Array($Alias);
     foreach($SchemaDescription[$Alias] as $Index  => $Table){
-      if(!(isset($Column['DATA_TYPE']))){
-        continue;
-      }
+      //if(!(isset($Column['DATA_TYPE']))){
+        //continue;
+      //}
       unset($SchemaDescription[$Alias][$Index]);
       $SchemaDescription[$Alias][$Table] = SchemaRouterGet_Constraints($Alias, $Table);
       $SchemaDescription[$Alias][$Table]['FirstTextField'] = '';
