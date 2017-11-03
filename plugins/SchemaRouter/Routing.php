@@ -172,6 +172,6 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     echo '<p>Loading Schema Description Into Session:</p>';
     pd($SchemaDescription);
   }
-  AstriaSessionSave();`
+  AstriaSessionSave();
   return $SchemaDescription;
 }
