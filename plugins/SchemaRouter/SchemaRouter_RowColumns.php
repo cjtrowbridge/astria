@@ -68,7 +68,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //display a header
   $DBTitle = $Schema;
   if(isset($ASTRIA['databases'][$Schema]['title'])){$DBTitle = $ASTRIA['databases'][$Schema]['title'];}
-  
+  ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+
+<?php
   echo '<h1>';
   if($Row != false){
     //TODO
@@ -151,13 +157,18 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   }
   ?>
 
-  <div class="form-group row">
-    <div class="col-xs-12">
-      <input class="form-control btn btn-block btn-success" type="submit" value="Save Changes">
+        <div class="form-group row">
+          <div class="col-xs-12">
+            <input class="form-control btn btn-block btn-success" type="submit" value="Save Changes">
+          </div>
+        </div>
+      
+
+      </form>
+    
     </div>
   </div>
-
-</form>
+</div>
 
   <?php
   
@@ -180,13 +191,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, $Name, $Value = ''){
   ?>
 
-  <div class="form-group row">
-    <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-    <div class="col-xs-12 col-lg-9">
-      <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-      <?php echo $Value; ?>
-    </div>
-  </div>
+        <div class="form-group row">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+          <div class="col-xs-12 col-lg-9">
+            <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <?php echo $Value; ?>
+          </div>
+        </div>
 
   <?php
 }
@@ -194,12 +205,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
 function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = ''){
   ?>
 
-  <div class="form-group row">
-    <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-    <div class="col-xs-12 col-lg-9">
-      <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-    </div>
-  </div>
+        <div class="form-group row">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+          <div class="col-xs-12 col-lg-9">
+            <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+          </div>
+        </div>
 
   <?php
 }
@@ -207,12 +218,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
 function SchemaRouter_RowColumns_Fields_BodyCallback_EditablePhone($Label, $Name, $Value = ''){
   ?>
 
-  <div class="form-group row">
-    <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-    <div class="col-xs-12 col-lg-9">
-      <input class="form-control" type="tel" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-    </div>
-  </div>
+        <div class="form-group row">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+          <div class="col-xs-12 col-lg-9">
+            <input class="form-control" type="tel" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+          </div>
+        </div>
 
   <?php
 }
