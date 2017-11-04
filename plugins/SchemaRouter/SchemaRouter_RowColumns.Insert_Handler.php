@@ -1,6 +1,6 @@
 <?php
 
-function SchemaRouter_RowColumns_Insert_Handler(){
+function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   global $ASTRIA;
   
   echo '<h1>Handling Post</h1>'.PHP_EOL;
