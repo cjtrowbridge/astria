@@ -56,7 +56,7 @@ function Query_LastInsertID($Alias = 'astria'){
 	global $ASTRIA;
 	switch($ASTRIA['databases'][$Alias]['type']){
 		case 'mysql':
-			return mysqli_insert_id($$ASTRIA['databases'][$Alias]['resource']);
+			return mysqli_insert_id($ASTRIA['databases'][$Alias]['resource']);
 		default:
 			die('Unsupported database type: "'.$ASTRIA['databases'][$Alias]['type'].'"');
 	}
