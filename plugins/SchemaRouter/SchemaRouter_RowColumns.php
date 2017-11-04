@@ -11,8 +11,8 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
   
     //Handle insert posts
     if(isset($_POST[$PrimaryKey])){
-      echo '<h1>Handling Post</h1>'.PHP_EOL;
-      pd($_POST);
+      include_once('SchemaRouter_RowColumns.Insert_Handler.php');
+      SchemaRouter_RowColumns_Insert_Handler();
       exit;
     }
   
