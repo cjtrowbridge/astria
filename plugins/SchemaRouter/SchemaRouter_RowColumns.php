@@ -41,6 +41,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   global $ASTRIA;
   $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY'];
   $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
+  $Referencees    = $ASTRIA['Session']['Schema'][$Schema][$Table]['Referencees'];
   $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
   
   
@@ -67,6 +68,17 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //display a header
   $DBTitle = $Schema;
   if(isset($ASTRIA['databases'][$Schema]['title'])){$DBTitle = $ASTRIA['databases'][$Schema]['title'];}
+  
+  if( count($Referencees)>0 ){
+    //display two columns, one for this table, and one for things that have foreign keys referencing it
+    echo '<div class="col-xs-12 col-lg-6">'.PHP_EOL;
+    
+  }else{
+    //no foreign keys reference this table. display only one column
+    echo '<div class="col-xs-12">'.PHP_EOL;
+    
+  }
+    
   echo '<h1>';
   if($Row != false){
     //TODO
@@ -146,6 +158,19 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 </form>
 
   <?php
+  
+  if( count($Referencees)>0 ){
+    //display two columns, one for this table, and one for things that have foreign keys referencing it
+    echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6"><h1>Things Connected To This</h1>'.PHP_EOL;
+    
+    
+    
+  }
+  ?>
+
+</div><!--end the main column if there is only one, or the second column if there are two-->
+
+<?php
   
 }
 
