@@ -30,6 +30,7 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
     ){
       
       switch($Column['DATA_TYPE']){
+        //TODO add handlers for the other data types or for validating and formatting things properly
         default:
           $InsertValues[$Column['COLUMN_NAME']] = $_POST[$Column['COLUMN_NAME']];
           break;
