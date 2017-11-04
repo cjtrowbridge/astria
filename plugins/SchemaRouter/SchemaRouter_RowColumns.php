@@ -21,7 +21,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   
   //make sure the row is an integer or die.
   $TempRow = intval($Row);
-  if($TempRow == 0){die('Invalid '.$FirstTextField': '.$TempRow.'. Must be an integer.');}
+  if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
   $Row = $TempRow;
   
   //go through all the columns and display a field for them
