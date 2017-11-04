@@ -43,9 +43,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
     }
     
     //if this is the primary key, display it as text, and include a hidden input field of it.
-    if(true||$Column['IsConstraint']['PRIMARY KEY'] == true){
+    if($Column['IsConstraint']['PRIMARY KEY'] == true){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
     }
+    
+    //TODO foreign keys
     
     if(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')){
       SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
