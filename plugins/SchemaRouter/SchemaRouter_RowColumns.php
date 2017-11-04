@@ -24,7 +24,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
   $Row = $TempRow;
   
-  $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row)); 
+  $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
   if(!(isset($Data[0]))){
     die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
   }
