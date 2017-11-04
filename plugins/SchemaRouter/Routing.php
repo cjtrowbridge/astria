@@ -165,6 +165,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
         }
         if(
           $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] == '' &&
+          isset($Column['IsConstraint'])&&
           $Column['IsConstraint']['PRIMARY KEY'] == true
         ){
           $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] = $Column['COLUMN_NAME'];
