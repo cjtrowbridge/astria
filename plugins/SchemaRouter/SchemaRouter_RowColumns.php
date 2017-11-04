@@ -43,12 +43,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
     }
     
     //if this is the primary key, display it as text, and include a hidden input field of it.
-    if($Column['IsConstraint']['PRIMARY KEY'] == true){
+    if(true||$Column['IsConstraint']['PRIMARY KEY'] == true){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
     }
     
-    pd($Column);
-    echo '<hr>';
+    //pd($Column);
+    //echo '<hr>';
     
   }
   
@@ -58,8 +58,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   ?>
 
 <div class="form-group row">
-  <label for="<?php echo $Name; ?>" class="col-2 col-form-label"><?php echo $Label; ?>:</label>
-  <div class="col-10">
+  <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+  <div class="col-xs-12 col-lg-9">
     <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
     <?php echo $Value; ?>
   </div>
