@@ -175,9 +175,21 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   
   if( count($Referencees)>0 ){
     //display two columns, one for this table, and one for things that have foreign keys referencing it
-    echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6"><h1>Things Connected To This</h1>'.PHP_EOL;
+    echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6">'.PHP_EOL;
     
-    
+    foreach($Referencees as $Table => $Referencee){
+      ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <h1><?php echo $Table; ?></h1>
+    </div>
+  </div>
+</div>
+
+      <?php
+    }
     
   }
   ?>
