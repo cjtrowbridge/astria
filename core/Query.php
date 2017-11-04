@@ -54,7 +54,7 @@ function Query(
 function Query_LastInsertID($Alias = 'astria'){
 	MakeSureDBConnected($Database);
 	global $ASTRIA;
-	switch($ASTRIA['databases'][$Database]['type']){
+	switch($ASTRIA['databases'][$Alias]['type']){
 		case 'mysql':
 			return mysqli_insert_id($$ASTRIA['databases'][$Database]['resource']);
 		default:
