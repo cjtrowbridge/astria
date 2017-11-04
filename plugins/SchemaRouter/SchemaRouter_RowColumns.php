@@ -12,7 +12,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //Handle insert posts
     if(isset($_POST[$PrimaryKey])){
       include_once('SchemaRouter_RowColumns.Insert_Handler.php');
-      SchemaRouter_RowColumns_Insert_Handler();
+      SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
       exit;
     }
   
