@@ -58,6 +58,6 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   $SQL.= ")".PHP_EOL;
   Query($SQL,$Schema);
   $ID = Query_LastInsertID($Schema);
-  header('Location: /'.$Schema.'/'.$Table.'/');
+  header('Location: /'.$Schema.'/'.$Table.'/'.$ID);
   exit;
 }
