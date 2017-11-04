@@ -67,6 +67,33 @@ function SchemaRouter_QueryCard(){
   
 }
 
+function SchemaRouterGet_Referencees($Schema, $Table){
+  
+  global $ASTRIA;
+  //Dereference schema
+  $DatabaseName = $ASTRIA['databases'][$Schema]['database'];
+  
+  $ConstraintSQL = "
+    SELECT COLUMN_NAME, TABLE_NAME, CONSTRAINT_TYPE, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
+    FROM information_schema.KEY_COLUMN_USAGE 
+    LEFT JOIN information_schema.TABLE_CONSTRAINTS ON
+      information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA    = information_schema.KEY_COLUMN_USAGE.TABLE_SCHEMA AND
+      information_schema.TABLE_CONSTRAINTS.TABLE_NAME      = information_schema.KEY_COLUMN_USAGE.TABLE_NAME AND
+      information_schema.TABLE_CONSTRAINTS.CONSTRAINT_NAME = information_schema.KEY_COLUMN_USAGE.CONSTRAINT_NAME
+    WHERE 
+      information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA          = '".Sanitize($DatabaseName)."' AND
+      information_schema.TABLE_CONSTRAINTS.REFERENCED_TABLE_NAME = '".Sanitize($Table)."'
+  ";
+  
+  $Referencees = Query($ConstraintSQL,$Schema);
+  $Output = array();
+  
+  foreach($Referencees as $Referencee){
+    $Output[ $Referencee['TABLE_NAME'] ] = $Referencee;
+  }
+  
+  return $Output;
+}
 
 function SchemaRouterGet_Constraints($Schema, $Table){
   
@@ -102,6 +129,7 @@ function SchemaRouterGet_Constraints($Schema, $Table){
       'FOREIGN KEY' => false,
       'CHECK'       => false
     );
+    $Data[ $Column['COLUMN_NAME'] ]['Referencees'] = SchemaRouterGet_Referencees($Schema, $Table);
     
     //look through all the constraints and put them in the constraints array for each column
     foreach($Constraints as $Constraint){
