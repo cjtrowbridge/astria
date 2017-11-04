@@ -38,26 +38,26 @@ function SchemaRouter_RowColumns_Insert_Handler(){
       }
       
     }
+  }
     
-    
-    $ColumnsList = '';
-    $ValuesList = '';
-    
-    foreach($InsertValues as $Key => $Value){
-      $ColumnsList .= "`".Sanitize($Key)."`,";
-      $ValuesList  .= "'".Sanitize($Value)."',";
-    }
-    
-    $ColumnsList = rtrim($ColumnsList,',');
-    $ValuesList  = rtrim($ValuesList,',');
-    
-    
-    $SQL = "INSERT INTO `".Sanitize($Table)."` ".PHP_EOL;
-    $SQL.= "(".PHP_EOL;
-    $SQL.= "  ".$ColumnsList.PHP_EOL;
-    $SQL.= ") VALUES (".PHP_EOL;
-    $SQL.= "  ".$ValuesList.PHP_EOL;
-    $SQL.= ")".PHP_EOL;
-    pd($SQL);
-    exit;
+  $ColumnsList = '';
+  $ValuesList = '';
+
+  foreach($InsertValues as $Key => $Value){
+    $ColumnsList .= "`".Sanitize($Key)."`,";
+    $ValuesList  .= "'".Sanitize($Value)."',";
+  }
+
+  $ColumnsList = rtrim($ColumnsList,',');
+  $ValuesList  = rtrim($ValuesList,',');
+
+
+  $SQL = "INSERT INTO `".Sanitize($Table)."` ".PHP_EOL;
+  $SQL.= "(".PHP_EOL;
+  $SQL.= "  ".$ColumnsList.PHP_EOL;
+  $SQL.= ") VALUES (".PHP_EOL;
+  $SQL.= "  ".$ValuesList.PHP_EOL;
+  $SQL.= ")".PHP_EOL;
+  pd($SQL);
+  exit;
 }
