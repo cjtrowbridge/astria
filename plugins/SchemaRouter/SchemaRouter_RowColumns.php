@@ -32,7 +32,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   
   
   //display a header
-  echo '<h1><a href="/'.$Schema.'">'.$Schema.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  '.$Row.'</h1>';
+  $DBTitle = $Schema;
+  if(isset($ASTRIA['databases'][$Schema]['Title'])){$DBTitle = $ASTRIA['databases'][$Schema]['Title'];}
+  echo '<h1><a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  '.$Row.'</h1>';
   
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
