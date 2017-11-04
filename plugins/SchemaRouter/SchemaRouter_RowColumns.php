@@ -12,24 +12,32 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     exit;
 }
 
-function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
+function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   
   global $ASTRIA;
   $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
   $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
   
   
-  //make sure the row is an integer or die.
-  $TempRow = intval($Row);
-  if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
-  $Row = $TempRow;
   
-  $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
-  if(!(isset($Data[0]))){
-    die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
+  if(isset($_GET['insert'])){
+    //We are creating a new record
+    $Data = false;
+    
+  }else{
+    //we are showing an existing record. Validate it and get its data.
+    
+    //make sure the row is an integer or die.
+    $TempRow = intval($Row);
+    if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
+    $Row = $TempRow;
+
+    $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
+    if(!(isset($Data[0]))){
+      die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
+    }
+    $Data = $Data[0];
   }
-  $Data = $Data[0];
-  
   
   //display a header
   $DBTitle = $Schema;
