@@ -14,14 +14,20 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
 
 function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   
-  pd($Row);
-  
   global $ASTRIA;
   $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
   $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
   
+  
+  //make sure the row is an integer or die.
+  $TempRow = intval($Row);
+  if($TempRow == 0){die('Invalid '.$FirstTextField': '.$TempRow.'. Must be an integer.');}
+  $Row = $TempRow;
+  
+  //go through all the columns and display a field for them
   foreach($Columns as $Column){
     
+    //if this is the primary key, display it as text, and include a hidden input field of it.
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($FirstTextField, $Column['COLUMN_NAME'], '');
     }
