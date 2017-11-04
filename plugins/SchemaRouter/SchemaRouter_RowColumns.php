@@ -52,10 +52,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
     
-    //skip meta data
-    if(!isset($Column['IsConstraint'])){
-      continue;
-    }
+    //skip any meta data about the table. we only want to look at the columns which will all have this field.
+    if(!isset($Column['IsConstraint'])){continue;}
+    
     
     //if this is the primary key, display it as text, and include a hidden input field of it, then skip the rest of the loop.
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
@@ -63,11 +62,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       continue;
     }
     
-    //TODO foreign keys
     
-    //by default, show a text box if they have permission to edit the field, 
-    // or else just the contents of the field of they only have permission to view the data, 
-    // or else an html comment saying they have permission neither to view or edit the field
+    //TODO foreign keys
+    //these will be a select2 with search
+    
+    
+    //Check what we need to do with this field. Maybe editable, maybe just viewable, maybe neither.
     if(
       (!( //These columns are never editable
         $Column['COLUMN_NAME'] == 'TimeInserted' ||
@@ -83,16 +83,19 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
           
           break;
       }
-      
       SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
       
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
+      
+      //If the user does not have permission to edit the field, but they do have permission to view the field, then display it as text
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      
     }else{
+      
+      //If the user has neither permission to view or to edit, display an html comment to this effect for verbosity. This can later be removed.
       echo "\n<!--User does not have permission to view or edit field ".$Column['COLUMN_NAME']." in table ".$Table."-->\n";
+      
     }
-    //pd($Column);
-    //echo '<hr>';
     
   }
   ?>
