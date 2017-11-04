@@ -69,6 +69,14 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   $DBTitle = $Schema;
   if(isset($ASTRIA['databases'][$Schema]['title'])){$DBTitle = $ASTRIA['databases'][$Schema]['title'];}
   
+  echo '<h1>';
+  if($Row != false){
+    //TODO
+    echo '<div style="float: right;"><a href="#"><i title="View Previous Versions" class="material-icons">history</i></a></div>';
+  }
+  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
+  
+  
   if( count($Referencees)>0 ){
     //display two columns, one for this table, and one for things that have foreign keys referencing it
     echo '<div class="col-xs-12 col-lg-6">'.PHP_EOL;
@@ -79,12 +87,6 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
   }
     
-  echo '<h1>';
-  if($Row != false){
-    //TODO
-    echo '<div style="float: right;"><a href="#"><i title="View Previous Versions" class="material-icons">history</i></a></div>';
-  }
-  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
   if($Row == false){
     echo '<form action="/'.$Schema.'/'.$Table.'/?insert" method="post">'.PHP_EOL;
