@@ -197,7 +197,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
           $Column['IsConstraint']['PRIMARY KEY'] == true
         ){
           $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] = $Column['COLUMN_NAME'];
-          $SchemaDescription[$Alias][$Table]['Referencees'] = SchemaRouterGet_Referencees($Schema, $Table);
+          $SchemaDescription[$Alias][$Table]['Referencees'] = SchemaRouterGet_Referencees($Alias, $Table);
         }
       }
     }
