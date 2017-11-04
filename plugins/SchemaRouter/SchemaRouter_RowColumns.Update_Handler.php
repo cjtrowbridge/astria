@@ -4,6 +4,7 @@ function SchemaRouter_RowColumns_Update_Handler($Schema, $Table){
   global $ASTRIA;
   
   $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
+  $PrimaryKey = $ASTRIA['Session']['Schema'][$Schema][$Table]["PRIMARY KEY"];
   
   $SQL = "UPDATE `".Sanitize($Table)."` SET ";
   
