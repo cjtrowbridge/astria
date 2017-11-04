@@ -42,13 +42,17 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
       continue;
     }
     
-    //if this is the primary key, display it as text, and include a hidden input field of it.
+    //if this is the primary key, display it as text, and include a hidden input field of it, then skip the rest of the loop.
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      continue;
     }
     
     //TODO foreign keys
     
+    //by default, show a text box if they have permission to edit the field, 
+    // or else just the contents of the field of they only have permission to view the data, 
+    // or else an html comment saying they have permission neither to view or edit the field
     if(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')){
       SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
