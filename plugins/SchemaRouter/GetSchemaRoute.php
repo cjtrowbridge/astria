@@ -25,7 +25,14 @@ function GetSchemaRoute($Schema = false, $Table = false, $Row = false){
       $RouteType = 'row';
     }else{
       if(!( $Table === false )){
-        $RouteType = 'table';
+        
+        //check if we are doing an insert, in which case this is not a table route but a row route
+        if(isset($_GET['insert'])){
+          $RouteType = 'row';
+        }else{
+          $RouteType = 'table';
+        }
+        
       }else{
         if(!( $Schema === false )){
           $RouteType = 'schema';
