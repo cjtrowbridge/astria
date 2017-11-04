@@ -3,8 +3,6 @@
 function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   global $ASTRIA;
   
-  echo '<h1>Handling Post</h1>'.PHP_EOL;
-  
   $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
   
   $InsertValues = array();
@@ -58,6 +56,8 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   $SQL.= ") VALUES (".PHP_EOL;
   $SQL.= "  ".$ValuesList.",'".$ASTRIA['Session']['User']['UserID']."',NOW()".PHP_EOL;
   $SQL.= ")".PHP_EOL;
-  pd($SQL);
+  Query($SQL,$Schema);
+  $ID = Query_LastInsertID($Schema);
+  header('Location: /'.$Schema.'/'.$Table.'/');
   exit;
 }
