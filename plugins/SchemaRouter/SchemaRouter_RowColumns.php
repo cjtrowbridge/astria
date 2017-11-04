@@ -42,7 +42,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //display a header
   $DBTitle = $Schema;
   if(isset($ASTRIA['databases'][$Schema]['title'])){$DBTitle = $ASTRIA['databases'][$Schema]['title'];}
-  echo '<h1><a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>';
+  echo '<h1>';
+  if($Row != false){
+    //TODO
+    echo '<div style="float: right;"><a href="#"><i title="View Previous Versions" class="material-icons">history</i></a></div>';
+  }
+  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>';
   
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
