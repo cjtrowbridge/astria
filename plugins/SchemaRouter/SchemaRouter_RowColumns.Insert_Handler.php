@@ -1,7 +1,63 @@
 <?php
 
 function SchemaRouter_RowColumns_Insert_Handler(){
+  global $ASTRIA;
+  
   echo '<h1>Handling Post</h1>'.PHP_EOL;
-  pd($_POST);
-
+  
+  $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
+  
+  $InsertValues = array();
+  //go through all the columns and verify permission to edit them. only columns for which the user has permission will be allowed.
+  foreach($Columns as $Column){
+    
+    //skip any meta data about the table. we only want to look at the columns which will all have this field.
+    if(!isset($Column['IsConstraint'])){continue;}
+    
+    //skip the primary key since this is an insert.
+    if($Column['IsConstraint']['PRIMARY KEY'] == true){continue;}
+    
+    //TODO foreign keys
+    
+    //Check what we need to do with this field. Maybe editable, maybe just viewable, maybe neither.
+    if(
+      (!( //These columns are never editable
+        $Column['COLUMN_NAME'] == 'TimeInserted' ||
+        $Column['COLUMN_NAME'] == 'UserInserted' ||
+        $Column['COLUMN_NAME'] == 'TimeUpdated' ||
+        $Column['COLUMN_NAME'] == 'UserUpdated'
+      )) &&
+      HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit') &&
+      isset($_POST[$Column['COLUMN_NAME']])
+    ){
+      
+      switch($Column['DATA_TYPE']){
+        default:
+          $InsertValues[$Column['COLUMN_NAME']] = $_POST[$Column['COLUMN_NAME']];
+          break;
+      }
+      
+    }
+    
+    
+    $ColumnsList = '';
+    $ValuesList = '';
+    
+    foreach($InsertValues as $Key => $Value){
+      $ColumnsList .= "`".Sanitize($Key)."`,";
+      $ValuesList  .= "'".Sanitize($Value)."',";
+    }
+    
+    $ColumnsList = rtrim($ColumnsList,',');
+    $ValuesList  = rtrim($ValuesList,',');
+    
+    
+    $SQL = "INSERT INTO `".Sanitize($Table)."` ".PHP_EOL;
+    $SQL.= "("..PHP_EOL;
+    $SQL.= "  ".$ColumnsList.PHP_EOL
+    $SQL.= ") VALUES (".PHP_EOL;
+    $SQL.= "  ".$ValuesList.PHP_EOL;
+    $SQL.= ")".PHP_EOL;
+    pd($SQL);
+    exit;
 }
