@@ -55,10 +55,15 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     //skip any meta data about the table. we only want to look at the columns which will all have this field.
     if(!isset($Column['IsConstraint'])){continue;}
     
+    if($Row != false){
+      $FieldValue = $Data[$Column['COLUMN_NAME']];
+    }else{
+      $FieldValue = '';
+    }
     
     //if this is the primary key, display it as text, and include a hidden input field of it, then skip the rest of the loop.
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
-      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
       continue;
     }
     
@@ -83,12 +88,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
           
           break;
       }
-      SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
       
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
       
       //If the user does not have permission to edit the field, but they do have permission to view the field, then display it as text
-      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
       
     }else{
       
