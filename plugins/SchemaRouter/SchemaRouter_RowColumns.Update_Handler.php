@@ -31,6 +31,7 @@ function SchemaRouter_RowColumns_Update_Handler($Schema, $Table){
     ){
       
       switch($Column['DATA_TYPE']){
+        //TODO add handlers for the other data types or for validating and formatting things properly
         default:
           $SQL.= .PHP_EOL."  `".Sanitize($Column['COLUMN_NAME'])."` = '',"
           break;
