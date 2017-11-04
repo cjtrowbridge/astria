@@ -47,6 +47,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
     }
     
+    if(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')){
+      SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+    }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){{
+      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+    }else{
+      echo "\n<!--User does not have permission to view or edit field ".$Column['COLUMN_NAME']." in table ".$Table."-->\n"
+    }
     //pd($Column);
     //echo '<hr>';
     
@@ -62,6 +69,19 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   <div class="col-xs-12 col-lg-9">
     <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
     <?php echo $Value; ?>
+  </div>
+</div>
+
+  <?php
+}
+
+function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = ''){
+  ?>
+
+<div class="form-group row">
+  <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+  <div class="col-xs-12 col-lg-9">
+    <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
   </div>
 </div>
 
