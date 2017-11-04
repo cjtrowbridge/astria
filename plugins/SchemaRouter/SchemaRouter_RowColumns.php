@@ -63,8 +63,24 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     //by default, show a text box if they have permission to edit the field, 
     // or else just the contents of the field of they only have permission to view the data, 
     // or else an html comment saying they have permission neither to view or edit the field
-    if(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')){
+    if(
+      (!( //These columns are never editable
+        $Column['COLUMN_NAME'] == 'DateInserted' ||
+        $Column['COLUMN_NAME'] == 'UserInserted' ||
+        $Column['COLUMN_NAME'] == 'DateUpdated' ||
+        $Column['COLUMN_NAME'] == 'UserUpdated'
+      )) &&
+      HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')
+    ){
+      
+      switch($Column['DATA_TYPE']){
+        case'':
+          
+          break;
+      }
+      
       SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
+      
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $Data[$Column['COLUMN_NAME']]);
     }else{
