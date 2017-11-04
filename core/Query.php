@@ -50,3 +50,14 @@ function Query(
 	}
 	
 }
+
+function Query_LastInsertID($Alias = 'astria'){
+	MakeSureDBConnected($Database);
+	global $ASTRIA;
+	switch($ASTRIA['databases'][$Database]['type']){
+		case 'mysql':
+			return mysqli_insert_id($$ASTRIA['databases'][$Database]['resource']);
+		default:
+			die('Unsupported database type: "'.$ASTRIA['databases'][$Database]['type'].'"');
+	}
+}
