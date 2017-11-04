@@ -41,7 +41,8 @@ function SchemaRouter_RowColumns_Update_Handler($Schema, $Table){
     }
   }
   
-  $SQL = rtrim($SQL,',').PHP_EOL;
+  $SQL = "  TimeUpdated = NOW(),".PHP_EOL;
+  $SQL = "  UserUpdated = '".$ASTRIA['Session']['User']['UserID']."'".PHP_EOL;
   $SQL.= "WHERE `".Sanitize($PrimaryKey)."` = '".Sanitize($_POST[$PrimaryKey])."';";
   Query($SQL,$Schema);
   header('Location: /'.$Schema.'/'.$Table.'/'.$_POST[$PrimaryKey]);
