@@ -12,7 +12,20 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //TODO or the contents of a dom object
   
     //Handle insert posts
-    if(isset($_POST[$PrimaryKey])){
+    if(
+      isset($_GET['insert']) &&
+      isset($_POST[$PrimaryKey])
+    ){
+      include_once('SchemaRouter_RowColumns.Insert_Handler.php');
+      SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
+      exit;
+    }
+  
+    //Handle update posts
+    if(
+      isset($_GET['update']) &&
+      isset($_POST[$PrimaryKey])
+    ){
       include_once('SchemaRouter_RowColumns.Insert_Handler.php');
       SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
       exit;
@@ -61,7 +74,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   }
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
-  echo '<form action="/'.$Schema.'/'.$Table.'/?insert" method="post">'.PHP_EOL;
+  if($Row == false){
+    echo '<form action="/'.$Schema.'/'.$Table.'/?insert" method="post">'.PHP_EOL;
+  }else{
+    echo '<form action="/'.$Schema.'/'.$Table.'/?update" method="post">'.PHP_EOL;
+  }
   
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
