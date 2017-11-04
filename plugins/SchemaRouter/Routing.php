@@ -74,7 +74,7 @@ function SchemaRouterGet_Referencees($Schema, $Table){
   $DatabaseName = $ASTRIA['databases'][$Schema]['database'];
   
   $ConstraintSQL = "
-    SELECT COLUMN_NAME, TABLE_CONSTRAINTS.TABLE_NAME, CONSTRAINT_TYPE, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
+    SELECT COLUMN_NAME, KEY_COLUMN_USAGE.TABLE_NAME, CONSTRAINT_TYPE, REFERENCED_COLUMN_NAME, REFERENCED_TABLE_NAME
     FROM information_schema.KEY_COLUMN_USAGE 
     LEFT JOIN information_schema.TABLE_CONSTRAINTS ON
       information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA    = information_schema.KEY_COLUMN_USAGE.TABLE_SCHEMA AND
@@ -82,7 +82,7 @@ function SchemaRouterGet_Referencees($Schema, $Table){
       information_schema.TABLE_CONSTRAINTS.CONSTRAINT_NAME = information_schema.KEY_COLUMN_USAGE.CONSTRAINT_NAME
     WHERE 
       information_schema.TABLE_CONSTRAINTS.TABLE_SCHEMA          = '".Sanitize($DatabaseName)."' AND
-      information_schema.TABLE_CONSTRAINTS.REFERENCED_TABLE_NAME = '".Sanitize($Table)."'
+      information_schema.KEY_COLUMN_USAGE.REFERENCED_TABLE_NAME = '".Sanitize($Table)."'
   ";
   
   $Referencees = Query($ConstraintSQL,$Schema);
