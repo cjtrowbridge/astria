@@ -129,7 +129,6 @@ function SchemaRouterGet_Constraints($Schema, $Table){
       'FOREIGN KEY' => false,
       'CHECK'       => false
     );
-    $Data[ $Column['COLUMN_NAME'] ]['Referencees'] = SchemaRouterGet_Referencees($Schema, $Table);
     
     //look through all the constraints and put them in the constraints array for each column
     foreach($Constraints as $Constraint){
