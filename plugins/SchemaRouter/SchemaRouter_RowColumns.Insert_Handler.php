@@ -54,9 +54,9 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
 
   $SQL = "INSERT INTO `".Sanitize($Table)."` ".PHP_EOL;
   $SQL.= "(".PHP_EOL;
-  $SQL.= "  ".$ColumnsList."`UserInserted`,`TimeInserted`".PHP_EOL;
+  $SQL.= "  ".$ColumnsList.",`UserInserted`,`TimeInserted`".PHP_EOL;
   $SQL.= ") VALUES (".PHP_EOL;
-  $SQL.= "  ".$ValuesList."'".$ASTRIA['Session']['User']['UserID']."',NOW()".PHP_EOL;
+  $SQL.= "  ".$ValuesList.",'".$ASTRIA['Session']['User']['UserID']."',NOW()".PHP_EOL;
   $SQL.= ")".PHP_EOL;
   pd($SQL);
   exit;
