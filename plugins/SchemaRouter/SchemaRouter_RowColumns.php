@@ -68,13 +68,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //display a header
   $DBTitle = $Schema;
   if(isset($ASTRIA['databases'][$Schema]['title'])){$DBTitle = $ASTRIA['databases'][$Schema]['title'];}
-  ?>
 
-<div class="card">
-  <div class="card-block">
-    <div class="card-text">
-
-<?php
   echo '<h1>';
   if($Row != false){
     //TODO
@@ -93,6 +87,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
   }
     
+  ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+
+<?php
   
   if($Row == false){
     echo '<form action="/'.$Schema.'/'.$Table.'/?insert" method="post">'.PHP_EOL;
