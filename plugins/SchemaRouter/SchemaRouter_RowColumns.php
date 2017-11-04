@@ -1,12 +1,20 @@
 <?php
 
 function SchemaRouter_RowColumns($Schema, $Table, $Row){
+  $PrimaryKey = $ASTRIA['Session']['Schema'][$Schema][$Table]['Primary Key'];
   //TODO this could be an update to an existing row
   //TODO or a delete of a row
   //TODO default to returning the row
     //TODO this could be json
     //TODO or the contents of a dom object
-    
+  
+    //Handle insert posts
+    if(isset($_POST[$PrimaryKey])){
+      echo '<h1>Handling Post</h1>'.PHP_EOL;
+      pd($_POST);
+      exit;
+    }
+  
     //TODO make the title be more relevant 
     TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'");');
     exit;
@@ -15,6 +23,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
 function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   
   global $ASTRIA;
+  $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$Table]['Primary Key'];
   $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
   $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
   
@@ -47,7 +56,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     //TODO
     echo '<div style="float: right;"><a href="#"><i title="View Previous Versions" class="material-icons">history</i></a></div>';
   }
-  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>';
+  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
+  
+  echo '<form action="/'.$Schema.'/'.$Table.'/?insert" method="post">'.PHP_EOL;
   
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
@@ -105,11 +116,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   }
   ?>
 
-<div class="form-group row">
-  <div class="col-xs-12">
-    <input class="form-control btn btn-block btn-success" type="submit" value="Save Changes">
+  <div class="form-group row">
+    <div class="col-xs-12">
+      <input class="form-control btn btn-block btn-success" type="submit" value="Save Changes">
+    </div>
   </div>
-</div>
 
 
   <?php
@@ -119,13 +130,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, $Name, $Value = ''){
   ?>
 
-<div class="form-group row">
-  <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-  <div class="col-xs-12 col-lg-9">
-    <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-    <?php echo $Value; ?>
+  <div class="form-group row">
+    <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+    <div class="col-xs-12 col-lg-9">
+      <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+      <?php echo $Value; ?>
+    </div>
   </div>
-</div>
 
   <?php
 }
@@ -133,12 +144,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
 function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = ''){
   ?>
 
-<div class="form-group row">
-  <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-  <div class="col-xs-12 col-lg-9">
-    <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+  <div class="form-group row">
+    <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+    <div class="col-xs-12 col-lg-9">
+      <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+    </div>
   </div>
-</div>
 
   <?php
 }
