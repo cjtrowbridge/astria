@@ -53,7 +53,7 @@ function SchemaRouter_RowColumns_Insert_Handler(){
     
     
     $SQL = "INSERT INTO `".Sanitize($Table)."` ".PHP_EOL;
-    $SQL.= "("..PHP_EOL;
+    $SQL.= "(".PHP_EOL;
     $SQL.= "  ".$ColumnsList.PHP_EOL
     $SQL.= ") VALUES (".PHP_EOL;
     $SQL.= "  ".$ValuesList.PHP_EOL;
