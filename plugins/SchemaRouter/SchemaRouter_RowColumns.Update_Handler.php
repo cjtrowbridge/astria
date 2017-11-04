@@ -41,13 +41,9 @@ function SchemaRouter_RowColumns_Update_Handler($Schema, $Table){
     }
   }
   
-  $SQL = rtrim($SQL,',');
+  $SQL = rtrim($SQL,',').PHP_EOL;
   $SQL.= "WHERE `".Sanitize($PrimaryKey)."` = '".Sanitize($_POST[$PrimaryKey])."';";
-  pd($SQL);
-  exit;
-  
   Query($SQL,$Schema);
-  $ID = Query_LastInsertID($Schema);
-  header('Location: /'.$Schema.'/'.$Table.'/'.$ID);
+  header('Location: /'.$Schema.'/'.$Table.'/'.$_POST[$PrimaryKey]);
   exit;
 }
