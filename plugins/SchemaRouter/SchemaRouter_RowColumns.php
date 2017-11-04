@@ -120,16 +120,6 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
           
           //break;
       //}
-      switch($Column['COLUMN_NAME']){
-        case 'Phone':
-        case 'AltPhone':
-        case 'Fax':
-        case 'BillingPhone':
-        case 'BillingAltPhone':
-        case 'BillingFax':
-          SchemaRouter_RowColumns_Fields_BodyCallback_EditablePhone($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
-          break;
-      }
       SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
       
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
