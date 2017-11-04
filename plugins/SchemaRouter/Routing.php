@@ -150,6 +150,8 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
       unset($SchemaDescription[$Alias][$Index]);
       $SchemaDescription[$Alias][$Table] = SchemaRouterGet_Constraints($Alias, $Table);
       $SchemaDescription[$Alias][$Table]['FirstTextField'] = '';
+      $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] = '';
+      
       foreach($SchemaDescription[$Alias][$Table] as $Column){
         if(
           $SchemaDescription[$Alias][$Table]['FirstTextField'] == '' &&
@@ -160,6 +162,12 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
           )
         ){
           $SchemaDescription[$Alias][$Table]['FirstTextField'] = $Column['COLUMN_NAME'];
+        }
+        if(
+          $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] == '' &&
+          $Column['IsConstraint']['PRIMARY KEY'] == true
+        ){
+          $SchemaDescription[$Alias][$Table]['PRIMARY KEY'] = $Column['COLUMN_NAME'];
         }
       }
     }
