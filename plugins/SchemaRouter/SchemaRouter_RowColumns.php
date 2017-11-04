@@ -8,7 +8,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //TODO or the contents of a dom object
     
     //TODO make the title be more relevant 
-    TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'")');
+    TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'");');
     exit;
 }
 
@@ -16,22 +16,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   
   global $ASTRIA;
   $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
-  pd($Columns);
-  exit;
-  
   
   foreach($Columns as $Column){
     
-    //initialize an array to hold this column's constraints
-    $Column['Constraints']=array();
+    pd($Column);
+    echo '<hr>';
     
-    //look through all the constraints and put them in the constraints array for each column
-    foreach($Constraints as $Constraint){
-      if($Column['COLUMN_NAME'] == $Constraint['COLUMN_NAME']){
-        $Column['Constraints'][ $Constraint['CONSTRAINT_TYPE'] ] = $Constraint;
-      }
-    }
   }
   
-  return $Data;
 }
