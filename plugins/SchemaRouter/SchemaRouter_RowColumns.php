@@ -221,20 +221,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
         <div class="form-group row">
           <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
           <div class="col-xs-12 col-lg-9">
-            <input class="form-control" type="text" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-          </div>
-        </div>
-
-  <?php
-}
-
-function SchemaRouter_RowColumns_Fields_BodyCallback_EditablePhone($Label, $Name, $Value = ''){
-  ?>
-
-        <div class="form-group row">
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
-          <div class="col-xs-12 col-lg-9">
-            <input class="form-control" type="tel" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <input class="form-control" type="text" value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
           </div>
         </div>
 
