@@ -64,6 +64,16 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
     //echo '<hr>';
     
   }
+  ?>
+
+<div class="form-group row">
+  <div class="col-xs-12">
+    <input class="form-control btn btn-block btn-success" type="submit" value="Save Changes">
+  </div>
+</div>
+
+
+  <?php
   
 }
 
