@@ -65,9 +65,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     // or else an html comment saying they have permission neither to view or edit the field
     if(
       (!( //These columns are never editable
-        $Column['COLUMN_NAME'] == 'DateInserted' ||
+        $Column['COLUMN_NAME'] == 'TimeInserted' ||
         $Column['COLUMN_NAME'] == 'UserInserted' ||
-        $Column['COLUMN_NAME'] == 'DateUpdated' ||
+        $Column['COLUMN_NAME'] == 'TimeeUpdated' ||
         $Column['COLUMN_NAME'] == 'UserUpdated'
       )) &&
       HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')
