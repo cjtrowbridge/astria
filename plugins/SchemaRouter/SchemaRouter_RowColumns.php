@@ -24,6 +24,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row){
   if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
   $Row = $TempRow;
   
+  //display a header
+  echo '<h1>'.$Table.' '.$Row.'</h1>';
+  
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
     
