@@ -52,7 +52,7 @@ function Query(
 }
 
 function Query_LastInsertID($Alias = 'astria'){
-	MakeSureDBConnected($Database);
+	MakeSureDBConnected($Alias);
 	global $ASTRIA;
 	switch($ASTRIA['databases'][$Alias]['type']){
 		case 'mysql':
