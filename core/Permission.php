@@ -31,7 +31,13 @@ function HasPermission($Permission){
   
   //check if the permission is in the list of all possible permissions
   //if yes, return false;
-  if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){Event('Permission Negative: We know about this and you don\'t have it.');return false;}
+  if(isset($ASTRIA['Session']['AllPermissions'][$Permission])){
+    Event('Permission Negative: We know about this and you don\'t have it.');
+  
+    if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
+  
+    return false;
+  }
   
   //add it to the database under user 0.
   $SQL = "INSERT IGNORE INTO Permission (`UserID`,`Text`)VALUES(0,'".Sanitize($Permission)."')";
