@@ -183,7 +183,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
       $Links = Query( $SQL,$Schema );
       if(count($Links)==0){
-        echo '<p>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</p>';
+        echo '<p><b>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</b></p>';
       }else{
         echo ArrTabler( $Links );
       }
