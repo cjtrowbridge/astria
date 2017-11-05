@@ -26,8 +26,6 @@ function HasPermission($Permission){
   if(!isset($ASTRIA['Session']['User']['Permission'])){Event('Permission Negative: No Permissions object');return false;}
   if(!isset($ASTRIA['Session']['User']['UserID'])){Event('Permission Negative: No User ID');return false;}
 
-  if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
-  
   //if yes, return true;
   if(isset($ASTRIA['Session']['User']['Permission'][$Permission])){return true;}
   
@@ -41,6 +39,8 @@ function HasPermission($Permission){
      
   //reload the user's list of permissions.
   LoadUserPermissionsIntoSession();
+  
+  if($ASTRIA['Session']['User']['IsAstriaAdmin']=="1"){Event('Admins have all permissions.');return true;}else{Event('User is not an astria admin.');}
   
   return false;
 }
