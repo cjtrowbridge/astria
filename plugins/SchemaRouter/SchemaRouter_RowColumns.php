@@ -190,7 +190,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       $SQL.="FROM `".$Table."`".PHP_EOL;
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
       $Links = Query( $SQL,$Schema );
-      pd($Links)
+      pd($Links);
       echo ArrTabler( $Links );
       
       ?>
