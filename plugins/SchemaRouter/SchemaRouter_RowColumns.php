@@ -189,6 +189,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       $SQL ="SELECT '<a href=\"/".$Schema."/".$Table."/'+".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY'])."+'\">'+".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'])."+'</a>' as '".$Table."'".PHP_EOL;
       $SQL.="FROM `".$Table."`".PHP_EOL;
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
+      echo $SQL;
       $Links = Query( $SQL,$Schema );
       pd($Links);
       echo ArrTabler( $Links );
