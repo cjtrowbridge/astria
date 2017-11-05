@@ -219,7 +219,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   <?php
 }
 
-function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Field){
+function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Column){
   ?>
 
         <div class="form-group row">
