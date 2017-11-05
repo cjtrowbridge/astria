@@ -182,7 +182,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       $SQL.="FROM `".$Table."`".PHP_EOL;
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
       $Links = Query( $SQL,$Schema );
-      echo ArrTabler( $Links );
+      if(count($Links)==0){
+        echo '<p>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</p>';
+      }else{
+        echo ArrTabler( $Links );
+      }
       echo '<p style="text-align: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Insert New '.SpacesBeforeCapitals( $Table ).'</a></p>';
     }
     
