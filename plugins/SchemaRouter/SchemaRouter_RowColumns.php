@@ -113,12 +113,17 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       $FieldValue = '';
     }
     
-    //if this is the primary key, display it as text, and include a hidden input field of it, then skip the rest of the loop.
+    //if this is the primary key, display it as text, and include a hidden input field of it
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
       SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
       continue;
     }
     
+    //if this is a foreign key, display it as a link to the thing it goes to.
+    if($Column['IsConstraint']['FOREIGN KEY'] == true){
+      SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Column);
+      continue;
+    }
     
     //TODO foreign keys
     //these will be a select2 with search
@@ -204,6 +209,21 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   ?>
 
         <div class="form-group row">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label",.><?php echo $Label; ?>:</label>
+          <div class="col-xs-12 col-lg-8">
+            <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <label class="col-form-label"><?php echo $Value; ?></label>
+          </div>
+        </div>
+
+  <?php
+}
+
+function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Field){
+  ?>
+
+        <div class="form-group row">
+          <?php pd($Column); ?>
           <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label",.><?php echo $Label; ?>:</label>
           <div class="col-xs-12 col-lg-8">
             <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
