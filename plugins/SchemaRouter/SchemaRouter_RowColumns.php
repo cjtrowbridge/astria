@@ -230,8 +230,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
   $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
   $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
   $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
-  pd($SQL);
-  $Description = Query($SQL);
+  $Description = Query($SQL,$Schema);
   ?>
 
         <div class="form-group row">
