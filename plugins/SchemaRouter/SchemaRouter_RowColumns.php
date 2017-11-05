@@ -240,7 +240,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
         <div class="form-group row">
           <label class="col-xs-12 col-lg-4 col-form-label"><?php echo $ForeignKeyConstraint['REFERENCED_TABLE_NAME']; ?>:</label>
           <div class="col-xs-12 col-lg-8">
-            <label class="col-form-label"><a href="/<?php echo $Schema.'/'.$ForeignKeyConstraint['REFERENCED_TABLE_NAME'].'/'.$Value; ?>"><?php echo $Description; ?></a></label>
+            <label class="col-form-label">
+              <a href="/<?php echo $Schema.'/'.$ForeignKeyConstraint['REFERENCED_TABLE_NAME'].'/'.$Value; ?>"><?php echo $Description; ?></a>
+              <?php //TODO ?>
+              <a href="#" class="AstriaToggleEditableLabels"><i class="material-icons">edit</i></a>
+            </label>
           </div>
         </div>
 
