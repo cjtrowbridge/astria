@@ -72,7 +72,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   echo '<h1>';
   if($Row != false){
     //TODO
-    echo '<div style="float: right;"><a href="#"><i class="material-icons">delete</i></a> <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a></div>';
+    echo '<div style="float: right;"><a href="javascript:void(0);" onclick="AstriaToggleEditable();"><i class="material-icons">edit</i></a> <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a> <a href="#"><i class="material-icons">delete</i></a></div>';
   }
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
