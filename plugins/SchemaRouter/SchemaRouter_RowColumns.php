@@ -224,7 +224,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
   $PrimaryKey     = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
   $FirstTextField = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['FirstTextField'];
   $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($Column['Constraints']['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
-  pd($SQL)
+  pd($SQL);
   $Description = Query($SQL);
   ?>
 
