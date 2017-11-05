@@ -19,6 +19,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     <div style="float: right; white-space: nowrap;">
       
       <?php if($ASTRIA['Session']['User']['IsAstriaAdmin']){ /* If User is an admin; */ ?>
+      <a href="/architect/schema/<?php echo $SChema; ?>/table/<?php echo $Table; ?>" class="btn btn-success">Architect</a> 
       <a href="./?show_query" class="btn btn-success">Show Query</a> 
       <?php } ?>
       
