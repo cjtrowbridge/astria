@@ -204,10 +204,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   ?>
 
         <div class="form-group row">
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label"><?php echo $Label; ?>:</label>
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-3 col-form-label",.><?php echo $Label; ?>:</label>
           <div class="col-xs-12 col-lg-9">
             <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-            <?php echo $Value; ?>
+            <label><?php echo $Value; ?></label>
           </div>
         </div>
 
