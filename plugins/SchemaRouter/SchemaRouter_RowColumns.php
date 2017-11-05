@@ -186,7 +186,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       <h2><div style="float: right;"><a href="/<?php echo $Schema.'/'.$Table; ?>/?insert&<?php echo $PrimaryKey.'='.$Row; ?>" title="Insert New"><i class="material-icons">add</i></a></div><a href="/<?php echo $Schema.'/'.$Table; ?>/"><?php echo QualifiedPlural( SpacesBeforeCapitals( $Table ) ); ?></a></h2>
       <?php 
       
-      $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']).",'</a>') as 'Associated ".$Table."'".PHP_EOL;
+      $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']).",'</a>') as 'Connections'".PHP_EOL;
       $SQL.="FROM `".$Table."`".PHP_EOL;
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
       $Links = Query( $SQL,$Schema );
