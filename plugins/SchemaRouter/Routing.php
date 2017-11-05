@@ -186,7 +186,10 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
           (
             $Column['DATA_TYPE'] == 'varchar'||
             $Column['DATA_TYPE'] == 'longtext'||
-            $Column['DATA_TYPE'] == 'text'
+            $Column['DATA_TYPE'] == 'text'||
+            $Column['DATA_TYPE'] == 'date'||
+            $Column['DATA_TYPE'] == 'datetime'||
+            $Column['DATA_TYPE'] == 'timestamp'
           )
         ){
           $SchemaDescription[$Alias][$Table]['FirstTextField'] = $Column['COLUMN_NAME'];
