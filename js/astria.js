@@ -20,6 +20,6 @@ function AstriaEditor(){
 }
 
 function AstriaToggleEditable(){
-  $('.AstriaToggleEditableInputs').slideToggle('fast');
-  $('.AstriaToggleEditableLabels').slideToggle('fast');
+  $('.AstriaToggleEditableInputs').toggle();
+  $('.AstriaToggleEditableLabels').toggle();
 }
