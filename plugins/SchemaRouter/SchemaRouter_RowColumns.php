@@ -221,18 +221,22 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,$Value){
   global $ASTRIA;
-  pd($Column);
   $PrimaryKey     = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
-  $FirstTextField = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['FirstTextField'];
-  $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($Column['Constraints']['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
+  foreach($Column['Constraints'] as $Constraint){
+    if($Constraint['CONSTRAINT_TYPE'] == 'FOREIGN KEY'){
+      $ForeignKeyConstraint = $Constraint
+    }
+  }
+  $FirstTextField = $ASTRIA['databases'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
+  $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
   pd($SQL);
   $Description = Query($SQL);
   ?>
 
         <div class="form-group row">
-          <label class="col-xs-12 col-lg-4 col-form-label"><?php echo $Column['Constraints']['REFERENCED_TABLE_NAME']; ?>:</label>
+          <label class="col-xs-12 col-lg-4 col-form-label"><?php echo $ForeignKeyConstraint['REFERENCED_TABLE_NAME']; ?>:</label>
           <div class="col-xs-12 col-lg-8">
-            <label class="col-form-label"><a href="/<?php echo $Schema.'/'.$Column['REFERENCED_TABLE_NAME'].'/'.$Value; ?>"><?php echo $Description; ?></a></label>
+            <label class="col-form-label"><a href="/<?php echo $Schema.'/'.$ForeignKeyConstraint['REFERENCED_TABLE_NAME'].'/'.$Value; ?>"><?php echo $Description; ?></a></label>
           </div>
         </div>
 
