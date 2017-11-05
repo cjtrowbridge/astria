@@ -121,7 +121,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
     //if this is a foreign key, display it as a link to the thing it goes to.
     if($Column['IsConstraint']['FOREIGN KEY'] == true){
-      SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Column);
+      SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema, $Column,$FieldValue);
       continue;
     }
     
@@ -209,7 +209,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   ?>
 
         <div class="form-group row">
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label",.><?php echo $Label; ?>:</label>
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label"><?php echo $Label; ?>:</label>
           <div class="col-xs-12 col-lg-8">
             <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
             <label class="col-form-label"><?php echo $Value; ?></label>
@@ -219,15 +219,19 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
   <?php
 }
 
-function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Column){
+function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,$Value){
+  global $ASTRIA;
+  $PrimaryKey     = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
+  $FirstTextField = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['FirstTextField'];
+  $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($Column['Constraints']['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
+  pd($SQL)
+  $Description = Query($SQL);
   ?>
 
         <div class="form-group row">
-          <?php pd($Column); ?>
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label",.><?php echo $Label; ?>:</label>
+          <label class="col-xs-12 col-lg-4 col-form-label"><?php echo $Column['Constraints']['REFERENCED_TABLE_NAME']; ?>:</label>
           <div class="col-xs-12 col-lg-8">
-            <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-            <label class="col-form-label"><?php echo $Value; ?></label>
+            <label class="col-form-label"><a href="/<?php echo $Schema.'/'.$Column['REFERENCED_TABLE_NAME'].'/'.$Value; ?>"><?php echo $Description; ?></a></label>
           </div>
         </div>
 
