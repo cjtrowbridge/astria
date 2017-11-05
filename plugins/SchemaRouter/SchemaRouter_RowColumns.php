@@ -224,7 +224,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
   $PrimaryKey     = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
   foreach($Column['Constraints'] as $Constraint){
     if($Constraint['CONSTRAINT_TYPE'] == 'FOREIGN KEY'){
-      $ForeignKeyConstraint = $Constraint
+      $ForeignKeyConstraint = $Constraint;
     }
   }
   $FirstTextField = $ASTRIA['databases'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
