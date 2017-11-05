@@ -184,7 +184,14 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   <div class="card-block">
     <div class="card-text">
       <h2><div style="float: right;"><a href="/<?php echo $Schema.'/'.$Table; ?>/?insert&<?php echo $PrimaryKey.'='.$Row; ?>" title="Insert New"><i class="material-icons">add</i></a></div><a href="/<?php echo $Schema.'/'.$Table; ?>/"><?php echo QualifiedPlural( SpacesBeforeCapitals( $Table ) ); ?></a></h2>
-      <?php pd($Referencee); ?>
+      <?php pd($Referencee);
+      
+      $SQL ="SELECT '<a href=\"/".$Schema."/".$Table."/'+".Sanitize($ASTRIA['Session']['Schema'][$Table]['PRIMARY KEY'])."+'\">'+".Sanitize($ASTRIA['Session']['Schema'][$Table]['FirstTextField'])."+'</a>' as '".$Table."'".PHP_EOL;
+      $SQL.="FROM `".$Table."`".PHP_EOL;
+      $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])." = '".intval($Row)."';"
+      pd($SQL);
+      
+      ?>
     </div>
   </div>
 </div>
