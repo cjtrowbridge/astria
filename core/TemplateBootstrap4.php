@@ -43,8 +43,8 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   
   <!--Theme-->
-  <script src="/js/astria.js?filetime=<?php echo filemtime('/js/astria.js'); ?>"></script>
-  <link rel="stylesheet" href="/css/style.css?filetime=<?php echo filemtime('/css/style.css'); ?>">
+  <script src="/js/astria.js?filetime=<?php echo filemtime('js/astria.js'); ?>"></script>
+  <link rel="stylesheet" href="/css/style.css?filetime=<?php echo filemtime('css/style.css'); ?>">
 
   <?php Event('Template Head'); ?>
 </head>
