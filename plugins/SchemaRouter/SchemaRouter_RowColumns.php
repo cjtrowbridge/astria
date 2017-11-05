@@ -221,12 +221,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, 
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,$Value){
   global $ASTRIA;
-  $PrimaryKey     = $ASTRIA['databases'][$Schema][$Column['Constraints']['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
   foreach($Column['Constraints'] as $Constraint){
     if($Constraint['CONSTRAINT_TYPE'] == 'FOREIGN KEY'){
       $ForeignKeyConstraint = $Constraint;
     }
   }
+  
+  $PrimaryKey     = $ASTRIA['databases'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
   $FirstTextField = $ASTRIA['databases'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
   $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
   pd($SQL);
