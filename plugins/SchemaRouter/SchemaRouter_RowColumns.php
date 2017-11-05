@@ -178,7 +178,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6">'.PHP_EOL;
     
     foreach($Referencees as $Table => $Referencee){
-      $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']).",'</a>') as 'Connections To \"".SpacesBeforeCapitals( $Table )."\"'".PHP_EOL;
+      $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField']).",'</a>') as 'Connections To ".QualifiedPlural( SpacesBeforeCapitals( $Table ) )."'".PHP_EOL;
       $SQL.="FROM `".$Table."`".PHP_EOL;
       $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
       $Links = Query( $SQL,$Schema );
