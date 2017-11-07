@@ -39,9 +39,23 @@ function RepoTracker_Homepage_BodyCallback(){
           $BleedingEdge = 'Disabled (<a href="/repotracker/?enableBleedingEdge='.$Repo['RepositoryID'].'">Enable</a>)';
         }
         
+        if($Repo['LocalHash']==$Repo['RemoteHash']){
+          $Status = 'Up To Date';
+        }else{
+          if(
+            $Repo['LocalHash']  == '' ||
+            $Repo['RemoteHash'] == ''
+          ){
+            $Status = '<span title="Unable to verify/compare master branch hashes.">Unclear</span>';
+          }else{
+            $Status = 'Updates Available';
+          }
+        }
+        
         $Temp[]=array(
           'Pull Webhook'  => '<a href="/?'.urlencode($MagicWord).'='.urlencode($MagicPath).'">Astria:/'.$Path.'</a>',
-          'Bleeding Edge' => $BleedingEdge
+          'Bleeding Edge' => $BleedingEdge,
+          'Status'        => $Status
         );
         
       }
