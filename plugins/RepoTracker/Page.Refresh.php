@@ -11,7 +11,7 @@ function RepoTracker_Refresh_BodyCallback(){
     <li>Looking for new repositories...     <br> <?php RepoTrackerRefresh(true); ?></li>
     <li>Confirming Local Hashes...          <br> <?php RepoTracker_VerifyLocalHashes(true); ?></li>
     <li>Confirming remote Hashes...         <br> <?php RepoTracker_VerifyRemoteHashes(true); ?></li>
-    <li>Pulling Bleeding Edges...           <br> </li>
+    <li>Pulling Bleeding Edges...           <br> <?php RepoTracker_PullBleedingEdgeRepos(); ?></li>
     <li>Done.</li>
   </ul>
 
