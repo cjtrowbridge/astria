@@ -92,14 +92,16 @@ Hook('Hourly Cron','RepoTracker_CronRefresh();');
 function RepoTracker_CronRefresh(){
   RepoTrackerRefresh();
   RepoTracker_VerifyLocalHashes();
-  //RepoTracker_PullBleedingEdgeRepos();
+  RepoTracker_PullBleedingEdgeRepos();
 }
 
 function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
   $BleedingEdgeRepos = Query("SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1");
   foreach($BleedingEdgeRepos as $Repo){
-    $Result = shell_exec('cd '.$Repo['Path'].' && git pull');
+    $Command = 'cd '.$Repo['Path'].' && git pull';
+    $Result = shell_exec($Command);
     if($Verbose){
+      pd($Command);
       pd($Result);
     }
   }
