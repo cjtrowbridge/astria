@@ -96,13 +96,26 @@ function RepoTracker_CronRefresh(){
 }
 
 function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
-  $BleedingEdgeRepos = Query("SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1");
+  $SQL = "SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1";
+  $BleedingEdgeRepos = Query($SQL);
+  $Pulls = 0;
   foreach($BleedingEdgeRepos as $Repo){
     $Command = 'cd '.$Repo['Path'].' && git pull';
     $Result = shell_exec($Command);
     if($Verbose){
       pd($Command);
       pd($Result);
+    }
+    $Pulls++;
+  }
+  if($Pulls>0){
+    if($Verbose){
+      echo '<p>Reverifying local hashes...</p>';
+    }
+    RepoTracker_VerifyLocalHashes():
+    $New = Query($SQL);
+    if(count($New)>0){
+      echo '<p>FAILED TO PULL. Check permissions and consider resetting master branch head if changes have happened.</p>';
     }
   }
 }
