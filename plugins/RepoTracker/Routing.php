@@ -95,14 +95,18 @@ function RepoTracker_CronRefresh(){
   //RepoTracker_PullBleedingEdgeRepos();
 }
 
-function RepoTracker_PullBleedingEdgeRepos(){
+function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
   $BleedingEdgeRepos = Query("SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1");
-  pd($BleedingEdgeRepos);
+  foreach($BleedingEdgeRepos as $Repo){
+    $Result = shell_exec('cd '.$Repo['Path'].' && git pull');
+    if($Verbose){
+      pd($Result);
+    }
+  }
 }
 
 function RepoTrackerRefresh($Verbose = false){
   $Repos = FindGitRepositoriesRecursive();
-  
   foreach($Repos as $Repo){
     $Check = Query("SELECT COUNT(*) as 'Count' FROM Repository WHERE Path LIKE '".Sanitize($Repo)."'");
     if($Check[0]['Count']==0){
