@@ -46,7 +46,7 @@ function RepoTracker_Homepage_BodyCallback(){
             $Repo['LocalHash']  == '' ||
             $Repo['RemoteHash'] == ''
           ){
-            $Status = '<span title="Unable to verify/compare master branch hashes.'.PHP_EOL.'Local: '.$Repo['LocalHash'].'Remote: '.$Repo['RemoteHash'].PHP_EOL.'">Unclear</span>';
+            $Status = '<span title="Unable to verify/compare master branch hashes.'.PHP_EOL.'Local: '.$Repo['LocalHash'].PHP_EOL.'Remote: '.$Repo['RemoteHash'].PHP_EOL.'">Unclear</span>';
           }else{
             $Status = 'Updates Available';
           }
