@@ -112,7 +112,7 @@ function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
     if($Verbose){
       echo '<p>Reverifying local hashes...</p>';
     }
-    RepoTracker_VerifyLocalHashes():
+    RepoTracker_VerifyLocalHashes();
     $New = Query($SQL);
     if(count($New)>0){
       echo '<p>FAILED TO PULL. Check permissions and consider resetting master branch head if changes have happened.</p>';
