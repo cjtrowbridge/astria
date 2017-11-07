@@ -100,7 +100,7 @@ function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
   $BleedingEdgeRepos = Query($SQL);
   $Pulls = 0;
   foreach($BleedingEdgeRepos as $Repo){
-    $Command = 'cd '.$Repo['Path'].' && git pull';
+    $Command = 'cd '.$Repo['Path'].' && git reset --hard && git pull';
     $Result = shell_exec($Command);
     if($Verbose){
       pd($Command);
@@ -115,7 +115,7 @@ function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
     RepoTracker_VerifyLocalHashes();
     $New = Query($SQL);
     if(count($New)>0){
-      echo '<p>FAILED TO PULL. Check permissions and consider resetting master branch head if changes have happened.</p>';
+      echo '<p>FAILED TO PULL. Check permissions.</p>';
     }
   }
 }
