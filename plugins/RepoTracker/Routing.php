@@ -87,13 +87,13 @@ function FindGitRepositoriesRecursive($Path = false){
 }
 
 
-Hook('Hourly Cron','RepoTracker_CronRefresh();');
-
+Hook('Daily Cron','RepoTracker_CronRefresh();');
 function RepoTracker_CronRefresh(){
   RepoTrackerRefresh();
   RepoTracker_VerifyLocalHashes();
   RepoTracker_PullBleedingEdgeRepos();
 }
+
 
 function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
   $SQL = "SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1";
