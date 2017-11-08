@@ -8,7 +8,7 @@ function DatabaseSetUp(){
   include_once('core/MakeSureDBConnected.php');
   MakeSureDBConnected('astria');
   $SQL="
-        CREATE TABLE `Cache` (
+    CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
       `Content` text,
@@ -71,7 +71,11 @@ function DatabaseSetUp(){
       `LastLogin` datetime DEFAULT NULL,
       `SignupDate` datetime DEFAULT NULL,
       `IsAstriaAdmin` BOOLEAN NOT NULL DEFAULT FALSE,
-      `IsWaiting` BOOLEAN NOT NULL DEFAULT TRUE
+      `IsWaiting` BOOLEAN NOT NULL DEFAULT TRUE,
+      `UserInserted` INT NULL,
+      `TimeInserted` DATETIME NULL,
+      `UserUpdated` INT NULL,
+      `TimeUpdated` DATETIME NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
     
     ALTER TABLE `User` ADD PRIMARY KEY (`UserID`);
