@@ -214,10 +214,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, $Name, $Value = ''){
   if(
-    $Column['COLUMN_NAME'] == 'TimeInserted' ||
-    $Column['COLUMN_NAME'] == 'UserInserted' ||
-    $Column['COLUMN_NAME'] == 'TimeUpdated' ||
-    $Column['COLUMN_NAME'] == 'UserUpdated'
+    $Label == 'TimeInserted' ||
+    $Label == 'UserInserted' ||
+    $Label == 'TimeUpdated' ||
+    $Label == 'UserUpdated'
   ){
     $AdditionalClasses = ' tableMeta';
   }
