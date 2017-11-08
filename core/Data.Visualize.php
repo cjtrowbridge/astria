@@ -47,7 +47,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
       parent: "#'.$ID.'",
       /*title: "My Awesome Chart",*/
       data: '.$ID.'_Data,
-      type: "bar", // or "line", "scatter", "pie", "percentage"
+      type: "'.$Type.'", // bar, line, scatter, pie, percentage
       height: '.$Height.'
     });
   </script>
