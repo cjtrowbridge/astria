@@ -18,7 +18,8 @@ function Visualize($Data, $Type = 'line',$ID = false){
         $Labels[]=$Value;
         $First = false;
       }else{
-        $Datasets[$Key][]=$Value;
+        $Datasets[$Key]['title'] = $Key;
+        $Datasets[$Key]['values'][] = $Value;
       }
     }
   }
