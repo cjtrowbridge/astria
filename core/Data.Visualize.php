@@ -1,6 +1,6 @@
 <?php
 
-function Visualize($Array, $Type = 'line',$ID = false){
+function Visualize($Data, $Type = 'line',$ID = false){
   
   //Maybe make up a unique id for the chart container
   if($ID = false){
