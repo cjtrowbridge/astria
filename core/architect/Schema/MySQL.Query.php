@@ -21,10 +21,12 @@ function ArchitectSchemaMySQLQuery($Alias){
         <div class="row">
           <div class="col-xs-12 col-md-6">
             <select name="graphResults" class="form-control">
-              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']==''     ){echo ' selected';} ?>>No Graph</option>
-              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='bar'  ){echo ' selected';} ?> value="bar">Bar</option>
-              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='line' ){echo ' selected';} ?> value="line">Line</option>
-              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='pie'  ){echo ' selected';} ?> value="pie">Pie</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']==''          ){echo ' selected';} ?>>No Graph</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='bar'       ){echo ' selected';} ?> value="bar">Bar</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='line'      ){echo ' selected';} ?> value="line">Line</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='percentage'){echo ' selected';} ?> value="percentage">Percentage</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='pie'       ){echo ' selected';} ?> value="pie">Pie</option>
+              <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='scatter'   ){echo ' selected';} ?> value="scatter">Scatter</option>
             </select>
           </div>
           <div class="col-xs-12 col-md-6">
@@ -42,6 +44,8 @@ function ArchitectSchemaMySQLQuery($Alias){
   switch($_POST['graphResults']){
     case 'bar':
     case 'pie':
+    case 'percentage':
+    case 'scatter':
     case 'line':
       ?>
   
