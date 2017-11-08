@@ -48,9 +48,7 @@ function RepoTracker_VerifyTables(){
         `RemoteHash` VARCHAR(255) NULL ,  
         `BleedingEdge` BOOLEAN NOT NULL DEFAULT FALSE , 
         PRIMARY KEY (`RepositoryID`), 
-        INDEX (`Path`), 
-        INDEX (`RemoteHashLastChecked`), 
-        INDEX (`LocalHashLastChecked`)
+        INDEX (`Path`)
       ) ENGINE = InnoDB;
     ");
   }
