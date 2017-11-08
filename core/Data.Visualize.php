@@ -17,7 +17,7 @@ function Visualize($Data, $Type = 'line',$ID = false){
     $First = true;
     foreach($Row as $Key => $Value){
       if($First){
-        $Labels[]=$Key
+        $Labels[]=$Key;
         $First = false;
       }
       
