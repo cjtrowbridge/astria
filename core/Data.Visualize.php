@@ -1,10 +1,10 @@
 <?php
 
 function Visualize($Array){
-  //reorganize the data
+  //TODO reorganize the data
   
-  //generate a unique id for the chart
+  //TODO generate a unique id for the chart
   
-  //return the html
+  //TODO return the html
   
 }
