@@ -72,7 +72,14 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   echo '<h1>';
   if($Row != false){
     //TODO
-    echo '<div style="float: right;"><a href="javascript:void(0);" onclick="AstriaToggleEditable();"><i class="material-icons">edit</i></a> <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a> <a href="#"><i class="material-icons">delete</i></a></div>';
+    ?>
+      <div style="float: right;">
+        <a href="javascript:void(0);" onclick="AstriaToggleEditable();"><i class="material-icons">edit</i></a> 
+        <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a> 
+        <a href="javascript:void(0);" onclick="$('.tableMeta').slideToggle('fast');"><i class="material-icons">info_outline</i></a> 
+        <a href="#"><i class="material-icons">delete</i></a>
+      </div>
+    <?php
   }
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
@@ -206,10 +213,18 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, $Name, $Value = ''){
+  if(
+    $Column['COLUMN_NAME'] == 'TimeInserted' ||
+    $Column['COLUMN_NAME'] == 'UserInserted' ||
+    $Column['COLUMN_NAME'] == 'TimeUpdated' ||
+    $Column['COLUMN_NAME'] == 'UserUpdated'
+  ){
+    $AdditionalClasses = ' tableMeta';
+  }
   ?>
 
-        <div class="form-group row">
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label"><?php echo $Label; ?>:</label>
+        <div class="form-group row<?php echo $AdditionalClasses; ?>">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label"><?php echo SpacesBeforeCapitals( $Label ); ?>:</label>
           <div class="col-xs-12 col-lg-8">
             <input class="form-control" type="hidden" value="<?php echo $Value; ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
             <label class="col-form-label"><?php echo $Value; ?></label>
