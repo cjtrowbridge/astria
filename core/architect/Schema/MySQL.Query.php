@@ -58,7 +58,7 @@ function ArchitectSchemaMySQLQuery($Alias){
         <h4>Visualization</h4>
         <?php 
           if(isset($_POST['showAverages']) && $_POST['showAverages']=='true'){$showAverages=true;}else{$showAverages=false;}
-          echo Visualize($Data,$_POST['graphResults'],false, 250, $showAverages); 
+          echo Visualize($Data,$_POST['graphResults'],false,false, 250, $showAverages); 
         ?>
       </div>
     </div>
