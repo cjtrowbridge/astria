@@ -20,7 +20,7 @@ function ArchitectSchemaMySQLQuery($Alias){
         <textarea class="form-control" name="query" rows="8"><?php echo $Query; ?></textarea><br>
         <input type="submit" class="btn btn-success" value="Run">
         <select name="graphResults>
-          <option default value="no">No Graph</option>
+          <option selected value="no">No Graph</option>
           <option value="line">Line</option>
         </select>
       </form>
