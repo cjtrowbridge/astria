@@ -7,10 +7,11 @@ function Visualize($Data, $Type = 'line',$ID = false){
     $ID = 'chart_'.md5(uniqid());
   }
   
-  $Data = json_encode($Data);
   
   pd($Data);
   return '';
+  
+  $Data = json_encode($Data);
   
   return '
     let data = {
