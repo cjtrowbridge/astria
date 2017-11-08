@@ -9,6 +9,30 @@ function Visualize($Data, $Type = 'line',$ID = false){
   
   
   pd($Data);
+  
+  $Labels   = array();
+  $Datasets = array();
+  
+  foreach($Data as $Row){
+    $First = true;
+    foreach($Row as $Key => $Value){
+      if($First){
+        $Labels[]=$Key
+        $First = false;
+      }
+      
+      $Datasets[$Key][]=$Value;
+        
+    }
+  }
+  
+  echo '<hr>';
+  $Output = array(
+    'labels' => $Labels,
+    'datasets' => $Datasets
+  );
+  
+  pd($Output);
   return '';
   
   $Data = json_encode($Data);
