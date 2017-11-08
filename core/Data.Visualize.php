@@ -38,12 +38,10 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
   
   $Output = json_encode($Output,JSON_PRETTY_PRINT);
   
-  pd($Output);
-  return '';
-  
   return '
+  <div id="'.$ID.'">Loading Chart...</div>
+  <script>
     let '.$ID.'_Data = '.$Output.';
-    <div id="'.$ID.'">Loading Chart...</div>
     let chart = new Chart({
       parent: "#'.$ID.'",
       /*title: "My Awesome Chart",*/
@@ -51,6 +49,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
       type: "bar", // or "line", "scatter", "pie", "percentage"
       height: '.$Height.'
     });
+  </script>
   ';
 }
 
