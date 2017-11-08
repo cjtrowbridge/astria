@@ -42,6 +42,9 @@ function TemplateBootstrap4($title='',$BodyCallback = '',$Fluid=false){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   
+  <!--Charts for Visualize-->
+  <script src="https://unpkg.com/frappe-charts@0.0.3/dist/frappe-charts.min.iife.js">
+  
   <!--Theme-->
   <script src="/js/astria.js?filetime=<?php echo filemtime('js/astria.js'); ?>"></script>
   <link rel="stylesheet" href="/css/style.css?filetime=<?php echo filemtime('css/style.css'); ?>">
