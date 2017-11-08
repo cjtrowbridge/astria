@@ -30,7 +30,7 @@ function ArchitectSchemaMySQLQuery($Alias){
             </select>
           </div>
           <div class="col-xs-12 col-md-4">
-            <label><input type="checkbox" name="showAverages" value="true"> Show Averages</label>
+            <label><input type="checkbox" name="showAverages" value="true"<?php if(isset($_POST['showAverages'])&&$_POST['showAverages']=='true'){echo ' checked';} ?>> Show Averages</label>
           </div>
           <div class="col-xs-12 col-md-4">
             <input type="submit" class="btn btn-success form-control" value="Run">
@@ -56,7 +56,10 @@ function ArchitectSchemaMySQLQuery($Alias){
     <div class="card-block">
       <div class="card-text">
         <h4>Visualization</h4>
-        <?php echo Visualize($Data,$_POST['graphResults']); ?>
+        <?php 
+          if(isset($_POST['showAverages']) && $_POST['showAverages']=='true'){$showAverages=true;}else{$showAverages=false;}
+          echo Visualize($Data,$_POST['graphResults'],false, 250, $showAverages); 
+        ?>
       </div>
     </div>
   </div>
