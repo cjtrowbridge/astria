@@ -28,7 +28,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
         }else{
           $Datasets[$Key]['color'] = VisualizeRandomColor($Key);
         }
-        $Datasets[$Key]['values'][] = $Value;
+        $Datasets[$Key]['values'][] = (float)$Value;
       }
     }
   }
