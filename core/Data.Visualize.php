@@ -33,7 +33,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
   }
   
   $Output = array(
-    //'labels' => $Labels,
+    'labels' => $Labels,
     'datasets' => $Datasets
   );
   
