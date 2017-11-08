@@ -5,7 +5,13 @@ function FieldMask($Input){
   foreach($Input as $Row => &$Field){
     
     //If this isn't an array, skip it.
-    if(!(is_array($Field))){continue;}
+    if(!(is_array($Field))){
+      if(isset($_GET['verbose'])){
+        echo '<p>Fieldmask is skipping a row because it is not an array:</p>';
+        pd($Field);
+      }
+      continue;
+    }
     
     foreach($Field as $Key => $Value){
       
