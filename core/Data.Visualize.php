@@ -1,6 +1,6 @@
 <?php
 
-function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 250){
+function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 250, $ShowAverages = false){
   //Maybe make up a unique id for the chart container
   if($ID == false){
     $ID = 'chart_'.md5(uniqid());
@@ -39,19 +39,28 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
   
   $Output = json_encode($Output,JSON_PRETTY_PRINT);
   
-  return '
+  $Rv = '
   <div id="'.$ID.'">Loading Chart...</div>
   <script>
     let '.$ID.'_Data = '.$Output.';
-    let chart = new Chart({
+    let '.$ID.'_Chart = new Chart({
       parent: "#'.$ID.'",
       /*title: "My Awesome Chart",*/
       data: '.$ID.'_Data,
       type: "'.$Type.'", // bar, line, scatter, pie, percentage
       height: '.$Height.'
+    ';
+  if($ShowAverages){
+    $Rv.='
+      '.$ID.'_Chart.show_averages();
+    ';
+  }
+  $Rv .= '
     });
   </script>
   ';
+  
+  return $Rv;
 }
 
 
