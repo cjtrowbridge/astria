@@ -62,7 +62,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     if(!(isset($Data[0]))){
       die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
     }
-    $Data = $Data[0];
+    $Data = FieldMask( $Data[0] );
+    
   }
   
   //display a header
