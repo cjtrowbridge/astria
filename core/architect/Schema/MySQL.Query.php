@@ -30,7 +30,7 @@ function ArchitectSchemaMySQLQuery($Alias){
             </select>
           </div>
           <div class="col-xs-12 col-md-4">
-            <input type="checkbox" class="checkbox form-control" name="showAverages" value="true"> Show Averages
+            <label><input type="checkbox" class="checkbox form-control" name="showAverages" value="true"> Show Averages</label>
           </div>
           <div class="col-xs-12 col-md-4">
             <input type="submit" class="btn btn-success form-control" value="Run">
