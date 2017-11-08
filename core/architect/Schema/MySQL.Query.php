@@ -19,8 +19,8 @@ function ArchitectSchemaMySQLQuery($Alias){
       <form action="/architect/schema/<?php echo $Alias; ?>/?query" method="post">
         <textarea class="form-control" name="query" rows="8"><?php echo $Query; ?></textarea><br>
         <input type="submit" class="btn btn-success" value="Run">
-        <select name="graphResults>
-          <option selected value="no">No Graph</option>
+        <select name="graphResults" class="form-control">
+          <option selected>No Graph</option>
           <option value="line">Line</option>
         </select>
       </form>
