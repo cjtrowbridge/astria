@@ -49,6 +49,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
       data: '.$ID.'_Data,
       type: "'.$Type.'", // bar, line, scatter, pie, percentage
       height: '.$Height.'
+    });
     ';
   if($ShowAverages){
     $Rv.='
@@ -56,7 +57,6 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
     ';
   }
   $Rv .= '
-    });
   </script>
   ';
   
