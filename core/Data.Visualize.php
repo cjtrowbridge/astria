@@ -15,7 +15,7 @@ function Visualize($Data, $Type = 'line',$ID = false){
     foreach($Row as $Key => $Value){
       //we are assuming that the first column is the labels
       if($First){
-        $Labels[]=$Key;
+        $Labels[]=$Value;
         $First = false;
       }else{
         $Datasets[$Key][]=$Value;
