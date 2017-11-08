@@ -1,6 +1,6 @@
 <?php
 
-funciton FieldMask($Input){
+function FieldMask($Input){
   
   foreach($Input as $Row => &$Field){
     
