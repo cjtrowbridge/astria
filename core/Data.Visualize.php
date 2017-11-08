@@ -1,7 +1,7 @@
 <?php
 
 function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 250){
-  
+  return '';
   //Maybe make up a unique id for the chart container
   if($ID == false){
     $ID = 'chart_'.md5(uniqid());
