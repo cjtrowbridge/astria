@@ -19,7 +19,7 @@ function ArchitectSchemaMySQLQuery($Alias){
       <form action="/architect/schema/<?php echo $Alias; ?>/?query" method="post">
         <textarea class="form-control" name="query" rows="8"><?php echo $Query; ?></textarea><br>
         <div class="row">
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-4">
             <select name="graphResults" class="form-control">
               <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']==''          ){echo ' selected';} ?>>No Graph</option>
               <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='bar'       ){echo ' selected';} ?> value="bar">Bar</option>
@@ -29,7 +29,10 @@ function ArchitectSchemaMySQLQuery($Alias){
               <option<?php if( isset($_POST['graphResults']) && $_POST['graphResults']=='scatter'   ){echo ' selected';} ?> value="scatter">Scatter</option>
             </select>
           </div>
-          <div class="col-xs-12 col-md-6">
+          <div class="col-xs-12 col-md-4">
+            <input type="checkbox" class="checkbox form-control" name="showAverages" value="true"> Show Averages
+          </div>
+          <div class="col-xs-12 col-md-4">
             <input type="submit" class="btn btn-success form-control" value="Run">
           </div>
         </div>
