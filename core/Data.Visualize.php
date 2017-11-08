@@ -25,6 +25,8 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
         $Datasets[$Key]['title'] = $Key;
         if(isset($Color[$Key])){
           $Datasets[$Key]['color'] = $Color[$Key];
+        }else{
+          $Datasets[$Key]['color'] = VisualizeRandomColor($Key);
         }
         $Datasets[$Key]['values'][] = $Value;
       }
@@ -51,6 +53,36 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
     });
   </script>
   ';
+}
+
+
+global $VisualizeRandomColor;
+$VisualizeRandomColor = array();
+
+function VisualizeRandomColor($Key){
+  global $VisualizeRandomColor;
+  if(isset($VisualizeRandomColor[$Key])){
+    return $VisualizeRandomColor[$Key];
+  }
+  $WebSafeColors = array(
+    'blue',
+    'red',
+    'green',
+    'black',
+    'gray',
+    'white',
+    'maroon',
+    'yellow',
+    'olive',
+    'lime',
+    'aqua',
+    'teal',
+    'navy',
+    'fucshia',
+    'purple'
+  );
+  $VisualizeRandomColor[$Key] = $WebSafeColors[rand(0,count($WebSafeColors))];
+  return $VisualizeRandomColor[$Key];
 }
 
 /*
