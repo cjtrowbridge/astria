@@ -7,35 +7,31 @@ function Visualize($Data, $Type = 'line',$ID = false){
     $ID = 'chart_'.md5(uniqid());
   }
   
-  
-  pd($Data);
-  
   $Labels   = array();
   $Datasets = array();
   
   foreach($Data as $Row){
     $First = true;
     foreach($Row as $Key => $Value){
+      //we are assuming that the first column is the labels
       if($First){
         $Labels[]=$Key;
         $First = false;
+      }else{
+        $Datasets[$Key][]=$Value;
       }
-      
-      $Datasets[$Key][]=$Value;
-        
     }
   }
   
-  echo '<hr>';
   $Output = array(
     'labels' => $Labels,
     'datasets' => $Datasets
   );
   
+  $Output = json_encode($Output,JSON_PRETTY_PRINT);
+  
   pd($Output);
   return '';
-  
-  $Data = json_encode($Data);
   
   return '
     let data = {
