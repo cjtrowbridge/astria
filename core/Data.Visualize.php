@@ -1,10 +1,14 @@
 <?php
 
-function Visualize($Data, $Type = 'line',$ID = false){
+function Visualize($Data, $Type = 'line',$ID = false,$Color = false){
   
   //Maybe make up a unique id for the chart container
   if($ID = false){
     $ID = 'chart_'.md5(uniqid());
+  }
+  //If no colors passed, do a blank array.
+  if(is_array($Color)){
+    $Color = array();
   }
   
   $Labels   = array();
@@ -19,6 +23,9 @@ function Visualize($Data, $Type = 'line',$ID = false){
         $First = false;
       }else{
         $Datasets[$Key]['title'] = $Key;
+        if(isset($Color[$Key])){
+          $Datasets[$Key]['color'] = $Color[$Key];
+        }
         $Datasets[$Key]['values'][] = $Value;
       }
     }
