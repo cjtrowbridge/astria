@@ -4,6 +4,9 @@ function FieldMask($Input){
   
   foreach($Input as $Row => &$Field){
     
+    //If this isn't an array, skip it.
+    if(!(is_array($Field))){continue;}
+    
     foreach($Field as $Key => $Value){
       
       //Custom functions can hook in here
