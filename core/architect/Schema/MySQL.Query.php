@@ -35,10 +35,37 @@ function ArchitectSchemaMySQLQuery($Alias){
     </div>
   </div>
 
+<?php
+  
+  $Data = Query($Query,$Alias);
+
+  switch($_POST['graphResults']){
+    case 'bar':
+    case 'pie':
+    case 'line':
+      ?>
+  
+  <div class="card">
+    <div class="card-block">
+      <div class="card-text">
+        <h4>Visualization</h4>
+        <?php echo Visualize($Data,$_POST['graphResults']); ?>
+      </div>
+    </div>
+  </div>
+
+      <?php
+      break;
+    deafault:
+      //do nothing
+  }
+  
+?>
+
   <div class="card">
     <div class="card-block">
       <b class="card-title">Results</b><br>
-      <?php echo ArrTabler(Query($Query,$Alias)); ?>
+      <?php echo ArrTabler($Data); ?>
     </div>
   </div>
 
