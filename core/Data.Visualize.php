@@ -22,13 +22,13 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
         $Labels[]=$Value;
         $First = false;
       }else{
-        $Datasets[$Key]['title'] = $Key;
+        $Datasets[VisualizeOrdinalize($Key)]['title'] = $Key;
         if(isset($Color[$Key])){
-          $Datasets[$Key]['color'] = $Color[$Key];
+          $Datasets[VisualizeOrdinalize($Key)]['color'] = $Color[$Key];
         }else{
-          $Datasets[$Key]['color'] = VisualizeRandomColor($Key);
+          $Datasets[VisualizeOrdinalize($Key)]['color'] = VisualizeRandomColor($Key);
         }
-        $Datasets[$Key]['values'][] = (float)$Value;
+        $Datasets[VisualizeOrdinalize($Key)]['values'][] = (float)$Value;
       }
     }
   }
@@ -83,6 +83,19 @@ function VisualizeRandomColor($Key){
   );
   $VisualizeRandomColor[$Key] = $WebSafeColors[rand(0,count($WebSafeColors))];
   return $VisualizeRandomColor[$Key];
+}
+
+
+global $VisualizeOrdinalize;
+$VisualizeOrdinalize = array();
+
+function VisualizeOrdinalize($Key){
+  global $VisualizeOrdinalize;
+  if(isset($VisualizeOrdinalize[$Key])){
+    return $VisualizeOrdinalize[$Key];
+  }
+  $VisualizeOrdinalize[$Key] = count($VisualizeOrdinalize);
+  return $VisualizeOrdinalize[$Key];
 }
 
 /*
