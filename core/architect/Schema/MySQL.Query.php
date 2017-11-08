@@ -18,11 +18,17 @@ function ArchitectSchemaMySQLQuery($Alias){
       <b class="card-title">Query Database: '<a href="/architect/schema/<?php echo $Alias; ?>/"><?php echo $Name; ?></a>'</b><br>
       <form action="/architect/schema/<?php echo $Alias; ?>/?query" method="post">
         <textarea class="form-control" name="query" rows="8"><?php echo $Query; ?></textarea><br>
-        <input type="submit" class="btn btn-success" value="Run">
-        <select name="graphResults" class="form-control">
-          <option selected>No Graph</option>
-          <option value="line">Line</option>
-        </select>
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <select name="graphResults" class="form-control">
+              <option selected>No Graph</option>
+              <option value="line">Line</option>
+            </select>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <input type="submit" class="btn btn-success form-control" value="Run">
+          </div>
+        </div>
       </form>
     </div>
   </div>
