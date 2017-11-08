@@ -213,6 +213,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Label, $Name, $Value = ''){
+  $AdditionalClasses = '';
   if(
     $Label == 'TimeInserted' ||
     $Label == 'UserInserted' ||
