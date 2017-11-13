@@ -1,3 +1,3 @@
-# astria
+# Astria v13
 
-astria manages users and data while implementing good user-interfaces that scale.
+Astria is an extensible, procedural web interface between complex teams and complex data.
