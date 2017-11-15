@@ -38,9 +38,12 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   //make sure this table exists
   if(MakeSureTableExists($Schema,$Table)==false){return;}
   
-  //query the table, while enriching the data with relevant content
-  $SQL = EnrichQueryTable($Schema, $Table);
-  
+  if(isset($_GET['search'])){
+    $SQL = SearchTableQuery($Schema,$Table,_GET['search']);
+  }else{
+    //query the table, while enriching the data with relevant content
+    $SQL = EnrichTableQuery($Schema, $Table);
+  }
   
   
   MaybeShowQuery($SQL);
@@ -48,7 +51,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   echo ArrTabler(Query($SQL,$Schema));
 }
 
-function EnrichQueryTable($Schema, $Table){
+function EnrichTableQuery($Schema, $Table){
   global $ASTRIA;
   $SQL = " SELECT ".PHP_EOL;
   $AddressDone = false;
