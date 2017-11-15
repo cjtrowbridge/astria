@@ -212,6 +212,8 @@ function GetSmartAddressFieldConcat($Schema,$Table){
 
 
 function MakeSureTableExists($Schema,$Table){
+  global $ASTRIA;
+  
   //make sure this table exists
   if(!(
     isset($ASTRIA['Session'])&&
