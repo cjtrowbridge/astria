@@ -36,17 +36,20 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   SchemaRouter_QueryCard();
   
   //make sure this table exists
-  if(!(
-    isset($ASTRIA['Session'])&&
-    isset($ASTRIA['Session']['Schema'])&&
-    isset($ASTRIA['Session']['Schema'][$Schema])&&
-    isset($ASTRIA['Session']['Schema'][$Schema][$Table])
-  )){
-    echo '<p>Unable to find that table! You may need to log out and back in, if your premissions have changed.</p>';
-    return;
-  }
+  if(MakeSureTableExists($Schema,$Table)==false){return;}
   
   //query the table, while enriching the data with relevant content
+  $SQL = EnrichQueryTable($Schema, $Table);
+  
+  
+  
+  MaybeShowQuery($SQL);
+  
+  echo ArrTabler(Query($SQL,$Schema));
+}
+
+function EnrichQueryTable($Schema, $Table){
+  global $ASTRIA;
   $SQL = " SELECT ".PHP_EOL;
   $AddressDone = false;
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
@@ -147,12 +150,8 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   }
   $SQL = rtrim($SQL,",\n");
   $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL." ORDER BY 1 DESC LIMIT 100";
-  
-  MaybeShowQuery($SQL);
-  
-  echo ArrTabler(Query($SQL,$Schema));
+  return $SQL;
 }
-
 
 function MaybeShowQuery($SQL){
   if(isset($_GET['show_query'])){
@@ -209,4 +208,19 @@ function GetSmartAddressFieldConcat($Schema,$Table){
   $SQL = trim(rtrim(trim($SQL),"', ',"));
   //TODO add locale settings here for customizing what is output for this.
   return $SQL;
+}
+
+
+function MakeSureTableExists($Schema,$Table){
+  //make sure this table exists
+  if(!(
+    isset($ASTRIA['Session'])&&
+    isset($ASTRIA['Session']['Schema'])&&
+    isset($ASTRIA['Session']['Schema'][$Schema])&&
+    isset($ASTRIA['Session']['Schema'][$Schema][$Table])
+  )){
+    echo '<p>Unable to find that table! You may need to log out and back in, if your premissions have changed.</p>';
+    return false;
+  }
+  return true;
 }
