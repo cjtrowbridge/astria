@@ -52,13 +52,13 @@ function SchemaRouter_QueryCard(){
 
 <div id="SchemaRouterQueryCard" style="display: none;"><br>
   <form class="form" method="get" action="">
-    <p><input type="text" class="form-control" name="query" id="schemaQuery" placeholder="Search"></p>
+    <p><input type="text" class="form-control" name="search" id="schemaSearch" placeholder="Search"></p>
   </form>
 </div>
 <script>
   function SchemaRouterSearch(){
     $('#SchemaRouterQueryCard').slideToggle('fast',function(){
-      $('#schemaQuery').focus();
+      $('#schemaSearch').focus();
     });
   }
 </script>
