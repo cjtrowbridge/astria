@@ -96,6 +96,19 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
         <a href="javascript:void(0);" onclick="$('.tableMeta').slideToggle('fast');"><i class="material-icons">info_outline</i></a> 
         <a href="#"><i class="material-icons">delete</i></a>
       </div>
+      <style>
+        .AstriaToggleEditableInputs{
+          display: none;
+        }
+      </style>
+    <?php
+  }else{
+    ?>
+      <style>
+        .AstriaToggleEditableLabels{
+          display: none;
+        }
+      </style>
     <?php
   }
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
