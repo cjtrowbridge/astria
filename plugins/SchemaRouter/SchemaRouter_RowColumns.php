@@ -189,6 +189,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   if( count($Referencees)>0 ){
     //display two columns, one for this table, and one for things that have foreign keys referencing it
     echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6">'.PHP_EOL;
+    echo '<h4>'.rtrim('s',$Table).'s</h4>';
     
     foreach($Referencees as $Table => $Referencee){
       $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',`".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'])."`,'</a>') as 'Connections To ".QualifiedPlural( SpacesBeforeCapitals( $Table ) )."'".PHP_EOL;
