@@ -20,10 +20,10 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
       
       <?php if($ASTRIA['Session']['User']['IsAstriaAdmin']){ /* If User is an admin; */ ?>
       <a href="/architect/schema/<?php echo $Schema; ?>/table/<?php echo $Table; ?>" class="btn btn-success">Architect</a> 
-      <a href="./?show_query" class="btn btn-success">Show Query</a> 
+      <a href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?show_query" class="btn btn-success">Show Query</a> 
       <?php } ?>
       
-      <a href="./?insert" class="btn btn-success">New</a> 
+      <a href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert" class="btn btn-success">New</a> 
       <a href="javascript:void(0);" onclick="SchemaRouterSearch();" class="btn btn-success">Search</a>
     </div>
     / <a href="/<?php echo $Schema; ?>/"><?php echo $ASTRIA['databases'][$Schema]['title']; ?></a> 
