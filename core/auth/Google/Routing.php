@@ -35,7 +35,7 @@ function AlertAdminMissingGoogleOAuthCredentials(){
 }
 
 function GoogleChallengeSession(){
-  include_once('plugins/authGoogle/autoload.php');
+  include_once('core/auth/Google/autoload.php');
   global $ASTRIA;
   
   //Check if google was how we authenticated this session
@@ -73,7 +73,7 @@ function GoogleChallengeSession(){
 
 function AttemptGoogleAuth(){
   include_once('core/Session.php');
-  include_once('plugins/authGoogle/autoload.php');
+  include_once('core/auth/Google/autoload.php');
   global $ASTRIA;
   Event('Starting Google Auth Check');
   /************************************************
