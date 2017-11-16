@@ -197,7 +197,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
         <div class="card-block">
           <div class="card-text">
             <h3>
-              <span style="float: right;"><a class="text-muted" href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert&<?php echo $PrimaryKey; ?>=<?php echo $Row; ?>">Add</a></span>
+              <span style="float: right;"><a class="text-muted" href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert&<?php echo $PrimaryKey; ?>=<?php echo $Row; ?>"><i class="material-icons">add</i></a></span>
               <?php echo rtrim($Referencee['TABLE_NAME'],'s').'s'; ?>
             </h3>
               
