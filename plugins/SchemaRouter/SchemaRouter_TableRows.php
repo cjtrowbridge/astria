@@ -73,17 +73,17 @@ function SearchTableQuery($Schema,$Table,$Search){
     $Terms = explode(' ',$Search);
     foreach($Terms as $Term){
       $SQL .="
-        LOWER(".$Column['COLUMN_NAME'].") LIKE '".Sanitize($Term)."' OR
+        LOWER(`".$Column['COLUMN_NAME']."`) LIKE '".Sanitize($Term)."' OR
       ";
     }
     
     $SQL .="
-      false
+      1=2
     ) OR
     ";
   }
   $SQL .="
-    false
+    1=2
   ";
   return $SQL;
 }
