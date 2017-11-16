@@ -305,8 +305,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
   $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($Value);
   $Description = Query($SQL,$Schema);
   //TODO these errors should be more elegant
-  if(!(isset($Description[0]))){echo '<p>Unable to locate reference field for object.</p>';pd($Description);}
-  if(!(isset($Description[0][ Sanitize($FirstTextField) ]))){echo 'Unable to locate reference field for object.';pd($Description);}
+  if(!(isset($Description[0]))){echo '<p>Unable to locate reference field for object.</p>';pd($SQL);pd($Description);}
+  if(!(isset($Description[0][ Sanitize($FirstTextField) ]))){echo 'Unable to locate reference field for object.';pd($SQL);pd($Description);}
   $Description = $Description[0][ Sanitize($FirstTextField) ];
   ?>
 
