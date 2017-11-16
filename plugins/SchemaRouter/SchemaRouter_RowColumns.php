@@ -31,7 +31,12 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       exit;
     }
   
-    global $SchemaRouter_RowData;
+    global $SchemaRouter_RowData, $ASTRIA;
+    $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY'];
+    $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
+    $Referencees    = $ASTRIA['Session']['Schema'][$Schema][$Table]['Referencees'];
+    $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
+    
     //make sure the row is an integer or die.
     $TempRow = intval($Row);
     if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
