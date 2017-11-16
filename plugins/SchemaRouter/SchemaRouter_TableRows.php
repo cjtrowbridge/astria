@@ -39,10 +39,15 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   if(MakeSureTableExists($Schema,$Table)==false){return;}
   
   if(isset($_GET['search'])){
-    $SQL = SearchTableQuery($Schema,$Table,_GET['search']);
+
+    $Where = SearchTableQuery($Schema,$Table,_GET['search']);
+    $SQL = EnrichTableQuery($Schema, $Table, $Where);
+    
   }else{
+    
     //query the table, while enriching the data with relevant content
     $SQL = EnrichTableQuery($Schema, $Table);
+    
   }
   
   
@@ -51,7 +56,36 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   echo ArrTabler(Query($SQL,$Schema));
 }
 
-function EnrichTableQuery($Schema, $Table){
+function SearchTableQuery($Schema,$Table,$Search){
+  
+  global $ASTRIA;
+  $SQL = "";
+  $AddressDone = false;
+  foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
+    $SQL .="
+    (
+    ";
+    
+    $Search = strtolower($Search);
+    $Terms = explode(' ',$Search);
+    foreach($Terms as $Term){
+      $SQL .="
+        LOWER(`".$Column['COLUMN_NAME']."`) LIKE '".Sanitize($Term)."' OR
+      ";
+    }
+    
+    $SQL .="
+      false
+    ) OR
+    ";
+  }
+  $SQL .="
+    false
+  ";
+  return $SQL;
+}
+
+function EnrichTableQuery($Schema, $Table, $Where = false){
   global $ASTRIA;
   $SQL = " SELECT ".PHP_EOL;
   $AddressDone = false;
@@ -152,7 +186,11 @@ function EnrichTableQuery($Schema, $Table){
 
   }
   $SQL = rtrim($SQL,",\n");
-  $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL." ORDER BY 1 DESC LIMIT 100";
+  $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL
+  if($Where != false){
+    $SQL.=$Where
+  }
+  $SQL.= " ORDER BY 1 DESC LIMIT 100";
   return $SQL;
 }
 
