@@ -62,6 +62,9 @@ function SearchTableQuery($Schema,$Table,$Search){
   $SQL = "";
   $AddressDone = false;
   foreach($ASTRIA['Session']['Schema'][$Schema][$Table] as $Column){
+    
+    if(!(isset($Column['COLUMN_NAME']))){continue;}
+    
     $SQL .="
     (
     ";
