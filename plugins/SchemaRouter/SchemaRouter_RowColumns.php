@@ -152,8 +152,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
     //if this is the primary key, display it as text, and include a hidden input field of it
     if($Column['IsConstraint']['PRIMARY KEY'] == true){
-      SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
-      continue;
+      if($Data != false){
+        //We don't need to show a field for primary key if we are inserting a new row
+        SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
+        continue;
+      }
     }
     
     //if this is a foreign key, display it as a link to the thing it goes to.
