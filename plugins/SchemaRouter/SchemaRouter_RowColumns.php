@@ -155,8 +155,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       if($Data != false){
         //We don't need to show a field for primary key if we are inserting a new row
         SchemaRouter_RowColumns_Fields_BodyCallback_ReadOnlyWithHidden($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
-        continue;
       }
+      continue;
     }
     
     //if this is a foreign key, display it as a link to the thing it goes to.
