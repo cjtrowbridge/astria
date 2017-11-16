@@ -192,7 +192,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
     foreach($Referencees as $Table => $Referencee){
       echo '<h3>';
-        echo '<span style="float: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Insert New '.SpacesBeforeCapitals( $Table ).'</a>';
+        echo '<span style="float: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Add</a>';
         echo '</span>';
       echo rtrim($Referencee['TABLE_NAME'],'s').'s';
       echo '</h3>';
