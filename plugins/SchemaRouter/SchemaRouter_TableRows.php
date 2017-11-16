@@ -43,6 +43,10 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
     $Where = SearchTableQuery($Schema,$Table,$_GET['search']);
     $SQL = EnrichTableQuery($Schema, $Table, $Where);
     
+    ?>
+      <h2>Search Results For: <?php echo $_GET['search']; ?></h2>
+    <?php
+    
   }else{
     
     //query the table, while enriching the data with relevant content
