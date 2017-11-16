@@ -31,6 +31,18 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       exit;
     }
   
+    global $SchemaRouter_RowData;
+    //make sure the row is an integer or die.
+    $TempRow = intval($Row);
+    if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
+    $Row = $TempRow;
+
+    $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
+    if(!(isset($Data[0]))){
+      die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
+    }
+    $SchemaRouter_RowData = FieldMask( $Data[0] );
+  
     //TODO make the title be more relevant 
     TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'");');
     exit;
@@ -54,15 +66,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     //we are showing an existing record. Validate it and get its data.
     
     //make sure the row is an integer or die.
-    $TempRow = intval($Row);
-    if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
-    $Row = $TempRow;
-
-    $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
-    if(!(isset($Data[0]))){
-      die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
-    }
-    $Data = FieldMask( $Data[0] );
+    global $SchemaRouter_RowData;
+    $Data = $SchemaRouter_RowData;
     
   }
   
@@ -82,7 +87,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       </div>
     <?php
   }
-  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'./*$Data[ $FirstTextField ]*/$Row.'</a></h1>'.PHP_EOL;
+  echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
   
   if( count($Referencees)>0 ){
