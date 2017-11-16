@@ -158,7 +158,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
     //if this is a foreign key, display it as a link to the thing it goes to.
     if($Column['IsConstraint']['FOREIGN KEY'] == true){
-      SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema, $Column,$FieldValue);
+      if($Data==false){
+        //TODO This should be a dropdown eventually. For now this will work. 
+        SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
+      }else{
+        SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema, $Column,$FieldValue);
+      }
       continue;
     }
     
