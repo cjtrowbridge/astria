@@ -197,9 +197,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
         <div class="card-block">
           <div class="card-text">
             <h3>
-              <span style="float: right;"><a class="text-muted" href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert&<?php echo $PrimaryKey; ?>=<?php echo $Row; ?>">Add</a>
+              <span style="float: right;"><a class="text-muted" href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert&<?php echo $PrimaryKey; ?>=<?php echo $Row; ?>">Add</a></span>
               <?php echo rtrim($Referencee['TABLE_NAME'],'s').'s'; ?>
             </h3>
+              
             <?php
               
               $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',`".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'])."`,'</a>') as 'Connections To ".QualifiedPlural( SpacesBeforeCapitals( $Table ) )."'".PHP_EOL;
