@@ -186,7 +186,7 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
 
   }
   $SQL = rtrim($SQL,",\n");
-  $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL
+  $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL;
   if($Where != false){
     $SQL.=$Where
   }
