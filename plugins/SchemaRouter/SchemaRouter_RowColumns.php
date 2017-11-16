@@ -191,26 +191,41 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6">'.PHP_EOL;
     
     foreach($Referencees as $Table => $Referencee){
-      echo '<h3>';
-        echo '<span style="float: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Add</a>';
-        echo '</span>';
-      echo rtrim($Referencee['TABLE_NAME'],'s').'s';
-      echo '</h3>';
-      $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',`".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'])."`,'</a>') as 'Connections To ".QualifiedPlural( SpacesBeforeCapitals( $Table ) )."'".PHP_EOL;
-      $SQL.="FROM `".$Table."`".PHP_EOL;
-      $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
-      $Links = Query( $SQL,$Schema );
-      if(count($Links)==0){
-        echo '<p><b>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</b></p>';
-      }else{
-        foreach($Links as $LinkRow){
-          echo '<p>';
-          foreach($LinkRow as $Link){
-            echo $Link;
-          }
-          echo '</p>';
-        }
-      }
+      ?>
+
+      <div class="card">
+        <div class="card-block">
+          <div class="card-text">
+            <h3>
+              <span style="float: right;"><a class="text-muted" href="/<?php echo $Schema; ?>/<?php echo $Table; ?>/?insert&<?php echo $PrimaryKey; ?>=<?php echo $Row; ?>">Add</a>
+              <?php echo rtrim($Referencee['TABLE_NAME'],'s').'s'; ?>
+            </h3>
+            <?php
+              
+              $SQL ="SELECT CONCAT('<a href=\"/".$Schema."/".$Table."/',".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY']).",'\">',`".Sanitize($ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'])."`,'</a>') as 'Connections To ".QualifiedPlural( SpacesBeforeCapitals( $Table ) )."'".PHP_EOL;
+              $SQL.="FROM `".$Table."`".PHP_EOL;
+              $SQL.="WHERE `".Sanitize($Referencee['REFERENCED_COLUMN_NAME'])."` = '".intval($Row)."';";
+              $Links = Query( $SQL,$Schema );
+              if(count($Links)==0){
+                echo '<p><b>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</b></p>';
+              }else{
+                foreach($Links as $LinkRow){
+                  echo '<p>';
+                  foreach($LinkRow as $Link){
+                    echo $Link;
+                  }
+                  echo '</p>';
+                }
+              }
+              
+            ?>
+          </div>
+        </div>
+      </div>
+
+      <?php
+      
+
       //echo '<p style="text-align: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Insert New '.SpacesBeforeCapitals( $Table ).'</a></p><br>';
     }
     
