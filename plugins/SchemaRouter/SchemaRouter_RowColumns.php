@@ -114,7 +114,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
   
-  if( count($Referencees)>0 ){
+  if( 
+    count($Referencees)>0 && 
+    $Data != false
+  ){
     //display two columns, one for this table, and one for things that have foreign keys referencing it
     echo '<div class="col-xs-12 col-lg-6">'.PHP_EOL;
     
