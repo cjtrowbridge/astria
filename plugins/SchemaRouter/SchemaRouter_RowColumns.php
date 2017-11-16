@@ -36,17 +36,23 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
     $Referencees    = $ASTRIA['Session']['Schema'][$Schema][$Table]['Referencees'];
     $Columns        = $ASTRIA['Session']['Schema'][$Schema][$Table];
-    
-    //make sure the row is an integer or die.
-    $TempRow = intval($Row);
-    if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
-    $Row = $TempRow;
+  
+    if(intval($Row)==0){
+      $SchemaRouter_RowData = false;
+    }else{
 
-    $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
-    if(!(isset($Data[0]))){
-      die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
+      //make sure the row is an integer or die.
+      $TempRow = intval($Row);
+      if($TempRow == 0){die('Invalid '.$FirstTextField.': '.$TempRow.'. Must be an integer.');}
+      $Row = $TempRow;
+
+      $Data = Query("SELECT * FROM `".Sanitize($Table)."` WHERE `".SANITIZE($Columns['PRIMARY KEY'])."` = ".intval($Row),$Schema); 
+      if(!(isset($Data[0]))){
+        die('No Record Found For "'.$Table.'" Number "'.$Row.'"');
+      }
+      $SchemaRouter_RowData = FieldMask( $Data[0] );
+    
     }
-    $SchemaRouter_RowData = FieldMask( $Data[0] );
   
     //TODO make the title be more relevant 
     TemplateBootstrap4($Table.' '.$Row,'SchemaRouter_RowColumns_Fields_BodyCallback("'.$Schema.'", "'.$Table.'", "'.$Row.'");');
