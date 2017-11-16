@@ -226,7 +226,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
 
   <?php
   
-  if( count($Referencees)>0 ){
+  if( 
+    count($Referencees)>0 && 
+    $Data != false
+  ){
     //display two columns, one for this table, and one for things that have foreign keys referencing it
     echo '</div>'.PHP_EOL.'<div class="col-xs-12 col-lg-6">'.PHP_EOL;
     
