@@ -199,9 +199,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       if(count($Links)==0){
         echo '<p><b>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</b></p>';
       }else{
-        foreach($Links as $Row){
+        foreach($Links as $LinkRow){
           echo '<p>';
-          foreach($Row as $Link){
+          foreach($LinkRow as $Link){
             echo $Link;
           }
           echo '</p>';
