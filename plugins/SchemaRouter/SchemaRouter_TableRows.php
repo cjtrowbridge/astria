@@ -40,7 +40,7 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   
   if(isset($_GET['search'])){
 
-    $Where = SearchTableQuery($Schema,$Table,_GET['search']);
+    $Where = SearchTableQuery($Schema,$Table,$_GET['search']);
     $SQL = EnrichTableQuery($Schema, $Table, $Where);
     
   }else{
