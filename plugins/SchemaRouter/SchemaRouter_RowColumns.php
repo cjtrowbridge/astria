@@ -199,8 +199,12 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       if(count($Links)==0){
         echo '<p><b>No Linked '.QualifiedPlural( SpacesBeforeCapitals( $Table ) ).' Found</b></p>';
       }else{
-        foreach($Links as $Link){
-          echo '<p>'.$Link[0].'</p>';
+        foreach($Links as $Row){
+          echo '<p>';
+          foreach($Row as $Link){
+            echo $Link;
+          }
+          echo '</p>';
         }
       }
       echo '<p style="text-align: right;"><a class="text-muted" href="/'.$Schema.'/'.$Table.'/?insert&'.$PrimaryKey.'='.$Row.'">Insert New '.SpacesBeforeCapitals( $Table ).'</a></p><br>';
