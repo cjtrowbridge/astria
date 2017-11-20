@@ -160,6 +160,8 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   //If this has not already happened during this session, do it now and cache it into the session
   //We can take for granted that permissions are already done, as this function is hooked immediately after that.
   
+  $InitialMemoryAllocated = memory_get_usage();
+  
   //Initialize the return variable
   $SchemaDescription = array();
   
@@ -208,7 +210,11 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   //save this into the session and then return it.
   $ASTRIA['Session']['Schema'] = $SchemaDescription;
   Event('Done Caching Schema to Session');
-  Event('<p>Loading Schema Description Into Session:</p>');
+  
+  $MemoryAllocated = memory_get_usage() - $InitialMemoryAllocated;
+  
+  Event('Loading Schema Description Into Session. Size: '.($MemoryAllocated/1024) );
+  
   AstriaSessionSave();
   return $SchemaDescription;
 }
