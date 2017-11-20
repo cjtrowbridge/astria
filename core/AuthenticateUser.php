@@ -38,6 +38,8 @@ function AuthenticateUser($email=null){
   //Cache the entire session
   AstriaSessionSave();
   
+  pd($ASTRIA['Session']);
+  
   header('Location: /');
   exit;
 }
