@@ -15,6 +15,7 @@ function AstriaSessionSetUp(){
   global $ASTRIA;
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower(md5($ASTRIA['app']['appURL']));
+  Event('Looking For Cookie: '.$CookieName);
   if(!(isset($_COOKIE[$CookieName]))){
     
     Event('Creating New Session');
