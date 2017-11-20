@@ -115,7 +115,7 @@ function AttemptGoogleAuth(){
     
     //header('Location: /');
     //exit;
-    //TODO (maybe not?) there is no reason to redirect. the next if statement will take care of everything...
+    //there is no reason to redirect. the next if statement will take care of everything...
   }
   
   /************************************************
