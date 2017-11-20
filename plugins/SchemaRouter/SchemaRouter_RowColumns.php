@@ -361,16 +361,28 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
           <div class="col-xs-12 col-lg-8">
             <?php
               switch($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['DATA_TYPE']){
+                case 'boolean':
+                case 'tinyint':
+                  ?>
+                  <select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+                    <?php if(!$Required){ ?>
+                    <option value="">Leave Blank</option>
+                    <?php } ?>
+                    <option value="0">True</option>
+                    <option value="1">False</option>
+                  </select>
+                  <?php
+                  break;
                 case 'date':
                 case 'datetime':
                   ?>
-                  <input class="form-control AstriaToggleEditableInputs" type="datetime-local" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+                  <input class="form-control AstriaToggleEditableInputs" type="datetime-local" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
                   <?php
                   break;
                 case 'text':
                 case 'varchar':
                   ?>
-                  <input class="form-control AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+                  <input class="form-control AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
                   <?php
                   break;
                 default:
