@@ -1,5 +1,5 @@
 <?php
-
+/*
 Hook('Run Astria Patches','PatchUserGroupMembershipTableAddColumns();');
 
 function PatchUserGroupMembershipTableAddColumns(){
@@ -18,3 +18,4 @@ function PatchUserGroupMembershipTableAddColumns(){
     Event('UserInserted column already exists');
   }
 }
+*/
