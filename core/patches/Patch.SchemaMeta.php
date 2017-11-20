@@ -17,3 +17,4 @@ function PatchSchemaMetaTable(){
   }else{
     Event('SchemaMeta table already exists');
   }
+}
