@@ -102,7 +102,7 @@ function AstriaSessionDestroy(){
 }
 
 
-//Hook('Daily Cron','SessionCron();');
+Hook('Daily Cron','SessionCron();');
 
 function SessionCron(){
   Query("DELETE FROM `Session` WHERE Expires < NOW()");
