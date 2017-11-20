@@ -213,7 +213,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   
   $MemoryAllocated = memory_get_usage() - $InitialMemoryAllocated;
   
-  Event('Loading Schema Description Into Session. Size: '.($MemoryAllocated/1024) );
+  Event('Loading Schema Description Into Session. Size: '.($MemoryAllocated/1024).'kb');
   
   AstriaSessionSave();
   return $SchemaDescription;
