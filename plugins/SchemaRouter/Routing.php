@@ -4,6 +4,7 @@
 //   Schema_firebridgecrm_Table_Customer_Column_BillingZIP
 
 Hook('Challenge Session','SchemaRouter_SchemaDescription(true);');
+
 //Hook('User Is Logged In','SchemaRouter_SchemaDescription();');
 //Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription();');
 
@@ -149,8 +150,12 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
     isset($ASTRIA['Session']['Schema']) &&
     ($ForceReload == false)
   ){
+    Event('Schema Description Already Loaded.');
     return $ASTRIA['Session']['Schema'];
   }
+  
+  $Session = null;if(isset($_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])))){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])); }
+  Event('Loading Schema Description Into Session: '.$Session);
   
   include_once('SchemaRouter_AllSchemas.php');
   include_once('SchemaRouter_SchemaTables.php');
@@ -208,12 +213,10 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   }
   
   //save this into the session and then return it.
-  $ASTRIA['Session']['Schema'] = $SchemaDescription;
-  Event('Done Caching Schema to Session');
-  
   $MemoryAllocated = memory_get_usage() - $InitialMemoryAllocated;
-  
-  Event('Loading Schema Description Into Session. Size: '.($MemoryAllocated/1024).'kb');
+  $ASTRIA['Session']['Schema'] = $SchemaDescription;                                   
+  $Session = null;if(isset($_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])))){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])); }
+  Event('Done Loading Schema Description Into Session: '.$Session.'. Space Allocated: '.($MemoryAllocated/1024).'kb');
   
   AstriaSessionSave();
   return $SchemaDescription;
