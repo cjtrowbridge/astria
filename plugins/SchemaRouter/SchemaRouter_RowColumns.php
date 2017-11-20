@@ -340,16 +340,27 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = '',$Schema,$Table){
   global $ASTRIA;
+  if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['IS_NULLABLE']=='NO'){
+    $Required = true;
+  }else{
+    $Required = false;
+  }
   ?>
 
         <div class="form-group row">
-          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label"><?php echo $Label; ?>:</label>
-          <div class="col-xs-12 col-lg-8">
-            <input class="form-control   AstriaToggleEditableInputs" type="text" value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
-            <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
-            <?php
-              pd($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]);
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label">
+            <?php 
+              
+              echo $Label.':';
+              if($Required){
+                echo '<br><b>Required</b>';
+              }
+              
             ?>
+          </label>
+          <div class="col-xs-12 col-lg-8">
+            <input class="form-control   AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
 
