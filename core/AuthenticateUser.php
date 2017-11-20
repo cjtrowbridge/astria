@@ -1,6 +1,7 @@
 <?php
 
 function AuthenticateUser($email=null){
+  Event('User has been authenticated. Loading User Data...');
   global $ASTRIA;
   
   //Make sure the tables are set up the new way
