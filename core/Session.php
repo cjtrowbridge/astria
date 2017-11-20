@@ -73,10 +73,10 @@ function AstriaSessionSetUp(){
 }
 
 function AstriaSessionSave(){
+  global $ASTRIA;
   include_once('core/Event.php');
   Event('Current Session Hash: '.$_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ]);
   Event('Saving Astria Session...');
-  global $ASTRIA;
   include_once('Cache.php');
   $CacheResult=WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
   if(isset($_GET['verbose'])){
