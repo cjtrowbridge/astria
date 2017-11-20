@@ -8,7 +8,16 @@ Hook('User Is Logged In','SchemaRouter_SchemaDescription();');
 Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription();');
 
 Hook('User Is Logged In - Before Presentation','SchemaRouter_Routing();');
+
+Hook('User Is Logged In - Homepage Content','SchemaRouter_Default_Homepage();');
+
 */
+
+
+function SchemaRouter_Default_Homepage(){
+  echo '<h1>Databases</h1>'.PHP_EOL.SchemaRouter_AllSchemas_DOM_UL();
+}
+
 function SchemaRouter_Routing(){
 
   //include DOM functions so views can be included in outside pages
@@ -37,13 +46,6 @@ function SchemaRouter_Routing(){
       break;
   }
   
-}
-
-
-Hook('User Is Logged In - Homepage Content','SchemaRouter_Default_Homepage();');
-
-function SchemaRouter_Default_Homepage(){
-  echo '<h1>Databases</h1>'.PHP_EOL.SchemaRouter_AllSchemas_DOM_UL();
 }
 
 
