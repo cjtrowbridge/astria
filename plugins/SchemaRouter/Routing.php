@@ -2,13 +2,13 @@
 
 // example permission 
 //   Schema_firebridgecrm_Table_Customer_Column_BillingZIP
-
+/*
 Hook('Challenge Session','SchemaRouter_SchemaDescription(true);');
-//Hook('User Is Logged In','SchemaRouter_SchemaDescription();');
+Hook('User Is Logged In','SchemaRouter_SchemaDescription();');
 Hook('Done Reloading User Permissions Into Session','SchemaRouter_SchemaDescription();');
 
 Hook('User Is Logged In - Before Presentation','SchemaRouter_Routing();');
-
+*/
 function SchemaRouter_Routing(){
 
   //include DOM functions so views can be included in outside pages
