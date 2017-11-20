@@ -85,6 +85,7 @@ function AstriaSessionSave(){
 }
 
 function AstriaSessionDestroy(){
+  Event('Destroying Sesion');
   global $ASTRIA;
   $CookieName=strtolower(md5($ASTRIA['app']['appURL']));
   unset($_COOKIE[$CookieName]);
