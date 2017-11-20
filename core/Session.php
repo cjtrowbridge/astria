@@ -60,13 +60,15 @@ function AstriaSessionSetUp(){
     
   }else{
     
-    Event('Loading Saved Session Data');
     
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
-    $ASTRIA['Session']=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
-    VerifyAgentAndIP();
     
+    Event('Loading Saved Session Data');
+    $ASTRIA['Session']=ReadCache($_COOKIE[$CookieName],$ASTRIA['app']['defaultSessionLength']);
+    Event('Verifying Session...');
+    VerifyAgentAndIP();
+    EVent('Session Verified.');
   }
 }
 
