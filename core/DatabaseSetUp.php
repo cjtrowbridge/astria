@@ -11,10 +11,10 @@ function DatabaseSetUp(){
     CREATE TABLE `Cache` (
       `CacheID` int(11) NOT NULL,
       `Hash` varchar(32) NOT NULL,
-      `Content` text,
+      `Content` longtext,
       `Created` datetime NOT NULL,
       `Expires` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `Cache` ADD PRIMARY KEY (`CacheID`), ADD UNIQUE KEY `Hash` (`Hash`) USING BTREE;
     ALTER TABLE `Cache` MODIFY `CacheID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -29,7 +29,7 @@ function DatabaseSetUp(){
       `TimeInserted` datetime NOT NULL,
       `UserUpdated` int(11) DEFAULT NULL,
       `TimeUpdated` datetime DEFAULT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `UserGroup` ADD PRIMARY KEY (`GroupID`), ADD KEY `ParentID` (`ParentID`);
     ALTER TABLE `UserGroup` MODIFY `GroupID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -43,7 +43,7 @@ function DatabaseSetUp(){
       `Text` VARCHAR(255) DEFAULT NULL,
       `InsertedTime` datetime NOT NULL,
       `InsertedUser` int(11) NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `Permission` ADD PRIMARY KEY (`PermissionID`);
     ALTER TABLE `Permission` MODIFY `PermissionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -58,7 +58,7 @@ function DatabaseSetUp(){
       `UserIPHash` varchar(32) NOT NULL,
       `UserIP` text NOT NULL,
       `Expires` datetime NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `Session` ADD PRIMARY KEY (`SessionID`);
     ALTER TABLE `Session` MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -81,7 +81,7 @@ function DatabaseSetUp(){
       `TimeInserted` DATETIME NULL,
       `UserUpdated` INT NULL,
       `TimeUpdated` DATETIME NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `User` ADD PRIMARY KEY (`UserID`);
     ALTER TABLE `User` MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -91,7 +91,7 @@ function DatabaseSetUp(){
       `UserGroupMembershipID` int(11) NOT NULL,
       `UserID` int(11) NOT NULL,
       `GroupID` int(11) NOT NULL
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
     
     ALTER TABLE `UserGroupMembership` ADD PRIMARY KEY (`UserGroupMembershipID`);
     ALTER TABLE `UserGroupMembership` MODIFY `UserGroupMembershipID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
