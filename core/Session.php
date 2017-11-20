@@ -75,16 +75,17 @@ function AstriaSessionSetUp(){
 function AstriaSessionSave(){
   global $ASTRIA;
   include_once('core/Event.php');
-  Event('Current Session Hash: '.$_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ]);
-  Event('Saving Astria Session...');
+  Event('Saving Session...'.$_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ]);
   include_once('Cache.php');
   $CacheResult=WriteCache($ASTRIA['Session']['SessionHash'],$ASTRIA['Session']);
   if(isset($_GET['verbose'])){
     include_once('pd.php');
-    echo '<h4>Cache result when saving session...</h4>';
+    echo '<b>Cache result when saving session...</b>';
     pd($CacheResult);
     if($_GET['verbose']=='AstriaSessionSave'){exit;}
+    
   }
+  Event('Done Saving Session: '.$_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ]);;
 }
 
 function AstriaSessionDestroy(){
