@@ -12,23 +12,17 @@ function VerifyAgentAndIP(){
 	
 	
 	if(!($ASTRIA['Session']['UserAgentHash']  == md5($_SERVER['HTTP_USER_AGENT']))){
-		if(isset($_GET['verbose'])){
-			echo $ASTRIA['Session']['UserAgentHash'].'<br><br> DOES NOT MATCH<br><br>'.$_SERVER['HTTP_USER_AGENT'];
-		}
+		Event('HTTP_USER_AGENT does not match. Destorying Session.');
 		AstriaChallengeSession();
 		//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['RemoteAddrHash'] == md5($_SERVER['REMOTE_ADDR']))){
-		if(isset($_GET['verbose'])){
-			echo $ASTRIA['Session']['RemoteAddrHash'].'<br><br> DOES NOT MATCH<br><br>'.md5($_SERVER['REMOTE_ADDR']);
-		}
+		Event('REMOTE_ADDR does not match. Challenging session with available providers...');
 		AstriaChallengeSession();
 		//AstriaSessionDestroy();
 	}
 	if(!($ASTRIA['Session']['Expires']>time())){
-		if(isset($_GET['verbose'])){
-			echo 'Session expired';
-		}
+		Event('Session is expired. Challenging session with available providers...');
 		AstriaChallengeSession();
 		//AstriaSessionDestroy();
 	}
