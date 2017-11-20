@@ -59,7 +59,7 @@ function AstriaSessionSetUp(){
     AstriaSessionSave();
     
   }else{
-    
+    Event('Found Cookie. Value: '.$_COOKIE[$CookieName]);
     
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
