@@ -160,9 +160,6 @@ function AttemptGoogleAuth(){
       Event('Calling "Authenticate User"');
       AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
     
-      pd($ASTRIA['Session']);
-    
-    
   }else{
     Event('Google Auth Check: User is not attempting to log in. Creating login key.');
     $authUrl = $client->createAuthUrl();
