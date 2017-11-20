@@ -166,7 +166,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     if($Column['IsConstraint']['FOREIGN KEY'] == true){
       if($Data==false){
         //TODO This should be a dropdown eventually. For now this will work. 
-        SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
+        SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue,$Schema,$Table);
       }else{
         SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema, $Column,$FieldValue);
       }
@@ -194,7 +194,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
           
           //break;
       //}
-      SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue);
+      SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue,$Schema,$Table);
       
     }elseif(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'])){
       
@@ -338,7 +338,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
   <?php
 }
 
-function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = ''){
+function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = '',$Schema,$Table){
   global $ASTRIA;
   ?>
 
@@ -348,7 +348,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
             <input class="form-control   AstriaToggleEditableInputs" type="text" value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
             <?php
-              pd($ASTRIA['Session']['Schema'][$Schema][$Name]);
+              pd($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]);
             ?>
           </div>
         </div>
