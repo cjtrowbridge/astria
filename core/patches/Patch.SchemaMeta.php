@@ -1,5 +1,5 @@
 <?php
-/*
+
 Hook('Run Astria Patches','PatchSchemaMetaTable();');
 
 function PatchSchemaMetaTable(){
@@ -13,4 +13,3 @@ function PatchSchemaMetaTable(){
     Event('SchemaMeta table already exists');
   }
 }
-*/
