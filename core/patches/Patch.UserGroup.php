@@ -3,7 +3,7 @@
 Hook('Run Astria Patches','PatchUserGroupTableAddColumns();');
 
 function PatchUserGroupTableAddColumns(){
-  Event('Patch: Looking for columns that need to be added to the User table.');
+  Event('Patch: Looking for columns that need to be added to the UserGroup table.');
   
   $Check = Query("
     SELECT COUNT(*) as 'Check'
