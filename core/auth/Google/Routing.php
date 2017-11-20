@@ -110,6 +110,7 @@ function AttemptGoogleAuth(){
     Event('Google Auth Check: User is attempting to log in. Check with google and refresh.');
     $client->authenticate($_GET['code']);
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
+    if(isset($_GET['verbose'])){pd($ASTRIA['Session']['google_oauth2']);}
     AstriaSessionSave();
     header('Location: /');
     exit;
