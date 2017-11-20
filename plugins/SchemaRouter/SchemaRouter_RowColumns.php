@@ -368,8 +368,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                     <?php if(!$Required){ ?>
                     <option value="">Leave Blank</option>
                     <?php } ?>
-                    <option value="0"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==0){echo ' selected="selected"';} ?>>True</option>
-                    <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>False</option>
+                    <option value="0"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==0){echo ' selected="selected"';} ?>>True<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==0){echo ' (Default)';} ?></option>
+                    <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>False<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' (Default)';} ?></option>
                   </select>
                   <?php
                   break;
