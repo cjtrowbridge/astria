@@ -10,11 +10,14 @@ AstriaSessionSetUp();
 function AstriaSessionSetUp(){
   include_once('Query.php');
   include_once('MakeSureDBConnected.php');
+  include_once('Event.php');
   
   global $ASTRIA;
   //If there is not already a cookie and session, create one.
   $CookieName=strtolower(md5($ASTRIA['app']['appURL']));
   if(!(isset($_COOKIE[$CookieName]))){
+    
+    Event('Creating New Session');
     
     MakeSureDBConnected();
     
@@ -55,6 +58,8 @@ function AstriaSessionSetUp(){
     AstriaSessionSave();
     
   }else{
+    
+    Event('Loading Saved Session Data');
     
     include_once('VerifyAgentAndIP.php');
     include_once('Cache.php');
