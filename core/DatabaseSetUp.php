@@ -23,7 +23,12 @@ function DatabaseSetUp(){
       `GroupID` int(11) NOT NULL,
       `ParentID` int(11) DEFAULT NULL,
       `Name` varchar(255) NOT NULL,
-      `Description` text
+      `Description` text,
+      `Eponym` varchar(255) NOT NULL,
+      `UserInserted` int(11) NOT NULL,
+      `TimeInserted` datetime NOT NULL,
+      `UserUpdated` int(11) DEFAULT NULL,
+      `TimeUpdated` datetime DEFAULT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf16;
     
     ALTER TABLE `UserGroup` ADD PRIMARY KEY (`GroupID`), ADD KEY `ParentID` (`ParentID`);
