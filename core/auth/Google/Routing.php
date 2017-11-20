@@ -112,10 +112,9 @@ function AttemptGoogleAuth(){
     $ASTRIA['Session']['google_oauth2']=array('access_token' => $client->getAccessToken());
     AstriaSessionSave();
     
-    pd($ASTRIA['Session']);
     
-    header('Location: /');
-    exit;
+    //header('Location: /');
+    //exit;
     //TODO (maybe not?) there is no reason to redirect. the next if statement will take care of everything...
   }
   
@@ -160,6 +159,9 @@ function AttemptGoogleAuth(){
     
       Event('Calling "Authenticate User"');
       AuthenticateUser($ASTRIA['Session']['google_oauth2']['user_object']->email);
+    
+      pd($ASTRIA['Session']);
+    
     
   }else{
     Event('Google Auth Check: User is not attempting to log in. Creating login key.');
