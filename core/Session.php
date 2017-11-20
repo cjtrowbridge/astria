@@ -65,6 +65,7 @@ function AstriaSessionSetUp(){
 }
 
 function AstriaSessionSave(){
+  include_once('core/Event.php');
   Event('Saving Astria Session...');
   global $ASTRIA;
   include_once('Cache.php');
