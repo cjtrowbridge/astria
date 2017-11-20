@@ -346,6 +346,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
           <div class="col-xs-12 col-lg-8">
             <input class="form-control   AstriaToggleEditableInputs" type="text" value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
+            <?php
+              pd($ASTRIA['Session']['Schema'][$Schema][$Name]);
+            ?>
           </div>
         </div>
 
