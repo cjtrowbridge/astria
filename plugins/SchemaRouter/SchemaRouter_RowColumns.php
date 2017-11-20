@@ -359,10 +359,22 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
             ?>
           </label>
           <div class="col-xs-12 col-lg-8">
+            <?php
+              switch($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['DATA_TYPE']){
+                case 'varchar':
+            ?>
             <input class="form-control   AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <?php
+                  break;
+                default:
+                  echo '<p>Data Type Input Not Implemented.</p>';
+                  pd($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]);
+              }
+            ?>
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
 
   <?php
+  
 }
