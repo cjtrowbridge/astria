@@ -157,7 +157,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   $Session = null;
   if(isset(
     $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ]
-                    )){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])); }
+                    )){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL']))]; }
   Event('Loading Schema Description Into Session: '.$Session);
   
   include_once('SchemaRouter_AllSchemas.php');
@@ -218,7 +218,7 @@ function SchemaRouter_SchemaDescription($ForceReload = false){
   //save this into the session and then return it.
   $MemoryAllocated = memory_get_usage() - $InitialMemoryAllocated;
   $ASTRIA['Session']['Schema'] = $SchemaDescription;                                   
-  $Session = null;if(isset($_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ])){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])); }
+  $Session = null;if(isset($_COOKIE[ strtolower(md5($ASTRIA['app']['appURL'])) ])){ $Session = $_COOKIE[ strtolower(md5($ASTRIA['app']['appURL']))]; }
   Event('Done Loading Schema Description Into Session: '.$Session.'. Space Allocated: '.($MemoryAllocated/1024).'kb');
   
   AstriaSessionSave();
