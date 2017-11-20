@@ -364,9 +364,8 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                 case 'date':
                 case 'datetime':
                   ?>
-                  <input class="form-control AstriaToggleEditableInputs" type="datetime-local" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ if($Required && $Value==''){echo date('Y-m-dTH:i:s');}else{echo $Value;} } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+                  <input class="form-control AstriaToggleEditableInputs" type="datetime-local" <?php if($Required){echo 'requried="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
                   <?php
-                  pd($Value);
                   break;
                 case 'text':
                 case 'varchar':
