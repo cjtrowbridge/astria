@@ -339,7 +339,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema,$Column,
 }
 
 function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name, $Value = ''){
-  gloabl $ASTRIA;
+  global $ASTRIA;
   ?>
 
         <div class="form-group row">
