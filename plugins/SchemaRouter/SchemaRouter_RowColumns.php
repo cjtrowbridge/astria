@@ -20,6 +20,8 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       include_once('SchemaRouter_RowColumns.Insert_Handler.php');
       SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
       exit;
+    }else{
+      Event('No Insert To Handle');
     }
   
     //Handle update posts
@@ -31,6 +33,8 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       include_once('SchemaRouter_RowColumns.Update_Handler.php');
       SchemaRouter_RowColumns_Update_Handler($Schema, $Table);
       exit;
+    }else{
+      Event('No Update To Handle');
     }
   
     global $SchemaRouter_RowData, $ASTRIA;
