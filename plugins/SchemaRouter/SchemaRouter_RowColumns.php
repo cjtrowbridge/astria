@@ -219,7 +219,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
       }
       
       continue;
-    }
+    }else{Event('Column is not a foreign Key');}
     
     //Check what we need to do with this field. Maybe editable, maybe just viewable, maybe neither.
     if(
