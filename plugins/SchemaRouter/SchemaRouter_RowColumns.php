@@ -486,9 +486,9 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
                 //if(!(isset($Description[0][ Sanitize($FirstTextField) ]))){echo 'Unable to locate reference field for object.';pd($SQL);pd($Description);}
                 
                 foreach($Description as $Reference){
-                  pd($Reference);
-                  echo PHP_EOL."<!-- ".$FirstTextField.": ".$Reference[$FirstTextField]." -->".PHP_EOL;
-                  echo PHP_EOL."<!-- ".$PrimaryKey.": ".$Reference[$PrimaryKey]." -->".PHP_EOL;
+                  //pd($Reference);
+                  //echo PHP_EOL."<!-- ".$FirstTextField.": ".$Reference[$FirstTextField]." -->".PHP_EOL;
+                  //echo PHP_EOL."<!-- ".$PrimaryKey.": ".$Reference[$PrimaryKey]." -->".PHP_EOL;
                   ?>
                   <option value="<?php echo $Reference[$PrimaryKey]; ?>"<?php if($Value==$Reference[$FirstTextField]){echo ' selected="selected"';} ?>>
                     <?php echo $Reference[$FirstTextField]; ?> 
