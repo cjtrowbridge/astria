@@ -472,13 +472,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
               <?php 
                 
                 $Options = array();
-                pd($This);
+                
                 ?>
                 <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>True <?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' (Default)';} ?></option>
                 <?php
                 
               ?>
-            </select>
+            </select><?php pd($This); ?>
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
