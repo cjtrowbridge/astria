@@ -465,7 +465,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
           </label>
           <div class="col-xs-12 col-lg-8">
             
-            <select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+            <!--select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>"-->
               <?php if(!$Required){ ?>
               <option value="">Leave Blank</option>
               <?php } ?>
@@ -494,7 +494,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
                 }
                 
               ?>
-            </select><?php pd($This); ?>
+            <!--/select-->
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
