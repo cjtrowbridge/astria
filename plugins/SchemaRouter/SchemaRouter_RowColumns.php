@@ -471,11 +471,27 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
               <?php } ?>
               <?php 
                 
-                $Options = array();
+                foreach($This['Constraints'] as $Constraint){
+                  if($Constraint['CONSTRAINT_TYPE'] == 'FOREIGN KEY'){
+                    $ForeignKeyConstraint = $Constraint;
+                  }
+                }
+  
+                $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
+                $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
+                $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."`;";
+                $Description = Query($SQL,$Schema);
+                //TODO these errors should be more elegant
+                //if(!(isset($Description[0]))){echo '<p>Unable to locate reference field for object.</p>';pd($SQL);pd($Description);}
+                //if(!(isset($Description[0][ Sanitize($FirstTextField) ]))){echo 'Unable to locate reference field for object.';pd($SQL);pd($Description);}
                 
-                ?>
+                foreach($Description as $Reference){
+                  pd($Reference);
+                /*?>
                 <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>True <?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' (Default)';} ?></option>
                 <?php
+                */
+                }
                 
               ?>
             </select><?php pd($This); ?>
