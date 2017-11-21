@@ -1,6 +1,7 @@
 <?php
 
 function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
+  Event('Handling SchemaRouter Insert...');
   global $ASTRIA;
   
   $Columns = $ASTRIA['Session']['Schema'][$Schema][$Table];
