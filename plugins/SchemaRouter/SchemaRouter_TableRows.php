@@ -160,6 +160,7 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
     if($Column['IsConstraint']['FOREIGN KEY']){
       foreach($Column['Constraints'] as $Constraint){
         if(isset($Constraint['REFERENCED_COLUMN_NAME'])){
+          $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
           $ForeignColumn = $Constraint['REFERENCED_COLUMN_NAME'];
         }
       }
