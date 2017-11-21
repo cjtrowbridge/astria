@@ -166,7 +166,7 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
       }
       $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
 
-      $SQL.="  CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($ForeignColumn)."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
+      $SQL.="  CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($ForeignColumn)."` = x.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
       continue;
     }
     
@@ -194,7 +194,7 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
 
   }
   $SQL = rtrim($SQL,",\n");
-  $SQL.=PHP_EOL." FROM `".$Table."` ".PHP_EOL;
+  $SQL.=PHP_EOL." FROM `".$Table."` x ".PHP_EOL;
   if($Where != false){
     $SQL.=' WHERE '.$Where;
   }
