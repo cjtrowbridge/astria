@@ -465,7 +465,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
           </label>
           <div class="col-xs-12 col-lg-8">
             
-            <!--select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>"-->
+            <select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
               <?php if(!$Required){ ?>
               <option value="">Leave Blank</option>
               <?php } ?>
@@ -479,22 +479,21 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
   
                 $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['PRIMARY KEY'];
                 $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$ForeignKeyConstraint['REFERENCED_TABLE_NAME']]['FirstTextField'];
-                $SQL = "SELECT `".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."`;";
+                $SQL = "SELECT `".Sanitize($PrimaryKey)."`,`".Sanitize($FirstTextField)."` FROM `".Sanitize($ForeignKeyConstraint['REFERENCED_TABLE_NAME'])."`;";
                 $Description = Query($SQL,$Schema);
                 //TODO these errors should be more elegant
                 //if(!(isset($Description[0]))){echo '<p>Unable to locate reference field for object.</p>';pd($SQL);pd($Description);}
                 //if(!(isset($Description[0][ Sanitize($FirstTextField) ]))){echo 'Unable to locate reference field for object.';pd($SQL);pd($Description);}
                 
                 foreach($Description as $Reference){
-                  pd($Reference);
-                /*?>
-                <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>True <?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' (Default)';} ?></option>
+                ?>
+                <option value="<?php echo $Reference[$PrimaryKey]; ?>"<?php if($Value==$Reference[$FirstTextField]){echo ' selected="selected"';} ?>><?php echo $Reference[$FirstTextField]; ?> <?php if($$Value==$Reference[$FirstTextField]){echo ' (Current Value)';} ?></option>
                 <?php
-                */
+                
                 }
                 
               ?>
-            <!--/select-->
+            </select>
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
