@@ -18,15 +18,11 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       intval($_GET['delete']) != 0
     ){
       Event('Calling Delete Handler...');
-      //include_once('SchemaRouter_RowColumns.Insert_Handler.php');
-      //SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
-      die('TODO');
+      Query("DELETE FROM `".Sanitize($Table)."` WHERE `".Sanitize($PrimaryKey)."` = ".intval($_GET['delete']) ,$Schema);
+      header('Location: /'.$Schema.'/'.$Table);
       exit;
     }else{
-      Event('No Insert To Handle:');
-      if(isset($_GET['verbose'])){
-        pd($_POST);
-      }
+      Event('No Delete To Handle:');
     }
   
     //Handle insert posts
