@@ -4,7 +4,8 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
   //TODO add google address autocomplete api
   
   global $ASTRIA;
-  $PrimaryKey = $ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY'];
+  $PrimaryKey     = $ASTRIA['Session']['Schema'][$Schema][$Table]['PRIMARY KEY'];
+  $FirstTextField = $ASTRIA['Session']['Schema'][$Schema][$Table]['FirstTextField'];
   //TODO this could be an update to an existing row
   //TODO or a delete of a row
   //TODO default to returning the row
@@ -14,7 +15,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //Handle insert posts
     if(
       isset($_GET['insert']) &&
-      isset($_POST[$PrimaryKey])
+      isset($_POST[$FirstTextField])
     ){
       Event('Calling Insert Handler...');
       include_once('SchemaRouter_RowColumns.Insert_Handler.php');
