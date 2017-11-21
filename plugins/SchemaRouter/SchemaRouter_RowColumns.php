@@ -159,7 +159,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
   ?>
 
-<div class="card">
+<div class="card" id="deleteEntry" style="display: none;">
   <div class="card-block">
     <div class="card-text">
       <p>Are you sure you want to delete this record?</p>
