@@ -205,18 +205,21 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
     
     //if this is a foreign key, display it as a link to the thing it goes to.
     if($Column['IsConstraint']['FOREIGN KEY'] == true){
-      if($Data==false){
-        //TODO This should be a dropdown eventually. For now this will work. 
-        SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue,$Schema,$Table);
-      }else{
+
+      if(HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME'].'_Edit')){
+        
+        //Editable foreign Key
+        SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Column['COLUMN_NAME'], $Column['COLUMN_NAME'], $FieldValue,$Schema,$Table);
+        
+      }elseif( HasPermission('Schema_'.$Schema.'_Table_'.$Table.'_Column_'.$Column['COLUMN_NAME']) ){
+        
+        //Read only foreign key
         SchemaRouter_RowColumns_Fields_BodyCallback_ForeignKey($Schema, $Column,$FieldValue);
+        
       }
+      
       continue;
     }
-    
-    //TODO foreign keys
-    //these will be a select2 with search
-    
     
     //Check what we need to do with this field. Maybe editable, maybe just viewable, maybe neither.
     if(
@@ -431,6 +434,51 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                   pd($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]);
               }
             ?>
+            <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
+          </div>
+        </div>
+
+  <?php
+  
+}
+
+function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, $Name, $Value = '',$Schema,$Table){
+  global $ASTRIA;
+  $This = $ASTRIA['Session']['Schema'][$Schema][$Table][$Name];
+  if($This['IS_NULLABLE']=='NO'){
+    $Required = true;
+  }else{
+    $Required = false;
+  }
+  ?>
+
+        <div class="form-group row">
+          <label for="<?php echo $Name; ?>" class="col-xs-12 col-lg-4 col-form-label">
+            <?php 
+              
+              echo $Label.':';
+              if($Required){
+                echo '<br><b>Required</b>';
+              }
+              
+            ?>
+          </label>
+          <div class="col-xs-12 col-lg-8">
+            
+            <select class="form-control AstriaToggleEditableInputs" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{ echo $Value; } ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
+              <?php if(!$Required){ ?>
+              <option value="">Leave Blank</option>
+              <?php } ?>
+              <?php 
+                
+                $Options = array();
+                pd($This);
+                ?>
+                <option value="1"<?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' selected="selected"';} ?>>True <?php if($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['COLUMN_DEFAULT']==1){echo ' (Default)';} ?></option>
+                <?php
+                
+              ?>
+            </select>
             <label class="col-form-label AstriaToggleEditableLabels"><?php echo $Value; ?></label>
           </div>
         </div>
