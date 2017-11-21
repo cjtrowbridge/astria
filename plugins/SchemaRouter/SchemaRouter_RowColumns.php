@@ -16,6 +16,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       isset($_GET['insert']) &&
       isset($_POST[$PrimaryKey])
     ){
+      Event('Calling Insert Handler...');
       include_once('SchemaRouter_RowColumns.Insert_Handler.php');
       SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
       exit;
@@ -26,6 +27,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       isset($_GET['update']) &&
       isset($_POST[$PrimaryKey])
     ){
+      Event('Calling Update Handler...');
       include_once('SchemaRouter_RowColumns.Update_Handler.php');
       SchemaRouter_RowColumns_Update_Handler($Schema, $Table);
       exit;
