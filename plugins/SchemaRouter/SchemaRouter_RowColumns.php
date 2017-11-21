@@ -492,7 +492,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableForeignKey($Label, 
                   ?>
                   <option value="<?php echo $Reference[$PrimaryKey]; ?>"<?php if($Value==$Reference[$FirstTextField]){echo ' selected="selected"';} ?>>
                     <?php echo $Reference[$FirstTextField]; ?> 
-                    <?php if($$Value==$Reference[$FirstTextField]){echo ' (Current Value)';} ?>
+                    <?php if($Value==$Reference[$FirstTextField]){echo ' (Current Value)';} ?>
                   </option>
                   <?php
                 }
