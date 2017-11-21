@@ -21,7 +21,10 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
       exit;
     }else{
-      Event('No Insert To Handle');
+      Event('No Insert To Handle:');
+      if(isset($_GET['verbose'])){
+        pd($_POST);
+      }
     }
   
     //Handle update posts
@@ -34,7 +37,10 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
       SchemaRouter_RowColumns_Update_Handler($Schema, $Table);
       exit;
     }else{
-      Event('No Update To Handle');
+      Event('No Update To Handle:');
+      if(isset($_GET['verbose'])){
+        pd($_POST);
+      }
     }
   
     global $SchemaRouter_RowData, $ASTRIA;
