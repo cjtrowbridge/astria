@@ -12,6 +12,24 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //TODO this could be json
     //TODO or the contents of a dom object
   
+    //Handle deletes
+    if(
+      isset($_GET['delete']) &&
+      $_GET['delete'] != '' &&
+      isset($_GET['confirm_delete'])
+    ){
+      Event('Calling Delete Handler...');
+      //include_once('SchemaRouter_RowColumns.Insert_Handler.php');
+      //SchemaRouter_RowColumns_Insert_Handler($Schema, $Table);
+      die('TODO');
+      exit;
+    }else{
+      Event('No Insert To Handle:');
+      if(isset($_GET['verbose'])){
+        pd($_POST);
+      }
+    }
+  
     //Handle insert posts
     if(
       isset($_GET['insert']) &&
@@ -107,7 +125,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
         <a href="javascript:void(0);" onclick="AstriaToggleEditable();"><i class="material-icons">edit</i></a> 
         <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a> 
         <a href="javascript:void(0);" onclick="$('.tableMeta').slideToggle('fast');"><i class="material-icons">info_outline</i></a> 
-        <a href="<?php echo '/'.$Schema.'/'.$Table.'/?delete='.$Row; ?>"><i class="material-icons">delete</i></a>
+        <a href="javascript:void(0);" onclick="onclick="$('#deleteEntry').slideDown();""><i class="material-icons">delete</i></a>
       </div>
       <style>
         .AstriaToggleEditableInputs{
@@ -126,7 +144,6 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   }
   echo '<a href="/'.$Schema.'">'.$DBTitle.'</a> / <a href="/'.$Schema.'/'.$Table.'">'.$Table.'</a> /  <a href="/'.$Schema.'/'.$Table.'/'.$Row.'">'.$Data[ $FirstTextField ].'</a></h1>'.PHP_EOL;
   
-  
   if( 
     count($Referencees)>0 && 
     $Data != false
@@ -141,6 +158,22 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   }
     
   ?>
+
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <p>Are you sure you want to delete this record?</p>
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <a href="javascript:void(0);" onclick="$('#deleteEntry').slideUp();" class="btn btn-block btn-danger">No</a>
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <a href="<?php echo '/'.$Schema.'/'.$Table.'/?delete='.$Row; ?>" class="btn btn-block btn-success">Yes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="card">
   <div class="card-block">
