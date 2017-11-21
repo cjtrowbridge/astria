@@ -15,8 +15,7 @@ function SchemaRouter_RowColumns($Schema, $Table, $Row){
     //Handle deletes
     if(
       isset($_GET['delete']) &&
-      $_GET['delete'] != '' &&
-      isset($_GET['confirm_delete'])
+      intval($_GET['delete']) != 0
     ){
       Event('Calling Delete Handler...');
       //include_once('SchemaRouter_RowColumns.Insert_Handler.php');
