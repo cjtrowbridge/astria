@@ -151,7 +151,7 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
     
     //If the column is a primary key, make it a link to itself and combine the reference field with the key field
     if($Column['IsConstraint']['PRIMARY KEY']){
-      $SQL.="  CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Table)."',".PHP_EOL;
+      $SQL.="  CONCAT('<a href=\"/".$Schema."/".$Table."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',`".Sanitize($FirstTextField)."`,'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
       continue;
     }
     
