@@ -159,13 +159,13 @@ function EnrichTableQuery($Schema, $Table, $Where = false){
     //If the column is a foreign key, make it be a link to that thing
     if($Column['IsConstraint']['FOREIGN KEY']){
       foreach($Column['Constraints'] as $Constraint){
-        if(isset($Constraint['REFERENCED_TABLE_NAME'])){
-          $ForeignTable = $Constraint['REFERENCED_TABLE_NAME'];
+        if(isset($Constraint['REFERENCED_COLUMN_NAME'])){
+          $ForeignColumn = $Constraint['REFERENCED_COLUMN_NAME'];
         }
       }
       $ForeignObjectName = $ASTRIA['Session']['Schema'][$Schema][$ForeignTable]['FirstTextField'];
 
-      $SQL.="  CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($ForeignObjectName)."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
+      $SQL.="  CONCAT('<a href=\"/".$Schema."/".Sanitize($ForeignTable)."/',`".Sanitize($Column['COLUMN_NAME'])."`,'\">',(SELECT `".Sanitize($ForeignObjectName)."` FROM `".Sanitize($ForeignTable)."` WHERE `".Sanitize($ForeignTable)."`.`".Sanitize($ForeignColumn)."` = `".$Table."`.`".Sanitize($Column['COLUMN_NAME'])."`),'</a>') as '".Sanitize($Column['COLUMN_NAME'])."',".PHP_EOL;
       continue;
     }
     
