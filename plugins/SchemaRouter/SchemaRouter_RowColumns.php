@@ -125,7 +125,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
         <a href="javascript:void(0);" onclick="AstriaToggleEditable();"><i class="material-icons">edit</i></a> 
         <a href="#"><i title="View Previous Versions" class="material-icons">history</i></a> 
         <a href="javascript:void(0);" onclick="$('.tableMeta').slideToggle('fast');"><i class="material-icons">info_outline</i></a> 
-        <a href="javascript:void(0);" onclick="onclick="$('#deleteEntry').slideDown();""><i class="material-icons">delete</i></a>
+        <a href="javascript:void(0);" onclick="$('#deleteEntry').slideDown();"><i class="material-icons">delete</i></a>
       </div>
       <style>
         .AstriaToggleEditableInputs{
