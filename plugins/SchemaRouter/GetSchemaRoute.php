@@ -29,7 +29,8 @@ function GetSchemaRoute($Schema = false, $Table = false, $Row = false){
         //check if we are doing an insert/update, in which case this is not a table route but a row route
         if(
           isset($_GET['insert']) || 
-          isset($_GET['update'])
+          isset($_GET['update']) || 
+          isset($_GET['delete'])
         ){
           $RouteType = 'row';
         }else{
