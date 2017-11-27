@@ -44,7 +44,7 @@ function RepoTracker_CheckNowForUpdates(){
     <?php
   }else{
     ?>
-      <p>Checked already today; all local repository master heads match origin master branches.</p>
+      <p>Checked already today; all local repository master branches match their origin master branches.</p>
       <a href="/repotracker/refresh" class="btn btn-success">Check Again</a>
     <?php
   }
