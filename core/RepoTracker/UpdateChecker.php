@@ -1,6 +1,7 @@
 <?php
 
 Hook('User Is Logged In','RepoTracker_MaybeCheckForUpdates();');
+Hook('Architect Homepage','RepoTracker_CheckForUpdates();');
 
 function RepoTracker_MaybeCheckForUpdates(){
   if(isset($_GET['RepoTrackerCheckForUpdates'])){
