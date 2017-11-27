@@ -10,10 +10,6 @@ function RepoTrackerLoad(){
   }
 }
 
-function RepoTracker_CheckForUpdates(){
-  
-}
-
 Hook('User Is Logged In','RepoTracker_MaybeCheckForUpdates();');
 function RepoTracker_MaybeCheckForUpdates(){
   if(isset($_GET['RepoTrackerCheckForUpdates'])){
