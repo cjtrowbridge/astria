@@ -22,11 +22,11 @@ function RepoTrackerRouting(){
     
     switch(path(1)){
       case 'refresh':
-        include('Page.Refresh.php');
+        include_once('Page.Refresh.php');
         RepoTracker_Refresh();
         break;
       case false:
-        include_once('plugins/RepoTracker/Page.Home.php');
+        include_once('Page.Home.php');
         RepoTracker_Homepage();
         break;
     }
