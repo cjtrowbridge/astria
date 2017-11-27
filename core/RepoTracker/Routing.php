@@ -3,7 +3,6 @@
 include_once('Cron.php');
 include_once('UpdateChecker.php');
 
-Hook('Architect Notifications','RepoTracker_CheckForUpdates();');
 Hook('User Is Logged In','RepoTrackerLoad();');
 
 function RepoTrackerLoad(){
