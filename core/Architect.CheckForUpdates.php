@@ -1,13 +1,14 @@
 <?php
 
-Hook('User Is Logged In','MaybeCheckForUpdates();');
+Hook('Architect Notifications','Architect_CheckForUpdates();');
+Hook('User Is Logged In','Architect_MaybeCheckForUpdates();');
 
-function MaybeCheckForUpdates(){
+function Architect_MaybeCheckForUpdates(){
   if(isset($_GET['checkForUpdates'])){
     if(
       IsAstriaAdmin()
     ){
-      CheckNowForUpdates();
+      Architect_CheckNowForUpdates();
       exit;
     }else{
       die('You do not have permission to check for updates. ');
@@ -15,10 +16,9 @@ function MaybeCheckForUpdates(){
   }
 }
 
-function CheckForUpdates(){
+function Architect_CheckForUpdates(){
   ?>
-<span id="updatesChecker"><img src="/img/ajax-loader.gif" title="Checking For Updates..."></span>
-
+<span id="checkForUpdates"><span id="updatesChecker"><img src="/img/ajax-loader.gif" title="Checking For Updates..."></span></span>
 <script>
   $.get("/?checkForUpdates",function(data){
     $('#updatesChecker').html(data);
@@ -28,7 +28,7 @@ function CheckForUpdates(){
   <?php
 }
 
-function CheckNowForUpdates(){
+function Architect_CheckNowForUpdates(){
   Event("Begining Checking For Updates");
   global $ASTRIA;
   $Local  = gitLocalHash();
