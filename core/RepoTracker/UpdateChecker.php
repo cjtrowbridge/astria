@@ -44,7 +44,7 @@ function RepoTracker_CheckNowForUpdates(){
     <?php
   }else{
     ?>
-      Checked already today. Everything is up to date. <i class="material-icons" title="Up To Date">done</i><br>
+      <p>Checked already today. Everything is up to date. <i class="material-icons" title="Up To Date">done</i></p>
       <a href="/repotracker/refresh" class="btn btn-success">Check Again</a>
     <?php
   }
