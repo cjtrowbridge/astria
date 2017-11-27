@@ -29,18 +29,12 @@ function RepoTracker_CheckForUpdates(){
 
 function RepoTracker_CheckNowForUpdates(){
   
-  /*
-  RepoTrackerRefresh();
-  RepoTracker_VerifyLocalHashes();
-  RepoTracker_VerifyRemoteHashes();
-  RepoTracker_PullBleedingEdgeRepos();
-  */
-  
   $AvailableUpdates = Query("SELECT COUNT(*) AS 'Updates' FROM Repository WHERE LocalHash NOT LIKE RemoteHash;");
   
   if($AvailableUpdates[0]['Updates']>0){
     echo '<a href="/repotracker">Updates Available <i class="material-icons" title="Updates Available" style="color: red;">system_update_alt</i></a>';
   }else{
-    ?>Checked Today; Up To Date <i class="material-icons" title="Up To Date">done</i><?php
+    ?><span class="small text-muted">Checked Today; Up To Date</span> <i class="material-icons" title="Up To Date">done</i><?php
   }
+  
 }
