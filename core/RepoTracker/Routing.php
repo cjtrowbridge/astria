@@ -58,14 +58,6 @@ function RepoTracker_VerifyTables(){
   }
 }
 
-
-function ClearGitRepositoriesMetadata($Verbose = false){
-  Query("TRUNCATE Repositories;");
-  if($Verbose){
-    echo '<p>Metadata cleared.</p>';
-  }
-}
-  
 function FindGitRepositoriesRecursive($Path = false){
   if($Path==false){
     $Path = $_SERVER['DOCUMENT_ROOT'];
