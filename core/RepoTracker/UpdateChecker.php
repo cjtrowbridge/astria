@@ -21,7 +21,7 @@ function RepoTracker_CheckForUpdates(){
 <div class="card">
   <div class="card-block">
     <div class="card-text">
-      <h4>Updates</h4>
+      <h4><a href="/repotracker">RepoTracker</a> - Updates</h4>
       <p id="RepoTrackerUpdatesChecker">Checking...<img src="/img/ajax-loader.gif" title="Checking With RepoTracker For Updates..."></p>
       <script>
         $.get("/?RepoTrackerCheckForUpdates",function(data){
