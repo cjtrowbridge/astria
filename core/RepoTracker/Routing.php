@@ -46,7 +46,8 @@ function RepoTracker_VerifyTables(){
         `Path` VARCHAR(255) NOT NULL , 
         `LocalHash` VARCHAR(255) NULL , 
         `RemoteHash` VARCHAR(255) NULL ,  
-        `BleedingEdge` BOOLEAN NOT NULL DEFAULT FALSE , 
+        `BleedingEdge` BOOLEAN NOT NULL DEFAULT FALSE ,
+        `LastChecked` DATETIME NULL,
         PRIMARY KEY (`RepositoryID`), 
         INDEX (`Path`)
       ) ENGINE = InnoDB;
@@ -138,7 +139,7 @@ function RepoTracker_VerifyLocalHashes($Verbose = false){
       $Hash = trim($Hash);
       if($Hash != $Repo['LocalHash']){
         if($Verbose){echo '<p>Updating LocalHash in database for repository: "'.$Repo['Path'].'".</p>';}
-        Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
+        Query('UPDATE Repository SET LocalHash = "'.Sanitize($Hash).'", LastChecked = NOW() WHERE RepositoryID = '.intval($Repo['RepositoryID']));
       }
     }else{
       if($Verbose){echo '<p>No master branch hash file found for repo: "'.$Repo['Path'].'".</p>';}
@@ -171,7 +172,7 @@ function RepoTracker_VerifyRemoteHashes($Verbose = false){
     if(!(isset($Result['commit']))){continue;}
     if(!(isset($Result['commit']['sha']))){continue;}
     $Result = trim($Result['commit']['sha']);
-    Query('UPDATE Repository SET RemoteHash = "'.Sanitize($Result).'" WHERE RepositoryID = '.intval($Repo['RepositoryID']));
+    Query('UPDATE Repository SET RemoteHash = "'.Sanitize($Result).'", LastChecked = NOW() WHERE RepositoryID = '.intval($Repo['RepositoryID']));
   }
 }
 
