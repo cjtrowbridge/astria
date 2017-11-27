@@ -1,5 +1,8 @@
 <?php
 
+include_once('Cron.php');
+include_once('UpdateChecker.php');
+
 Hook('Architect Notifications','RepoTracker_CheckForUpdates();');
 Hook('User Is Logged In','RepoTrackerLoad();');
 
@@ -9,50 +12,6 @@ function RepoTrackerLoad(){
     Hook('Architect Tools 1','RepoTracker_ArchitectButton();');
   }
 }
-
-Hook('User Is Logged In','RepoTracker_MaybeCheckForUpdates();');
-function RepoTracker_MaybeCheckForUpdates(){
-  if(isset($_GET['RepoTrackerCheckForUpdates'])){
-    if(
-      IsAstriaAdmin()
-    ){
-      RepoTracker_CheckNowForUpdates();
-      exit;
-    }else{
-      die('You do not have permission to check for updates with RepoTracker. ');
-    }
-  }
-}
-function RepoTracker_CheckForUpdates(){
-  ?>
-<span id="RepoTrackerUpdatesChecker"><img src="/img/ajax-loader.gif" title="Checking With RepoTracker For Updates..."></span>
-<script>
-  $.get("/?RepoTrackerCheckForUpdates",function(data){
-    $('#RepoTrackerUpdatesChecker').html(data);
-  });
-</script>
-
-  <?php
-}
-
-function RepoTracker_CheckNowForUpdates(){
-  
-  /*
-  RepoTrackerRefresh();
-  RepoTracker_VerifyLocalHashes();
-  RepoTracker_VerifyRemoteHashes();
-  RepoTracker_PullBleedingEdgeRepos();
-  */
-  
-  $AvailableUpdates = Query("SELECT COUNT(*) AS 'Updates' FROM Repository WHERE LocalHash NOT LIKE RemoteHash;");
-  
-  if($AvailableUpdates[0]['Updates']>0){
-    echo '<a href="/repotracker">Updates Available <i class="material-icons" title="Updates Available" style="color: red;">system_update_alt</i></a>';
-  }else{
-    ?>Checked Today; Up To Date <i class="material-icons" title="Up To Date">done</i><?php
-  }
-}
-
 
 function RepoTracker_ArchitectButton(){
   ?>
@@ -129,15 +88,6 @@ function FindGitRepositoriesRecursive($Path = false){
 
   return $Temp;
 }
-
-
-Hook('Daily Cron','RepoTracker_CronRefresh();');
-function RepoTracker_CronRefresh(){
-  RepoTrackerRefresh();
-  RepoTracker_VerifyLocalHashes();
-  RepoTracker_PullBleedingEdgeRepos();
-}
-
 
 function RepoTracker_PullBleedingEdgeRepos($Verbose = false){
   $SQL = "SELECT * FROM Repository WHERE LocalHash NOT LIKE RemoteHash AND LocalHash IS NOT NULL AND LocalHash NOT LIKE '' AND BleedingEdge = 1";
