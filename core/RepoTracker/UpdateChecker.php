@@ -17,13 +17,19 @@ function RepoTracker_MaybeCheckForUpdates(){
 
 function RepoTracker_CheckForUpdates(){
   ?>
-<span id="RepoTrackerUpdatesChecker"><img src="/img/ajax-loader.gif" title="Checking With RepoTracker For Updates..."></span>
-<script>
-  $.get("/?RepoTrackerCheckForUpdates",function(data){
-    $('#RepoTrackerUpdatesChecker').html(data);
-  });
-</script>
-
+<div class="card">
+  <div class="card-block">
+    <div class="card-text">
+      <h4>Updates</h4>
+      <p id="RepoTrackerUpdatesChecker">Checking...<img src="/img/ajax-loader.gif" title="Checking With RepoTracker For Updates..."></p>
+      <script>
+        $.get("/?RepoTrackerCheckForUpdates",function(data){
+          $('#RepoTrackerUpdatesChecker').html(data);
+        });
+      </script>
+    </div>
+  </div>
+</div>
   <?php
 }
 
@@ -32,9 +38,14 @@ function RepoTracker_CheckNowForUpdates(){
   $AvailableUpdates = Query("SELECT COUNT(*) AS 'Updates' FROM Repository WHERE LocalHash NOT LIKE RemoteHash;");
   
   if($AvailableUpdates[0]['Updates']>0){
-    echo '<a href="/repotracker">Updates Available <i class="material-icons" title="Updates Available" style="color: red;">system_update_alt</i></a>';
+    ?>
+      Updates Available! <a href="/repotracker" class="btn btn-danger">Update Now</a>
+    <?php
   }else{
-    ?><span class="small text-muted">Checked Today; Up To Date</span> <i class="material-icons" title="Up To Date">done</i><?php
+    ?>
+      Checked already today. Everything is up to date. <i class="material-icons" title="Up To Date">done</i><br>
+      <a href="/repotracker/refresh" class="btn btn-success">Check Again</a>
+    <?php
   }
   
 }
