@@ -36,7 +36,10 @@ function SchemaRouter_TableRows_DOM_Page($Schema,$Table){
   SchemaRouter_QueryCard();
   
   //make sure this table exists
-  if(MakeSureTableExists($Schema,$Table)==false){return;}
+  if(MakeSureTableExists($Schema,$Table)==false){
+    echo '<p>(<a href="./?challengeSession">Try Again</a>)</p>';
+    return;
+  }
   
   if(isset($_GET['search'])){
 
@@ -272,6 +275,7 @@ function MakeSureTableExists($Schema,$Table){
     isset($ASTRIA['Session']['Schema'][$Schema])&&
     isset($ASTRIA['Session']['Schema'][$Schema][$Table])
   )){
+    //TODO Add something which checks how many times this session has been reloaded in order to prevent attacks
     echo '<p>Unable to find that table! You may need to log out and back in, if your premissions have changed.</p>';
     return false;
   }
