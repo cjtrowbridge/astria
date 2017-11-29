@@ -424,6 +424,11 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                   <?php
                   break;
                 case 'text':
+                case 'longtext':
+                  ?>
+                  <textarea class="form-control AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'required="true" ';} ?>id="<?php echo $Name; ?>" name="<?php echo $Name; ?>"><?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?></textarea>
+                  <?php
+                  break;
                 case 'varchar':
                   ?>
                   <input class="form-control AstriaToggleEditableInputs" type="text" <?php if($Required){echo 'required="true" ';} ?>value="<?php if(isset($_GET[$Name])){echo $_GET[$Name];}else{echo $Value;} ?>" id="<?php echo $Name; ?>" name="<?php echo $Name; ?>">
