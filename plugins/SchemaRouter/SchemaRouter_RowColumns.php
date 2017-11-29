@@ -448,7 +448,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                 ){
                   $Value = htmlentities($Value);
                   $Value = str_replace(PHP_EOL,'<br>',$Value);
-                  $Value = str_replace(' ','&nbsp;',$Value);
+                  $Value = str_replace(' ',' &nbsp;',$Value);
                 }
                 echo $Value; 
               ?>
