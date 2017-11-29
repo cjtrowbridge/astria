@@ -439,7 +439,7 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                   pd($ASTRIA['Session']['Schema'][$Schema][$Table][$Name]);
               }
             ?>
-            <label class="col-form-label AstriaToggleEditableLabels"><?php echo htmlentities($Value); ?></label>
+            <label class="col-form-label AstriaToggleEditableLabels"><pre><?php echo htmlentities($Value); ?></pre></label>
           </div>
         </div>
 
