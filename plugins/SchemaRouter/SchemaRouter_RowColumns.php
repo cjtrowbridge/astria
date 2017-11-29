@@ -445,10 +445,13 @@ function SchemaRouter_RowColumns_Fields_BodyCallback_EditableText($Label, $Name,
                   $ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['DATA_TYPE']=='text' ||
                   $ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['DATA_TYPE']=='longtext' ||
                   $ASTRIA['Session']['Schema'][$Schema][$Table][$Name]['DATA_TYPE']=='varchar'
-                ){ 
+                ){
+                  $Value = htmlentities($Value);
+                  $Value = str_replace(PHP_EOL,'<br>',$Value);
+                  $Value = str_replace(' ','&nbsp;',$Value);
+                }
+                echo $Value; 
               ?>
-              <?php echo htmlentities($Value); ?>
-              <?php } ?>
             </label>
           </div>
         </div>
