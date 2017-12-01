@@ -5,7 +5,8 @@
 Hook('User Is Logged In','CrawlerLoad();');
 function CrawlerLoad(){
   if(HasPermission('Architect_Crawler')){
-    Hook('User Is Logged In - Presentation','Architect_Crawler_Routing();');
+    //this happens already in the main architect router
+    //Hook('User Is Logged In - Presentation','Architect_Crawler_Routing();');
     Hook('Architect Tools 1','Crawler_ArchitectButton();');
   }
 }
@@ -18,7 +19,8 @@ function Crawler_ArchitectButton(){
 function Architect_Crawler_Routing(){
   if(
     path(0)=='architect' &&
-    path(1)=='crawler'
+    path(1)=='crawler' &&
+    HasPermission('Architect_Crawler')
   ){
     
     switch(path(1)){
