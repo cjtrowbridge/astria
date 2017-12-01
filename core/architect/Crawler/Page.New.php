@@ -26,14 +26,14 @@ function Architect_Crawler_New_BodyCallback(){
         
         if(isset($_POST['Architect_Crawler_URL'])){
       ?>
-      <input tupe="hidden" name="step2" value="step2">
+      <input type="hidden" name="step2" value="step2">
       <div class="col-xs-12">
         <div class="card">
           <div class="card-block">
             <div class="card-text">
               <h4>Select Which Arguments Will Be Variables:</h4>
               <?php
-                $URL = parse_url($_POST['inputURL']);
+                $URL = parse_url($_POST['Architect_Crawler_URL']);
                 pd($URL);
                 echo '<input type="hidden" name="Architect_Crawler_Protocol" value="'.$URL['scheme'].'">';
                 echo '<input type="hidden" name="Architect_Crawler_Domain" value="'.$URL['host'].'">';
