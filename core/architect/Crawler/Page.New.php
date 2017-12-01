@@ -21,6 +21,7 @@ function Architect_Crawler_New_BodyCallback(){
         
         if(isset($_POST['inputURL'])){
       ?>
+      <div class="col-xs-12">
         <div class="card">
           <div class="card-block">
             <div class="card-text">
@@ -35,6 +36,7 @@ function Architect_Crawler_New_BodyCallback(){
             </div>
           </div>
         </div>
+      </div>
       <?php
         }
         
