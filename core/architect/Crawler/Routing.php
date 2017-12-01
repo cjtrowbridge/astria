@@ -12,7 +12,7 @@ function CrawlerLoad(){
 
 function Crawler_ArchitectButton(){
   ?>
-  <a class="btn btn-outline-success" href="/architect/crawler/"><i class="material-icons">system_update_alt</i> Crawler</a>
+  <a class="btn btn-outline-success" href="/architect/crawler/"><i class="material-icons">cloud_download</i> Crawler</a>
   <?php
 }
 function Architect_Crawler_Routing(){
