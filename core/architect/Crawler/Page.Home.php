@@ -7,7 +7,7 @@ function Architect_Crawler_Homepage(){
 }
 
 function Architect_Crawler_Homepage_BodyCallback(){
-  ?>
-  <h1>Architect / Crawler / New</h1>
+  ?><h1><a href="/architect">Architect</a> / <a href="/architect/crawler">Crawler</a> / <a href="/architect/crawler/new">New</a></h1>
+
   <?php
 }
