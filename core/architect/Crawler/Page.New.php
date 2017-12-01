@@ -1,7 +1,10 @@
 <?php
 
 function Architect_Crawler_New(){
-  if(isset($_POST['Architect_Crawler_URL'])){
+  if(
+    isset($_POST['Architect_Crawler_URL']) &&
+    isset($_POST['step2'])
+  ){
     pd($_POST);
     exit;
   }
@@ -23,6 +26,7 @@ function Architect_Crawler_New_BodyCallback(){
         
         if(isset($_POST['Architect_Crawler_URL'])){
       ?>
+      <input tupe="hidden" name="step2" value="step2">
       <div class="col-xs-12">
         <div class="card">
           <div class="card-block">
