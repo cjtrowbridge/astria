@@ -19,8 +19,8 @@ function Architect_Crawler_Homepage_BodyCallback(){
             <h4><?php echo $Crawler['Name']; ?></h4>
             <p><?php echo $Crawler['Description']; ?></p>
             
-            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'..$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
-            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'..$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMax']%$Crawler['RangeIncrement']; ?>">Test Last Page Link</a>
+            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'.$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
+            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'.$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMax']%$Crawler['RangeIncrement']; ?>">Test Last Page Link</a>
             
           </div>
         </div>
