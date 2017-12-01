@@ -1,4 +1,17 @@
 <?php
+/*
+TODO
+make feedsync be able to create schema based on feeds
+build astria team manager
+create a persistent verbosity option with some sort of agent/ip check
+abstract the astria complex variable caching feature into a core function. move the session things into that
+make plugins not load all subdirectories recursively automatically. Instead, just the main routing file.
+update database script with the self-referential foreign key for usergroup parent, and add a patch.
+make foreign keys for usergroupmembership table
+Set a minimum session challenge interval
+make the plugins be downloadable
+make a patch to update collation to utf8mb4
+*/
 
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
