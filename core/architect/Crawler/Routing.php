@@ -24,13 +24,9 @@ function Architect_Crawler_Routing(){
   ){
     Event('Architect_Crawler_Routing');
     switch(path(2)){
-      case 'new':
-        include_once('Page.New.php');
-        Architect_Crawler_New();
-        break;
       case false:
-        include_once('VerifyTables.php');
-        Architect_Crawler_VerifyTables();
+        //include_once('VerifyTables.php');
+        //Architect_Crawler_VerifyTables();
         
         include_once('Page.Home.php');
         Architect_Crawler_Homepage();
