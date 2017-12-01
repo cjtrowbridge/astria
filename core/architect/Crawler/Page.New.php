@@ -45,7 +45,7 @@ function Architect_Crawler_New_BodyCallback(){
                   ?>
                   <div class="form-check">
                     <label class="form-check-label">
-                      <input type="checkbox" class="form-check-input" name="Architect_Crawler_Variables" value="<?php echo $Key; ?>">
+                      <input type="checkbox" checked="checked" class="form-check-input" name="Architect_Crawler_Variables" value="<?php echo $Key; ?>">
                       <input type="hidden" name="Architect_Crawler_Variables_<?php echo $Key; ?>" value="<?php echo $Value; ?>">
                       &quot;<?php echo $Key; ?>&quot;-&gt;&quot;<?php echo $Value; ?>&quot;
                     </label>
