@@ -28,6 +28,10 @@ function PresentArchitect(){
     
     include_once('ArchitectHomepage.php');
     switch(path(1)){
+      case 'crawler':
+        //this is already included by the architect plugins file
+        Architect_Crawler_Routing();
+        break;
       case 'create-webhook-pull-subrepository':
         include_once('GetSubrepositoryPullWebhook.php');
         GetSubrepositoryPullWebhook();
