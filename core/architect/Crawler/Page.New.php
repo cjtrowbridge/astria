@@ -1,8 +1,10 @@
 <?php
 
 function Architect_Crawler_New(){
-  
-  
+  if(isset($_POST['Architect_Crawler_URL'])){
+    pd($_POST);
+    exit;
+  }
   TemplateBootstrap4('New - Crawler - Architect','Architect_Crawler_New_BodyCallback();');
 }
 
@@ -13,25 +15,39 @@ function Architect_Crawler_New_BodyCallback(){
       <div class="col-xs-12">
         <div class="form-group">
           <label for="inputURL">URL</label>
-          <input type="text" class="form-control" name="inputURL" id="inputURL" aria-describedby="inputURLHelp" placeholder="Enter URL" <?php if(isset($_POST['inputURL'])){echo ' value="'.$_POST['inputURL'].'"';} ?>>
+          <input type="text" class="form-control" name="Architect_Crawler_URL" id="inputURL" aria-describedby="inputURLHelp" placeholder="Enter URL" <?php if(isset($_POST['inputURL'])){echo ' value="'.$_POST['inputURL'].'"';} ?>>
           <small id="inputURLHelp" class="form-text text-muted">This is the URL for one example page containing the variable. For example, the first search result page.</small>
         </div>
       </div>
       <?php
         
-        if(isset($_POST['inputURL'])){
+        if(isset($_POST['Architect_Crawler_URL'])){
       ?>
       <div class="col-xs-12">
         <div class="card">
           <div class="card-block">
             <div class="card-text">
-              <h4>URL Dissection:</h4>
+              <h4>Select Which Arguments Will Be Variables:</h4>
               <?php
                 $URL = parse_url($_POST['inputURL']);
                 pd($URL);
+                echo '<input type="hidden" name="Architect_Crawler_Protocol" value="'.$URL['scheme'].'">';
+                echo '<input type="hidden" name="Architect_Crawler_Domain" value="'.$URL['host'].'">';
+                echo '<input type="hidden" name="Architect_Crawler_Path" value="'.$URL['path'].'">';
+                echo '<input type="hidden" name="Architect_Crawler_Query" value="'.$URL['query'].'">';
+          
                 parse_str($URL['query'],$Arguments);
-                pd($Arguments);
-                
+                foreach($Arguments as $Key => $Value){
+                  ?>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" class="form-check-input" name="Architect_Crawler_Variables" value="<?php echo $Key; ?>">
+                      <input type="hidden" name="Architect_Crawler_Variables_<?php echo $Key; ?>" value="<?php echo $Value; ?>">
+                      &quot;<?php echo $Key; ?>&quot;-&gt;&quot;<?php echo $Value; ?>&quot;
+                    </label>
+                  </div>
+                  <?php
+                }
               ?>
             </div>
           </div>
