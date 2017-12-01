@@ -29,6 +29,9 @@ function Architect_Crawler_Routing(){
         Architect_Crawler_New();
         break;
       case false:
+        include_once('VerifyTables.php');
+        Architect_Crawler_VerifyTables();
+        
         include_once('Page.Home.php');
         Architect_Crawler_Homepage();
         break;
