@@ -22,7 +22,7 @@ function Architect_Crawler_Routing(){
     path(1)=='crawler' &&
     HasPermission('Architect_Crawler')
   ){
-    
+    Event('Architect_Crawler_Routing');
     switch(path(1)){
       case 'new':
         include_once('Page.New.php');
