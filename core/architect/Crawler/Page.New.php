@@ -13,7 +13,7 @@ function Architect_Crawler_New_BodyCallback(){
       <div class="col-xs-12">
         <div class="form-group">
           <label for="inputURL">URL</label>
-          <input type="text" class="form-control" name="inputURL" id="inputURL" aria-describedby="inputURLHelp" placeholder="Enter URL">
+          <input type="text" class="form-control" name="inputURL" id="inputURL" aria-describedby="inputURLHelp" placeholder="Enter URL" <?php if(isset($_POST['inputURL'])){echo ' value="'.$_POST['inputURL'].'"';} ?>>
           <small id="inputURLHelp" class="form-text text-muted">This is the URL for one example page containing the variable. For example, the first search result page.</small>
         </div>
       </div>
