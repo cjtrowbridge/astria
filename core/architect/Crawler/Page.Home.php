@@ -10,9 +10,22 @@ function Architect_Crawler_Homepage_BodyCallback(){
   ?><h1><a href="/architect">Architect</a> / <a href="/architect/crawler">Crawler</a></h1>
   
   <?php 
-    $Crawlers = Query('SELECT * FROM Crawlers');
+    $Crawlers = Query('SELECT * FROM Crawler');
     foreach($Crawlers as $Crawler){
-      pd($Crawler);
+      ?>
+      <div class="card">
+        <div class="card-block">
+          <div class="card-text">
+            <h4><?php echo $Crawler['Name']; ?></h4>
+            <p><?php echo $Crawler['Description']; ?></p>
+            
+            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'..$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
+            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['Variable1'].'=x&'..$Crawler['Variable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMax']%$Crawler['RangeIncrement']; ?>">Test Last Page Link</a>
+            
+          </div>
+        </div>
+      </div>
+      <?php
     }
   
 }
