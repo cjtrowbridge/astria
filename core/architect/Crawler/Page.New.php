@@ -15,7 +15,7 @@ function Architect_Crawler_New_BodyCallback(){
       <div class="col-xs-12">
         <div class="form-group">
           <label for="inputURL">URL</label>
-          <input type="text" class="form-control" name="Architect_Crawler_URL" id="inputURL" aria-describedby="inputURLHelp" placeholder="Enter URL" <?php if(isset($_POST['inputURL'])){echo ' value="'.$_POST['inputURL'].'"';} ?>>
+          <input type="text" class="form-control" name="Architect_Crawler_URL" id="Architect_Crawler_URL" aria-describedby="inputURLHelp" placeholder="Enter URL" <?php if(isset($_POST['Architect_Crawler_URL'])){echo ' value="'.$_POST['Architect_Crawler_URL'].'"';} ?>>
           <small id="inputURLHelp" class="form-text text-muted">This is the URL for one example page containing the variable. For example, the first search result page.</small>
         </div>
       </div>
