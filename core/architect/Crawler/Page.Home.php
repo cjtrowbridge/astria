@@ -12,6 +12,10 @@ function Architect_Crawler_Homepage_BodyCallback(){
   <?php 
     $Crawlers = Query('SELECT * FROM Crawler');
     foreach($Crawlers as $Crawler){
+      
+      $Query1Value = 'plumbers'
+      $Query2Value = '95603';
+      
       ?>
       <div class="card">
         <div class="card-block">
@@ -19,8 +23,8 @@ function Architect_Crawler_Homepage_BodyCallback(){
             <h4><?php echo $Crawler['Name']; ?></h4>
             <p><?php echo $Crawler['Description']; ?></p>
             
-            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'=x&'.$Crawler['QueryVariable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
-            <a class="btn" btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'=x&'.$Crawler['QueryVariable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMax']%$Crawler['RangeIncrement']; ?>">Test Last Page Link</a>
+            <a class="btn btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'=x&'.$Crawler['QueryVariable2'].'=y&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
+            <a class="btn btn-success btn-block" href="<?php echo $Crawler['Protocol'].':'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'=x&'.$Crawler['QueryVariable2'].'=y&'.$Crawler['RangeVariable'].'='.($Crawler['RangeMax']-$Crawler['RangeMax']%$Crawler['RangeIncrement']); ?>">Test Last Page Link</a>
             
           </div>
         </div>
