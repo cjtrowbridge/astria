@@ -13,7 +13,7 @@ function Architect_Crawler_Homepage_BodyCallback(){
     $Crawlers = Query('SELECT * FROM Crawler');
     foreach($Crawlers as $Crawler){
       
-      $Query1Value = 'plumbers';
+      $Query1Value = 'plumbing';
       $Query2Value = '95603';
       
       ?>
