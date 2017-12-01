@@ -1,13 +1,20 @@
 <?php
 
 function Architect_Crawler_New(){
-  if(
+  /*if(
     isset($_POST['Architect_Crawler_URL']) &&
     isset($_POST['step2'])
   ){
-    pd($_POST);
+    $Variables
+    Query("
+      INSERT INTO Crawler(
+        `Protocol`,`Domain`,`Path`,`Query`
+      )VALUES(
+        '".Sanitize($_POST['Protocol'])."','".Sanitize($_POST['Domain'])."','".Sanitize($_POST['Path'])."','".Sanitize($_POST['Query'])."'
+      )
+    ");
     exit;
-  }
+  }*/
   TemplateBootstrap4('New - Crawler - Architect','Architect_Crawler_New_BodyCallback();');
 }
 
