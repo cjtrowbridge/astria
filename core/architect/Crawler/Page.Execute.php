@@ -78,7 +78,11 @@ function Architect_Crawler_Execute_BodyCallback(){
   ?>
 
   <script>
-    $('#todo a:first-of-type').click();
+    
+    function call(){
+      console.log($(this).text());
+    }
+    $("#todo a").click(call(););
   </script>
   <?php
   exit;
