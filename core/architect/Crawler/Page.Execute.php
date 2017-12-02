@@ -56,7 +56,7 @@ function Architect_Crawler_Execute(){
     }
     
     Query($SQL);
-    header('Location: cache/Crawler/'.intval($_GET['execute']).'.html');
+    header('Location: ./?show='.intval($_GET['execute']));
     exit;
   }
   
