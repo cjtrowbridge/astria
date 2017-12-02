@@ -20,7 +20,7 @@ function Architect_Crawler_Execute(){
     $Task = $Task[0];
     $Data = FetchURL($Task['URL']);
     Query("UPDATE CrawlerTask SET Data = '".Sanitize($Data)."' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';");
-    echo $Data;
+    echo Sanitize($Data);
     exit;
   }
   
