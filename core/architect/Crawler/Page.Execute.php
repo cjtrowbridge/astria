@@ -58,6 +58,7 @@ function Architect_Crawler_Execute(){
 }
   
 function Architect_Crawler_Execute_BodyCallback(){
+  $CrawlerID = intval(path(3));
   
   echo '<h1>Todo</h1>';
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
