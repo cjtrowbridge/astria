@@ -65,7 +65,7 @@ function Architect_Crawler_Execute_BodyCallback(){
   foreach($Tasks as $Task){
     $URL = '/architect/Crawler/execute/'.$Task['CrawlerID'].'/?execute='.$Task['CrawlerTaskID'];
     ?>
-    <p><a href="javascript:void(0);" data-uri="<?php echo $Task['URL']; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
+    <p><a href="javascript:void(0);" data-uri="<?php echo $URL; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
     <?php
   }
   
@@ -84,7 +84,8 @@ function Architect_Crawler_Execute_BodyCallback(){
       $.get( $(this).data('uri') , function(data){
         $("#todo a:first-of-type").click();
       });
-      $(this).remove();
+      timer = Math.random() * (5000 - 1000) + 1000;
+      setTimeout($(this).remove(),timer);
     });
     $("#todo a:first-of-type").click();
   </script>
