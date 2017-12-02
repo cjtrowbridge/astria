@@ -12,6 +12,17 @@ function Architect_Crawler_Execute(){
   }
   $Crawler=$Crawler[0];
   
+  if(isset($_GET['execute'])){
+    $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
+    if(!isset($Task[0])){
+      die('Task Not Found');
+    }
+    $Data = FetchURL($Task['URL']);
+    Query("UPDATE CrawlerTask SET Data = '".Sanitize($Data)."' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';");
+    echo $Data;
+    exit;
+  }
+  
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   
   foreach($Tasks as $Task){
