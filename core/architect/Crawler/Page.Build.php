@@ -35,7 +35,7 @@ function Architect_Crawler_Build(){
   
   //Keep only those actions which are not already queued
   foreach($PotentialActions as $PotentialAction){
-    if(!(in_array($PotentialAction,$Alreadys)){
+    if(!(in_array($PotentialAction,$Alreadys))){
       $Actions[] = $PotentialAction;
     }
   }
