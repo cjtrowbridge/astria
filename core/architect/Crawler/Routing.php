@@ -24,6 +24,10 @@ function Architect_Crawler_Routing(){
   ){
     Event('Architect_Crawler_Routing');
     switch(path(2)){
+      case 'execute':
+        include_once('Page.Execute.php');
+        Architect_Crawler_Execute();
+        break;
       case 'build':
         include_once('Page.Build.php');
         Architect_Crawler_Build();
