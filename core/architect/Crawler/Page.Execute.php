@@ -30,7 +30,6 @@ function Architect_Crawler_Execute(){
     
     $Data = file_get_contents($Path);
     
-    pd($Data);
     echo $Data;
     exit;
   }
