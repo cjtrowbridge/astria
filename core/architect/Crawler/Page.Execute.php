@@ -63,8 +63,9 @@ function Architect_Crawler_Execute_BodyCallback(){
   echo '<h1>Todo</h1><div id="todo">';
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   foreach($Tasks as $Task){
+    $URL = '/architect/Crawler/execute/'.$Task['CrawlerID'].'/?execute='.$Task['CrawlerTaskID'];
     ?>
-    <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?execute=<?php echo $Task['CrawlerTaskID']; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
+    <p><a href="javascript:void(0);" data-uri="<?php echo $Task['URL']; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
     <?php
   }
   
@@ -80,7 +81,7 @@ function Architect_Crawler_Execute_BodyCallback(){
   <script>
     $("#todo a").click(function( event ) {
       event.preventDefault();
-      console.log($(this).text());
+      console.log('Calling: '+$(this).data('uri'));
     });
   </script>
   <?php
