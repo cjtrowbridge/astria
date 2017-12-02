@@ -84,7 +84,7 @@ function Architect_Crawler_Execute_BodyCallback(){
       $.get( $(this).data('uri') , function(data){
         $("#todo a:first-of-type").click();
       });
-      timer = Math.random() * (5000 - 1000) + 1000;
+      var timer = Math.random() * (5000 - 1000) + 1000;
       setTimeout($(this).remove(),timer);
     });
     $("#todo a:first-of-type").click();
