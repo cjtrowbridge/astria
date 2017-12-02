@@ -14,14 +14,20 @@ function Architect_Crawler_Build(){
   
   
   //TODO prompt for these if they are not passed in
-  $Query1Value = 'plumbing';
-  $Query2Value = '95603';
+  $Dataset = Query("SELECT * FROM CrawlerDataset WHERE CrawlerDatasetID = ".intval($_GET['dataset']));
+  if(!(isset($Dataset[0]))){
+    die('Dataset Not Found. Specify &dataset=x');
+  }
+  $Dataset=$Dataset[0];
+  
+  //$Query1Value = 'plumbing';
+  //$Query2Value = '95603';
   
   $PotentialActions = array();
   $Actions = array();
   
-  for($i = $Crawler['RangeMin']; $i < $Crawler['RangeMax']; $i+=$Crawler['RangeIncrement']){
-    $URL = $Crawler['Protocol'].'://'.$Crawler['Domain'].$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$i;
+  for($i = $Dataset['RangeMin']; $i < $Dataset['RangeMax']; $i+=$Dataset['RangeIncrement']){
+    $URL = $Crawler['Protocol'].'://'.$Crawler['Domain'].$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Dataset['Query1'].'&'.$Crawler['QueryVariable2'].'='.$Dataset['Query2'].'&'.$Crawler['RangeVariable'].'='.$i;
     $PotentialActions[$URL] = $URL;
   }
   
