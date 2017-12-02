@@ -16,7 +16,7 @@ function Architect_Crawler_Execute(){
   
   foreach($Tasks as $Task){
     ?>
-    <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?execute=<?php echo $Task['CrawlerTaskID']; ?>">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
+    <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?execute=<?php echo $Task['CrawlerTaskID']; ?>" target="_blank" onclick="setTimeout(function(){window.location.reload(1);}, 5000);">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
     <?php
   }
   
