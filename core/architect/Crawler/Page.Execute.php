@@ -38,8 +38,10 @@ function Architect_Crawler_Execute(){
     
     $SQL = "UPDATE CrawlerTask SET Message = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
     
-    writeDiskCache(md5(intval($_GET['execute']).'_'.$Task['URL']),$Data);
-      
+    $Hash = md5(intval($_GET['execute']).'_'.$Task['URL']);
+    $Result = writeDiskCache($Hash,$Data);
+    pd($Hash);
+    pd($Result);
     Query($SQL);
     echo $Data;
     exit;
