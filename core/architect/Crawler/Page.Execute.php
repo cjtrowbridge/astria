@@ -82,7 +82,7 @@ function Architect_Crawler_Execute_BodyCallback(){
     function call(){
       console.log($(this).text());
     }
-    $("#todo a").click(call(););
+    $("#todo a").click(call());
   </script>
   <?php
   exit;
