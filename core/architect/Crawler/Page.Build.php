@@ -13,7 +13,7 @@ function Architect_Crawler_Build(){
   $Crawler=$Crawler[0];
   
   
-  //TODO prompt for these if they are not passed in
+  //get dataset details
   $Dataset = Query("SELECT * FROM CrawlerDataset WHERE CrawlerDatasetID = ".intval($_GET['dataset']));
   if(!(isset($Dataset[0]))){
     die('Dataset Not Found. Specify &dataset=x');
