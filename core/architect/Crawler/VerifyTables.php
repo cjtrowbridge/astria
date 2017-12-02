@@ -1,6 +1,7 @@
 <?php
 
 function Architect_Crawler_VerifyTables(){
+  return;//i need this to be different but im not sure how, yet.
   $Check = Query("SELECT COUNT(*) as 'Check' FROM information_schema.columns WHERE table_name = 'Crawler';");
   if($Check[0]['Check']==0){
     Event('Adding Crawler table');
