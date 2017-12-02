@@ -49,7 +49,7 @@ function Architect_Crawler_Build(){
     }
   }
   
-  pd($Actions);
+  //pd($Actions);
   foreach($Actions as $Action){
     Query("INSERT INTO CrawlerTask(CrawlerID,URL,CrawlerDatasetID)VALUES('".intval($CrawlerID)."','".Sanitize($Action)."','".intval($_GET['dataset'])."');");
   }
