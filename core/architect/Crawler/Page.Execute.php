@@ -19,10 +19,13 @@ function Architect_Crawler_Execute(){
     }
     $Task = $Task[0];
     $Data = FetchURL($Task['URL']);
-    $SQL = "UPDATE CrawlerTask SET Data = '".Sanitize($Data)."' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
+    
+    $SQL = "UPDATE CrawlerTask SET Data = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
+    
+    writeDiskCache(md5($Task['URL']),$Data);
+      
     Query($SQL);
-    echo Sanitize($Data);
-    echo PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.PHP_EOL.$SQL;
+
     exit;
   }
   
