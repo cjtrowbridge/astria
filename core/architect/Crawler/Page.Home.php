@@ -25,8 +25,7 @@ function Architect_Crawler_Homepage_BodyCallback(){
             
             <a class="btn btn-success" target="_blank" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
             <a class="btn btn-success" target="_blank" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.($Crawler['RangeMax']-$Crawler['RangeMax']%$Crawler['RangeIncrement']); ?>">Test Last Page Link</a>
-            <br>
-            Incomplete Tasks: <?php echo $Crawler['Tasks']; ?> <a class="btn btn-danger" href="/architect/crawler/build/<?php echo $Crawler['CrawlerID']; ?>">Build Task List</a>
+            <a class="btn btn-danger" href="/architect/crawler/build/<?php echo $Crawler['CrawlerID']; ?>">Build Task List</a>
             
           </div>
         </div>
