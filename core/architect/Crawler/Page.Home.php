@@ -20,12 +20,12 @@ function Architect_Crawler_Homepage_BodyCallback(){
       <div class="card">
         <div class="card-block">
           <div class="card-text">
-            <h4><?php echo $Crawler['Name']; ?></h4>
+            <h4><a href="/astria/Crawler/<?php echo $Crawler['CrawlerID']; ?>"><?php echo $Crawler['Name']; ?></a></h4>
             <p><?php echo $Crawler['Description']; ?></p>
             
-            <a class="btn btn-success btn-block" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
-            <a class="btn btn-success btn-block" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.($Crawler['RangeMax']-$Crawler['RangeMax']%$Crawler['RangeIncrement']); ?>">Test Last Page Link</a>
-            
+            <a class="btn btn-success btn-block" target="_blank" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
+            <a class="btn btn-success btn-block" target="_blank" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.($Crawler['RangeMax']-$Crawler['RangeMax']%$Crawler['RangeIncrement']); ?>">Test Last Page Link</a>
+            <br><br>
             <a class="btn btn-danger" href="/architect/crawler/build/<?php echo $Crawler['CrawlerID']; ?>">Build Task List</a> Incomplete Tasks: <?php echo $Crawler['Tasks']; ?>
             
           </div>
