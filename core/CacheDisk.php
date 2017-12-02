@@ -18,6 +18,7 @@ function writeDiskCache($hash,$value){
   include_once('core/isValidMd5.php');
   include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
+    Event('writeDiskCache: Invalid Hash');
     return false;
   }
   
@@ -34,22 +35,26 @@ function readDiskCache($hash,$ttl = CACHE_FILE_TTL){
   include_once('core/isValidMd5.php');
   include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
+    Event('readDiskCache: Invalid Hash');
     return false;
   }
   
   $path='cache/'.$hash.'.php';
   
   if(!(file_exists($path))){
+    Event('readDiskCache: No Cached File Found');
     return false;
   }
   
   if((filemtime($path)+$ttl)<time()){
+    Event('readDiskCache: Cache Expired');
     unlink($path);
     return false;
   }
   
   $value=file_get_contents($path);
   if($value==false){
+    Event('readDiskCache: Unable To Load File');
     return false; 
   }
   $value=ltrim($value,CACHE_FILE_PREFIX);
