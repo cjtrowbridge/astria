@@ -13,14 +13,14 @@ function Architect_Crawler_Execute(){
   $Crawler=$Crawler[0];
   
   if(isset($_GET['execute'])){
-    $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
+    $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
     if(!isset($Task[0])){
       die('Task Not Found');
     }
     $Task = $Task[0];
     $Data = FetchURL($Task['URL']);
     
-    $SQL = "UPDATE CrawlerTask SET Data = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
+    $SQL = "UPDATE CrawlerTask SET Message = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
     
     writeDiskCache(md5($Task['URL']),$Data);
       
@@ -30,7 +30,7 @@ function Architect_Crawler_Execute(){
     exit;
   }
   
-  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
+  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   
   foreach($Tasks as $Task){
     ?>
