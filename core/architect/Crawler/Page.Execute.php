@@ -82,10 +82,11 @@ function Architect_Crawler_Execute_BodyCallback(){
     $("#todo a").click(function(event){
       event.preventDefault();
       $.get( $(this).data('uri') , function(data){
-        $("#todo a:first-of-type").click();
+        //var timer = Math.random() * (5000 - 1000) + 1000;
+      //setTimeout($("#todo a:first-of-type").click(),timer);
       });
-      //var timer = Math.random() * (5000 - 1000) + 1000;
-      //setTimeout($(this).remove(),timer);
+      $(this).remove();
+      
     });
     $("#todo a:first-of-type").click();
   </script>
