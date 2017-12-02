@@ -35,14 +35,14 @@ function readDiskCache($hash,$ttl = CACHE_FILE_TTL){
   include_once('core/isValidMd5.php');
   include_once('core/Blowfish.php');
   if(!(isValidMd5($hash))){
-    Event('readDiskCache: Invalid Hash');
+    Event('readDiskCache: Invalid Hash '.$hash);
     return false;
   }
   
   $path='cache/'.$hash.'.php';
   
   if(!(file_exists($path))){
-    Event('readDiskCache: No Cached File Found');
+    Event('readDiskCache: No Cached File Found: '.$hash);
     return false;
   }
   
