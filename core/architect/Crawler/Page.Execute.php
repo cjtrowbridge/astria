@@ -60,7 +60,7 @@ function Architect_Crawler_Execute(){
 function Architect_Crawler_Execute_BodyCallback(){
   $CrawlerID = intval(path(3));
   
-  echo '<h1>Todo</h1>';
+  echo '<h1>Todo</h1><div id="todo">';
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   foreach($Tasks as $Task){
     ?>
@@ -68,14 +68,18 @@ function Architect_Crawler_Execute_BodyCallback(){
     <?php
   }
   
-  echo '<hr><h1>Done</h1>';
+  echo '</div><hr><h1>Done</h1>';
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   foreach($Tasks as $Task){
     ?>
     <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?show=<?php echo $Task['CrawlerTaskID']; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
     <?php
   }
-  
-  
+  ?>
+
+  <script>
+    $('#todo a:first-of-type').click();
+  </script>
+  <?php
   exit;
 }
