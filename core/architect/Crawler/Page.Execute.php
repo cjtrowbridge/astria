@@ -24,7 +24,7 @@ function Architect_Crawler_Execute(){
     
     $SQL = "UPDATE CrawlerTask SET Message = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
     
-    writeDiskCache(md5($Task['URL']),$Data);
+    writeDiskCache(md5(intval($_GET['execute']).'_'.$Task['URL']),$Data);
       
     Query($SQL);
     echo $Data;
@@ -32,13 +32,23 @@ function Architect_Crawler_Execute(){
     exit;
   }
   
-  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   
+  echo '<h1>Todo</h1>';
+  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   foreach($Tasks as $Task){
     ?>
     <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?execute=<?php echo $Task['CrawlerTaskID']; ?>" target="_blank" onclick="setTimeout(function(){window.location.reload(1);}, 5000);">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
     <?php
   }
+  
+  echo '<hr><h1>Done</h1>';
+  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
+  foreach($Tasks as $Task){
+    ?>
+    <p><a href="/architect/Crawler/execute/<?php echo $Task['CrawlerID']; ?>/?show=<?php echo $Task['CrawlerTaskID']; ?>" target="_blank">Execute Task <?php echo $Task['CrawlerTaskID']; ?>: <?php echo $Task['URL']; ?></a></p>
+    <?php
+  }
+  
   
   exit;
 }
