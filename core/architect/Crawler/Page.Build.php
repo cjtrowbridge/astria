@@ -47,7 +47,7 @@ function Architect_Crawler_Build(){
   foreach($Actions as $Action){
     Query("INSERT INTO CrawlerTask(CrawlerID,URL)VALUES('".intval($CrawlerID)."','".Sanitize($Action)."');");
   }
-  echo '<p>Actions Queued.</p><a href="/architect/crawler/'.$CrawlerID.'/execute">Execute</a>';
+  echo '<p>Actions Queued.</p><a href="/architect/crawler/execute/'.$CrawlerID.'/">Execute</a>';
   
   exit;
 }
