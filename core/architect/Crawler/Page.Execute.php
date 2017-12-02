@@ -12,7 +12,7 @@ function Architect_Crawler_Execute(){
   }
   $Crawler=$Crawler[0];
   
-  $Tasks = Query("SELECT CrawlerTaskID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
+  $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Data IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
   
   foreach($Tasks as $Task){
     ?>
