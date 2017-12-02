@@ -1,5 +1,7 @@
 <?php
 
+//TODO be able to see the content of done stuff
+
 function Architect_Crawler_Execute(){
   $CrawlerID = intval(path(3));
   if($CrawlerID == false){
