@@ -16,18 +16,25 @@ function Architect_Crawler_Execute(){
   
   
   if(isset($_GET['show'])){
-    $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['show']));
-    if(!isset($Task[0])){
-      die('Task Not Found');
-    }
-    $Task = $Task[0]; 
+    //$Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['show']));
+    //if(!isset($Task[0])){
+      //die('Task Not Found');
+    //}
+    //$Task = $Task[0]; 
     
-    $Data = readDiskCache(md5(intval($_GET['show']).'_'.$Task['URL']));
+    $Path = 'cache/Crawler/'.intval($_GET['show']).'.html';
+    
+    if(!(file_exists($Path))){
+      die('File Not Found.');
+    }
+    
+    $Data = file_get_contents($Path);
     
     pd($Data);
     echo $Data;
     exit;
   }
+  
   if(isset($_GET['execute'])){
     $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
     if(!isset($Task[0])){
@@ -39,11 +46,17 @@ function Architect_Crawler_Execute(){
     $SQL = "UPDATE CrawlerTask SET Message = 'Cached To Disk' AND TimeFetched = NOW() WHERE CrawlerTaskID = '".intval($_GET['execute'])."';";
     
     $Hash = md5(intval($_GET['execute']).'_'.$Task['URL']);
-    $Result = writeDiskCache($Hash,$Data);
-    pd($Hash);
-    pd($Result);
+    if(is_dir('cache')){
+      if(!is_dir('cache/Crawler')){
+        mkdir('cache/Crawler');
+      }
+      file_put_contents('cache/Crawler/'.intval($_GET['execute']).'.html',$Data);
+    }else{
+      die("Can't Find Cache Dir");
+    }
+    
     Query($SQL);
-    echo $Data;
+    header('Location: cache/Crawler/'.intval($_GET['execute']).'.html');
     exit;
   }
   
