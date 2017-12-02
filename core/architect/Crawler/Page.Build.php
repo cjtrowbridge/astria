@@ -12,8 +12,8 @@ function Architect_Crawler_Build(){
   }
   $Crawler=$Crawler[0];
   
-  pd($Crawler);
   
+  //TODO prompt for these if they are not passed in
   $Query1Value = 'plumbing';
   $Query2Value = '95603';
   
@@ -36,9 +36,6 @@ function Architect_Crawler_Build(){
     $Already = $Already['URL'];
   }
   
-  echo '<p>already</p>';
-  pd($Alreadys);
-  
   //Keep only those actions which are not already queued
   foreach($PotentialActions as $PotentialAction){
     if(!(in_array($PotentialAction,$Alreadys))){
@@ -46,8 +43,11 @@ function Architect_Crawler_Build(){
     }
   }
   
-  echo '<p>todo</p>';
   pd($Actions);
+  foreach($Actions as $Action){
+    Query("INSERT INTO CrawlerTask(CrawlerID,URL)VALUES('".intval($CrawlerID)."','".Sanitize($Action)."');");
+  }
+  echo '<p>Actions Queued.</p>';
   
   exit;
 }
