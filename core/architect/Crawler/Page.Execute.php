@@ -25,6 +25,7 @@ function Architect_Crawler_Execute(){
     writeDiskCache(md5($Task['URL']),$Data);
       
     Query($SQL);
+    echo $Data;
 
     exit;
   }
