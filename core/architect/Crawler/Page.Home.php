@@ -10,7 +10,7 @@ function Architect_Crawler_Homepage_BodyCallback(){
   ?><h1><a href="/architect">Architect</a> / <a href="/architect/crawler">Crawler</a></h1>
   
   <?php 
-    $Crawlers = Query('SELECT *,(SELECT COUNT(*) FROM CrawlerTask WHERE CrawlerTask.CrawlerID = Crawler.CrawlerID) as "Tasks" FROM Crawler');
+    $Crawlers = Query('SELECT *,(SELECT COUNT(*) FROM CrawlerTask WHERE CrawlerTask.CrawlerID = Crawler.CrawlerID) as "Tasks" FROM Crawler LEFT JOIN CrawlerDataset ON Crawler.CrawlerID = CrawlerDataset.CrawlerID');
     foreach($Crawlers as $Crawler){
       
       $Query1Value = 'plumbing';
