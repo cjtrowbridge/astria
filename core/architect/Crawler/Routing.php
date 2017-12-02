@@ -24,6 +24,10 @@ function Architect_Crawler_Routing(){
   ){
     Event('Architect_Crawler_Routing');
     switch(path(2)){
+      case 'build':
+        include_once('Page.Build.php');
+        Architect_Crawler_Build();
+        break;
       case false:
         //include_once('VerifyTables.php');
         //Architect_Crawler_VerifyTables();
