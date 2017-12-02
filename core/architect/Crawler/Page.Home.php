@@ -20,7 +20,7 @@ function Architect_Crawler_Homepage_BodyCallback(){
       <div class="card">
         <div class="card-block">
           <div class="card-text">
-            <h4><a href="/astria/Crawler/<?php echo $Crawler['CrawlerID']; ?>"><?php echo $Crawler['Name']; ?></a></h4>
+            <h4><a href="/astria/Crawler/<?php echo $Crawler['CrawlerID']; ?>"><?php echo $Crawler['Name']; ?></a>: <a href="/astria/CrawlerDataset/<?php echo $Crawler['CrawlerDatasetID']; ?>"><?php echo $Crawler['Query1'].' '.$Crawler['Query2']; ?></a></h4>
             <p><?php echo $Crawler['Description']; ?></p>
             
             <a class="btn btn-success btn-block" target="_blank" href="<?php echo $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$Crawler['RangeMin']; ?>">Test First Page Link</a>
