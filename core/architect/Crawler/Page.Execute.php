@@ -22,7 +22,7 @@ function Architect_Crawler_Execute(){
     }
     $Task = $Task[0]; 
     
-    $Data = writeDiskCache(md5(intval($_GET['show']).'_'.$Task['URL']),$Data);
+    $Data = readDiskCache(md5(intval($_GET['show']).'_'.$Task['URL']),$Data);
     
     echo $Data;
     exit;
