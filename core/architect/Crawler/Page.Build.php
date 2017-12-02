@@ -32,7 +32,7 @@ function Architect_Crawler_Build(){
   }
   
   //Find any of these whcih are already inserted while not yet done.
-  $SQL = "SELECT URL FROM CrawlerTask WHERE Data IS NULL AND (".PHP_EOL;
+  $SQL = "SELECT URL FROM CrawlerTask WHERE Message IS NULL AND (".PHP_EOL;
   foreach($PotentialActions as $Action){
     $SQL.="URL LIKE '".Sanitize($Action)."' OR".PHP_EOL;
   }
