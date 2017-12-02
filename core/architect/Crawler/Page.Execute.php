@@ -84,6 +84,7 @@ function Architect_Crawler_Execute_BodyCallback(){
       $.get( $(this).data('uri') , function(data){
         $("#todo a:first-of-type").click();
       });
+      $(this).remove();
     });
     $("#todo a:first-of-type").click();
   </script>
