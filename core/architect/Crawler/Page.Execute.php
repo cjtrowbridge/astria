@@ -54,6 +54,10 @@ function Architect_Crawler_Execute(){
     exit;
   }
   
+  TemplateBootstrap4('Execute Crawls','Architect_Crawler_Execute_BodyCallback();');
+}
+  
+function Architect_Crawler_Execute_BodyCallback(){
   
   echo '<h1>Todo</h1>';
   $Tasks = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." ORDER BY CrawlerTaskID ASC");
