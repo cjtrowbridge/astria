@@ -14,6 +14,19 @@ function Architect_Crawler_Execute(){
   }
   $Crawler=$Crawler[0];
   
+  
+  if(isset($_GET['show'])){
+    $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
+    if(!isset($Task[0])){
+      die('Task Not Found');
+    }
+    $Task = $Task[0]; 
+    
+    $Data = writeDiskCache(md5(intval($_GET['execute']).'_'.$Task['URL']),$Data);
+    
+    echo $Data;
+    exit;
+  }
   if(isset($_GET['execute'])){
     $Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['execute']));
     if(!isset($Task[0])){
@@ -28,7 +41,6 @@ function Architect_Crawler_Execute(){
       
     Query($SQL);
     echo $Data;
-
     exit;
   }
   
