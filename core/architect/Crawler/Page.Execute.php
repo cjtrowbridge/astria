@@ -16,12 +16,7 @@ function Architect_Crawler_Execute(){
   
   
   if(isset($_GET['show'])){
-    //$Task = Query("SELECT CrawlerTaskID, CrawlerID, URL FROM CrawlerTask WHERE Message IS NOT NULL AND CrawlerID = ".intval($CrawlerID)." AND CrawlerTaskID = ".intval($_GET['show']));
-    //if(!isset($Task[0])){
-      //die('Task Not Found');
-    //}
-    //$Task = $Task[0]; 
-    
+
     $Path = 'cache/Crawler/'.intval($_GET['show']).'.html';
     
     if(!(file_exists($Path))){
