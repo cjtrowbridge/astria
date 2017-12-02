@@ -21,7 +21,7 @@ function Architect_Crawler_Build(){
   $Actions = array();
   
   for($i = $Crawler['RangeMin']; $i < $Crawler['RangeMax']; $i+=$Crawler['RangeIncrement']){
-    $URL = $Crawler['Protocol'].'://'.$Crawler['Domain'].'/'.$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$i;
+    $URL = $Crawler['Protocol'].'://'.$Crawler['Domain'].$Crawler['Path'].'?'.$Crawler['QueryVariable1'].'='.$Query1Value.'&'.$Crawler['QueryVariable2'].'='.$Query2Value.'&'.$Crawler['RangeVariable'].'='.$i;
     $PotentialActions[$URL] = $URL;
   }
   
@@ -32,6 +32,9 @@ function Architect_Crawler_Build(){
   }
   $SQL.="1=2 )";
   $Alreadys = Query($SQL);
+  foreach($Alreadys as &$Already){
+    $Already = $Already['URL'];
+  }
   
   //Keep only those actions which are not already queued
   foreach($PotentialActions as $PotentialAction){
