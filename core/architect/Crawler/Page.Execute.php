@@ -79,10 +79,13 @@ function Architect_Crawler_Execute_BodyCallback(){
   ?>
 
   <script>
-    $("#todo a").click(function( event ) {
+    $("#todo a").click(function(event){
       event.preventDefault();
-      console.log('Calling: '+$(this).data('uri'));
+      $.get( $(this).data('uri') , function(data){
+        $("#todo a:first-of-type").click();
+      });
     });
+    $("#todo a:first-of-type").click();
   </script>
   <?php
   exit;
