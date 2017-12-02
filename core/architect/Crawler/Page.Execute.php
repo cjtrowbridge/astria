@@ -78,11 +78,10 @@ function Architect_Crawler_Execute_BodyCallback(){
   ?>
 
   <script>
-    
-    function callLink(){
+    $("#todo a").click(function( event ) {
+      event.preventDefault();
       console.log($(this).text());
-      //setTimeout(function(){window.location.reload(1);}, 5000);
-    }
+    });
   </script>
   <?php
   exit;
