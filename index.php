@@ -42,6 +42,7 @@ Event('Before Login');
 if(LoggedIn()){
   
   if(IsWaiting()){
+    Event('Astria Waiting Room');
     AstriaWaitingRoom();
   }
   
