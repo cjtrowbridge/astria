@@ -6,7 +6,7 @@ function Visualize($Data, $Type = 'line',$ID = false,$Color = false, $Height = 2
     $ID = 'chart_'.md5(uniqid());
   }
   //If no colors passed, do a blank array.
-  if(is_array($Color)){
+  if(!is_array($Color)){
     $Color = array();
   }
   
