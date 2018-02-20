@@ -1,6 +1,9 @@
 <?php
 
 function PermissionsManager(){
+  //Make sure user is an admin
+  if(!IsAstriaAdmin()){die('You may not manage permissions.');}
+  
   //Handle posts and update objects
   
   
@@ -8,8 +11,6 @@ function PermissionsManager(){
 }
 
 function PermissionsManagerBodyCallback(){
-
-
 
   ?><h1>Select a User or Group to Edit Permissions...</h1>
   <div class="container">
@@ -24,7 +25,7 @@ function PermissionsManagerBodyCallback(){
             <div class="card">
               <div class="card-block">
                 <div class="card-text">
-                  <?php echo '<b>'.$User['FirstName'].' '.$User['LastName'].'</b><br>'.$User['Email']; ?>
+                  <?php echo '<b>'.$User['FirstName'].' '.$User['LastName'].'</b><br><a href="/architect/permissions-manager/?UserID='.$User['UserID'].'">'.$User['Email'].'</a>'; ?>
                 </div>
               </div>
             </div>
@@ -42,7 +43,7 @@ function PermissionsManagerBodyCallback(){
             <div class="card">
               <div class="card-block">
                 <div class="card-text">
-                  <?php echo $Group['Name']; ?>
+                  <?php echo '<a href="/architect/permissions-manager/?GroupID='.$Group['GroupID'].'">'.$Group['Name'].'</a>'; ?>
                 </div>
               </div>
             </div>
