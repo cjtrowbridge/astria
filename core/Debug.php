@@ -16,6 +16,11 @@ function DebugShowSummary(){
   echo ArrTabler($DEBUG);
   echo "<h3>Events:</h3>\n";
   pd($EVENTS);
+  echo "<h3>Permissions:</h3>\n";
+  $Permission = $ASTRIA['Session']['User']['Permission'];
+  rsort($Permission);
+  echo ArrTabler($Permission);
+  unset($Permission);
   ?>
   <script>$('.tablesorter').tablesorter({widgets: ["zebra", "filter"]});</script>
   <?php 
