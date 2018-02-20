@@ -6,21 +6,60 @@ function PermissionsManager(){
   
   //Handle posts and update objects
   if(
-    isset($_POST['UserID'])
-  ){
-    pd($_POST);
-    
-    
-    
-    //header
-    exit;
-  }
-  if(
+    isset($_POST['UserID'])||
     isset($_POST['GroupID'])
   ){
-    pd($_POST);
-   
-
+    
+    //make a list of all the boxes that were checked and decode from base64
+    $Input = array();
+    foreach($_POST as $Key => $Value){
+      if(
+        ($Key == 'GroupID')||
+        ($Key == 'UserID')
+      ){
+        continue;
+      }
+      $Input[$Key]=$Key;
+    }
+    
+    //make a list of all current permissions
+    if(isset($_POST['UserID'])){
+      global $ASTRIA;
+      $Current = $ASTRIA['Session']['Permissions'];
+    }elseif(isset($_POST['GroupID'])){
+      $SQL="SELECT Text FROM Permission WHERE Permission.GroupID = ".intval($_POST['GroupID']);
+      $GroupPermissions
+      foreach($GroupPermissions as $GroupPermission){
+        $Current[$GroupPermission['Text']]=$GroupPermission['Text'];
+      }
+      unset($GroupPermissions);
+    }
+    
+    
+    //make a list of anything that needs to be removed
+    $Remove = array();
+    foreach($Current as $Key => $Value){
+      if(!isset($Input[$Key])){
+       $Remove[$Key]=$Key; 
+      }
+    }
+    
+    
+    //make a list of anything that needs to be added
+    $Add = array();
+    foreach($Input as $Key => $Value){
+      if(!isset($Current[$Key])){
+       $Add[$Key]=$Key; 
+      }
+    }
+    
+    echo '<p>Input</p>';
+    pd($Input);
+    echo '<p>Add</p>';
+    pd($Add);
+    echo '<p>Remove</p>';
+    pd($Remove);
+    
     //header
     exit;
   }
@@ -109,7 +148,7 @@ function PermissionsManagerBodyCallback(){
     
     global $ASTRIA;
     foreach($ASTRIA['Session']['AllPermissions'] as $Permission){
-      echo PHP_EOL.'<p class="permissionOption" data-value="'.str_replace('"',' ',$Permission).'"><label><input type="checkbox" name="'.$Permission.'" value="yes"> '.$Permission.'</label></p>'.PHP_EOL;
+      echo PHP_EOL.'<p class="permissionOption" data-value="'.str_replace('"',' ',$Permission).'"><label><input type="checkbox" name="'.base64_encode($Permission).'" value="yes"> '.$Permission.'</label></p>'.PHP_EOL;
     }
     
     ?>
