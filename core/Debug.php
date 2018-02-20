@@ -11,16 +11,27 @@ function DebugShowSummary(){
     )
   );
   echo ArrTabler($summary);
-  echo "<h3>Debug Details:</h3>\n";
+  
+  echo '<h3><a href="javascript:void(0);" onclick="$(\'#debugSummaryDetails\').slideToggle();">Details:</a></h3>'.PHP_EOL;
+  echo '<div id="debugSummaryDetails" style="display: none;">'.PHP_EOL;
   rsort($DEBUG);
   echo ArrTabler($DEBUG);
-  echo "<h3>Events:</h3>\n";
+  echo '</div>';
+  
+  echo '<h3><a href="javascript:void(0);" onclick="$(\'#debugSummaryEvents\').slideToggle();">Events:</a></h3>'.PHP_EOL;
+  echo '<div id="debugSummaryEvents" style="display: none;">'.PHP_EOL;
   pd($EVENTS);
-  echo "<h3>Permissions:</h3>\n";
+  echo '</div>';
+  
+  echo '<h3><a href="javascript:void(0);" onclick="$(\'#debugSummaryPermissions\').slideToggle();">Permissions:</a></h3>'.PHP_EOL;
+  echo '<div id="debugSummaryPermissions" style="display: none;">'.PHP_EOL;
+  global $ASTRIA;
   $Permission = $ASTRIA['Session']['User']['Permission'];
   rsort($Permission);
   echo ArrTabler($Permission);
   unset($Permission);
+  echo '</div>';
+  
   ?>
   <script>$('.tablesorter').tablesorter({widgets: ["zebra", "filter"]});</script>
   <?php 
