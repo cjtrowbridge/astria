@@ -9,6 +9,7 @@ function PermissionsManager(){
     isset($_POST['UserID'])||
     isset($_POST['GroupID'])
   ){
+    global $ASTRIA;
     
     //make a list of all the boxes that were checked and decode from base64
     $Input = array();
