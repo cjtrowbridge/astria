@@ -19,7 +19,17 @@ function PermissionsManagerBodyCallback(){
         <?php
           $SQL = "SELECT UserID, Email, FirstName, LastName FROM User";
           $Users = Query($SQL);
-          echo ArrTabler($Users);
+          foreach($Users as $User){
+            ?>
+            <div class="card">
+              <div class="card-block">
+                <div class="card-text">
+                  <?php echo $User['FirstName'].' '.$User['LastName'].' '.$User['Email']; ?>
+                </div>
+              </div>
+            </div>
+            <?php
+          }
         ?>
       </div>
       <div class="col-xs-12 col-md-6">
@@ -27,7 +37,17 @@ function PermissionsManagerBodyCallback(){
         <?php
           $SQL = "SELECT GroupID, Name, Description FROM UserGroup";
           $Groups = Query($SQL);
-          echo ArrTabler($Groups);
+          foreach($Users as $User){
+            ?>
+            <div class="card">
+              <div class="card-block">
+                <div class="card-text">
+                  <?php echo $User['Name']; ?>
+                </div>
+              </div>
+            </div>
+            <?php
+          }
         ?>
       </div>
     </div>
