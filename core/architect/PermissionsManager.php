@@ -35,7 +35,7 @@ function PermissionsManagerBodyCallback(){
       'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
     }
     if(isset($_GET['GroupID'])){
-      $Group = Query("SELECT Name FROM Group WHERE GrouID = ".intval($_GET['GroupID']));
+      $Group = Query("SELECT Name FROM Group WHERE GroupID = ".intval($_GET['GroupID']));
       'Group '.$_GET['GroupID'].': '.$Group['Name'];
     }
     
