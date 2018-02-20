@@ -55,7 +55,7 @@ function PermissionsManagerBodyCallback(){
       echo 'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
     }
     if(isset($_GET['GroupID'])){
-      echo 'Group '.$_GET['GroupID'].': '.$Group['Name'];
+      echo 'Group '.$_GET['GroupID'].': &quot;'.$Group['Name'].'&quot;';
     }
     
     ?></h1>
