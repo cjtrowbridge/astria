@@ -28,7 +28,19 @@ function PermissionsManagerBodyCallback(){
     
     ?>
     <p><a href="/architect/permissions-manager">&lt;- Back</a></p>
-    <h1>Available Permissions:</h1>
+    <h1>Modifying <?php
+    
+    if(isset($_GET['UserID'])){
+      $User = Query("SELECT FirstName, LastName, Email FROM User WHERE UserID = ".intval($_GET['UserID']));
+      'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
+    }
+    if(isset($_GET['GroupID'])){
+      $Group = Query("SELECT Name FROM Group WHERE GrouID = ".intval($_GET['GroupID']));
+      'Group '.$_GET['GroupID'].': '.$Group['Name'];
+    }
+    
+    ?></h1>
+    <h2>Select From The Available Permissions:</h2>
     <input type="text" class="form-control" id="permissionOptionFilter">
     <script>
       $("#permissionOptionFilter").keyup(function(){
