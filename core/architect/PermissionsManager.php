@@ -23,7 +23,7 @@ function PermissionsManagerBodyCallback(){
     <h1>Available Permissions:</h1>
     <input type="text" class="form-control" id="permissionOptionFilter">
     <script>
-      $("#permissionOption").keyup(function(){
+      $("#permissionOptionFilter").keyup(function(){
         applyFilter($('#permissionOptionFilter').val());
       });
       
