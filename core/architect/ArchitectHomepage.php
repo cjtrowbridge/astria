@@ -44,7 +44,7 @@ function ArchitectBodyCallback(){
       <p>
         <a href="/architect/events" class="btn btn-outline-success">Events</a>
         <a href="/architect/debug" class="btn btn-outline-success">Event Debugger</a>
-        <a href="/architect/my-permissions" class="btn btn-outline-success">My Permissions</a>
+        <a href="/architect/permissions-manager" class="btn btn-outline-success">Permissions Manager</a>
         <a href="/architect/session" class="btn btn-outline-success">Session</a>
         <a href="./?challengeSession" class="btn btn-outline-success">Challenge/Reload Session</a>
         <?php Event('Architect Tools 2'); ?>
