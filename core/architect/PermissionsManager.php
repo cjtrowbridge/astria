@@ -95,7 +95,7 @@ function PermissionsManager(){
         $SQL="DELETE FROM `Permission` 
           WHERE Text LIKE '".$Permission."' AND
           UserID = '".$UserID."'
-          );
+          ;
         ";
         pd($SQL);
         Query($SQL);
@@ -121,7 +121,7 @@ function PermissionsManager(){
         $SQL="DELETE FROM `Permission` 
           WHERE Text LIKE '".$Permission."' AND
           GroupID = '".$GroupID."'
-          );
+          ;
         ";
         pd($SQL);
         Query($SQL);
