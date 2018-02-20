@@ -125,7 +125,7 @@ function PermissionsManager(){
       
     }
     
-    header('Location: /?challengeSession');
+    header('Location: /architect/permissions-manager');
     exit;
   }
   
