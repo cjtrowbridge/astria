@@ -50,9 +50,9 @@ function ArchitectBodyCallback(){
         <?php Event('Architect Tools 2'); ?>
       </p>
       <p>
-        <a href="/architect/user" class="btn btn-outline-success">User</a>
-        <a href="/architect/usergroup" class="btn btn-outline-success">User Group</a>
-        <a href="/architect/usergroupmembership" class="btn btn-outline-success">User Group Membership</a>
+        <a href="/astria/User/" class="btn btn-outline-success">User</a>
+        <a href="/astria/UserGroup/" class="btn btn-outline-success">User Group</a>
+        <a href="astria/UserGroupMembership/" class="btn btn-outline-success">User Group Membership</a>
         <?php Event('Architect Tools 3'); ?>
       </p>
       <p>
