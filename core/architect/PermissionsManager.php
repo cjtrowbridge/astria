@@ -25,8 +25,16 @@ function PermissionsManager(){
     
     //make a list of all current permissions
     if(isset($_POST['UserID'])){
-      global $ASTRIA;
-      $Current = $ASTRIA['Session']['Permissions'];
+      //global $ASTRIA;
+      //$Current = $ASTRIA['Session']['Permissions'];
+      
+      $SQL="SELECT Text FROM Permission WHERE Permission.UserID = ".intval($_POST['UserID']);
+      $UserPermissions = Query($SQL);
+      foreach($UserPermissions as $UserPermission){
+        $Current[$UserPermission['Text']]=$UserPermission['Text'];
+      }
+      unset($UserPermissions);
+      
     }elseif(isset($_POST['GroupID'])){
       $SQL="SELECT Text FROM Permission WHERE Permission.GroupID = ".intval($_POST['GroupID']);
       $GroupPermissions = Query($SQL);
@@ -54,18 +62,42 @@ function PermissionsManager(){
       }
     }
     
+    /*
     echo '<p>Input</p>';
     pd($Input);
     echo '<p>Add</p>';
     pd($Add);
     echo '<p>Remove</p>';
     pd($Remove);
-    
+    */
     
     
     if(isset($_POST['UserID'])){
       
+      foreach($Add as $Key => $Value){
+        $Permission = Sanitize($Key);
+        $UserID = intval($_POST['UserID']);
+        $SQL="INSERT INTO `Permission` (
+            `UserID`, `Text`, `UserInserted`, `TimeInserted`, `InsertedUser`, `InsertedTime`
+          ) VALUES (
+            '".$UserID."','".$Permission."',  '".$ASTRIA['Session']['User']['UserID']."', NOW(), '".$ASTRIA['Session']['User']['UserID']."', NOW()
+          );
+        ";
+        Query($SQL);
+      }
+      foreach($Remove as $Key => $Value){
+        $Permission = Sanitize($Key);
+        $UserID = intval($_POST['UserID']);
+        $SQL="DELETE FROM `Permission` 
+          WHERE Text LIKE '".$Permission."' AND
+          UserID = '".$UserID."'
+          );
+        ";
+        Query($SQL);
+      }
+      
     }elseif(isset($_POST['GroupID'])){
+      
       foreach($Add as $Key => $Value){
         $Permission = Sanitize($Key);
         $GroupID = intval($_POST['GroupID']);
@@ -75,7 +107,7 @@ function PermissionsManager(){
             '".$GroupID."','".$Permission."',  '".$ASTRIA['Session']['User']['UserID']."', NOW(), '".$ASTRIA['Session']['User']['UserID']."', NOW()
           );
         ";
-        pd($SQL);
+        Query($SQL);
       }
       foreach($Remove as $Key => $Value){
         $Permission = Sanitize($Key);
@@ -85,11 +117,12 @@ function PermissionsManager(){
           GroupID = '".$GroupID."'
           );
         ";
-        pd($SQL);
+        Query($SQL);
       }
+      
     }
     
-    //header
+    header('Location: /?challengeSession');
     exit;
   }
   
