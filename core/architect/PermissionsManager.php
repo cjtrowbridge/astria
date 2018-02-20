@@ -25,7 +25,7 @@ function PermissionsManagerBodyCallback(){
       <div class="col-xs-12 col-md-6">
         <h2>Groups</h2>
         <?php
-          $SQL = "SELECT GropuID, Name, Description FROM UserGroup";
+          $SQL = "SELECT GroupID, Name, Description FROM UserGroup";
           $Groups = Query($SQL);
           echo ArrTabler($Groups);
         ?>
