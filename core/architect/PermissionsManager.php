@@ -28,7 +28,7 @@ function PermissionsManager(){
       $Current = $ASTRIA['Session']['Permissions'];
     }elseif(isset($_POST['GroupID'])){
       $SQL="SELECT Text FROM Permission WHERE Permission.GroupID = ".intval($_POST['GroupID']);
-      $GroupPermissions
+      $GroupPermissions = Query($SQL);
       foreach($GroupPermissions as $GroupPermission){
         $Current[$GroupPermission['Text']]=$GroupPermission['Text'];
       }
