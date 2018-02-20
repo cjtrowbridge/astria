@@ -52,7 +52,7 @@ function PermissionsManagerBodyCallback(){
     <h1>Modifying <?php
     
     if(isset($_GET['UserID'])){
-      echo 'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
+      echo 'User '.$_GET['UserID'].': &quot;'.$User['FirstName'].' '.$User['LastName'].' &lt;'.$User['Email'].'&gt;&quot;';
     }
     if(isset($_GET['GroupID'])){
       echo 'Group '.$_GET['GroupID'].': &quot;'.$Group['Name'].'&quot;';
