@@ -32,7 +32,7 @@ function PermissionsManagerBodyCallback(){
     
     //verify the group or user
     if(isset($_GET['UserID'])){
-      $User = Query("SELECT FirstName, LastName, Email FROM User WHERE UserID = ".intval($_GET['UserID']));
+      $User = Query("SELECT UserID, FirstName, LastName, Email FROM User WHERE UserID = ".intval($_GET['UserID']));
       if(!isset($User[0])){
         echo 'Invalid User';
         return;
@@ -40,7 +40,7 @@ function PermissionsManagerBodyCallback(){
       $User = $User[0];
     }
     if(isset($_GET['GroupID'])){
-      $Group = Query("SELECT Name FROM UserGroup WHERE GroupID = ".intval($_GET['GroupID']));
+      $Group = Query("SELECT GroupID, Name FROM UserGroup WHERE GroupID = ".intval($_GET['GroupID']));
       if(!isset($Group[0])){
         echo 'Invalid Group';
         return;
