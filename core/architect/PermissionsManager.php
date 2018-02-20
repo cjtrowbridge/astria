@@ -45,7 +45,7 @@ function PermissionsManagerBodyCallback(){
         echo 'Invalid Group';
         return;
       }
-      $User = $Group[0];
+      $Group = $Group[0];
     }
     ?>
 
