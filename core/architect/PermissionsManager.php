@@ -37,7 +37,7 @@ function PermissionsManagerBodyCallback(){
         <?php
           $SQL = "SELECT GroupID, Name, Description FROM UserGroup";
           $Groups = Query($SQL);
-          foreach($Users as $User){
+          foreach($Groups as $Group){
             ?>
             <div class="card">
               <div class="card-block">
