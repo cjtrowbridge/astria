@@ -28,6 +28,10 @@ function PresentArchitect(){
     
     include_once('ArchitectHomepage.php');
     switch(path(1)){
+      case 'permissions-manager':
+        include_once('PermissionsManager.php');
+        PermissionsManager();
+        break;
       case 'crawler':
         //this is already included by the architect plugins file
         Architect_Crawler_Routing();
@@ -51,18 +55,6 @@ function PresentArchitect(){
       case 'session':
         include_once('ArchitectSession.php');
         ArchitectSession();
-        break;
-      case 'usergroupmembership':
-        include_once('ArchitectUserGroupMembership.php');
-        ArchitectUserGroupMembership();
-        break;
-      case 'usergroup':
-        include_once('ArchitectUserGroup.php');
-        ArchitectUserGroup();
-        break;
-      case 'user':
-        include_once('ArchitectUser.php');
-        ArchitectUser();
         break;
       case 'plugins':
         include_once('ArchitectPluginManager.php');
@@ -136,12 +128,6 @@ function PresentArchitect(){
             include_once('core/architect/Files/ArchitectFileExplorer.php');
             ArchitectFileExplorer();
             break;
-        }
-        break;
-      case 'user':
-        switch(path(2)){
-          case 'edit': //TODO
-          case 'new': //TODO
         }
         break;
       case 'schema':
