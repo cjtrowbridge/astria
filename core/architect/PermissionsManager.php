@@ -21,12 +21,36 @@ function PermissionsManagerBodyCallback(){
     ?>
     <p><a href="/architect/permissions-manager">&lt;- Back</a></p>
     <h1>Available Permissions:</h1>
+    <input type="text" class="form-control" id="permissionOptionFilter">
+    <script>
+      $("#permissionOption").keyup(function(){
+        applyFilter($('#permissionOptionFilter').val());
+      });
+      
+      function applyFilter(query){
+        query = query.toLowerCase();
+        if(query.length == 0){
+          //$('#unfilterAll').hide();
+          $(".permissionOption" ).show();
+        }else{
+          $('#unfilterAll').show();
+          $(".permissionOption").each(function( index, element ){
+            if( this.data('value').toLowerCase().indexOf(query) >= 0){
+              $(this).show();
+            }else{
+              $(this).hide();
+            }
+          });
+        }
+      }
+
+    </script>
     <form action="/architect/permissions-manager" method="post">
     <?php
     
     global $ASTRIA;
     foreach($ASTRIA['Session']['AllPermissions'] as $Permission){
-      echo PHP_EOL.'<p><label><input type="checkbox" name="selectedPermission[]" value="'.base64_encode($Permission).'"> '.$Permission.'</label></p>'.PHP_EOL;
+      echo PHP_EOL.'<p class="permissionOption" data-value="'.str_replace('"',' ',$Permission).'"><label><input type="checkbox" name="selectedPermission[]" value="'.base64_encode($Permission).'"> '.$Permission.'</label></p>'.PHP_EOL;
     }
     
     ?>
