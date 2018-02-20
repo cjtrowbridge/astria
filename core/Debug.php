@@ -28,7 +28,7 @@ function DebugShowSummary(){
   global $ASTRIA;
   $Permission = $ASTRIA['Session']['User']['Permission'];
   rsort($Permission);
-  echo ArrTabler($Permission);
+  pd($Permission);
   unset($Permission);
   echo '</div>';
   
