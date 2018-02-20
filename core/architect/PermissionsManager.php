@@ -60,6 +60,34 @@ function PermissionsManager(){
     echo '<p>Remove</p>';
     pd($Remove);
     
+    
+    
+    if(isset($_POST['UserID'])){
+      
+    }elseif(isset($_POST['GroupID'])){
+      foreach($Add as $Key => $Value){
+        $Permission = Sanitize($Key);
+        $GroupID = intval($_POST['GroupID']);
+        $SQL="INSERT INTO `Permission` (
+            `GroupID`, `Text`, `UserInserted`, `TimeInserted`, `InsertedUser`, `InsertedTime`
+          ) VALUES (
+            '".$GroupID."','".$Permission."',  '".$ASTRIA['Session']['User']['UserID']."', NOW(), '".$ASTRIA['Session']['User']['UserID']."', NOW()
+          );
+        ";
+        pd($SQL);
+      }
+      foreach($Remove as $Key => $Value){
+        $Permission = Sanitize($Key);
+        $GroupID = intval($_POST['GroupID']);
+        $SQL="DELETE FROM `Permission` 
+          WHERE Text LIKE '".$Permission."' AND
+          GroupID = '".$GroupID."'
+          );
+        ";
+        pd($SQL);
+      }
+    }
+    
     //header
     exit;
   }
