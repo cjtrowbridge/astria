@@ -19,6 +19,7 @@ function PermissionsManagerBodyCallback(){
   ){
     
     ?>
+    <p><a href="/architect/permissions-manager">&lt;- Back</a></p>
     <h1>Available Permissions:</h1>
     <form action="/architect/permissions-manager" method="post">
     <?php
