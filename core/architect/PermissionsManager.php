@@ -17,7 +17,7 @@ function PermissionsManagerBodyCallback(){
       <div class="col-xs-12 col-md-6">
         <h2>Users</h2>
         <?php
-          $SQL = "SELECT UserID, Email, FirstName, LastName FROM User";
+          $SQL = "SELECT UserID, Email, FirstName, LastName FROM User WHERE UserID != 0";
           $Users = Query($SQL);
           foreach($Users as $User){
             ?>
