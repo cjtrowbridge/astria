@@ -58,6 +58,7 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   $SQL.= ") VALUES (".PHP_EOL;
   $SQL.= "  ".$ValuesList.",'".$ASTRIA['Session']['User']['UserID']."',NOW()".PHP_EOL;
   $SQL.= ")".PHP_EOL;
+  pd($SQL);
   Query($SQL,$Schema);
   $ID = Query_LastInsertID($Schema);
   
