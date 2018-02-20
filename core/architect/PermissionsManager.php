@@ -144,7 +144,7 @@ function PermissionsManagerBodyCallback(){
     //make a list of all current permissions
     $Current=array();
     if(isset($_GET['UserID'])){
-      $SQL="SELECT Text FROM Permission WHERE Permission.UserID = ".intval($_POST['UserID']);
+      $SQL="SELECT Text FROM Permission WHERE Permission.UserID = ".intval($_GET['UserID']);
       $UserPermissions = Query($SQL);
       foreach($UserPermissions as $UserPermission){
         $Current[$UserPermission['Text']]=$UserPermission['Text'];
@@ -152,7 +152,7 @@ function PermissionsManagerBodyCallback(){
       unset($UserPermissions);
       
     }elseif(isset($_GET['GroupID'])){
-      $SQL="SELECT Text FROM Permission WHERE Permission.GroupID = ".intval($_POST['GroupID']);
+      $SQL="SELECT Text FROM Permission WHERE Permission.GroupID = ".intval($_GET['GroupID']);
       $GroupPermissions = Query($SQL);
       foreach($GroupPermissions as $GroupPermission){
         $Current[$GroupPermission['Text']]=$GroupPermission['Text'];
