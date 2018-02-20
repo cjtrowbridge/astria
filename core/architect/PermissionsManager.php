@@ -86,7 +86,6 @@ function PermissionsManager(){
             '".$UserID."','".$Permission."',  '".$ASTRIA['Session']['User']['UserID']."', NOW(), '".$ASTRIA['Session']['User']['UserID']."', NOW()
           );
         ";
-        pd($SQL);
         Query($SQL);
       }
       foreach($Remove as $Key => $Value){
@@ -97,7 +96,6 @@ function PermissionsManager(){
           UserID = '".$UserID."'
           ;
         ";
-        pd($SQL);
         Query($SQL);
       }
       
@@ -112,7 +110,6 @@ function PermissionsManager(){
             '".$GroupID."','".$Permission."',  '".$ASTRIA['Session']['User']['UserID']."', NOW(), '".$ASTRIA['Session']['User']['UserID']."', NOW()
           );
         ";
-        pd($SQL);
         Query($SQL);
       }
       foreach($Remove as $Key => $Value){
@@ -123,7 +120,6 @@ function PermissionsManager(){
           GroupID = '".$GroupID."'
           ;
         ";
-        pd($SQL);
         Query($SQL);
       }
       
