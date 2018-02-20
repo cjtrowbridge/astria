@@ -5,7 +5,15 @@ function PermissionsManager(){
   if(!IsAstriaAdmin()){die('You may not manage permissions.');}
   
   //Handle posts and update objects
-  
+  if(
+    isset($_POST['UserID'])||
+    isset($_POST['GroupID'])
+  ){
+    pd($_POST);
+    
+    //header
+    exit;
+  }
   
   TemplateBootstrap4('Permissions Manager','PermissionsManagerBodyCallback();');
 }
@@ -50,6 +58,13 @@ function PermissionsManagerBodyCallback(){
     </script>
     <form action="/architect/permissions-manager" method="post">
     <?php
+    
+    if(isset($_GET['UserID'])){
+      echo '<input type="hidden" name="UserID" value="'.$_GET['UserID'].'">';
+    }
+    if(isset($_GET['GroupID'])){
+      echo '<input type="hidden" name="GroupID" value="'.$_GET['GroupID'].'">';
+    }
     
     global $ASTRIA;
     foreach($ASTRIA['Session']['AllPermissions'] as $Permission){
