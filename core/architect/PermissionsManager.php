@@ -11,7 +11,32 @@ function PermissionsManager(){
 }
 
 function PermissionsManagerBodyCallback(){
-
+  
+  //if a user or group is selected, show the options
+  if(
+    isset($_GET['UserID']) ||
+    isset($_GET['GroupID'])
+  ){
+    
+    ?>
+    <h1>Available Permissions:</h1>
+    <form action="/architect/permissions-manager" method="post">
+    <?php
+    
+    global $ASTRIA;
+    foreach($ASTRIA['Session']['AllPermissions'] as $Permission){
+      echo PHP_EOL.'<p><label><input type="checkbox" name="selectedPermission[]" value="'.base64_encode($Permission).'"> '.$Permission.'</label></p>'.PHP_EOL;
+    }
+    
+    ?>
+      <p><input type="submit" class="btn btn-block btn-success" value="Save"></p>
+    </form>
+    <?php
+    
+    return;
+  }
+  
+  //If no user or group has been selected, then show a list of them
   ?><h1>Select a User or Group to Edit Permissions...</h1>
   <div class="container">
     <div class="row">
