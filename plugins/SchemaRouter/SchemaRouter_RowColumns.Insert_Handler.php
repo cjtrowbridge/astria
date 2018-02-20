@@ -64,7 +64,7 @@ function SchemaRouter_RowColumns_Insert_Handler($Schema, $Table){
   global $SchemaRouterLastInsert;
   $SchemaRouterLastInsert = array(
     'Table' => Sanitize($Table),
-    'ID' => $ID;
+    'ID' => $ID
   );
   Event('SchemaRouter Finished Insert');
   
