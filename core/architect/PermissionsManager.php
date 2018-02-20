@@ -6,11 +6,21 @@ function PermissionsManager(){
   
   //Handle posts and update objects
   if(
-    isset($_POST['UserID'])||
-    isset($_POST['GroupID'])
+    isset($_POST['UserID'])
   ){
     pd($_POST);
     
+    
+    
+    //header
+    exit;
+  }
+  if(
+    isset($_POST['GroupID'])
+  ){
+    pd($_POST);
+   
+
     //header
     exit;
   }
@@ -99,7 +109,7 @@ function PermissionsManagerBodyCallback(){
     
     global $ASTRIA;
     foreach($ASTRIA['Session']['AllPermissions'] as $Permission){
-      echo PHP_EOL.'<p class="permissionOption" data-value="'.str_replace('"',' ',$Permission).'"><label><input type="checkbox" name="selectedPermission[]" value="'.base64_encode($Permission).'"> '.$Permission.'</label></p>'.PHP_EOL;
+      echo PHP_EOL.'<p class="permissionOption" data-value="'.str_replace('"',' ',$Permission).'"><label><input type="checkbox" name="'.$Permission.'" value="yes"> '.$Permission.'</label></p>'.PHP_EOL;
     }
     
     ?>
