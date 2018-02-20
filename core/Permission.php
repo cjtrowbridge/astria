@@ -99,7 +99,7 @@ function LoadUserPermissionsIntoSession(){
   $SQL = "
     SELECT Text FROM Permission
     LEFT JOIN UserGroupMembership ON UserGroupMembership.GroupID = Permission.GroupID
-    WHERE UserGroupMembership.UserID = ".$UserID.")";
+    WHERE UserGroupMembership.UserID = ".$UserID;
   $GroupPermissions = Query($SQL);
   
   foreach($GroupPermissions as $Permission){
