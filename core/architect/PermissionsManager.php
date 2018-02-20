@@ -35,7 +35,10 @@ function PermissionsManagerBodyCallback(){
         }else{
           $('#unfilterAll').show();
           $(".permissionOption").each(function( index, element ){
-            if( this.data('value').toLowerCase().indexOf(query) >= 0){
+            
+            var text = $(this).data('value');
+            
+            if( text.toLowerCase().indexOf(query) >= 0){
               $(this).show();
             }else{
               $(this).hide();
