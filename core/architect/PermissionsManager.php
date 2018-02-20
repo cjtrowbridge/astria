@@ -28,14 +28,33 @@ function PermissionsManagerBodyCallback(){
     
     ?>
     <p><a href="/architect/permissions-manager">&lt;- Back</a></p>
-    <h1>Modifying <?php
+    <?php
     
+    //verify the group or user
     if(isset($_GET['UserID'])){
       $User = Query("SELECT FirstName, LastName, Email FROM User WHERE UserID = ".intval($_GET['UserID']));
-      'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
+      if(!isset($User[0])){
+        echo 'Invalid User';
+        return;
+      }
+      $User = $User[0];
     }
     if(isset($_GET['GroupID'])){
       $Group = Query("SELECT Name FROM UserGroup WHERE GroupID = ".intval($_GET['GroupID']));
+      if(!isset($Group[0])){
+        echo 'Invalid Group';
+        return;
+      }
+      $User = $Group[0];
+    }
+    ?>
+
+    <h1>Modifying <?php
+    
+    if(isset($_GET['UserID'])){
+      'User '.$_GET['UserID'].': '.$User['FirstName'].' '.$User['LastName'].', '.$User['Email'];
+    }
+    if(isset($_GET['GroupID'])){
       'Group '.$_GET['GroupID'].': '.$Group['Name'];
     }
     
@@ -72,10 +91,10 @@ function PermissionsManagerBodyCallback(){
     <?php
     
     if(isset($_GET['UserID'])){
-      echo '<input type="hidden" name="UserID" value="'.$_GET['UserID'].'">';
+      echo '<input type="hidden" name="UserID" value="'.$User['UserID'].'">';
     }
     if(isset($_GET['GroupID'])){
-      echo '<input type="hidden" name="GroupID" value="'.$_GET['GroupID'].'">';
+      echo '<input type="hidden" name="GroupID" value="'.$Group['GroupID'].'">';
     }
     
     global $ASTRIA;
