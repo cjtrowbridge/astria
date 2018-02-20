@@ -185,6 +185,10 @@ function SchemaRouter_RowColumns_Fields_BodyCallback($Schema, $Table, $Row = 0){
   //go through all the columns and display a field for them
   foreach($Columns as $Column){
     
+    echo PHP_EOL."<!--".PHP_EOL;
+    var_dump($Column);
+    echo PHP_EOL."-->".PHP_EOL;
+    
     //skip any meta data about the table. we only want to look at the columns which will all have this field.
     if(!isset($Column['IsConstraint'])){continue;}
     
