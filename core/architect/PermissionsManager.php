@@ -20,7 +20,8 @@ function PermissionsManager(){
       ){
         continue;
       }
-      $Input[$Key]=$Key;
+      $Decoded = base64_decode($Key);
+      $Input[$Decoded]=$Decoded;
     }
     
     
