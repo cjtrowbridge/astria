@@ -24,7 +24,7 @@ function PermissionsManagerBodyCallback(){
             <div class="card">
               <div class="card-block">
                 <div class="card-text">
-                  <?php echo $User['FirstName'].' '.$User['LastName'].' '.$User['Email']; ?>
+                  <?php echo '<b>'.$User['FirstName'].' '.$User['LastName'].'</b><br>'.$User['Email']; ?>
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@ function PermissionsManagerBodyCallback(){
             <div class="card">
               <div class="card-block">
                 <div class="card-text">
-                  <?php echo $User['Name']; ?>
+                  <?php echo $Group['Name']; ?>
                 </div>
               </div>
             </div>
