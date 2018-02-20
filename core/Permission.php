@@ -75,7 +75,7 @@ function LoadUserPermissionsIntoSession(){
   if(!isset($ASTRIA['Session']['User'])){return false;}
   if(!isset($ASTRIA['Session']['User']['UserID'])){return false;}
   
-  $UserID = $ASTRIA['Session']['User']['UserID'];
+  $UserID = intval($ASTRIA['Session']['User']['UserID']);
   
   //Get relevant permissions
   $SQL = "SELECT * FROM Permission WHERE Text IS NOT NULL AND ( UserID = 0 OR UserID = ".$UserID.")";
@@ -93,6 +93,21 @@ function LoadUserPermissionsIntoSession(){
   }
   
   Event('Done Reloading User Permissions Into Session');
+  
+  Event('Start loading group permissions into session.');
+  
+  $SQL = "
+    SELECT Text FROM Permission
+    LEFT JOIN UserGroupMembership ON UserGroupMembership.GroupID = Permission.GroupID
+    WHERE UserGroupMembership.UserID = ".$UserID.")";
+  $GroupPermissions = Query($SQL);
+  
+  foreach($GroupPermissions as $Permission){
+    $ASTRIA['Session']['User']['Permission'][$Permission['Text']]=$Permission['Text'];
+  }
+  
+  Event('Done loading group permissions into session.');
+  
   
   //save session
   AstriaSessionSave();
