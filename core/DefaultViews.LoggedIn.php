@@ -45,6 +45,7 @@ function defaultViewsMyAccountBodyCallback(){
     'Photo'     => $User['Photo']
   );
   $Readable=array(
+    'UserID'    => $User['UserID'],
     'Email'     => $User['Email'],
     'Last Login' => $User['LastLogin'],
     'Signup Date' => $User['SignupDate']
