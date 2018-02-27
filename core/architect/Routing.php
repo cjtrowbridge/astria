@@ -110,6 +110,10 @@ function PresentArchitect(){
             include_once('core/architect/Files/ArchitectFileDelete.php');
             ArchitectFileDelete();
             break;
+          case 'clone-repository':
+            include_once('core/architect/Files/ArchitectRepositoryClone.php');
+            ArchitectRepositoryClone();
+            break;
           case 'create-directory':
             include_once('core/architect/Files/ArchitectDirectoryCreate.php');
             ArchitectDirectoryCreate();
