@@ -6,7 +6,7 @@ function ArchitectRepositoryClone(){
     pd($_POST);
     
     $Command = 'cd '.$_SERVER['DOCUMENT_ROOT'].$_POST['pwd'].' && git clone '.$_POST['origin'];
-    echo '<pre>';
+    echo '<pre>Executing: '.$Command.PHP_EOL;
     echo shell_exec($Command);
     echo '</pre><a href="/architect/files/?path='.$_POST['pwd'].'">Continue</a>';
     
