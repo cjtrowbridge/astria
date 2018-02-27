@@ -3,14 +3,12 @@
 function ArchitectRepositoryClone(){
   
   if(isset($_POST['origin'])){
-    pd($_POST);
-    
     $Command = 'cd '.$_SERVER['DOCUMENT_ROOT'].$_POST['pwd'].' && git clone '.$_POST['origin'];
-    echo '<pre>Executing: '.$Command.PHP_EOL;
-    echo shell_exec($Command);
-    echo '</pre><a href="/architect/files/?path='.$_POST['pwd'].'">Continue</a>';
+    //echo '<pre>Executing: '.$Command.PHP_EOL;
+    //echo shell_exec($Command);
+    //echo '</pre><a href="/architect/files/?path='.$_POST['pwd'].'">Continue</a>';
     
-    //header('Location: );
+    header('Location: /architect/files/?path='.$_POST['pwd']);
     exit;
   }
   
