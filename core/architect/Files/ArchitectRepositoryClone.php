@@ -5,7 +5,7 @@ function ArchitectRepositoryClone(){
   if(isset($_POST['origin'])){
     pd($_POST);
     
-    $Command = 'cd '.$_POST['pwd'].' && git clone '.$_POST['origin'];
+    $Command = 'cd '.$_SERVER['DOCUMENT_ROOT'].$_POST['pwd'].' && git clone '.$_POST['origin'];
     echo $Command;
     
     //header('Location: /architect/files/?path='.$_POST['newDirectory']);
