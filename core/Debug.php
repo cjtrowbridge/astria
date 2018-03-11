@@ -113,6 +113,7 @@ function DebugServiceDumpToDatabase(){
           $SQL .= "
             ('".str_replace('.php','',Sanitize($Identifier))."','".Sanitize($Entry['description'])."','".Sanitize($Entry['ram'])."','".Sanitize($Entry['runtime'])."','".Sanitize($Entry['timestamp'])."','".date('Y-m-d H:i:s',intval(round($Entry['timestamp'])))."'),";
         }
+        Event('DebugServiceDumpToDatabase: Completed One.');
         
       }
     }
