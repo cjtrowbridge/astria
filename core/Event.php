@@ -51,11 +51,11 @@ function Event($EventDescription,$DefaultCallback = ''){
     $DEBUG[]=$temp_debug_output;
     
     
-    file_put_contents(
+    /*file_put_contents(
       'debug/'.$THREADID.'.php',
       '$DEBUG_EXPORT[] = '.var_export($temp_debug_output,true).';'.PHP_EOL, 
       FILE_APPEND | LOCK_EX
-    );
+    );*/
     
     
     if($ASTRIA['debugging']['verbose']){
